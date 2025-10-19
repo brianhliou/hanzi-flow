@@ -22,6 +22,54 @@ def is_chinese_char(char):
     return bool(re.match(r'[\u4e00-\u9fff]', char))
 
 
+def is_fullwidth_char(char):
+    """
+    Check if character is a full-width character (numbers, letters, etc.).
+    Full-width characters are in the Unicode range U+FF00-U+FFEF.
+    """
+    if not char:
+        return False
+    code = ord(char)
+    return 0xFF00 <= code <= 0xFFEF
+
+
+def merge_fullwidth_tokens(words):
+    """
+    Merge consecutive full-width character tokens.
+
+    Jieba splits full-width digits individually (６, １, ８),
+    but we want to keep them together (６１８) as a single token.
+
+    Args:
+        words: List of tokens from jieba
+
+    Returns:
+        List of tokens with consecutive full-width chars merged
+    """
+    merged = []
+    i = 0
+
+    while i < len(words):
+        word = words[i]
+
+        # Check if this is a single full-width character
+        if len(word) == 1 and is_fullwidth_char(word):
+            # Collect consecutive full-width characters
+            fullwidth_group = word
+            i += 1
+
+            while i < len(words) and len(words[i]) == 1 and is_fullwidth_char(words[i]):
+                fullwidth_group += words[i]
+                i += 1
+
+            merged.append(fullwidth_group)
+        else:
+            merged.append(word)
+            i += 1
+
+    return merged
+
+
 def create_char_pinyin_mapping(sentence):
     """
     Create character-to-pinyin mapping for a sentence.
@@ -37,7 +85,10 @@ def create_char_pinyin_mapping(sentence):
     # Step 1: Segment with jieba for context
     words = jieba.lcut(sentence)
 
-    # Step 2: Process each word
+    # Step 2: Merge consecutive full-width characters (like ６１８)
+    words = merge_fullwidth_tokens(words)
+
+    # Step 3: Process each word
     char_pinyin_pairs = []
 
     for word in words:

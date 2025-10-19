@@ -1,0 +1,152 @@
+[
+  {
+    "syllable": {
+      "base": "a",
+      "base_proper": "a",
+      "tone": 0,
+      "pinyin_tone3": "a0",
+      "filename": "a0",
+      "exists_in_dataset": true
+    },
+    "status": "success",
+    "duration_ms": 0,
+    "file_size": 5390,
+    "error": null,
+    "ssml": "<speak>\n    <phoneme alphabet=\"x-amazon-pinyin\" ph=\"a0\">字</phoneme>\n</speak>"
+  },
+  {
+    "syllable": {
+      "base": "ma",
+      "base_proper": "ma",
+      "tone": 1,
+      "pinyin_tone3": "ma1",
+      "filename": "ma1",
+      "exists_in_dataset": true
+    },
+    "status": "success",
+    "duration_ms": 0,
+    "file_size": 5870,
+    "error": null,
+    "ssml": "<speak>\n    <phoneme alphabet=\"x-amazon-pinyin\" ph=\"ma1\">字</phoneme>\n</speak>"
+  },
+  {
+    "syllable": {
+      "base": "ma",
+      "base_proper": "ma",
+      "tone": 2,
+      "pinyin_tone3": "ma2",
+      "filename": "ma2",
+      "exists_in_dataset": true
+    },
+    "status": "success",
+    "duration_ms": 0,
+    "file_size": 5866,
+    "error": null,
+    "ssml": "<speak>\n    <phoneme alphabet=\"x-amazon-pinyin\" ph=\"ma2\">字</phoneme>\n</speak>"
+  },
+  {
+    "syllable": {
+      "base": "ma",
+      "base_proper": "ma",
+      "tone": 3,
+      "pinyin_tone3": "ma3",
+      "filename": "ma3",
+      "exists_in_dataset": true
+    },
+    "status": "success",
+    "duration_ms": 0,
+    "file_size": 6201,
+    "error": null,
+    "ssml": "<speak>\n    <phoneme alphabet=\"x-amazon-pinyin\" ph=\"ma3\">字</phoneme>\n</speak>"
+  },
+  {
+    "syllable": {
+      "base": "ma",
+      "base_proper": "ma",
+      "tone": 4,
+      "pinyin_tone3": "ma4",
+      "filename": "ma4",
+      "exists_in_dataset": true
+    },
+    "status": "success",
+    "duration_ms": 0,
+    "file_size": 5490,
+    "error": null,
+    "ssml": "<speak>\n    <phoneme alphabet=\"x-amazon-pinyin\" ph=\"ma4\">字</phoneme>\n</speak>"
+  },
+  {
+    "syllable": {
+      "base": "lv",
+      "base_proper": "lü",
+      "tone": 3,
+      "pinyin_tone3": "lv3",
+      "filename": "lv3",
+      "exists_in_dataset": true
+    },
+    "status": "success",
+    "duration_ms": 0,
+    "file_size": 6139,
+    "error": null,
+    "ssml": "<speak>\n    <phoneme alphabet=\"x-amazon-pinyin\" ph=\"lv3\">字</phoneme>\n</speak>"
+  },
+  {
+    "syllable": {
+      "base": "ni",
+      "base_proper": "ni",
+      "tone": 3,
+      "pinyin_tone3": "ni3",
+      "filename": "ni3",
+      "exists_in_dataset": true
+    },
+    "status": "success",
+    "duration_ms": 0,
+    "file_size": 5687,
+    "error": null,
+    "ssml": "<speak>\n    <phoneme alphabet=\"x-amazon-pinyin\" ph=\"ni3\">字</phoneme>\n</speak>"
+  },
+  {
+    "syllable": {
+      "base": "hao",
+      "base_proper": "hao",
+      "tone": 3,
+      "pinyin_tone3": "hao3",
+      "filename": "hao3",
+      "exists_in_dataset": true
+    },
+    "status": "success",
+    "duration_ms": 0,
+    "file_size": 6087,
+    "error": null,
+    "ssml": "<speak>\n    <phoneme alphabet=\"x-amazon-pinyin\" ph=\"hao3\">字</phoneme>\n</speak>"
+  },
+  {
+    "syllable": {
+      "base": "zhang",
+      "base_proper": "zhang",
+      "tone": 1,
+      "pinyin_tone3": "zhang1",
+      "filename": "zhang1",
+      "exists_in_dataset": true
+    },
+    "status": "success",
+    "duration_ms": 0,
+    "file_size": 5893,
+    "error": null,
+    "ssml": "<speak>\n    <phoneme alphabet=\"x-amazon-pinyin\" ph=\"zhang1\">字</phoneme>\n</speak>"
+  },
+  {
+    "syllable": {
+      "base": "zhong",
+      "base_proper": "zhong",
+      "tone": 1,
+      "pinyin_tone3": "zhong1",
+      "filename": "zhong1",
+      "exists_in_dataset": true
+    },
+    "status": "success",
+    "duration_ms": 0,
+    "file_size": 5806,
+    "error": null,
+    "ssml": "<speak>\n    <phoneme alphabet=\"x-amazon-pinyin\" ph=\"zhong1\">字</phoneme>\n</speak>"
+  }
+]
