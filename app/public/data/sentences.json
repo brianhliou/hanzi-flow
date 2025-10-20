@@ -6,27 +6,33 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "們",
-        "pinyin": "men"
+        "pinyin": "men",
+        "char_id": 530
       },
       {
         "char": "試",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 15463
       },
       {
         "char": "試",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 15463
       },
       {
         "char": "看",
-        "pinyin": "kan4"
+        "pinyin": "kan4",
+        "char_id": 10508
       },
       {
         "char": "！",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -37,31 +43,38 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "该",
-        "pinyin": "gai1"
+        "pinyin": "gai1",
+        "char_id": 15846
       },
       {
         "char": "去",
-        "pinyin": "qu4"
+        "pinyin": "qu4",
+        "char_id": 1468
       },
       {
         "char": "睡",
-        "pinyin": "shui4"
+        "pinyin": "shui4",
+        "char_id": 10594
       },
       {
         "char": "觉",
-        "pinyin": "jiao4"
+        "pinyin": "jiao4",
+        "char_id": 15306
       },
       {
         "char": "了",
-        "pinyin": "le"
+        "pinyin": "le",
+        "char_id": 135
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -72,31 +85,38 @@
     "chars": [
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "在",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 2345
       },
       {
         "char": "干",
-        "pinyin": "gan4"
+        "pinyin": "gan4",
+        "char_id": 4211
       },
       {
         "char": "什",
-        "pinyin": "shen2"
+        "pinyin": "shen2",
+        "char_id": 193
       },
       {
         "char": "麼",
-        "pinyin": "me"
+        "pinyin": "me",
+        "char_id": 20669
       },
       {
         "char": "啊",
-        "pinyin": "a"
+        "pinyin": "a",
+        "char_id": 1867
       },
       {
         "char": "？",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -107,27 +127,33 @@
     "chars": [
       {
         "char": "這",
-        "pinyin": "zhe4"
+        "pinyin": "zhe4",
+        "char_id": 16922
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "什",
-        "pinyin": "shen2"
+        "pinyin": "shen2",
+        "char_id": 193
       },
       {
         "char": "麼",
-        "pinyin": "me"
+        "pinyin": "me",
+        "char_id": 20669
       },
       {
         "char": "啊",
-        "pinyin": "a"
+        "pinyin": "a",
+        "char_id": 1867
       },
       {
         "char": "？",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -138,63 +164,78 @@
     "chars": [
       {
         "char": "今",
-        "pinyin": "jin1"
+        "pinyin": "jin1",
+        "char_id": 203
       },
       {
         "char": "天",
-        "pinyin": "tian1"
+        "pinyin": "tian1",
+        "char_id": 2858
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "６",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "月",
-        "pinyin": "yue4"
+        "pinyin": "yue4",
+        "char_id": 6409
       },
       {
         "char": "１８",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "号",
-        "pinyin": "hao4"
+        "pinyin": "hao4",
+        "char_id": 1528
       },
       {
         "char": "，",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "也",
-        "pinyin": "ye3"
+        "pinyin": "ye3",
+        "char_id": 96
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "Muiriel",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "生",
-        "pinyin": "sheng1"
+        "pinyin": "sheng1",
+        "char_id": 10016
       },
       {
         "char": "日",
-        "pinyin": "ri4"
+        "pinyin": "ri4",
+        "char_id": 6118
       },
       {
         "char": "！",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -205,31 +246,38 @@
     "chars": [
       {
         "char": "生",
-        "pinyin": "sheng1"
+        "pinyin": "sheng1",
+        "char_id": 10016
       },
       {
         "char": "日",
-        "pinyin": "ri4"
+        "pinyin": "ri4",
+        "char_id": 6118
       },
       {
         "char": "快",
-        "pinyin": "kuai4"
+        "pinyin": "kuai4",
+        "char_id": 4588
       },
       {
         "char": "乐",
-        "pinyin": "le4"
+        "pinyin": "le4",
+        "char_id": 81
       },
       {
         "char": "，",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "Muiriel",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "！",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -240,31 +288,38 @@
     "chars": [
       {
         "char": "Muiriel",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "现",
-        "pinyin": "xian4"
+        "pinyin": "xian4",
+        "char_id": 9649
       },
       {
         "char": "在",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 2345
       },
       {
         "char": "20",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "岁",
-        "pinyin": "sui4"
+        "pinyin": "sui4",
+        "char_id": 3714
       },
       {
         "char": "了",
-        "pinyin": "le"
+        "pinyin": "le",
+        "char_id": 135
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -275,31 +330,38 @@
     "chars": [
       {
         "char": "密",
-        "pinyin": "mi4"
+        "pinyin": "mi4",
+        "char_id": 3527
       },
       {
         "char": "码",
-        "pinyin": "ma3"
+        "pinyin": "ma3",
+        "char_id": 10754
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "\"",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "Muiriel",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "\"",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -310,35 +372,43 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "很",
-        "pinyin": "hen3"
+        "pinyin": "hen3",
+        "char_id": 4489
       },
       {
         "char": "快",
-        "pinyin": "kuai4"
+        "pinyin": "kuai4",
+        "char_id": 4588
       },
       {
         "char": "就",
-        "pinyin": "jiu4"
+        "pinyin": "jiu4",
+        "char_id": 3634
       },
       {
         "char": "會",
-        "pinyin": "hui4"
+        "pinyin": "hui4",
+        "char_id": 6404
       },
       {
         "char": "回",
-        "pinyin": "hui2"
+        "pinyin": "hui2",
+        "char_id": 2271
       },
       {
         "char": "來",
-        "pinyin": "lai2"
+        "pinyin": "lai2",
+        "char_id": 391
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -349,23 +419,28 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "知",
-        "pinyin": "zhi1"
+        "pinyin": "zhi1",
+        "char_id": 10726
       },
       {
         "char": "道",
-        "pinyin": "dao4"
+        "pinyin": "dao4",
+        "char_id": 16980
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -376,51 +451,63 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "知",
-        "pinyin": "zhi1"
+        "pinyin": "zhi1",
+        "char_id": 10726
       },
       {
         "char": "道",
-        "pinyin": "dao4"
+        "pinyin": "dao4",
+        "char_id": 16980
       },
       {
         "char": "應",
-        "pinyin": "ying1"
+        "pinyin": "ying1",
+        "char_id": 5066
       },
       {
         "char": "該",
-        "pinyin": "gai1"
+        "pinyin": "gai1",
+        "char_id": 15475
       },
       {
         "char": "說",
-        "pinyin": "shuo1"
+        "pinyin": "shuo1",
+        "char_id": 15531
       },
       {
         "char": "什",
-        "pinyin": "shen2"
+        "pinyin": "shen2",
+        "char_id": 193
       },
       {
         "char": "麼",
-        "pinyin": "me"
+        "pinyin": "me",
+        "char_id": 20669
       },
       {
         "char": "才",
-        "pinyin": "cai2"
+        "pinyin": "cai2",
+        "char_id": 5198
       },
       {
         "char": "好",
-        "pinyin": "hao3"
+        "pinyin": "hao3",
+        "char_id": 2942
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -431,39 +518,48 @@
     "chars": [
       {
         "char": "這",
-        "pinyin": "zhe4"
+        "pinyin": "zhe4",
+        "char_id": 16922
       },
       {
         "char": "個",
-        "pinyin": "ge4"
+        "pinyin": "ge4",
+        "char_id": 524
       },
       {
         "char": "永",
-        "pinyin": "yong3"
+        "pinyin": "yong3",
+        "char_id": 7737
       },
       {
         "char": "遠",
-        "pinyin": "yuan3"
+        "pinyin": "yuan3",
+        "char_id": 16993
       },
       {
         "char": "完",
-        "pinyin": "wan2"
+        "pinyin": "wan2",
+        "char_id": 3469
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "了",
-        "pinyin": "liao3"
+        "pinyin": "liao3",
+        "char_id": 135
       },
       {
         "char": "了",
-        "pinyin": "le"
+        "pinyin": "le",
+        "char_id": 135
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -474,63 +570,78 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "只",
-        "pinyin": "zhi3"
+        "pinyin": "zhi3",
+        "char_id": 1515
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "知",
-        "pinyin": "zhi1"
+        "pinyin": "zhi1",
+        "char_id": 10726
       },
       {
         "char": "道",
-        "pinyin": "dao4"
+        "pinyin": "dao4",
+        "char_id": 16980
       },
       {
         "char": "應",
-        "pinyin": "ying1"
+        "pinyin": "ying1",
+        "char_id": 5066
       },
       {
         "char": "該",
-        "pinyin": "gai1"
+        "pinyin": "gai1",
+        "char_id": 15475
       },
       {
         "char": "說",
-        "pinyin": "shuo1"
+        "pinyin": "shuo1",
+        "char_id": 15531
       },
       {
         "char": "什",
-        "pinyin": "shen2"
+        "pinyin": "shen2",
+        "char_id": 193
       },
       {
         "char": "麼",
-        "pinyin": "me"
+        "pinyin": "me",
+        "char_id": 20669
       },
       {
         "char": "而",
-        "pinyin": "er2"
+        "pinyin": "er2",
+        "char_id": 12813
       },
       {
         "char": "已",
-        "pinyin": "yi3"
+        "pinyin": "yi3",
+        "char_id": 4083
       },
       {
         "char": "…",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "…",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -541,47 +652,58 @@
     "chars": [
       {
         "char": "那",
-        "pinyin": "na4"
+        "pinyin": "na4",
+        "char_id": 17060
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "一",
-        "pinyin": "yi1"
+        "pinyin": "yi1",
+        "char_id": 1
       },
       {
         "char": "隻",
-        "pinyin": "zhi1"
+        "pinyin": "zhi1",
+        "char_id": 18620
       },
       {
         "char": "有",
-        "pinyin": "you3"
+        "pinyin": "you3",
+        "char_id": 6410
       },
       {
         "char": "惡",
-        "pinyin": "e4"
+        "pinyin": "e4",
+        "char_id": 4834
       },
       {
         "char": "意",
-        "pinyin": "yi4"
+        "pinyin": "yi4",
+        "char_id": 4880
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "兔",
-        "pinyin": "tu4"
+        "pinyin": "tu4",
+        "char_id": 853
       },
       {
         "char": "子",
-        "pinyin": "zi"
+        "pinyin": "zi",
+        "char_id": 3409
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -592,31 +714,38 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "以",
-        "pinyin": "yi3"
+        "pinyin": "yi3",
+        "char_id": 230
       },
       {
         "char": "前",
-        "pinyin": "qian2"
+        "pinyin": "qian2",
+        "char_id": 1102
       },
       {
         "char": "在",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 2345
       },
       {
         "char": "山",
-        "pinyin": "shan1"
+        "pinyin": "shan1",
+        "char_id": 3698
       },
       {
         "char": "里",
-        "pinyin": "li3"
+        "pinyin": "li3",
+        "char_id": 17357
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -627,35 +756,43 @@
     "chars": [
       {
         "char": "那",
-        "pinyin": "na4"
+        "pinyin": "na4",
+        "char_id": 17060
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "一",
-        "pinyin": "yi1"
+        "pinyin": "yi1",
+        "char_id": 1
       },
       {
         "char": "张",
-        "pinyin": "zhang1"
+        "pinyin": "zhang1",
+        "char_id": 4385
       },
       {
         "char": "近",
-        "pinyin": "jin4"
+        "pinyin": "jin4",
+        "char_id": 16850
       },
       {
         "char": "照",
-        "pinyin": "zhao4"
+        "pinyin": "zhao4",
+        "char_id": 9064
       },
       {
         "char": "吗",
-        "pinyin": "ma"
+        "pinyin": "ma",
+        "char_id": 1560
       },
       {
         "char": "？",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -666,47 +803,58 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "知",
-        "pinyin": "zhi1"
+        "pinyin": "zhi1",
+        "char_id": 10726
       },
       {
         "char": "道",
-        "pinyin": "dao4"
+        "pinyin": "dao4",
+        "char_id": 16980
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "有",
-        "pinyin": "you3"
+        "pinyin": "you3",
+        "char_id": 6410
       },
       {
         "char": "沒",
-        "pinyin": "mei2"
+        "pinyin": "mei2",
+        "char_id": 7827
       },
       {
         "char": "有",
-        "pinyin": "you3"
+        "pinyin": "you3",
+        "char_id": 6410
       },
       {
         "char": "時",
-        "pinyin": "shi2"
+        "pinyin": "shi2",
+        "char_id": 6211
       },
       {
         "char": "間",
-        "pinyin": "jian1"
+        "pinyin": "jian1",
+        "char_id": 18324
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -717,79 +865,98 @@
     "chars": [
       {
         "char": "剛",
-        "pinyin": "gang1"
+        "pinyin": "gang1",
+        "char_id": 1116
       },
       {
         "char": "才",
-        "pinyin": "cai2"
+        "pinyin": "cai2",
+        "char_id": 5198
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "麥",
-        "pinyin": "mai4"
+        "pinyin": "mai4",
+        "char_id": 20646
       },
       {
         "char": "克",
-        "pinyin": "ke4"
+        "pinyin": "ke4",
+        "char_id": 844
       },
       {
         "char": "風",
-        "pinyin": "feng1"
+        "pinyin": "feng1",
+        "char_id": 19113
       },
       {
         "char": "沒",
-        "pinyin": "mei2"
+        "pinyin": "mei2",
+        "char_id": 7827
       },
       {
         "char": "起",
-        "pinyin": "qi3"
+        "pinyin": "qi3",
+        "char_id": 16248
       },
       {
         "char": "作",
-        "pinyin": "zuo4"
+        "pinyin": "zuo4",
+        "char_id": 349
       },
       {
         "char": "用",
-        "pinyin": "yong4"
+        "pinyin": "yong4",
+        "char_id": 10025
       },
       {
         "char": "，",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "知",
-        "pinyin": "zhi1"
+        "pinyin": "zhi1",
+        "char_id": 10726
       },
       {
         "char": "道",
-        "pinyin": "dao4"
+        "pinyin": "dao4",
+        "char_id": 16980
       },
       {
         "char": "為",
-        "pinyin": "wei4"
+        "pinyin": "wei4",
+        "char_id": 8891
       },
       {
         "char": "什",
-        "pinyin": "shen2"
+        "pinyin": "shen2",
+        "char_id": 193
       },
       {
         "char": "麼",
-        "pinyin": "me"
+        "pinyin": "me",
+        "char_id": 20669
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -800,67 +967,83 @@
     "chars": [
       {
         "char": "到",
-        "pinyin": "dao4"
+        "pinyin": "dao4",
+        "char_id": 1073
       },
       {
         "char": "了",
-        "pinyin": "le"
+        "pinyin": "le",
+        "char_id": 135
       },
       {
         "char": "最",
-        "pinyin": "zui4"
+        "pinyin": "zui4",
+        "char_id": 6401
       },
       {
         "char": "後",
-        "pinyin": "hou4"
+        "pinyin": "hou4",
+        "char_id": 4493
       },
       {
         "char": "，",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "大",
-        "pinyin": "da4"
+        "pinyin": "da4",
+        "char_id": 2856
       },
       {
         "char": "家",
-        "pinyin": "jia1"
+        "pinyin": "jia1",
+        "char_id": 3511
       },
       {
         "char": "一",
-        "pinyin": "yi2"
+        "pinyin": "yi2",
+        "char_id": 1
       },
       {
         "char": "定",
-        "pinyin": "ding4"
+        "pinyin": "ding4",
+        "char_id": 3483
       },
       {
         "char": "要",
-        "pinyin": "yao4"
+        "pinyin": "yao4",
+        "char_id": 15234
       },
       {
         "char": "靠",
-        "pinyin": "kao4"
+        "pinyin": "kao4",
+        "char_id": 18785
       },
       {
         "char": "自",
-        "pinyin": "zi4"
+        "pinyin": "zi4",
+        "char_id": 13291
       },
       {
         "char": "己",
-        "pinyin": "ji3"
+        "pinyin": "ji3",
+        "char_id": 4082
       },
       {
         "char": "學",
-        "pinyin": "xue2"
+        "pinyin": "xue2",
+        "char_id": 3449
       },
       {
         "char": "習",
-        "pinyin": "xi2"
+        "pinyin": "xi2",
+        "char_id": 12755
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -871,51 +1054,63 @@
     "chars": [
       {
         "char": "世",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 23
       },
       {
         "char": "界",
-        "pinyin": "jie4"
+        "pinyin": "jie4",
+        "char_id": 10061
       },
       {
         "char": "上",
-        "pinyin": "shang4"
+        "pinyin": "shang4",
+        "char_id": 11
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "教",
-        "pinyin": "jiao4"
+        "pinyin": "jiao4",
+        "char_id": 5978
       },
       {
         "char": "育",
-        "pinyin": "yu4"
+        "pinyin": "yu4",
+        "char_id": 12979
       },
       {
         "char": "都",
-        "pinyin": "dou1"
+        "pinyin": "dou1",
+        "char_id": 17150
       },
       {
         "char": "讓",
-        "pinyin": "rang4"
+        "pinyin": "rang4",
+        "char_id": 15764
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "失",
-        "pinyin": "shi1"
+        "pinyin": "shi1",
+        "char_id": 2866
       },
       {
         "char": "望",
-        "pinyin": "wang4"
+        "pinyin": "wang4",
+        "char_id": 6428
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -926,127 +1121,158 @@
     "chars": [
       {
         "char": "选",
-        "pinyin": "xuan3"
+        "pinyin": "xuan3",
+        "char_id": 16906
       },
       {
         "char": "择",
-        "pinyin": "ze2"
+        "pinyin": "ze2",
+        "char_id": 5354
       },
       {
         "char": "什",
-        "pinyin": "shen2"
+        "pinyin": "shen2",
+        "char_id": 193
       },
       {
         "char": "么",
-        "pinyin": "me"
+        "pinyin": "me",
+        "char_id": 73
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "“",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "对",
-        "pinyin": "dui4"
+        "pinyin": "dui4",
+        "char_id": 3578
       },
       {
         "char": "”",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "或",
-        "pinyin": "huo4"
+        "pinyin": "huo4",
+        "char_id": 5143
       },
       {
         "char": "“",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "错",
-        "pinyin": "cuo4"
+        "pinyin": "cuo4",
+        "char_id": 18202
       },
       {
         "char": "”",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "一",
-        "pinyin": "yi1"
+        "pinyin": "yi1",
+        "char_id": 1
       },
       {
         "char": "项",
-        "pinyin": "xiang4"
+        "pinyin": "xiang4",
+        "char_id": 19066
       },
       {
         "char": "艰",
-        "pinyin": "jian1"
+        "pinyin": "jian1",
+        "char_id": 13425
       },
       {
         "char": "难",
-        "pinyin": "nan2"
+        "pinyin": "nan2",
+        "char_id": 18623
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "任",
-        "pinyin": "ren4"
+        "pinyin": "ren4",
+        "char_id": 252
       },
       {
         "char": "务",
-        "pinyin": "wu4"
+        "pinyin": "wu4",
+        "char_id": 1186
       },
       {
         "char": "，",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "们",
-        "pinyin": "men"
+        "pinyin": "men",
+        "char_id": 237
       },
       {
         "char": "却",
-        "pinyin": "que4"
+        "pinyin": "que4",
+        "char_id": 1397
       },
       {
         "char": "必",
-        "pinyin": "bi4"
+        "pinyin": "bi4",
+        "char_id": 4550
       },
       {
         "char": "须",
-        "pinyin": "xu1"
+        "pinyin": "xu1",
+        "char_id": 19068
       },
       {
         "char": "要",
-        "pinyin": "yao4"
+        "pinyin": "yao4",
+        "char_id": 15234
       },
       {
         "char": "完",
-        "pinyin": "wan2"
+        "pinyin": "wan2",
+        "char_id": 3469
       },
       {
         "char": "成",
-        "pinyin": "cheng2"
+        "pinyin": "cheng2",
+        "char_id": 5137
       },
       {
         "char": "它",
-        "pinyin": "ta1"
+        "pinyin": "ta1",
+        "char_id": 3460
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1057,59 +1283,73 @@
     "chars": [
       {
         "char": "這",
-        "pinyin": "zhe4"
+        "pinyin": "zhe4",
+        "char_id": 16922
       },
       {
         "char": "樣",
-        "pinyin": "yang4"
+        "pinyin": "yang4",
+        "char_id": 7204
       },
       {
         "char": "做",
-        "pinyin": "zuo4"
+        "pinyin": "zuo4",
+        "char_id": 603
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "話",
-        "pinyin": "hua4"
+        "pinyin": "hua4",
+        "char_id": 15474
       },
       {
         "char": "什",
-        "pinyin": "shen2"
+        "pinyin": "shen2",
+        "char_id": 193
       },
       {
         "char": "麼",
-        "pinyin": "me"
+        "pinyin": "me",
+        "char_id": 20669
       },
       {
         "char": "都",
-        "pinyin": "dou1"
+        "pinyin": "dou1",
+        "char_id": 17150
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "會",
-        "pinyin": "hui4"
+        "pinyin": "hui4",
+        "char_id": 6404
       },
       {
         "char": "改",
-        "pinyin": "gai3"
+        "pinyin": "gai3",
+        "char_id": 5946
       },
       {
         "char": "變",
-        "pinyin": "bian4"
+        "pinyin": "bian4",
+        "char_id": 15755
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1120,35 +1360,43 @@
     "chars": [
       {
         "char": "這",
-        "pinyin": "zhe4"
+        "pinyin": "zhe4",
+        "char_id": 16922
       },
       {
         "char": "個",
-        "pinyin": "ge4"
+        "pinyin": "ge4",
+        "char_id": 524
       },
       {
         "char": "要",
-        "pinyin": "yao4"
+        "pinyin": "yao4",
+        "char_id": 15234
       },
       {
         "char": "三",
-        "pinyin": "san1"
+        "pinyin": "san1",
+        "char_id": 10
       },
       {
         "char": "十",
-        "pinyin": "shi2"
+        "pinyin": "shi2",
+        "char_id": 1346
       },
       {
         "char": "歐",
-        "pinyin": "ou1"
+        "pinyin": "ou1",
+        "char_id": 7505
       },
       {
         "char": "元",
-        "pinyin": "yuan2"
+        "pinyin": "yuan2",
+        "char_id": 836
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1159,39 +1407,48 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "一",
-        "pinyin": "yi1"
+        "pinyin": "yi1",
+        "char_id": 1
       },
       {
         "char": "天",
-        "pinyin": "tian1"
+        "pinyin": "tian1",
+        "char_id": 2858
       },
       {
         "char": "賺",
-        "pinyin": "zhuan4"
+        "pinyin": "zhuan4",
+        "char_id": 16123
       },
       {
         "char": "一",
-        "pinyin": "yi4"
+        "pinyin": "yi4",
+        "char_id": 1
       },
       {
         "char": "百",
-        "pinyin": "bai3"
+        "pinyin": "bai3",
+        "char_id": 10367
       },
       {
         "char": "歐",
-        "pinyin": "ou1"
+        "pinyin": "ou1",
+        "char_id": 7505
       },
       {
         "char": "元",
-        "pinyin": "yuan2"
+        "pinyin": "yuan2",
+        "char_id": 836
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1202,59 +1459,73 @@
     "chars": [
       {
         "char": "也",
-        "pinyin": "ye3"
+        "pinyin": "ye3",
+        "char_id": 96
       },
       {
         "char": "许",
-        "pinyin": "xu3"
+        "pinyin": "xu3",
+        "char_id": 15801
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "会",
-        "pinyin": "hui4"
+        "pinyin": "hui4",
+        "char_id": 283
       },
       {
         "char": "马",
-        "pinyin": "ma3"
+        "pinyin": "ma3",
+        "char_id": 19565
       },
       {
         "char": "上",
-        "pinyin": "shang4"
+        "pinyin": "shang4",
+        "char_id": 11
       },
       {
         "char": "放",
-        "pinyin": "fang4"
+        "pinyin": "fang4",
+        "char_id": 5951
       },
       {
         "char": "弃",
-        "pinyin": "qi4"
+        "pinyin": "qi4",
+        "char_id": 4356
       },
       {
         "char": "然",
-        "pinyin": "ran2"
+        "pinyin": "ran2",
+        "char_id": 9015
       },
       {
         "char": "后",
-        "pinyin": "hou4"
+        "pinyin": "hou4",
+        "char_id": 1551
       },
       {
         "char": "去",
-        "pinyin": "qu4"
+        "pinyin": "qu4",
+        "char_id": 1468
       },
       {
         "char": "打",
-        "pinyin": "da3"
+        "pinyin": "da3",
+        "char_id": 5204
       },
       {
         "char": "盹",
-        "pinyin": "dun3"
+        "pinyin": "dun3",
+        "char_id": 10490
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1265,35 +1536,43 @@
     "chars": [
       {
         "char": "那",
-        "pinyin": "na4"
+        "pinyin": "na4",
+        "char_id": 17060
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "會",
-        "pinyin": "hui4"
+        "pinyin": "hui4",
+        "char_id": 6404
       },
       {
         "char": "發",
-        "pinyin": "fa1"
+        "pinyin": "fa1",
+        "char_id": 10365
       },
       {
         "char": "生",
-        "pinyin": "sheng1"
+        "pinyin": "sheng1",
+        "char_id": 10016
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1304,47 +1583,58 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "会",
-        "pinyin": "hui4"
+        "pinyin": "hui4",
+        "char_id": 283
       },
       {
         "char": "尽",
-        "pinyin": "jin3"
+        "pinyin": "jin3",
+        "char_id": 3646
       },
       {
         "char": "量",
-        "pinyin": "liang4"
+        "pinyin": "liang4",
+        "char_id": 17360
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "打",
-        "pinyin": "da3"
+        "pinyin": "da3",
+        "char_id": 5204
       },
       {
         "char": "扰",
-        "pinyin": "rao3"
+        "pinyin": "rao3",
+        "char_id": 5233
       },
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "复",
-        "pinyin": "fu4"
+        "pinyin": "fu4",
+        "char_id": 2830
       },
       {
         "char": "习",
-        "pinyin": "xi2"
+        "pinyin": "xi2",
+        "char_id": 97
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1355,23 +1645,28 @@
     "chars": [
       {
         "char": "不",
-        "pinyin": "bu2"
+        "pinyin": "bu2",
+        "char_id": 14
       },
       {
         "char": "要",
-        "pinyin": "yao4"
+        "pinyin": "yao4",
+        "char_id": 15234
       },
       {
         "char": "擔",
-        "pinyin": "dan1"
+        "pinyin": "dan1",
+        "char_id": 5845
       },
       {
         "char": "心",
-        "pinyin": "xin1"
+        "pinyin": "xin1",
+        "char_id": 4548
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1382,23 +1677,28 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "很",
-        "pinyin": "hen3"
+        "pinyin": "hen3",
+        "char_id": 4489
       },
       {
         "char": "想",
-        "pinyin": "xiang3"
+        "pinyin": "xiang3",
+        "char_id": 4852
       },
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1409,63 +1709,78 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "明",
-        "pinyin": "ming2"
+        "pinyin": "ming2",
+        "char_id": 6159
       },
       {
         "char": "天",
-        "pinyin": "tian1"
+        "pinyin": "tian1",
+        "char_id": 2858
       },
       {
         "char": "回",
-        "pinyin": "hui2"
+        "pinyin": "hui2",
+        "char_id": 2271
       },
       {
         "char": "來",
-        "pinyin": "lai2"
+        "pinyin": "lai2",
+        "char_id": 391
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "時",
-        "pinyin": "shi2"
+        "pinyin": "shi2",
+        "char_id": 6211
       },
       {
         "char": "候",
-        "pinyin": "hou4"
+        "pinyin": "hou4",
+        "char_id": 538
       },
       {
         "char": "會",
-        "pinyin": "hui4"
+        "pinyin": "hui4",
+        "char_id": 6404
       },
       {
         "char": "跟",
-        "pinyin": "gen1"
+        "pinyin": "gen1",
+        "char_id": 16352
       },
       {
         "char": "他",
-        "pinyin": "ta1"
+        "pinyin": "ta1",
+        "char_id": 215
       },
       {
         "char": "們",
-        "pinyin": "men"
+        "pinyin": "men",
+        "char_id": 530
       },
       {
         "char": "聯",
-        "pinyin": "lian2"
+        "pinyin": "lian2",
+        "char_id": 12912
       },
       {
         "char": "絡",
-        "pinyin": "luo4"
+        "pinyin": "luo4",
+        "char_id": 12130
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1476,67 +1791,83 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "一",
-        "pinyin": "yi4"
+        "pinyin": "yi4",
+        "char_id": 1
       },
       {
         "char": "直",
-        "pinyin": "zhi2"
+        "pinyin": "zhi2",
+        "char_id": 10485
       },
       {
         "char": "都",
-        "pinyin": "dou1"
+        "pinyin": "dou1",
+        "char_id": 17150
       },
       {
         "char": "比",
-        "pinyin": "bi3"
+        "pinyin": "bi3",
+        "char_id": 7637
       },
       {
         "char": "較",
-        "pinyin": "jiao4"
+        "pinyin": "jiao4",
+        "char_id": 16644
       },
       {
         "char": "喜",
-        "pinyin": "xi3"
+        "pinyin": "xi3",
+        "char_id": 1949
       },
       {
         "char": "歡",
-        "pinyin": "huan1"
+        "pinyin": "huan1",
+        "char_id": 7522
       },
       {
         "char": "神",
-        "pinyin": "shen2"
+        "pinyin": "shen2",
+        "char_id": 11103
       },
       {
         "char": "秘",
-        "pinyin": "mi4"
+        "pinyin": "mi4",
+        "char_id": 11225
       },
       {
         "char": "一",
-        "pinyin": "yi1"
+        "pinyin": "yi1",
+        "char_id": 1
       },
       {
         "char": "點",
-        "pinyin": "dian3"
+        "pinyin": "dian3",
+        "char_id": 20703
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "人",
-        "pinyin": "ren2"
+        "pinyin": "ren2",
+        "char_id": 187
       },
       {
         "char": "物",
-        "pinyin": "wu4"
+        "pinyin": "wu4",
+        "char_id": 9322
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1547,39 +1878,48 @@
     "chars": [
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "應",
-        "pinyin": "ying1"
+        "pinyin": "ying1",
+        "char_id": 5066
       },
       {
         "char": "該",
-        "pinyin": "gai1"
+        "pinyin": "gai1",
+        "char_id": 15475
       },
       {
         "char": "去",
-        "pinyin": "qu4"
+        "pinyin": "qu4",
+        "char_id": 1468
       },
       {
         "char": "睡",
-        "pinyin": "shui4"
+        "pinyin": "shui4",
+        "char_id": 10594
       },
       {
         "char": "覺",
-        "pinyin": "jue2"
+        "pinyin": "jue2",
+        "char_id": 15291
       },
       {
         "char": "了",
-        "pinyin": "le"
+        "pinyin": "le",
+        "char_id": 135
       },
       {
         "char": "吧",
-        "pinyin": "ba"
+        "pinyin": "ba",
+        "char_id": 1576
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1590,23 +1930,28 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "要",
-        "pinyin": "yao4"
+        "pinyin": "yao4",
+        "char_id": 15234
       },
       {
         "char": "走",
-        "pinyin": "zou3"
+        "pinyin": "zou3",
+        "char_id": 16241
       },
       {
         "char": "了",
-        "pinyin": "le"
+        "pinyin": "le",
+        "char_id": 135
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1617,51 +1962,63 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "請",
-        "pinyin": "qing3"
+        "pinyin": "qing3",
+        "char_id": 15564
       },
       {
         "char": "他",
-        "pinyin": "ta1"
+        "pinyin": "ta1",
+        "char_id": 215
       },
       {
         "char": "們",
-        "pinyin": "men"
+        "pinyin": "men",
+        "char_id": 530
       },
       {
         "char": "再",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 910
       },
       {
         "char": "寄",
-        "pinyin": "ji4"
+        "pinyin": "ji4",
+        "char_id": 3525
       },
       {
         "char": "給",
-        "pinyin": "gei3"
+        "pinyin": "gei3",
+        "char_id": 12135
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "一",
-        "pinyin": "yi1"
+        "pinyin": "yi1",
+        "char_id": 1
       },
       {
         "char": "張",
-        "pinyin": "zhang1"
+        "pinyin": "zhang1",
+        "char_id": 4406
       },
       {
         "char": "票",
-        "pinyin": "piao4"
+        "pinyin": "piao4",
+        "char_id": 11113
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1672,35 +2029,43 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "能",
-        "pinyin": "neng2"
+        "pinyin": "neng2",
+        "char_id": 13054
       },
       {
         "char": "这",
-        "pinyin": "zhe4"
+        "pinyin": "zhe4",
+        "char_id": 16858
       },
       {
         "char": "样",
-        "pinyin": "yang4"
+        "pinyin": "yang4",
+        "char_id": 6712
       },
       {
         "char": "活",
-        "pinyin": "huo2"
+        "pinyin": "huo2",
+        "char_id": 7996
       },
       {
         "char": "着",
-        "pinyin": "zhe"
+        "pinyin": "zhe",
+        "char_id": 10561
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1711,59 +2076,73 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "曾",
-        "pinyin": "ceng2"
+        "pinyin": "ceng2",
+        "char_id": 6399
       },
       {
         "char": "經",
-        "pinyin": "jing1"
+        "pinyin": "jing1",
+        "char_id": 12180
       },
       {
         "char": "想",
-        "pinyin": "xiang3"
+        "pinyin": "xiang3",
+        "char_id": 4852
       },
       {
         "char": "過",
-        "pinyin": "guo4"
+        "pinyin": "guo4",
+        "char_id": 16975
       },
       {
         "char": "當",
-        "pinyin": "dang1"
+        "pinyin": "dang1",
+        "char_id": 10103
       },
       {
         "char": "個",
-        "pinyin": "ge4"
+        "pinyin": "ge4",
+        "char_id": 524
       },
       {
         "char": "太",
-        "pinyin": "tai4"
+        "pinyin": "tai4",
+        "char_id": 2859
       },
       {
         "char": "空",
-        "pinyin": "kong1"
+        "pinyin": "kong1",
+        "char_id": 11387
       },
       {
         "char": "物",
-        "pinyin": "wu4"
+        "pinyin": "wu4",
+        "char_id": 9322
       },
       {
         "char": "理",
-        "pinyin": "li3"
+        "pinyin": "li3",
+        "char_id": 9735
       },
       {
         "char": "學",
-        "pinyin": "xue2"
+        "pinyin": "xue2",
+        "char_id": 3449
       },
       {
         "char": "家",
-        "pinyin": "jia1"
+        "pinyin": "jia1",
+        "char_id": 3511
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1774,47 +2153,58 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "從",
-        "pinyin": "cong2"
+        "pinyin": "cong2",
+        "char_id": 4511
       },
       {
         "char": "來",
-        "pinyin": "lai2"
+        "pinyin": "lai2",
+        "char_id": 391
       },
       {
         "char": "沒",
-        "pinyin": "mei2"
+        "pinyin": "mei2",
+        "char_id": 7827
       },
       {
         "char": "喜",
-        "pinyin": "xi3"
+        "pinyin": "xi3",
+        "char_id": 1949
       },
       {
         "char": "歡",
-        "pinyin": "huan1"
+        "pinyin": "huan1",
+        "char_id": 7522
       },
       {
         "char": "過",
-        "pinyin": "guo4"
+        "pinyin": "guo4",
+        "char_id": 16975
       },
       {
         "char": "生",
-        "pinyin": "sheng1"
+        "pinyin": "sheng1",
+        "char_id": 10016
       },
       {
         "char": "物",
-        "pinyin": "wu4"
+        "pinyin": "wu4",
+        "char_id": 9322
       },
       {
         "char": "學",
-        "pinyin": "xue2"
+        "pinyin": "xue2",
+        "char_id": 3449
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1825,31 +2215,38 @@
     "chars": [
       {
         "char": "可",
-        "pinyin": "ke3"
+        "pinyin": "ke3",
+        "char_id": 1520
       },
       {
         "char": "惜",
-        "pinyin": "xi1"
+        "pinyin": "xi1",
+        "char_id": 4829
       },
       {
         "char": "这",
-        "pinyin": "zhe4"
+        "pinyin": "zhe4",
+        "char_id": 16858
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "真",
-        "pinyin": "zhen1"
+        "pinyin": "zhen1",
+        "char_id": 10528
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1860,47 +2257,58 @@
     "chars": [
       {
         "char": "大",
-        "pinyin": "da4"
+        "pinyin": "da4",
+        "char_id": 2856
       },
       {
         "char": "部",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 17129
       },
       {
         "char": "份",
-        "pinyin": "fen4"
+        "pinyin": "fen4",
+        "char_id": 254
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "人",
-        "pinyin": "ren2"
+        "pinyin": "ren2",
+        "char_id": 187
       },
       {
         "char": "覺",
-        "pinyin": "jue2"
+        "pinyin": "jue2",
+        "char_id": 15291
       },
       {
         "char": "得",
-        "pinyin": "de2"
+        "pinyin": "de2",
+        "char_id": 4504
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "瘋",
-        "pinyin": "feng1"
+        "pinyin": "feng1",
+        "char_id": 10252
       },
       {
         "char": "了",
-        "pinyin": "le"
+        "pinyin": "le",
+        "char_id": 135
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1911,43 +2319,53 @@
     "chars": [
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "，",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "不",
-        "pinyin": "bu2"
+        "pinyin": "bu2",
+        "char_id": 14
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "！",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "才",
-        "pinyin": "cai2"
+        "pinyin": "cai2",
+        "char_id": 5198
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "！",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1958,35 +2376,43 @@
     "chars": [
       {
         "char": "那",
-        "pinyin": "na4"
+        "pinyin": "na4",
+        "char_id": 17060
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "該",
-        "pinyin": "gai1"
+        "pinyin": "gai1",
+        "char_id": 15475
       },
       {
         "char": "說",
-        "pinyin": "shuo1"
+        "pinyin": "shuo1",
+        "char_id": 15531
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "話",
-        "pinyin": "hua4"
+        "pinyin": "hua4",
+        "char_id": 15474
       },
       {
         "char": "!",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -1997,23 +2423,28 @@
     "chars": [
       {
         "char": "他",
-        "pinyin": "ta1"
+        "pinyin": "ta1",
+        "char_id": 215
       },
       {
         "char": "在",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 2345
       },
       {
         "char": "踢",
-        "pinyin": "ti1"
+        "pinyin": "ti1",
+        "char_id": 16419
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "！",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2024,23 +2455,28 @@
     "chars": [
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "肯",
-        "pinyin": "ken3"
+        "pinyin": "ken3",
+        "char_id": 12976
       },
       {
         "char": "定",
-        "pinyin": "ding4"
+        "pinyin": "ding4",
+        "char_id": 3483
       },
       {
         "char": "吗",
-        "pinyin": "ma"
+        "pinyin": "ma",
+        "char_id": 1560
       },
       {
         "char": "？",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2051,35 +2487,43 @@
     "chars": [
       {
         "char": "那",
-        "pinyin": "na4"
+        "pinyin": "na4",
+        "char_id": 17060
       },
       {
         "char": "就",
-        "pinyin": "jiu4"
+        "pinyin": "jiu4",
+        "char_id": 3634
       },
       {
         "char": "表",
-        "pinyin": "biao3"
+        "pinyin": "biao3",
+        "char_id": 14953
       },
       {
         "char": "示",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 11067
       },
       {
         "char": "有",
-        "pinyin": "you3"
+        "pinyin": "you3",
+        "char_id": 6410
       },
       {
         "char": "問",
-        "pinyin": "wen4"
+        "pinyin": "wen4",
+        "char_id": 1872
       },
       {
         "char": "題",
-        "pinyin": "ti2"
+        "pinyin": "ti2",
+        "char_id": 19021
       },
       {
         "char": "...",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2090,35 +2534,43 @@
     "chars": [
       {
         "char": "哦",
-        "pinyin": "o2"
+        "pinyin": "o2",
+        "char_id": 1767
       },
       {
         "char": "！",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "有",
-        "pinyin": "you3"
+        "pinyin": "you3",
+        "char_id": 6410
       },
       {
         "char": "一",
-        "pinyin": "yi1"
+        "pinyin": "yi1",
+        "char_id": 1
       },
       {
         "char": "隻",
-        "pinyin": "zhi1"
+        "pinyin": "zhi1",
+        "char_id": 18620
       },
       {
         "char": "蝴",
-        "pinyin": "hu2"
+        "pinyin": "hu2",
+        "char_id": 14709
       },
       {
         "char": "蝶",
-        "pinyin": "die2"
+        "pinyin": "die2",
+        "char_id": 14711
       },
       {
         "char": "！",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2129,15 +2581,18 @@
     "chars": [
       {
         "char": "趕",
-        "pinyin": "gan3"
+        "pinyin": "gan3",
+        "char_id": 16278
       },
       {
         "char": "快",
-        "pinyin": "kuai4"
+        "pinyin": "kuai4",
+        "char_id": 4588
       },
       {
         "char": "!",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2148,47 +2603,58 @@
     "chars": [
       {
         "char": "如",
-        "pinyin": "ru2"
+        "pinyin": "ru2",
+        "char_id": 2947
       },
       {
         "char": "果",
-        "pinyin": "guo3"
+        "pinyin": "guo3",
+        "char_id": 6557
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "可",
-        "pinyin": "ke3"
+        "pinyin": "ke3",
+        "char_id": 1520
       },
       {
         "char": "以",
-        "pinyin": "yi3"
+        "pinyin": "yi3",
+        "char_id": 230
       },
       {
         "char": "像",
-        "pinyin": "xiang4"
+        "pinyin": "xiang4",
+        "char_id": 720
       },
       {
         "char": "那",
-        "pinyin": "na4"
+        "pinyin": "na4",
+        "char_id": 17060
       },
       {
         "char": "樣",
-        "pinyin": "yang4"
+        "pinyin": "yang4",
+        "char_id": 7204
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "話",
-        "pinyin": "hua4"
+        "pinyin": "hua4",
+        "char_id": 15474
       },
       {
         "char": "...",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2199,43 +2665,53 @@
     "chars": [
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "在",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 2345
       },
       {
         "char": "跟",
-        "pinyin": "gen1"
+        "pinyin": "gen1",
+        "char_id": 16352
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "開",
-        "pinyin": "kai1"
+        "pinyin": "kai1",
+        "char_id": 18316
       },
       {
         "char": "玩",
-        "pinyin": "wan2"
+        "pinyin": "wan2",
+        "char_id": 9642
       },
       {
         "char": "笑",
-        "pinyin": "xiao4"
+        "pinyin": "xiao4",
+        "char_id": 11538
       },
       {
         "char": "吧",
-        "pinyin": "ba"
+        "pinyin": "ba",
+        "char_id": 1576
       },
       {
         "char": "？！",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2246,39 +2722,48 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "長",
-        "pinyin": "zhang3"
+        "pinyin": "zhang3",
+        "char_id": 18296
       },
       {
         "char": "大",
-        "pinyin": "da4"
+        "pinyin": "da4",
+        "char_id": 2856
       },
       {
         "char": "後",
-        "pinyin": "hou4"
+        "pinyin": "hou4",
+        "char_id": 4493
       },
       {
         "char": "想",
-        "pinyin": "xiang3"
+        "pinyin": "xiang3",
+        "char_id": 4852
       },
       {
         "char": "當",
-        "pinyin": "dang1"
+        "pinyin": "dang1",
+        "char_id": 10103
       },
       {
         "char": "國",
-        "pinyin": "guo2"
+        "pinyin": "guo2",
+        "char_id": 2316
       },
       {
         "char": "王",
-        "pinyin": "wang2"
+        "pinyin": "wang2",
+        "char_id": 9612
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2289,23 +2774,28 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "好",
-        "pinyin": "hao3"
+        "pinyin": "hao3",
+        "char_id": 2942
       },
       {
         "char": "胖",
-        "pinyin": "pang4"
+        "pinyin": "pang4",
+        "char_id": 13015
       },
       {
         "char": "哦",
-        "pinyin": "o2"
+        "pinyin": "o2",
+        "char_id": 1767
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2316,23 +2806,28 @@
     "chars": [
       {
         "char": "那",
-        "pinyin": "na4"
+        "pinyin": "na4",
+        "char_id": 17060
       },
       {
         "char": "又",
-        "pinyin": "you4"
+        "pinyin": "you4",
+        "char_id": 1481
       },
       {
         "char": "怎",
-        "pinyin": "zen3"
+        "pinyin": "zen3",
+        "char_id": 4623
       },
       {
         "char": "樣",
-        "pinyin": "yang4"
+        "pinyin": "yang4",
+        "char_id": 7204
       },
       {
         "char": "?",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2343,35 +2838,43 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "要",
-        "pinyin": "yao4"
+        "pinyin": "yao4",
+        "char_id": 15234
       },
       {
         "char": "把",
-        "pinyin": "ba3"
+        "pinyin": "ba3",
+        "char_id": 5259
       },
       {
         "char": "他",
-        "pinyin": "ta1"
+        "pinyin": "ta1",
+        "char_id": 215
       },
       {
         "char": "射",
-        "pinyin": "she4"
+        "pinyin": "she4",
+        "char_id": 3589
       },
       {
         "char": "下",
-        "pinyin": "xia4"
+        "pinyin": "xia4",
+        "char_id": 12
       },
       {
         "char": "來",
-        "pinyin": "lai2"
+        "pinyin": "lai2",
+        "char_id": 391
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2382,39 +2885,48 @@
     "chars": [
       {
         "char": "那",
-        "pinyin": "na4"
+        "pinyin": "na4",
+        "char_id": 17060
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "因",
-        "pinyin": "yin1"
+        "pinyin": "yin1",
+        "char_id": 2273
       },
       {
         "char": "為",
-        "pinyin": "wei4"
+        "pinyin": "wei4",
+        "char_id": 8891
       },
       {
         "char": "妳",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 2996
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "女",
-        "pinyin": "nv3"
+        "pinyin": "nv3",
+        "char_id": 2932
       },
       {
         "char": "生",
-        "pinyin": "sheng1"
+        "pinyin": "sheng1",
+        "char_id": 10016
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2425,55 +2937,68 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "会",
-        "pinyin": "hui4"
+        "pinyin": "hui4",
+        "char_id": 283
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "高",
-        "pinyin": "gao1"
+        "pinyin": "gao1",
+        "char_id": 19673
       },
       {
         "char": "兴",
-        "pinyin": "xing4"
+        "pinyin": "xing4",
+        "char_id": 885
       },
       {
         "char": "，",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "但",
-        "pinyin": "dan4"
+        "pinyin": "dan4",
+        "char_id": 327
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "不",
-        "pinyin": "bu2"
+        "pinyin": "bu2",
+        "char_id": 14
       },
       {
         "char": "会",
-        "pinyin": "hui4"
+        "pinyin": "hui4",
+        "char_id": 283
       },
       {
         "char": "自",
-        "pinyin": "zi4"
+        "pinyin": "zi4",
+        "char_id": 13291
       },
       {
         "char": "杀",
-        "pinyin": "sha1"
+        "pinyin": "sha1",
+        "char_id": 6465
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2484,79 +3009,98 @@
     "chars": [
       {
         "char": "以",
-        "pinyin": "yi3"
+        "pinyin": "yi3",
+        "char_id": 230
       },
       {
         "char": "前",
-        "pinyin": "qian2"
+        "pinyin": "qian2",
+        "char_id": 1102
       },
       {
         "char": "讀",
-        "pinyin": "du2"
+        "pinyin": "du2",
+        "char_id": 15745
       },
       {
         "char": "高",
-        "pinyin": "gao1"
+        "pinyin": "gao1",
+        "char_id": 19673
       },
       {
         "char": "中",
-        "pinyin": "zhong1"
+        "pinyin": "zhong1",
+        "char_id": 46
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "時",
-        "pinyin": "shi2"
+        "pinyin": "shi2",
+        "char_id": 6211
       },
       {
         "char": "候",
-        "pinyin": "hou4"
+        "pinyin": "hou4",
+        "char_id": 538
       },
       {
         "char": "﹐",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "每",
-        "pinyin": "mei3"
+        "pinyin": "mei3",
+        "char_id": 7632
       },
       {
         "char": "天",
-        "pinyin": "tian1"
+        "pinyin": "tian1",
+        "char_id": 2858
       },
       {
         "char": "早",
-        "pinyin": "zao3"
+        "pinyin": "zao3",
+        "char_id": 6122
       },
       {
         "char": "上",
-        "pinyin": "shang4"
+        "pinyin": "shang4",
+        "char_id": 11
       },
       {
         "char": "六",
-        "pinyin": "liu4"
+        "pinyin": "liu4",
+        "char_id": 878
       },
       {
         "char": "點",
-        "pinyin": "dian3"
+        "pinyin": "dian3",
+        "char_id": 20703
       },
       {
         "char": "起",
-        "pinyin": "qi3"
+        "pinyin": "qi3",
+        "char_id": 16248
       },
       {
         "char": "床",
-        "pinyin": "chuang2"
+        "pinyin": "chuang2",
+        "char_id": 4235
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2567,35 +3111,43 @@
     "chars": [
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "問",
-        "pinyin": "wen4"
+        "pinyin": "wen4",
+        "char_id": 1872
       },
       {
         "char": "這",
-        "pinyin": "zhe4"
+        "pinyin": "zhe4",
+        "char_id": 16922
       },
       {
         "char": "個",
-        "pinyin": "ge4"
+        "pinyin": "ge4",
+        "char_id": 524
       },
       {
         "char": "幹",
-        "pinyin": "gan4"
+        "pinyin": "gan4",
+        "char_id": 4218
       },
       {
         "char": "什",
-        "pinyin": "shen2"
+        "pinyin": "shen2",
+        "char_id": 193
       },
       {
         "char": "麼",
-        "pinyin": "me"
+        "pinyin": "me",
+        "char_id": 20669
       },
       {
         "char": "?",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2606,27 +3158,33 @@
     "chars": [
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "待",
-        "pinyin": "dai4"
+        "pinyin": "dai4",
+        "char_id": 4486
       },
       {
         "char": "了",
-        "pinyin": "le"
+        "pinyin": "le",
+        "char_id": 135
       },
       {
         "char": "多",
-        "pinyin": "duo1"
+        "pinyin": "duo1",
+        "char_id": 2843
       },
       {
         "char": "久",
-        "pinyin": "jiu3"
+        "pinyin": "jiu3",
+        "char_id": 70
       },
       {
         "char": "?",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2637,51 +3195,63 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "知",
-        "pinyin": "zhi1"
+        "pinyin": "zhi1",
+        "char_id": 10726
       },
       {
         "char": "道",
-        "pinyin": "dao4"
+        "pinyin": "dao4",
+        "char_id": 16980
       },
       {
         "char": "它",
-        "pinyin": "ta1"
+        "pinyin": "ta1",
+        "char_id": 3460
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "从",
-        "pinyin": "cong2"
+        "pinyin": "cong2",
+        "char_id": 207
       },
       {
         "char": "哪",
-        "pinyin": "na3"
+        "pinyin": "na3",
+        "char_id": 1771
       },
       {
         "char": "里",
-        "pinyin": "li3"
+        "pinyin": "li3",
+        "char_id": 17357
       },
       {
         "char": "来",
-        "pinyin": "lai2"
+        "pinyin": "lai2",
+        "char_id": 6502
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2692,27 +3262,33 @@
     "chars": [
       {
         "char": "這",
-        "pinyin": "zhe4"
+        "pinyin": "zhe4",
+        "char_id": 16922
       },
       {
         "char": "個",
-        "pinyin": "ge4"
+        "pinyin": "ge4",
+        "char_id": 524
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "重",
-        "pinyin": "zhong4"
+        "pinyin": "zhong4",
+        "char_id": 17358
       },
       {
         "char": "要",
-        "pinyin": "yao4"
+        "pinyin": "yao4",
+        "char_id": 15234
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2723,27 +3299,33 @@
     "chars": [
       {
         "char": "哪",
-        "pinyin": "na3"
+        "pinyin": "na3",
+        "char_id": 1771
       },
       {
         "char": "裡",
-        "pinyin": "li3"
+        "pinyin": "li3",
+        "char_id": 15074
       },
       {
         "char": "有",
-        "pinyin": "you3"
+        "pinyin": "you3",
+        "char_id": 6410
       },
       {
         "char": "問",
-        "pinyin": "wen4"
+        "pinyin": "wen4",
+        "char_id": 1872
       },
       {
         "char": "題",
-        "pinyin": "ti2"
+        "pinyin": "ti2",
+        "char_id": 19021
       },
       {
         "char": "?",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2754,55 +3336,68 @@
     "chars": [
       {
         "char": "不",
-        "pinyin": "bu2"
+        "pinyin": "bu2",
+        "char_id": 14
       },
       {
         "char": "要",
-        "pinyin": "yao4"
+        "pinyin": "yao4",
+        "char_id": 15234
       },
       {
         "char": "再",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 910
       },
       {
         "char": "把",
-        "pinyin": "ba3"
+        "pinyin": "ba3",
+        "char_id": 5259
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "当",
-        "pinyin": "dang4"
+        "pinyin": "dang4",
+        "char_id": 4436
       },
       {
         "char": "成",
-        "pinyin": "cheng2"
+        "pinyin": "cheng2",
+        "char_id": 5137
       },
       {
         "char": "“",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "正",
-        "pinyin": "zheng4"
+        "pinyin": "zheng4",
+        "char_id": 7524
       },
       {
         "char": "常",
-        "pinyin": "chang2"
+        "pinyin": "chang2",
+        "char_id": 4153
       },
       {
         "char": "”",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "人",
-        "pinyin": "ren2"
+        "pinyin": "ren2",
+        "char_id": 187
       },
       {
         "char": "!",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2813,47 +3408,58 @@
     "chars": [
       {
         "char": "所",
-        "pinyin": "suo3"
+        "pinyin": "suo3",
+        "char_id": 5185
       },
       {
         "char": "有",
-        "pinyin": "you3"
+        "pinyin": "you3",
+        "char_id": 6410
       },
       {
         "char": "被",
-        "pinyin": "bei4"
+        "pinyin": "bei4",
+        "char_id": 15020
       },
       {
         "char": "发",
-        "pinyin": "fa1"
+        "pinyin": "fa1",
+        "char_id": 1490
       },
       {
         "char": "明",
-        "pinyin": "ming2"
+        "pinyin": "ming2",
+        "char_id": 6159
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "都",
-        "pinyin": "dou1"
+        "pinyin": "dou1",
+        "char_id": 17150
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "真",
-        "pinyin": "zhen1"
+        "pinyin": "zhen1",
+        "char_id": 10528
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2864,71 +3470,88 @@
     "chars": [
       {
         "char": "感",
-        "pinyin": "gan3"
+        "pinyin": "gan3",
+        "char_id": 4896
       },
       {
         "char": "到",
-        "pinyin": "dao4"
+        "pinyin": "dao4",
+        "char_id": 1073
       },
       {
         "char": "惊",
-        "pinyin": "jing1"
+        "pinyin": "jing1",
+        "char_id": 4811
       },
       {
         "char": "讶",
-        "pinyin": "ya4"
+        "pinyin": "ya4",
+        "char_id": 15799
       },
       {
         "char": "、",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "感",
-        "pinyin": "gan3"
+        "pinyin": "gan3",
+        "char_id": 4896
       },
       {
         "char": "到",
-        "pinyin": "dao4"
+        "pinyin": "dao4",
+        "char_id": 1073
       },
       {
         "char": "惊",
-        "pinyin": "jing1"
+        "pinyin": "jing1",
+        "char_id": 4811
       },
       {
         "char": "奇",
-        "pinyin": "qi2"
+        "pinyin": "qi2",
+        "char_id": 2888
       },
       {
         "char": "就",
-        "pinyin": "jiu4"
+        "pinyin": "jiu4",
+        "char_id": 3634
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "明",
-        "pinyin": "ming2"
+        "pinyin": "ming2",
+        "char_id": 6159
       },
       {
         "char": "白",
-        "pinyin": "bai2"
+        "pinyin": "bai2",
+        "char_id": 10366
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "开",
-        "pinyin": "kai1"
+        "pinyin": "kai1",
+        "char_id": 4353
       },
       {
         "char": "始",
-        "pinyin": "shi3"
+        "pinyin": "shi3",
+        "char_id": 3020
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2939,47 +3562,58 @@
     "chars": [
       {
         "char": "宇",
-        "pinyin": "yu3"
+        "pinyin": "yu3",
+        "char_id": 3464
       },
       {
         "char": "宙",
-        "pinyin": "zhou4"
+        "pinyin": "zhou4",
+        "char_id": 3482
       },
       {
         "char": "毫",
-        "pinyin": "hao2"
+        "pinyin": "hao2",
+        "char_id": 7660
       },
       {
         "char": "无",
-        "pinyin": "wu2"
+        "pinyin": "wu2",
+        "char_id": 6113
       },
       {
         "char": "疑",
-        "pinyin": "yi2"
+        "pinyin": "yi2",
+        "char_id": 10130
       },
       {
         "char": "问",
-        "pinyin": "wen4"
+        "pinyin": "wen4",
+        "char_id": 18415
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "无",
-        "pinyin": "wu2"
+        "pinyin": "wu2",
+        "char_id": 6113
       },
       {
         "char": "限",
-        "pinyin": "xian4"
+        "pinyin": "xian4",
+        "char_id": 18513
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -2990,67 +3624,83 @@
     "chars": [
       {
         "char": "要",
-        "pinyin": "yao4"
+        "pinyin": "yao4",
+        "char_id": 15234
       },
       {
         "char": "变",
-        "pinyin": "bian4"
+        "pinyin": "bian4",
+        "char_id": 1497
       },
       {
         "char": "得",
-        "pinyin": "de2"
+        "pinyin": "de2",
+        "char_id": 4504
       },
       {
         "char": "完",
-        "pinyin": "wan2"
+        "pinyin": "wan2",
+        "char_id": 3469
       },
       {
         "char": "美",
-        "pinyin": "mei3"
+        "pinyin": "mei3",
+        "char_id": 12687
       },
       {
         "char": "，",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "她",
-        "pinyin": "ta1"
+        "pinyin": "ta1",
+        "char_id": 2938
       },
       {
         "char": "就",
-        "pinyin": "jiu4"
+        "pinyin": "jiu4",
+        "char_id": 3634
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "少",
-        "pinyin": "shao3"
+        "pinyin": "shao3",
+        "char_id": 3602
       },
       {
         "char": "了",
-        "pinyin": "le"
+        "pinyin": "le",
+        "char_id": 135
       },
       {
         "char": "一",
-        "pinyin": "yi2"
+        "pinyin": "yi2",
+        "char_id": 1
       },
       {
         "char": "个",
-        "pinyin": "ge4"
+        "pinyin": "ge4",
+        "char_id": 43
       },
       {
         "char": "缺",
-        "pinyin": "que1"
+        "pinyin": "que1",
+        "char_id": 12603
       },
       {
         "char": "点",
-        "pinyin": "dian3"
+        "pinyin": "dian3",
+        "char_id": 8890
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3061,63 +3711,78 @@
     "chars": [
       {
         "char": "然",
-        "pinyin": "ran2"
+        "pinyin": "ran2",
+        "char_id": 9015
       },
       {
         "char": "而",
-        "pinyin": "er2"
+        "pinyin": "er2",
+        "char_id": 12813
       },
       {
         "char": "，",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "相",
-        "pinyin": "xiang1"
+        "pinyin": "xiang1",
+        "char_id": 10489
       },
       {
         "char": "反",
-        "pinyin": "fan3"
+        "pinyin": "fan3",
+        "char_id": 1486
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "理",
-        "pinyin": "li3"
+        "pinyin": "li3",
+        "char_id": 9735
       },
       {
         "char": "论",
-        "pinyin": "lun4"
+        "pinyin": "lun4",
+        "char_id": 15803
       },
       {
         "char": "往",
-        "pinyin": "wang3"
+        "pinyin": "wang3",
+        "char_id": 4481
       },
       {
         "char": "往",
-        "pinyin": "wang3"
+        "pinyin": "wang3",
+        "char_id": 4481
       },
       {
         "char": "也",
-        "pinyin": "ye3"
+        "pinyin": "ye3",
+        "char_id": 96
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "真",
-        "pinyin": "zhen1"
+        "pinyin": "zhen1",
+        "char_id": 10528
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3128,111 +3793,138 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "们",
-        "pinyin": "men"
+        "pinyin": "men",
+        "char_id": 237
       },
       {
         "char": "看",
-        "pinyin": "kan4"
+        "pinyin": "kan4",
+        "char_id": 10508
       },
       {
         "char": "东",
-        "pinyin": "dong1"
+        "pinyin": "dong1",
+        "char_id": 29
       },
       {
         "char": "西",
-        "pinyin": "xi1"
+        "pinyin": "xi1",
+        "char_id": 15232
       },
       {
         "char": "不",
-        "pinyin": "bu2"
+        "pinyin": "bu2",
+        "char_id": 14
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "看",
-        "pinyin": "kan4"
+        "pinyin": "kan4",
+        "char_id": 10508
       },
       {
         "char": "其",
-        "pinyin": "qi2"
+        "pinyin": "qi2",
+        "char_id": 887
       },
       {
         "char": "实",
-        "pinyin": "shi2"
+        "pinyin": "shi2",
+        "char_id": 3487
       },
       {
         "char": "质",
-        "pinyin": "zhi4"
+        "pinyin": "zhi4",
+        "char_id": 16169
       },
       {
         "char": "，",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "而",
-        "pinyin": "er2"
+        "pinyin": "er2",
+        "char_id": 12813
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "以",
-        "pinyin": "yi3"
+        "pinyin": "yi3",
+        "char_id": 230
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "们",
-        "pinyin": "men"
+        "pinyin": "men",
+        "char_id": 237
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "主",
-        "pinyin": "zhu3"
+        "pinyin": "zhu3",
+        "char_id": 60
       },
       {
         "char": "观",
-        "pinyin": "guan1"
+        "pinyin": "guan1",
+        "char_id": 15299
       },
       {
         "char": "意",
-        "pinyin": "yi4"
+        "pinyin": "yi4",
+        "char_id": 4880
       },
       {
         "char": "识",
-        "pinyin": "shi2"
+        "pinyin": "shi2",
+        "char_id": 15815
       },
       {
         "char": "看",
-        "pinyin": "kan4"
+        "pinyin": "kan4",
+        "char_id": 10508
       },
       {
         "char": "它",
-        "pinyin": "ta1"
+        "pinyin": "ta1",
+        "char_id": 3460
       },
       {
         "char": "们",
-        "pinyin": "men"
+        "pinyin": "men",
+        "char_id": 237
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3243,51 +3935,63 @@
     "chars": [
       {
         "char": "世",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 23
       },
       {
         "char": "界",
-        "pinyin": "jie4"
+        "pinyin": "jie4",
+        "char_id": 10061
       },
       {
         "char": "就",
-        "pinyin": "jiu4"
+        "pinyin": "jiu4",
+        "char_id": 3634
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "一",
-        "pinyin": "yi2"
+        "pinyin": "yi2",
+        "char_id": 1
       },
       {
         "char": "个",
-        "pinyin": "ge4"
+        "pinyin": "ge4",
+        "char_id": 43
       },
       {
         "char": "疯",
-        "pinyin": "feng1"
+        "pinyin": "feng1",
+        "char_id": 10160
       },
       {
         "char": "子",
-        "pinyin": "zi"
+        "pinyin": "zi",
+        "char_id": 3409
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "囚",
-        "pinyin": "qiu2"
+        "pinyin": "qiu2",
+        "char_id": 2267
       },
       {
         "char": "笼",
-        "pinyin": "long2"
+        "pinyin": "long2",
+        "char_id": 11581
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3298,19 +4002,23 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "叫",
-        "pinyin": "jiao4"
+        "pinyin": "jiao4",
+        "char_id": 1516
       },
       {
         "char": "Jack",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3321,47 +4029,58 @@
     "chars": [
       {
         "char": "从",
-        "pinyin": "cong2"
+        "pinyin": "cong2",
+        "char_id": 207
       },
       {
         "char": "来",
-        "pinyin": "lai2"
+        "pinyin": "lai2",
+        "char_id": 6502
       },
       {
         "char": "就",
-        "pinyin": "jiu4"
+        "pinyin": "jiu4",
+        "char_id": 3634
       },
       {
         "char": "没",
-        "pinyin": "mei2"
+        "pinyin": "mei2",
+        "char_id": 7842
       },
       {
         "char": "有",
-        "pinyin": "you3"
+        "pinyin": "you3",
+        "char_id": 6410
       },
       {
         "char": "徒",
-        "pinyin": "tu2"
+        "pinyin": "tu2",
+        "char_id": 4499
       },
       {
         "char": "劳",
-        "pinyin": "lao2"
+        "pinyin": "lao2",
+        "char_id": 1204
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "爱",
-        "pinyin": "ai4"
+        "pinyin": "ai4",
+        "char_id": 9266
       },
       {
         "char": "情",
-        "pinyin": "qing2"
+        "pinyin": "qing2",
+        "char_id": 4806
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3372,103 +4091,128 @@
     "chars": [
       {
         "char": "生",
-        "pinyin": "sheng1"
+        "pinyin": "sheng1",
+        "char_id": 10016
       },
       {
         "char": "活",
-        "pinyin": "huo2"
+        "pinyin": "huo2",
+        "char_id": 7996
       },
       {
         "char": "就",
-        "pinyin": "jiu4"
+        "pinyin": "jiu4",
+        "char_id": 3634
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "當",
-        "pinyin": "dang1"
+        "pinyin": "dang1",
+        "char_id": 10103
       },
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "忙",
-        "pinyin": "mang2"
+        "pinyin": "mang2",
+        "char_id": 4570
       },
       {
         "char": "著",
-        "pinyin": "zhu4"
+        "pinyin": "zhu4",
+        "char_id": 13912
       },
       {
         "char": "進",
-        "pinyin": "jin4"
+        "pinyin": "jin4",
+        "char_id": 16947
       },
       {
         "char": "行",
-        "pinyin": "xing2"
+        "pinyin": "xing2",
+        "char_id": 14925
       },
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "計",
-        "pinyin": "ji4"
+        "pinyin": "ji4",
+        "char_id": 15369
       },
       {
         "char": "劃",
-        "pinyin": "hua4"
+        "pinyin": "hua4",
+        "char_id": 1156
       },
       {
         "char": "時",
-        "pinyin": "shi2"
+        "pinyin": "shi2",
+        "char_id": 6211
       },
       {
         "char": "總",
-        "pinyin": "zong3"
+        "pinyin": "zong3",
+        "char_id": 12350
       },
       {
         "char": "有",
-        "pinyin": "you3"
+        "pinyin": "you3",
+        "char_id": 6410
       },
       {
         "char": "其",
-        "pinyin": "qi2"
+        "pinyin": "qi2",
+        "char_id": 887
       },
       {
         "char": "他",
-        "pinyin": "ta1"
+        "pinyin": "ta1",
+        "char_id": 215
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "事",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 140
       },
       {
         "char": "情",
-        "pinyin": "qing2"
+        "pinyin": "qing2",
+        "char_id": 4806
       },
       {
         "char": "發",
-        "pinyin": "fa1"
+        "pinyin": "fa1",
+        "char_id": 10365
       },
       {
         "char": "生",
-        "pinyin": "sheng1"
+        "pinyin": "sheng1",
+        "char_id": 10016
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3479,43 +4223,53 @@
     "chars": [
       {
         "char": "没",
-        "pinyin": "mei2"
+        "pinyin": "mei2",
+        "char_id": 7842
       },
       {
         "char": "有",
-        "pinyin": "you3"
+        "pinyin": "you3",
+        "char_id": 6410
       },
       {
         "char": "欲",
-        "pinyin": "yu4"
+        "pinyin": "yu4",
+        "char_id": 7475
       },
       {
         "char": "望",
-        "pinyin": "wang4"
+        "pinyin": "wang4",
+        "char_id": 6428
       },
       {
         "char": "就",
-        "pinyin": "jiu4"
+        "pinyin": "jiu4",
+        "char_id": 3634
       },
       {
         "char": "等",
-        "pinyin": "deng3"
+        "pinyin": "deng3",
+        "char_id": 11594
       },
       {
         "char": "于",
-        "pinyin": "yu2"
+        "pinyin": "yu2",
+        "char_id": 143
       },
       {
         "char": "拥",
-        "pinyin": "yong1"
+        "pinyin": "yong1",
+        "char_id": 5350
       },
       {
         "char": "有",
-        "pinyin": "you3"
+        "pinyin": "you3",
+        "char_id": 6410
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3526,27 +4280,33 @@
     "chars": [
       {
         "char": "聖",
-        "pinyin": "sheng4"
+        "pinyin": "sheng4",
+        "char_id": 12887
       },
       {
         "char": "誕",
-        "pinyin": "dan4"
+        "pinyin": "dan4",
+        "char_id": 15510
       },
       {
         "char": "節",
-        "pinyin": "jie2"
+        "pinyin": "jie2",
+        "char_id": 11713
       },
       {
         "char": "快",
-        "pinyin": "kuai4"
+        "pinyin": "kuai4",
+        "char_id": 4588
       },
       {
         "char": "樂",
-        "pinyin": "le4"
+        "pinyin": "le4",
+        "char_id": 7171
       },
       {
         "char": "！",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3557,43 +4317,53 @@
     "chars": [
       {
         "char": "罗",
-        "pinyin": "luo2"
+        "pinyin": "luo2",
+        "char_id": 12632
       },
       {
         "char": "马",
-        "pinyin": "ma3"
+        "pinyin": "ma3",
+        "char_id": 19565
       },
       {
         "char": "不",
-        "pinyin": "bu2"
+        "pinyin": "bu2",
+        "char_id": 14
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "一",
-        "pinyin": "yi1"
+        "pinyin": "yi1",
+        "char_id": 1
       },
       {
         "char": "天",
-        "pinyin": "tian1"
+        "pinyin": "tian1",
+        "char_id": 2858
       },
       {
         "char": "建",
-        "pinyin": "jian4"
+        "pinyin": "jian4",
+        "char_id": 4347
       },
       {
         "char": "成",
-        "pinyin": "cheng2"
+        "pinyin": "cheng2",
+        "char_id": 5137
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3604,43 +4374,53 @@
     "chars": [
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "从",
-        "pinyin": "cong2"
+        "pinyin": "cong2",
+        "char_id": 207
       },
       {
         "char": "哪",
-        "pinyin": "na3"
+        "pinyin": "na3",
+        "char_id": 1771
       },
       {
         "char": "个",
-        "pinyin": "ge"
+        "pinyin": "ge",
+        "char_id": 43
       },
       {
         "char": "国",
-        "pinyin": "guo2"
+        "pinyin": "guo2",
+        "char_id": 2302
       },
       {
         "char": "家",
-        "pinyin": "jia1"
+        "pinyin": "jia1",
+        "char_id": 3511
       },
       {
         "char": "来",
-        "pinyin": "lai2"
+        "pinyin": "lai2",
+        "char_id": 6502
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "？",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3651,47 +4431,58 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "已",
-        "pinyin": "yi3"
+        "pinyin": "yi3",
+        "char_id": 4083
       },
       {
         "char": "经",
-        "pinyin": "jing1"
+        "pinyin": "jing1",
+        "char_id": 12496
       },
       {
         "char": "看",
-        "pinyin": "kan4"
+        "pinyin": "kan4",
+        "char_id": 10508
       },
       {
         "char": "过",
-        "pinyin": "guo4"
+        "pinyin": "guo4",
+        "char_id": 16840
       },
       {
         "char": "这",
-        "pinyin": "zhe4"
+        "pinyin": "zhe4",
+        "char_id": 16858
       },
       {
         "char": "部",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 17129
       },
       {
         "char": "电",
-        "pinyin": "dian4"
+        "pinyin": "dian4",
+        "char_id": 10038
       },
       {
         "char": "影",
-        "pinyin": "ying3"
+        "pinyin": "ying3",
+        "char_id": 4466
       },
       {
         "char": "了",
-        "pinyin": "le"
+        "pinyin": "le",
+        "char_id": 135
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3702,43 +4493,53 @@
     "chars": [
       {
         "char": "墨",
-        "pinyin": "mo4"
+        "pinyin": "mo4",
+        "char_id": 2729
       },
       {
         "char": "西",
-        "pinyin": "xi1"
+        "pinyin": "xi1",
+        "char_id": 15232
       },
       {
         "char": "哥",
-        "pinyin": "ge1"
+        "pinyin": "ge1",
+        "char_id": 1766
       },
       {
         "char": "有",
-        "pinyin": "you3"
+        "pinyin": "you3",
+        "char_id": 6410
       },
       {
         "char": "很",
-        "pinyin": "hen3"
+        "pinyin": "hen3",
+        "char_id": 4489
       },
       {
         "char": "多",
-        "pinyin": "duo1"
+        "pinyin": "duo1",
+        "char_id": 2843
       },
       {
         "char": "贫",
-        "pinyin": "pin2"
+        "pinyin": "pin2",
+        "char_id": 16172
       },
       {
         "char": "民",
-        "pinyin": "min2"
+        "pinyin": "min2",
+        "char_id": 7698
       },
       {
         "char": "窟",
-        "pinyin": "ku1"
+        "pinyin": "ku1",
+        "char_id": 11424
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3749,39 +4550,48 @@
     "chars": [
       {
         "char": "这",
-        "pinyin": "zhe4"
+        "pinyin": "zhe4",
+        "char_id": 16858
       },
       {
         "char": "间",
-        "pinyin": "jian1"
+        "pinyin": "jian1",
+        "char_id": 18421
       },
       {
         "char": "房",
-        "pinyin": "fang2"
+        "pinyin": "fang2",
+        "char_id": 5184
       },
       {
         "char": "间",
-        "pinyin": "jian1"
+        "pinyin": "jian1",
+        "char_id": 18421
       },
       {
         "char": "朝",
-        "pinyin": "chao2"
+        "pinyin": "chao2",
+        "char_id": 6430
       },
       {
         "char": "向",
-        "pinyin": "xiang4"
+        "pinyin": "xiang4",
+        "char_id": 1554
       },
       {
         "char": "很",
-        "pinyin": "hen3"
+        "pinyin": "hen3",
+        "char_id": 4489
       },
       {
         "char": "好",
-        "pinyin": "hao3"
+        "pinyin": "hao3",
+        "char_id": 2942
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3792,43 +4602,53 @@
     "chars": [
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "知",
-        "pinyin": "zhi1"
+        "pinyin": "zhi1",
+        "char_id": 10726
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "知",
-        "pinyin": "zhi1"
+        "pinyin": "zhi1",
+        "char_id": 10726
       },
       {
         "char": "道",
-        "pinyin": "dao4"
+        "pinyin": "dao4",
+        "char_id": 16980
       },
       {
         "char": "他",
-        "pinyin": "ta1"
+        "pinyin": "ta1",
+        "char_id": 215
       },
       {
         "char": "们",
-        "pinyin": "men"
+        "pinyin": "men",
+        "char_id": 237
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "谁",
-        "pinyin": "shui2"
+        "pinyin": "shui2",
+        "char_id": 15874
       },
       {
         "char": "?",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3839,19 +4659,23 @@
     "chars": [
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "骗",
-        "pinyin": "pian4"
+        "pinyin": "pian4",
+        "char_id": 19608
       },
       {
         "char": "人",
-        "pinyin": "ren2"
+        "pinyin": "ren2",
+        "char_id": 187
       },
       {
         "char": "！",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3862,31 +4686,38 @@
     "chars": [
       {
         "char": "他",
-        "pinyin": "ta1"
+        "pinyin": "ta1",
+        "char_id": 215
       },
       {
         "char": "也",
-        "pinyin": "ye3"
+        "pinyin": "ye3",
+        "char_id": 96
       },
       {
         "char": "会",
-        "pinyin": "hui4"
+        "pinyin": "hui4",
+        "char_id": 283
       },
       {
         "char": "说",
-        "pinyin": "shuo1"
+        "pinyin": "shuo1",
+        "char_id": 15861
       },
       {
         "char": "法",
-        "pinyin": "fa3"
+        "pinyin": "fa3",
+        "char_id": 7894
       },
       {
         "char": "语",
-        "pinyin": "yu3"
+        "pinyin": "yu3",
+        "char_id": 15854
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3897,27 +4728,33 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "会",
-        "pinyin": "hui4"
+        "pinyin": "hui4",
+        "char_id": 283
       },
       {
         "char": "说",
-        "pinyin": "shuo1"
+        "pinyin": "shuo1",
+        "char_id": 15861
       },
       {
         "char": "法",
-        "pinyin": "fa3"
+        "pinyin": "fa3",
+        "char_id": 7894
       },
       {
         "char": "语",
-        "pinyin": "yu3"
+        "pinyin": "yu3",
+        "char_id": 15854
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3928,31 +4765,38 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "收",
-        "pinyin": "shou1"
+        "pinyin": "shou1",
+        "char_id": 5943
       },
       {
         "char": "到",
-        "pinyin": "dao4"
+        "pinyin": "dao4",
+        "char_id": 1073
       },
       {
         "char": "了",
-        "pinyin": "le"
+        "pinyin": "le",
+        "char_id": 135
       },
       {
         "char": "请",
-        "pinyin": "qing3"
+        "pinyin": "qing3",
+        "char_id": 15864
       },
       {
         "char": "帖",
-        "pinyin": "tie3"
+        "pinyin": "tie3",
+        "char_id": 4119
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3963,27 +4807,33 @@
     "chars": [
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "住",
-        "pinyin": "zhu4"
+        "pinyin": "zhu4",
+        "char_id": 336
       },
       {
         "char": "在",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 2345
       },
       {
         "char": "哪",
-        "pinyin": "na3"
+        "pinyin": "na3",
+        "char_id": 1771
       },
       {
         "char": "里",
-        "pinyin": "li3"
+        "pinyin": "li3",
+        "char_id": 17357
       },
       {
         "char": "？",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -3994,59 +4844,73 @@
     "chars": [
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "记",
-        "pinyin": "ji4"
+        "pinyin": "ji4",
+        "char_id": 15793
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "记",
-        "pinyin": "ji4"
+        "pinyin": "ji4",
+        "char_id": 15793
       },
       {
         "char": "得",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 4504
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "们",
-        "pinyin": "men"
+        "pinyin": "men",
+        "char_id": 237
       },
       {
         "char": "认",
-        "pinyin": "ren4"
+        "pinyin": "ren4",
+        "char_id": 15781
       },
       {
         "char": "识",
-        "pinyin": "shi2"
+        "pinyin": "shi2",
+        "char_id": 15815
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "那",
-        "pinyin": "na4"
+        "pinyin": "na4",
+        "char_id": 17060
       },
       {
         "char": "一",
-        "pinyin": "yi1"
+        "pinyin": "yi1",
+        "char_id": 1
       },
       {
         "char": "天",
-        "pinyin": "tian1"
+        "pinyin": "tian1",
+        "char_id": 2858
       },
       {
         "char": "？",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4057,31 +4921,38 @@
     "chars": [
       {
         "char": "他",
-        "pinyin": "ta1"
+        "pinyin": "ta1",
+        "char_id": 215
       },
       {
         "char": "住",
-        "pinyin": "zhu4"
+        "pinyin": "zhu4",
+        "char_id": 336
       },
       {
         "char": "在",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 2345
       },
       {
         "char": "这",
-        "pinyin": "zhe4"
+        "pinyin": "zhe4",
+        "char_id": 16858
       },
       {
         "char": "里",
-        "pinyin": "li3"
+        "pinyin": "li3",
+        "char_id": 17357
       },
       {
         "char": "吗",
-        "pinyin": "ma"
+        "pinyin": "ma",
+        "char_id": 1560
       },
       {
         "char": "？",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4092,39 +4963,48 @@
     "chars": [
       {
         "char": "火",
-        "pinyin": "huo3"
+        "pinyin": "huo3",
+        "char_id": 8812
       },
       {
         "char": "车",
-        "pinyin": "che1"
+        "pinyin": "che1",
+        "char_id": 16743
       },
       {
         "char": "站",
-        "pinyin": "zhan4"
+        "pinyin": "zhan4",
+        "char_id": 11482
       },
       {
         "char": "离",
-        "pinyin": "li2"
+        "pinyin": "li2",
+        "char_id": 11196
       },
       {
         "char": "这",
-        "pinyin": "zhe4"
+        "pinyin": "zhe4",
+        "char_id": 16858
       },
       {
         "char": "里",
-        "pinyin": "li3"
+        "pinyin": "li3",
+        "char_id": 17357
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "远",
-        "pinyin": "yuan3"
+        "pinyin": "yuan3",
+        "char_id": 16861
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4135,31 +5015,38 @@
     "chars": [
       {
         "char": "火",
-        "pinyin": "huo3"
+        "pinyin": "huo3",
+        "char_id": 8812
       },
       {
         "char": "车",
-        "pinyin": "che1"
+        "pinyin": "che1",
+        "char_id": 16743
       },
       {
         "char": "站",
-        "pinyin": "zhan4"
+        "pinyin": "zhan4",
+        "char_id": 11482
       },
       {
         "char": "在",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 2345
       },
       {
         "char": "哪",
-        "pinyin": "na3"
+        "pinyin": "na3",
+        "char_id": 1771
       },
       {
         "char": "里",
-        "pinyin": "li3"
+        "pinyin": "li3",
+        "char_id": 17357
       },
       {
         "char": "?",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4170,23 +5057,28 @@
     "chars": [
       {
         "char": "正",
-        "pinyin": "zheng4"
+        "pinyin": "zheng4",
+        "char_id": 7524
       },
       {
         "char": "在",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 2345
       },
       {
         "char": "下",
-        "pinyin": "xia4"
+        "pinyin": "xia4",
+        "char_id": 12
       },
       {
         "char": "雹",
-        "pinyin": "bao2"
+        "pinyin": "bao2",
+        "char_id": 18682
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4197,19 +5089,23 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "爱",
-        "pinyin": "ai4"
+        "pinyin": "ai4",
+        "char_id": 9266
       },
       {
         "char": "你",
-        "pinyin": "ni3"
+        "pinyin": "ni3",
+        "char_id": 353
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4220,27 +5116,33 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "喜",
-        "pinyin": "xi3"
+        "pinyin": "xi3",
+        "char_id": 1949
       },
       {
         "char": "欢",
-        "pinyin": "huan1"
+        "pinyin": "huan1",
+        "char_id": 7459
       },
       {
         "char": "旅",
-        "pinyin": "lv3"
+        "pinyin": "lv3",
+        "char_id": 6086
       },
       {
         "char": "行",
-        "pinyin": "xing2"
+        "pinyin": "xing2",
+        "char_id": 14925
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4251,35 +5153,43 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "很",
-        "pinyin": "hen3"
+        "pinyin": "hen3",
+        "char_id": 4489
       },
       {
         "char": "期",
-        "pinyin": "qi1"
+        "pinyin": "qi1",
+        "char_id": 6432
       },
       {
         "char": "待",
-        "pinyin": "dai4"
+        "pinyin": "dai4",
+        "char_id": 4486
       },
       {
         "char": "去",
-        "pinyin": "qu4"
+        "pinyin": "qu4",
+        "char_id": 1468
       },
       {
         "char": "旅",
-        "pinyin": "lv3"
+        "pinyin": "lv3",
+        "char_id": 6086
       },
       {
         "char": "游",
-        "pinyin": "you2"
+        "pinyin": "you2",
+        "char_id": 8249
       },
       {
         "char": ".",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4290,35 +5200,43 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "在",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 2345
       },
       {
         "char": "旅",
-        "pinyin": "lv3"
+        "pinyin": "lv3",
+        "char_id": 6086
       },
       {
         "char": "行",
-        "pinyin": "xing2"
+        "pinyin": "xing2",
+        "char_id": 14925
       },
       {
         "char": "社",
-        "pinyin": "she4"
+        "pinyin": "she4",
+        "char_id": 11071
       },
       {
         "char": "工",
-        "pinyin": "gong1"
+        "pinyin": "gong1",
+        "char_id": 4070
       },
       {
         "char": "作",
-        "pinyin": "zuo4"
+        "pinyin": "zuo4",
+        "char_id": 349
       },
       {
         "char": ".",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4329,39 +5247,48 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "跟",
-        "pinyin": "gen1"
+        "pinyin": "gen1",
+        "char_id": 16352
       },
       {
         "char": "父",
-        "pinyin": "fu4"
+        "pinyin": "fu4",
+        "char_id": 9271
       },
       {
         "char": "母",
-        "pinyin": "mu3"
+        "pinyin": "mu3",
+        "char_id": 7630
       },
       {
         "char": "住",
-        "pinyin": "zhu4"
+        "pinyin": "zhu4",
+        "char_id": 336
       },
       {
         "char": "在",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 2345
       },
       {
         "char": "一",
-        "pinyin": "yi4"
+        "pinyin": "yi4",
+        "char_id": 1
       },
       {
         "char": "起",
-        "pinyin": "qi3"
+        "pinyin": "qi3",
+        "char_id": 16248
       },
       {
         "char": ".",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4372,27 +5299,33 @@
     "chars": [
       {
         "char": "他",
-        "pinyin": "ta1"
+        "pinyin": "ta1",
+        "char_id": 215
       },
       {
         "char": "没",
-        "pinyin": "mei2"
+        "pinyin": "mei2",
+        "char_id": 7842
       },
       {
         "char": "有",
-        "pinyin": "you3"
+        "pinyin": "you3",
+        "char_id": 6410
       },
       {
         "char": "孩",
-        "pinyin": "hai2"
+        "pinyin": "hai2",
+        "char_id": 3434
       },
       {
         "char": "子",
-        "pinyin": "zi"
+        "pinyin": "zi",
+        "char_id": 3409
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4403,31 +5336,38 @@
     "chars": [
       {
         "char": "这",
-        "pinyin": "zhe4"
+        "pinyin": "zhe4",
+        "char_id": 16858
       },
       {
         "char": "是",
-        "pinyin": "shi4"
+        "pinyin": "shi4",
+        "char_id": 6192
       },
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "妈",
-        "pinyin": "ma1"
+        "pinyin": "ma1",
+        "char_id": 2953
       },
       {
         "char": "妈",
-        "pinyin": "ma1"
+        "pinyin": "ma1",
+        "char_id": 2953
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4438,23 +5378,28 @@
     "chars": [
       {
         "char": "以",
-        "pinyin": "yi3"
+        "pinyin": "yi3",
+        "char_id": 230
       },
       {
         "char": "后",
-        "pinyin": "hou4"
+        "pinyin": "hou4",
+        "char_id": 1551
       },
       {
         "char": "再",
-        "pinyin": "zai4"
+        "pinyin": "zai4",
+        "char_id": 910
       },
       {
         "char": "讲",
-        "pinyin": "jiang3"
+        "pinyin": "jiang3",
+        "char_id": 15795
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4465,31 +5410,38 @@
     "chars": [
       {
         "char": "我",
-        "pinyin": "wo3"
+        "pinyin": "wo3",
+        "char_id": 5138
       },
       {
         "char": "真",
-        "pinyin": "zhen1"
+        "pinyin": "zhen1",
+        "char_id": 10528
       },
       {
         "char": "的",
-        "pinyin": "de"
+        "pinyin": "de",
+        "char_id": 10373
       },
       {
         "char": "不",
-        "pinyin": "bu4"
+        "pinyin": "bu4",
+        "char_id": 14
       },
       {
         "char": "知",
-        "pinyin": "zhi1"
+        "pinyin": "zhi1",
+        "char_id": 10726
       },
       {
         "char": "道",
-        "pinyin": "dao4"
+        "pinyin": "dao4",
+        "char_id": 16980
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4500,59 +5452,73 @@
     "chars": [
       {
         "char": "人",
-        "pinyin": "ren2"
+        "pinyin": "ren2",
+        "char_id": 187
       },
       {
         "char": "人",
-        "pinyin": "ren2"
+        "pinyin": "ren2",
+        "char_id": 187
       },
       {
         "char": "都",
-        "pinyin": "dou1"
+        "pinyin": "dou1",
+        "char_id": 17150
       },
       {
         "char": "愿",
-        "pinyin": "yuan4"
+        "pinyin": "yuan4",
+        "char_id": 4928
       },
       {
         "char": "意",
-        "pinyin": "yi4"
+        "pinyin": "yi4",
+        "char_id": 4880
       },
       {
         "char": "相",
-        "pinyin": "xiang1"
+        "pinyin": "xiang1",
+        "char_id": 10489
       },
       {
         "char": "信",
-        "pinyin": "xin4"
+        "pinyin": "xin4",
+        "char_id": 482
       },
       {
         "char": "美",
-        "pinyin": "mei3"
+        "pinyin": "mei3",
+        "char_id": 12687
       },
       {
         "char": "梦",
-        "pinyin": "meng4"
+        "pinyin": "meng4",
+        "char_id": 6823
       },
       {
         "char": "可",
-        "pinyin": "ke3"
+        "pinyin": "ke3",
+        "char_id": 1520
       },
       {
         "char": "以",
-        "pinyin": "yi3"
+        "pinyin": "yi3",
+        "char_id": 230
       },
       {
         "char": "成",
-        "pinyin": "cheng2"
+        "pinyin": "cheng2",
+        "char_id": 5137
       },
       {
         "char": "真",
-        "pinyin": "zhen1"
+        "pinyin": "zhen1",
+        "char_id": 10528
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   },
@@ -4563,23 +5529,28 @@
     "chars": [
       {
         "char": "十",
-        "pinyin": "shi2"
+        "pinyin": "shi2",
+        "char_id": 1346
       },
       {
         "char": "分",
-        "pinyin": "fen1"
+        "pinyin": "fen1",
+        "char_id": 1031
       },
       {
         "char": "感",
-        "pinyin": "gan3"
+        "pinyin": "gan3",
+        "char_id": 4896
       },
       {
         "char": "谢",
-        "pinyin": "xie4"
+        "pinyin": "xie4",
+        "char_id": 15907
       },
       {
         "char": "。",
-        "pinyin": null
+        "pinyin": null,
+        "char_id": null
       }
     ]
   }

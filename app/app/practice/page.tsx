@@ -1,13 +1,26 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import type { Sentence, PracticeState } from '@/lib/types';
 import { loadSentences } from '@/lib/sentences';
 import { checkPinyin, calculateScore } from '@/lib/scoring';
 import { convertToneNumbers } from '@/lib/pinyin';
 import { getCharType } from '@/lib/characters';
+import { playPinyinAudio } from '@/lib/audio';
+import { recordSentenceAttempt, recordSentenceProgress } from '@/lib/mastery';
+
+type ScriptFilter = 'simplified' | 'traditional' | 'mixed';
 
 export default function PracticePage() {
+  const searchParams = useSearchParams();
+  const scriptParam = searchParams.get('script') as ScriptFilter | null;
+  const scriptFilter = scriptParam && ['simplified', 'traditional', 'mixed'].includes(scriptParam)
+    ? scriptParam
+    : 'mixed';
+
+  const [allSentences, setAllSentences] = useState<Sentence[]>([]);
   const [sentences, setSentences] = useState<Sentence[]>([]);
   const [loading, setLoading] = useState(true);
   const [state, setState] = useState<PracticeState>({
@@ -19,13 +32,15 @@ export default function PracticePage() {
   });
   const [currentInput, setCurrentInput] = useState('');
   const [showResult, setShowResult] = useState(false);
+  const [isFirstAttempt, setIsFirstAttempt] = useState(true);
+  const [currentCharWasWrong, setCurrentCharWasWrong] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   // Load sentences on mount
   useEffect(() => {
     loadSentences()
       .then((data) => {
-        setSentences(data);
+        setAllSentences(data);
         setLoading(false);
       })
       .catch((error) => {
@@ -33,6 +48,42 @@ export default function PracticePage() {
         setLoading(false);
       });
   }, []);
+
+  // Filter sentences based on script type
+  useEffect(() => {
+    if (allSentences.length === 0) return;
+
+    let filtered: Sentence[];
+
+    if (scriptFilter === 'simplified') {
+      // Simplified: include simplified and neutral, exclude ambiguous
+      filtered = allSentences.filter(
+        s => s.script_type === 'simplified' || s.script_type === 'neutral'
+      );
+    } else if (scriptFilter === 'traditional') {
+      // Traditional: include traditional and neutral, exclude ambiguous
+      filtered = allSentences.filter(
+        s => s.script_type === 'traditional' || s.script_type === 'neutral'
+      );
+    } else {
+      // Mixed: include all except ambiguous
+      filtered = allSentences.filter(s => s.script_type !== 'ambiguous');
+    }
+
+    setSentences(filtered);
+
+    // Reset practice state when filter changes
+    setState({
+      currentSentenceIndex: 0,
+      currentCharIndex: 0,
+      userInputs: [],
+      results: [],
+      score: { correct: 0, total: 0 },
+    });
+    setCurrentInput('');
+    setIsFirstAttempt(true);
+    setCurrentCharWasWrong(false);
+  }, [allSentences, scriptFilter]);
 
   const currentSentence = sentences[state.currentSentenceIndex];
   const currentChar = currentSentence?.chars[state.currentCharIndex];
@@ -61,6 +112,39 @@ export default function PracticePage() {
     }
   }, [state.currentCharIndex, currentChar, currentCharType, finishedCurrentSentence]);
 
+  // Record mastery data when sentence is completed
+  useEffect(() => {
+    if (!finishedCurrentSentence || !currentSentence) return;
+
+    // Build attempts array: only Chinese characters with char_id
+    const attempts = currentSentence.chars
+      .map((char, idx) => {
+        // Only process Chinese characters (those with char_id)
+        if (char.char_id === null) return null;
+
+        // Find the index of this character in the results array
+        // Results array only contains results for Chinese characters
+        const chineseCharsBeforeThis = currentSentence.chars
+          .slice(0, idx)
+          .filter((c) => c.char_id !== null).length;
+
+        return {
+          char_id: char.char_id,
+          correct: state.results[chineseCharsBeforeThis] ?? false,
+        };
+      })
+      .filter((attempt): attempt is { char_id: number; correct: boolean } =>
+        attempt !== null
+      );
+
+    // Determine if sentence passed: all Chinese characters correct on first attempt
+    const passed = state.results.every((result) => result === true);
+
+    // Record both word-level and sentence-level progress to IndexedDB (async but don't block UI)
+    recordSentenceAttempt(attempts);
+    recordSentenceProgress(currentSentence.id, passed);
+  }, [finishedCurrentSentence, currentSentence, state.results]);
+
   const handleSubmit = () => {
     if (!currentChar) return;
 
@@ -71,24 +155,57 @@ export default function PracticePage() {
 
       const isCorrect = checkPinyin(currentInput, currentChar.pinyin);
 
-      setState((prev) => ({
-        ...prev,
-        userInputs: [...prev.userInputs, currentInput],
-        results: [...prev.results, isCorrect],
-        currentCharIndex: prev.currentCharIndex + 1,
-        score: {
-          correct: prev.score.correct + (isCorrect ? 1 : 0),
-          total: prev.score.total + 1,
-        },
-      }));
+      if (isCorrect) {
+        // Correct answer - advance to next character
+        setState((prev) => ({
+          ...prev,
+          userInputs: [...prev.userInputs, currentInput],
+          results: [...prev.results, currentCharWasWrong ? false : true], // Keep result from first attempt
+          currentCharIndex: prev.currentCharIndex + 1,
+          score: {
+            correct: prev.score.correct + (isFirstAttempt ? 1 : 0), // Only count first attempt
+            total: prev.score.total + (isFirstAttempt ? 1 : 0),
+          },
+        }));
 
-      setCurrentInput('');
+        setCurrentInput('');
+        setIsFirstAttempt(true); // Reset for next character
+        setCurrentCharWasWrong(false); // Reset for next character
+      } else {
+        // Wrong answer - don't advance, let user retry
+        if (isFirstAttempt) {
+          // Only record score on first attempt
+          setState((prev) => ({
+            ...prev,
+            userInputs: [...prev.userInputs, currentInput],
+            score: {
+              correct: prev.score.correct,
+              total: prev.score.total + 1,
+            },
+          }));
+          setIsFirstAttempt(false); // Mark that first attempt was made
+          setCurrentCharWasWrong(true); // Mark for visual feedback
+        }
+
+        // Play audio for correct pronunciation on every wrong attempt
+        if (currentChar.pinyin) {
+          playPinyinAudio(currentChar.pinyin).catch((error) => {
+            // Silently handle audio errors - don't block user progress
+            console.warn('Audio playback failed:', error);
+          });
+        }
+
+        // Clear input but stay on same character
+        setCurrentInput('');
+      }
     } else {
       // Alphanumeric or punctuation - just advance (no validation)
       setState((prev) => ({
         ...prev,
         currentCharIndex: prev.currentCharIndex + 1,
       }));
+      setIsFirstAttempt(true); // Reset for next character
+      setCurrentCharWasWrong(false); // Reset for next character
     }
 
     setShowResult(false);
@@ -105,6 +222,7 @@ export default function PracticePage() {
   };
 
   const nextSentence = () => {
+    // Advance to next sentence (recording happens in useEffect when sentence completes)
     if (state.currentSentenceIndex < sentences.length - 1) {
       setState({
         currentSentenceIndex: state.currentSentenceIndex + 1,
@@ -115,6 +233,8 @@ export default function PracticePage() {
       });
       setCurrentInput('');
       setShowResult(false);
+      setIsFirstAttempt(true); // Reset for new sentence
+      setCurrentCharWasWrong(false); // Reset for new sentence
     }
   };
 
@@ -162,11 +282,19 @@ export default function PracticePage() {
           <p className="text-gray-600 dark:text-gray-400">
             Sentence {state.currentSentenceIndex + 1} of {sentences.length}
           </p>
-          <p className="text-gray-600 dark:text-gray-400">
-            Score: {state.score.correct} / {state.score.total}
-            {state.score.total > 0 &&
-              ` (${calculateScore(state.score.correct, state.score.total)}%)`}
-          </p>
+          <div className="flex items-center gap-4">
+            <p className="text-gray-600 dark:text-gray-400">
+              Score: {state.score.correct} / {state.score.total}
+              {state.score.total > 0 &&
+                ` (${calculateScore(state.score.correct, state.score.total)}%)`}
+            </p>
+            <Link
+              href="/stats"
+              className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              Stats
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -203,8 +331,10 @@ export default function PracticePage() {
                   >
                     <span
                       className={`block ${
-                        isCurrent
-                          ? 'text-blue-600'             // Current character - always blue
+                        isCurrent && currentCharWasWrong
+                          ? 'text-red-600'              // Current character but wrong - red
+                          : isCurrent
+                          ? 'text-blue-600'             // Current character - blue
                           : hasBeenAnswered && charType === 'chinese'
                           ? isCorrect
                             ? 'text-green-600'          // Correct answer - green

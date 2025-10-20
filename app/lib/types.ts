@@ -1,6 +1,7 @@
 export interface CharPinyin {
   char: string;
   pinyin: string;
+  char_id: number | null;  // Character ID from chinese_characters.csv (null for non-Chinese)
 }
 
 export interface Sentence {

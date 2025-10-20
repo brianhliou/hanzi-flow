@@ -1,0 +1,1001 @@
+id,sentence,script_type,char_pinyin_pairs,english_translation
+1,我們試試看！,traditional,我:wo3|們:men|試:shi4|試:shi4|看:kan4|！:,Let's give it a try!
+2,我该去睡觉了。,simplified,我:wo3|该:gai1|去:qu4|睡:shui4|觉:jiao4|了:le|。:,I should go to bed now.
+3,你在干什麼啊？,traditional,你:ni3|在:zai4|干:gan4|什:shen2|麼:me|啊:a|？:,What are you doing?
+4,這是什麼啊？,traditional,這:zhe4|是:shi4|什:shen2|麼:me|啊:a|？:,What is this?
+5,今天是６月１８号，也是Muiriel的生日！,neutral,今:jin1|天:tian1|是:shi4|６:|月:yue4|１８:|号:hao4|，:|也:ye3|是:shi4|Muiriel:|的:de|生:sheng1|日:ri4|！:,"Today is June 18th, and it's Muiriel's birthday!"
+6,生日快乐，Muiriel！,neutral,生:sheng1|日:ri4|快:kuai4|乐:le4|，:|Muiriel:|！:,"Happy birthday, Muiriel!"
+7,Muiriel现在20岁了。,simplified,Muiriel:|现:xian4|在:zai4|20:|岁:sui4|了:le|。:,Muiriel is 20 now.
+8,"密码是""Muiriel""。",simplified,"密:mi4|码:ma3|是:shi4|"":|Muiriel:|"":|。:","The password is ""Muiriel."""
+9,我很快就會回來。,traditional,我:wo3|很:hen3|快:kuai4|就:jiu4|會:hui4|回:hui2|來:lai2|。:,I will be back soon.
+10,我不知道。,neutral,我:wo3|不:bu4|知:zhi1|道:dao4|。:,I don't know.
+11,我不知道應該說什麼才好。,traditional,我:wo3|不:bu4|知:zhi1|道:dao4|應:ying1|該:gai1|說:shuo1|什:shen2|麼:me|才:cai2|好:hao3|。:,I don't know what to say.
+12,這個永遠完不了了。,traditional,這:zhe4|個:ge4|永:yong3|遠:yuan3|完:wan2|不:bu4|了:liao3|了:le|。:,This will never be finished.
+13,我只是不知道應該說什麼而已……,traditional,我:wo3|只:zhi3|是:shi4|不:bu4|知:zhi1|道:dao4|應:ying1|該:gai1|說:shuo1|什:shen2|麼:me|而:er2|已:yi3|…:|…:,I just don't know what to say...
+14,那是一隻有惡意的兔子。,traditional,那:na4|是:shi4|一:yi1|隻:zhi1|有:you3|惡:e4|意:yi4|的:de|兔:tu4|子:zi|。:,That's a malicious rabbit.
+15,我以前在山里。,neutral,我:wo3|以:yi3|前:qian2|在:zai4|山:shan1|里:li3|。:,I used to be in the mountains.
+16,那是一张近照吗？,simplified,那:na4|是:shi4|一:yi1|张:zhang1|近:jin4|照:zhao4|吗:ma|？:,Is that a close-up photo?
+17,我不知道我有沒有時間。,traditional,我:wo3|不:bu4|知:zhi1|道:dao4|我:wo3|有:you3|沒:mei2|有:you3|時:shi2|間:jian1|。:,I don't know if I have time.
+18,剛才我的麥克風沒起作用，不知道為什麼。,traditional,剛:gang1|才:cai2|我:wo3|的:de|麥:mai4|克:ke4|風:feng1|沒:mei2|起:qi3|作:zuo4|用:yong4|，:|不:bu4|知:zhi1|道:dao4|為:wei4|什:shen2|麼:me|。:,"My microphone didn't work just now, I don't know why."
+19,到了最後，大家一定要靠自己學習。,traditional,到:dao4|了:le|最:zui4|後:hou4|，:|大:da4|家:jia1|一:yi2|定:ding4|要:yao4|靠:kao4|自:zi4|己:ji3|學:xue2|習:xi2|。:,"In the end, everyone must rely on themselves to learn."
+20,世界上的教育都讓我失望。,traditional,世:shi4|界:jie4|上:shang4|的:de|教:jiao4|育:yu4|都:dou1|讓:rang4|我:wo3|失:shi1|望:wang4|。:,Education in the world has disappointed me.
+21,选择什么是“对”或“错”是一项艰难的任务，我们却必须要完成它。,simplified,选:xuan3|择:ze2|什:shen2|么:me|是:shi4|“:|对:dui4|”:|或:huo4|“:|错:cuo4|”:|是:shi4|一:yi1|项:xiang4|艰:jian1|难:nan2|的:de|任:ren4|务:wu4|，:|我:wo3|们:men|却:que4|必:bi4|须:xu1|要:yao4|完:wan2|成:cheng2|它:ta1|。:,"Choosing what is ""right"" or ""wrong"" is a difficult task, but we must complete it."
+22,這樣做的話什麼都不會改變的。,traditional,這:zhe4|樣:yang4|做:zuo4|的:de|話:hua4|什:shen2|麼:me|都:dou1|不:bu4|會:hui4|改:gai3|變:bian4|的:de|。:,Nothing will change if you do it this way.
+23,這個要三十歐元。,traditional,這:zhe4|個:ge4|要:yao4|三:san1|十:shi2|歐:ou1|元:yuan2|。:,This costs thirty euros.
+24,我一天賺一百歐元。,traditional,我:wo3|一:yi1|天:tian1|賺:zhuan4|一:yi4|百:bai3|歐:ou1|元:yuan2|。:,I earn one hundred euros a day.
+25,也许我会马上放弃然后去打盹。,simplified,也:ye3|许:xu3|我:wo3|会:hui4|马:ma3|上:shang4|放:fang4|弃:qi4|然:ran2|后:hou4|去:qu4|打:da3|盹:dun3|。:,Maybe I'll give up right away and take a nap.
+26,那是不會發生的。,traditional,那:na4|是:shi4|不:bu4|會:hui4|發:fa1|生:sheng1|的:de|。:,That won't happen.
+27,我会尽量不打扰你复习。,simplified,我:wo3|会:hui4|尽:jin3|量:liang4|不:bu4|打:da3|扰:rao3|你:ni3|复:fu4|习:xi2|。:,I will try not to disturb you while you study.
+28,不要擔心。,traditional,不:bu2|要:yao4|擔:dan1|心:xin1|。:,Don't worry.
+29,我很想你。,neutral,我:wo3|很:hen3|想:xiang3|你:ni3|。:,I miss you a lot.
+30,我明天回來的時候會跟他們聯絡。,traditional,我:wo3|明:ming2|天:tian1|回:hui2|來:lai2|的:de|時:shi2|候:hou4|會:hui4|跟:gen1|他:ta1|們:men|聯:lian2|絡:luo4|。:,I will contact them when I come back tomorrow.
+31,我一直都比較喜歡神秘一點的人物。,traditional,我:wo3|一:yi4|直:zhi2|都:dou1|比:bi3|較:jiao4|喜:xi3|歡:huan1|神:shen2|秘:mi4|一:yi1|點:dian3|的:de|人:ren2|物:wu4|。:,I've always preferred more mysterious characters.
+32,你應該去睡覺了吧。,traditional,你:ni3|應:ying1|該:gai1|去:qu4|睡:shui4|覺:jue2|了:le|吧:ba|。:,You should go to bed now.
+33,我要走了。,neutral,我:wo3|要:yao4|走:zou3|了:le|。:,I'm leaving.
+34,我請他們再寄給我一張票。,traditional,我:wo3|請:qing3|他:ta1|們:men|再:zai4|寄:ji4|給:gei3|我:wo3|一:yi1|張:zhang1|票:piao4|。:,I asked them to send me another ticket.
+35,我不能这样活着。,simplified,我:wo3|不:bu4|能:neng2|这:zhe4|样:yang4|活:huo2|着:zhe|。:,I can't live like this.
+36,我曾經想過當個太空物理學家。,traditional,我:wo3|曾:ceng2|經:jing1|想:xiang3|過:guo4|當:dang1|個:ge4|太:tai4|空:kong1|物:wu4|理:li3|學:xue2|家:jia1|。:,I once thought about becoming a space physicist.
+37,我從來沒喜歡過生物學。,traditional,我:wo3|從:cong2|來:lai2|沒:mei2|喜:xi3|歡:huan1|過:guo4|生:sheng1|物:wu4|學:xue2|。:,I've never liked biology.
+38,可惜这是真的。,neutral,可:ke3|惜:xi1|这:zhe4|是:shi4|真:zhen1|的:de|。:,"Unfortunately, this is true."
+39,大部份的人覺得我瘋了。,traditional,大:da4|部:bu4|份:fen4|的:de|人:ren2|覺:jue2|得:de2|我:wo3|瘋:feng1|了:le|。:,Most people think I'm crazy.
+40,不，我不是！你才是！,neutral,不:bu4|，:|我:wo3|不:bu2|是:shi4|！:|你:ni3|才:cai2|是:shi4|！:,"No, I'm not! You are!"
+41,那是我該說的話!,traditional,那:na4|是:shi4|我:wo3|該:gai1|說:shuo1|的:de|話:hua4|!:,That's what I should say!
+42,他在踢我！,neutral,他:ta1|在:zai4|踢:ti1|我:wo3|！:,He's kicking me!
+43,你肯定吗？,simplified,你:ni3|肯:ken3|定:ding4|吗:ma|？:,Are you sure?
+44,那就表示有問題...,traditional,那:na4|就:jiu4|表:biao3|示:shi4|有:you3|問:wen4|題:ti2|...:,That means there's a problem...
+45,哦！有一隻蝴蝶！,traditional,哦:o2|！:|有:you3|一:yi1|隻:zhi1|蝴:hu2|蝶:die2|！:,Oh! There's a butterfly!
+46,趕快!,traditional,趕:gan3|快:kuai4|!:,Hurry up!
+47,如果我可以像那樣的話...,traditional,如:ru2|果:guo3|我:wo3|可:ke3|以:yi3|像:xiang4|那:na4|樣:yang4|的:de|話:hua4|...:,If I could do that...
+48,你是在跟我開玩笑吧？！,traditional,你:ni3|是:shi4|在:zai4|跟:gen1|我:wo3|開:kai1|玩:wan2|笑:xiao4|吧:ba|？！:,Are you kidding me?!
+49,我長大後想當國王。,traditional,我:wo3|長:zhang3|大:da4|後:hou4|想:xiang3|當:dang1|國:guo2|王:wang2|。:,I want to be a king when I grow up.
+50,我好胖哦。,neutral,我:wo3|好:hao3|胖:pang4|哦:o2|。:,I'm so fat.
+51,那又怎樣?,traditional,那:na4|又:you4|怎:zen3|樣:yang4|?:,So what?
+52,我要把他射下來。,traditional,我:wo3|要:yao4|把:ba3|他:ta1|射:she4|下:xia4|來:lai2|。:,I want to shoot him down.
+53,那是因為妳是女生。,traditional,那:na4|是:shi4|因:yin1|為:wei4|妳:ni3|是:shi4|女:nv3|生:sheng1|。:,That's because you are a girl.
+54,我会不高兴，但我不会自杀。,simplified,我:wo3|会:hui4|不:bu4|高:gao1|兴:xing4|，:|但:dan4|我:wo3|不:bu2|会:hui4|自:zi4|杀:sha1|。:,"I will be unhappy, but I won't commit suicide."
+55,以前讀高中的時候﹐我每天早上六點起床。,traditional,以:yi3|前:qian2|讀:du2|高:gao1|中:zhong1|的:de|時:shi2|候:hou4|﹐:|我:wo3|每:mei3|天:tian1|早:zao3|上:shang4|六:liu4|點:dian3|起:qi3|床:chuang2|。:,"When I was in high school, I got up at six every morning."
+56,你問這個幹什麼?,traditional,你:ni3|問:wen4|這:zhe4|個:ge4|幹:gan4|什:shen2|麼:me|?:,Why are you asking this?
+57,你待了多久?,neutral,你:ni3|待:dai4|了:le|多:duo1|久:jiu3|?:,How long did you stay?
+58,我不知道它是从哪里来的。,simplified,我:wo3|不:bu4|知:zhi1|道:dao4|它:ta1|是:shi4|从:cong2|哪:na3|里:li3|来:lai2|的:de|。:,I don't know where it came from.
+59,這個不重要。,traditional,這:zhe4|個:ge4|不:bu4|重:zhong4|要:yao4|。:,This is not important.
+60,哪裡有問題?,traditional,哪:na3|裡:li3|有:you3|問:wen4|題:ti2|?:,Where is the problem?
+61,不要再把我当成“正常” 人!,neutral,不:bu2|要:yao4|再:zai4|把:ba3|我:wo3|当:dang4|成:cheng2|“:|正:zheng4|常:chang2|”:|人:ren2|!:,"Don't treat me as a ""normal"" person anymore!"
+62,所有被发明的都是真的。,simplified,所:suo3|有:you3|被:bei4|发:fa1|明:ming2|的:de|都:dou1|是:shi4|真:zhen1|的:de|。:,Everything that has been invented is real.
+63,感到惊讶、感到惊奇就是明白的开始。,simplified,感:gan3|到:dao4|惊:jing1|讶:ya4|、:|感:gan3|到:dao4|惊:jing1|奇:qi2|就:jiu4|是:shi4|明:ming2|白:bai2|的:de|开:kai1|始:shi3|。:,Feeling surprised and amazed is the beginning of understanding.
+64,宇宙毫无疑问是无限的。,simplified,宇:yu3|宙:zhou4|毫:hao2|无:wu2|疑:yi2|问:wen4|是:shi4|无:wu2|限:xian4|的:de|。:,The universe is undoubtedly infinite.
+65,要变得完美，她就是少了一个缺点。,simplified,要:yao4|变:bian4|得:de2|完:wan2|美:mei3|，:|她:ta1|就:jiu4|是:shi4|少:shao3|了:le|一:yi2|个:ge4|缺:que1|点:dian3|。:,"To be perfect, she just lacks one flaw."
+66,然而，相反的理论往往也是真的。,simplified,然:ran2|而:er2|，:|相:xiang1|反:fan3|的:de|理:li3|论:lun4|往:wang3|往:wang3|也:ye3|是:shi4|真:zhen1|的:de|。:,"However, the opposite theory is often true as well."
+67,我们看东西不是看其实质，而是以我们的主观意识看它们的。,simplified,我:wo3|们:men|看:kan4|东:dong1|西:xi1|不:bu2|是:shi4|看:kan4|其:qi2|实:shi2|质:zhi4|，:|而:er2|是:shi4|以:yi3|我:wo3|们:men|的:de|主:zhu3|观:guan1|意:yi4|识:shi2|看:kan4|它:ta1|们:men|的:de|。:,"We don't see things for their essence, but through our subjective consciousness."
+68,世界就是一个疯子的囚笼。,simplified,世:shi4|界:jie4|就:jiu4|是:shi4|一:yi2|个:ge4|疯:feng1|子:zi|的:de|囚:qiu2|笼:long2|。:,The world is a cage for madmen.
+69,我叫Jack。,neutral,我:wo3|叫:jiao4|Jack:|。:,My name is Jack.
+70,从来就没有徒劳的爱情。,simplified,从:cong2|来:lai2|就:jiu4|没:mei2|有:you3|徒:tu2|劳:lao2|的:de|爱:ai4|情:qing2|。:,There has never been a futile love.
+71,生活就是當你忙著進行你的計劃時總有其他的事情發生。,traditional,生:sheng1|活:huo2|就:jiu4|是:shi4|當:dang1|你:ni3|忙:mang2|著:zhu4|進:jin4|行:xing2|你:ni3|的:de|計:ji4|劃:hua4|時:shi2|總:zong3|有:you3|其:qi2|他:ta1|的:de|事:shi4|情:qing2|發:fa1|生:sheng1|。:,Life is what happens when you're busy making other plans.
+72,没有欲望就等于拥有。,simplified,没:mei2|有:you3|欲:yu4|望:wang4|就:jiu4|等:deng3|于:yu2|拥:yong1|有:you3|。:,Having no desires is equivalent to having everything.
+73,聖誕節快樂！,traditional,聖:sheng4|誕:dan4|節:jie2|快:kuai4|樂:le4|！:,Merry Christmas!
+74,罗马不是一天建成的。,simplified,罗:luo2|马:ma3|不:bu2|是:shi4|一:yi1|天:tian1|建:jian4|成:cheng2|的:de|。:,Rome wasn't built in a day.
+75,你是从哪个国家来的？,simplified,你:ni3|是:shi4|从:cong2|哪:na3|个:ge|国:guo2|家:jia1|来:lai2|的:de|？:,Which country are you from?
+76,我已经看过这部电影了。,simplified,我:wo3|已:yi3|经:jing1|看:kan4|过:guo4|这:zhe4|部:bu4|电:dian4|影:ying3|了:le|。:,I've already seen this movie.
+77,墨西哥有很多贫民窟。,simplified,墨:mo4|西:xi1|哥:ge1|有:you3|很:hen3|多:duo1|贫:pin2|民:min2|窟:ku1|。:,Mexico has many slums.
+78,这间房间朝向很好。,simplified,这:zhe4|间:jian1|房:fang2|间:jian1|朝:chao2|向:xiang4|很:hen3|好:hao3|。:,This room has a great view.
+79,你知不知道他们是谁?,simplified,你:ni3|知:zhi1|不:bu4|知:zhi1|道:dao4|他:ta1|们:men|是:shi4|谁:shui2|?:,Do you know who they are?
+80,你骗人！,simplified,你:ni3|骗:pian4|人:ren2|！:,You're lying!
+81,他也会说法语。,simplified,他:ta1|也:ye3|会:hui4|说:shuo1|法:fa3|语:yu3|。:,He can also speak French.
+82,我会说法语。,simplified,我:wo3|会:hui4|说:shuo1|法:fa3|语:yu3|。:,I can speak French.
+83,我收到了请帖。,simplified,我:wo3|收:shou1|到:dao4|了:le|请:qing3|帖:tie3|。:,I received the invitation.
+84,你住在哪里？,neutral,你:ni3|住:zhu4|在:zai4|哪:na3|里:li3|？:,Where do you live?
+85,你记不记得我们认识的那一天？,simplified,你:ni3|记:ji4|不:bu4|记:ji4|得:de|我:wo3|们:men|认:ren4|识:shi2|的:de|那:na4|一:yi1|天:tian1|？:,Do you remember the day we met?
+86,他住在这里吗？,simplified,他:ta1|住:zhu4|在:zai4|这:zhe4|里:li3|吗:ma|？:,Does he live here?
+87,火车站离这里不远。,simplified,火:huo3|车:che1|站:zhan4|离:li2|这:zhe4|里:li3|不:bu4|远:yuan3|。:,The train station is not far from here.
+88,火车站在哪里?,simplified,火:huo3|车:che1|站:zhan4|在:zai4|哪:na3|里:li3|?:,Where is the train station?
+89,正在下雹。,neutral,正:zheng4|在:zai4|下:xia4|雹:bao2|。:,It's hailing.
+90,我爱你。,simplified,我:wo3|爱:ai4|你:ni3|。:,I love you.
+91,我喜欢旅行。,neutral,我:wo3|喜:xi3|欢:huan1|旅:lv3|行:xing2|。:,I like to travel.
+92,我很期待去旅游.,neutral,我:wo3|很:hen3|期:qi1|待:dai4|去:qu4|旅:lv3|游:you2|.:,I am looking forward to traveling.
+93,我在旅行社工作.,neutral,我:wo3|在:zai4|旅:lv3|行:xing2|社:she4|工:gong1|作:zuo4|.:,I work at a travel agency.
+94,我跟父母住在一起.,neutral,我:wo3|跟:gen1|父:fu4|母:mu3|住:zhu4|在:zai4|一:yi4|起:qi3|.:,I live with my parents.
+95,他没有孩子。,neutral,他:ta1|没:mei2|有:you3|孩:hai2|子:zi|。:,He has no children.
+96,这是我的妈妈。,simplified,这:zhe4|是:shi4|我:wo3|的:de|妈:ma1|妈:ma1|。:,This is my mom.
+97,以后再讲。,simplified,以:yi3|后:hou4|再:zai4|讲:jiang3|。:,I'll talk about it later.
+98,我真的不知道。,neutral,我:wo3|真:zhen1|的:de|不:bu4|知:zhi1|道:dao4|。:,I really don't know.
+99,人人都愿意相信美梦可以成真。,neutral,人:ren2|人:ren2|都:dou1|愿:yuan4|意:yi4|相:xiang1|信:xin4|美:mei3|梦:meng4|可:ke3|以:yi3|成:cheng2|真:zhen1|。:,Everyone wants to believe that dreams can come true.
+100,十分感谢。,simplified,十:shi2|分:fen1|感:gan3|谢:xie4|。:,Thank you very much.
+101,我跟父母联络了一下。,simplified,我:wo3|跟:gen1|父:fu4|母:mu3|联:lian2|络:luo4|了:le|一:yi1|下:xia4|。:,I contacted my parents.
+102,我跟父母讲了留学的事情。,simplified,我:wo3|跟:gen1|父:fu4|母:mu3|讲:jiang3|了:le|留:liu2|学:xue2|的:de|事:shi4|情:qing2|。:,I talked to my parents about studying abroad.
+103,我把旅费耗光了。,simplified,我:wo3|把:ba3|旅:lv3|费:fei4|耗:hao4|光:guang1|了:le|。:,I ran out of travel money.
+104,我在旅行中用了地图。,neutral,我:wo3|在:zai4|旅:lv3|行:xing2|中:zhong1|用:yong4|了:le|地:di4|图:tu2|。:,I used a map during the trip.
+105,我不够钱去旅行。,simplified,我:wo3|不:bu4|够:gou4|钱:qian2|去:qu4|旅:lv3|行:xing2|。:,I don't have enough money to travel.
+106,他喜欢旅行。我也是。,neutral,他:ta1|喜:xi3|欢:huan1|旅:lv3|行:xing2|。:|我:wo3|也:ye3|是:shi4|。:,He likes to travel. So do I.
+107,今天是几月几号？,neutral,今:jin1|天:tian1|是:shi4|几:ji3|月:yue4|几:ji3|号:hao4|？:,What is today's date?
+108,我收到了一张请帖。,simplified,我:wo3|收:shou1|到:dao4|了:le|一:yi1|张:zhang1|请:qing3|帖:tie3|。:,I received an invitation.
+109,她半年后就要出国了。,simplified,她:ta1|半:ban4|年:nian2|后:hou4|就:jiu4|要:yao4|出:chu1|国:guo2|了:le|。:,She will go abroad in six months.
+110,很少人这么认为。,simplified,很:hen3|少:shao3|人:ren2|这:zhe4|么:me|认:ren4|为:wei2|。:,Very few people think this way.
+111,这周我一直在工作。,neutral,这:zhe4|周:zhou1|我:wo3|一:yi4|直:zhi2|在:zai4|工:gong1|作:zuo4|。:,I've been working all week.
+112,我和她外出了几个月。,neutral,我:wo3|和:he2|她:ta1|外:wai4|出:chu1|了:le|几:ji3|个:ge4|月:yue4|。:,I went out with her for a few months.
+113,明天下午之前我会把它完成。,neutral,明:ming2|天:tian1|下:xia4|午:wu3|之:zhi1|前:qian2|我:wo3|会:hui4|把:ba3|它:ta1|完:wan2|成:cheng2|。:,I will finish it before tomorrow afternoon.
+114,自己动手真好。,neutral,自:zi4|己:ji3|动:dong4|手:shou3|真:zhen1|好:hao3|。:,It's great to do it yourself.
+115,那个发现纯属偶然。,simplified,那:na4|个:ge|发:fa1|现:xian4|纯:chun2|属:shu3|偶:ou3|然:ran2|。:,That discovery was purely accidental.
+116,在英国的时候，我经常看参考书。,simplified,在:zai4|英:ying1|国:guo2|的:de|时:shi2|候:hou4|，:|我:wo3|经:jing1|常:chang2|看:kan4|参:can1|考:kao3|书:shu1|。:,"When I was in the UK, I often read reference books."
+117,我弟弟会经常彻夜不睡。,simplified,我:wo3|弟:di4|弟:di|会:hui4|经:jing1|常:chang2|彻:che4|夜:ye4|不:bu4|睡:shui4|。:,My brother often stays up all night.
+118,你不得不制造一些借口。,neutral,你:ni3|不:bu4|得:de2|不:bu4|制:zhi4|造:zao4|一:yi1|些:xie1|借:jie4|口:kou3|。:,You have to come up with some excuses.
+119,她可能出什么事了。,neutral,她:ta1|可:ke3|能:neng2|出:chu1|什:shen2|么:me|事:shi4|了:le|。:,Something might have happened to her.
+120,你参加社团活动吗？,simplified,你:ni3|参:can1|加:jia1|社:she4|团:tuan2|活:huo2|动:dong4|吗:ma|？:,Do you participate in club activities?
+121,我找到那把我一直在找的钥匙了。,simplified,我:wo3|找:zhao3|到:dao4|那:na4|把:ba3|我:wo3|一:yi4|直:zhi2|在:zai4|找:zhao3|的:de|钥:yao4|匙:shi|了:le|。:,I found the key I had been looking for.
+122,我丢了我的伞。,simplified,我:wo3|丢:diu1|了:le|我:wo3|的:de|伞:san3|。:,I lost my umbrella.
+123,她是他的一切。,neutral,她:ta1|是:shi4|他:ta1|的:de|一:yi1|切:qie4|。:,She is everything to him.
+124,接电话。,simplified,接:jie1|电:dian4|话:hua4|。:,Answer the phone.
+125,我在报纸上看到了它。,simplified,我:wo3|在:zai4|报:bao4|纸:zhi3|上:shang4|看:kan4|到:dao4|了:le|它:ta1|。:,I saw it in the newspaper.
+126,请把它充入我的账户。,simplified,请:qing3|把:ba3|它:ta1|充:chong1|入:ru4|我:wo3|的:de|账:zhang4|户:hu4|。:,Please deposit it into my account.
+127,雨不停，我们不会出去。,simplified,雨:yu3|不:bu4|停:ting2|，:|我:wo3|们:men|不:bu2|会:hui4|出:chu1|去:qu4|。:,"It's raining continuously, we won't go out."
+128,这和我那本是同一本书。,simplified,这:zhe4|和:he2|我:wo3|那:na4|本:ben3|是:shi4|同:tong2|一:yi1|本:ben3|书:shu1|。:,This is the same book as mine.
+129,他们是热爱和平的人。,simplified,他:ta1|们:men|是:shi4|热:re4|爱:ai4|和:he2|平:ping2|的:de|人:ren2|。:,They are people who love peace.
+130,我觉得你说的是真的。,simplified,我:wo3|觉:jue2|得:de|你:ni3|说:shuo1|的:de|是:shi4|真:zhen1|的:de|。:,I believe what you said is true.
+131,可以原谅我吗？,simplified,可:ke3|以:yi3|原:yuan2|谅:liang4|我:wo3|吗:ma|？:,Can you forgive me?
+132,我们没机会赢那些一流选手。,simplified,我:wo3|们:men|没:mei2|机:ji1|会:hui4|赢:ying2|那:na4|些:xie1|一:yi4|流:liu2|选:xuan3|手:shou3|。:,We have no chance of beating those top players.
+133,他发誓要戒烟。,simplified,他:ta1|发:fa1|誓:shi4|要:yao4|戒:jie4|烟:yan1|。:,He swore to quit smoking.
+134,在明天前完成报告几乎是不可能的。,neutral,在:zai4|明:ming2|天:tian1|前:qian2|完:wan2|成:cheng2|报:bao4|告:gao4|几:ji1|乎:hu1|是:shi4|不:bu4|可:ke3|能:neng2|的:de|。:,It's almost impossible to finish the report before tomorrow.
+135,他昨天看了一部最有趣的小说。,simplified,他:ta1|昨:zuo2|天:tian1|看:kan4|了:le|一:yi1|部:bu4|最:zui4|有:you3|趣:qu4|的:de|小:xiao3|说:shuo1|。:,He read the most interesting novel yesterday.
+136,如果可能的话，我想环游世界。,simplified,如:ru2|果:guo3|可:ke3|能:neng2|的:de|话:hua4|，:|我:wo3|想:xiang3|环:huan2|游:you2|世:shi4|界:jie4|。:,"If possible, I would like to travel around the world."
+137,我是网球俱乐部的会员。,simplified,我:wo3|是:shi4|网:wang3|球:qiu2|俱:ju4|乐:le4|部:bu4|的:de|会:hui4|员:yuan2|。:,I am a member of the tennis club.
+138,医生，请给这孩子急救。,simplified,医:yi1|生:sheng1|，:|请:qing3|给:gei3|这:zhe4|孩:hai2|子:zi|急:ji2|救:jiu4|。:,"Doctor, please give this child first aid."
+139,据说山上的天气变化很快。,simplified,据:ju4|说:shuo1|山:shan1|上:shang4|的:de|天:tian1|气:qi4|变:bian4|化:hua4|很:hen3|快:kuai4|。:,It's said that the weather on the mountain changes quickly.
+140,他后悔在校时没用功读书。,simplified,他:ta1|后:hou4|悔:hui3|在:zai4|校:xiao4|时:shi2|没:mei2|用:yong4|功:gong1|读:du2|书:shu1|。:,He regrets not studying hard while in school.
+141,我可以用支票付吗？,simplified,我:wo3|可:ke3|以:yi3|用:yong4|支:zhi1|票:piao4|付:fu4|吗:ma|？:,Can I pay by check?
+142,如果他年轻一点，他将很适合这个职位。,simplified,如:ru2|果:guo3|他:ta1|年:nian2|轻:qing1|一:yi4|点:dian3|，:|他:ta1|将:jiang1|很:hen3|适:shi4|合:he2|这:zhe4|个:ge|职:zhi2|位:wei4|。:,"If he were a bit younger, he would be perfect for this position."
+143,他给我的工作作出了明确指示。,simplified,他:ta1|给:gei3|我:wo3|的:de|工:gong1|作:zuo4|作:zuo4|出:chu1|了:le|明:ming2|确:que4|指:zhi3|示:shi4|。:,He gave me clear instructions for the job.
+144,他向权力屈服。,neutral,他:ta1|向:xiang4|权:quan2|力:li4|屈:qu1|服:fu2|。:,He yielded to power.
+145,是在昨天Jake打破了这扇窗。,neutral,是:shi4|在:zai4|昨:zuo2|天:tian1|Jake:|打:da3|破:po4|了:le|这:zhe4|扇:shan4|窗:chuang1|。:,It was yesterday that Jake broke this window.
+146,今天糟糕透了，所以我准备去喝一杯就直接上床。,simplified,今:jin1|天:tian1|糟:zao1|糕:gao1|透:tou4|了:le|，:|所:suo3|以:yi3|我:wo3|准:zhun3|备:bei4|去:qu4|喝:he1|一:yi1|杯:bei1|就:jiu4|直:zhi2|接:jie1|上:shang4|床:chuang2|。:,"Today has been terrible, so I'm ready to grab a drink and go straight to bed."
+147,如果没有你，这个世界很孤单。,neutral,如:ru2|果:guo3|没:mei2|有:you3|你:ni3|，:|这:zhe4|个:ge|世:shi4|界:jie4|很:hen3|孤:gu1|单:dan1|。:,This world is very lonely without you.
+148,我觉得这个网站的构思非常好。,simplified,我:wo3|觉:jue2|得:de|这:zhe4|个:ge|网:wang3|站:zhan4|的:de|构:gou4|思:si1|非:fei1|常:chang2|好:hao3|。:,I think the idea for this website is excellent.
+149,我觉得这个网站的概念非常好。,simplified,我:wo3|觉:jue2|得:de|这:zhe4|个:ge|网:wang3|站:zhan4|的:de|概:gai4|念:nian4|非:fei1|常:chang2|好:hao3|。:,I think the concept of this website is great.
+150,啊，我认识这个男人！,simplified,啊:a|，:|我:wo3|认:ren4|识:shi2|这:zhe4|个:ge|男:nan2|人:ren2|！:,"Ah, I know this man!"
+151,待在那儿别动。,neutral,待:dai4|在:zai4|那:na4|儿:er2|别:bie2|动:dong4|。:,Stay there and don't move.
+152,沿着这条路直走，到第三个红绿灯的地方右转。,simplified,沿:yan2|着:zhe|这:zhe4|条:tiao2|路:lu4|直:zhi2|走:zou3|，:|到:dao4|第:di4|三:san1|个:ge4|红:hong2|绿:lv4|灯:deng1|的:de|地:di4|方:fang1|右:you4|转:zhuan3|。:,Go straight along this road and turn right at the third traffic light.
+153,他正坐在会议室里。,simplified,他:ta1|正:zheng4|坐:zuo4|在:zai4|会:hui4|议:yi4|室:shi4|里:li3|。:,He is sitting in the conference room.
+154,等她回来的时候问问她。,simplified,等:deng3|她:ta1|回:hui2|来:lai2|的:de|时:shi2|候:hou4|问:wen4|问:wen4|她:ta1|。:,Ask her when she comes back.
+155,他说得很大声。,simplified,他:ta1|说:shuo1|得:de2|很:hen3|大:da4|声:sheng1|。:,He spoke very loudly.
+156,差不多两周John的病才好了。,neutral,差:cha4|不:bu|多:duo1|两:liang3|周:zhou1|John:|的:de|病:bing4|才:cai2|好:hao3|了:le|。:,It took almost two weeks for John to recover.
+157,我们必须设法打破这个僵局。,simplified,我:wo3|们:men|必:bi4|须:xu1|设:she4|法:fa3|打:da3|破:po4|这:zhe4|个:ge|僵:jiang1|局:ju2|。:,We must find a way to break this deadlock.
+158,十年后，我们的城市将改变许多。,simplified,十:shi2|年:nian2|后:hou4|，:|我:wo3|们:men|的:de|城:cheng2|市:shi4|将:jiang1|改:gai3|变:bian4|许:xu3|多:duo1|。:,Our city will change a lot in ten years.
+159,你咖啡喝得太多了。,neutral,你:ni3|咖:ka1|啡:fei1|喝:he1|得:de2|太:tai4|多:duo1|了:le|。:,You've had too much coffee.
+160,我有好几打呢。,neutral,我:wo3|有:you3|好:hao3|几:ji3|打:da3|呢:ne|。:,I have several dozen.
+161,我无法想象另一个星球上的生物。,neutral,我:wo3|无:wu2|法:fa3|想:xiang3|象:xiang4|另:ling4|一:yi2|个:ge4|星:xing1|球:qiu2|上:shang4|的:de|生:sheng1|物:wu4|。:,I can't imagine creatures on another planet.
+162,温度计往往低于零度。,simplified,温:wen1|度:du4|计:ji4|往:wang3|往:wang3|低:di1|于:yu2|零:ling2|度:du4|。:,The thermometer often reads below zero.
+163,要完成实验，三个月太短了。,simplified,要:yao4|完:wan2|成:cheng2|实:shi2|验:yan4|，:|三:san1|个:ge4|月:yue4|太:tai4|短:duan3|了:le|。:,Three months is too short to complete the experiment.
+164,“这些车是你的吗？”“是的，是我的。”,simplified,“:|这:zhe4|些:xie1|车:che1|是:shi4|你:ni3|的:de|吗:ma|？:|”:|“:|是:shi4|的:de|，:|是:shi4|我:wo3|的:de|。:|”:,"Are these cars yours?"" ""Yes, they are mine."
+165,我叔叔住在学校附近。,simplified,我:wo3|叔:shu1|叔:shu1|住:zhu4|在:zai4|学:xue2|校:xiao4|附:fu4|近:jin4|。:,My uncle lives near the school.
+166,去踢足球吧。,neutral,去:qu4|踢:ti1|足:zu2|球:qiu2|吧:ba|。:,Go play soccer.
+167,合同已经到手了，那就出去庆祝一下吧。,simplified,合:he2|同:tong2|已:yi3|经:jing1|到:dao4|手:shou3|了:le|，:|那:na4|就:jiu4|出:chu1|去:qu4|庆:qing4|祝:zhu4|一:yi1|下:xia4|吧:ba|。:,"The contract is in hand, so let's go celebrate."
+168,我难以用言语表达我的感情。,simplified,我:wo3|难:nan2|以:yi3|用:yong4|言:yan2|语:yu3|表:biao3|达:da2|我:wo3|的:de|感:gan3|情:qing2|。:,I find it hard to express my feelings in words.
+169,我无法治愈心碎。,neutral,我:wo3|无:wu2|法:fa3|治:zhi4|愈:yu4|心:xin1|碎:sui4|。:,I can't heal a broken heart.
+170,猫抓住了老鼠。,neutral,猫:mao1|抓:zhua1|住:zhu4|了:le|老:lao3|鼠:shu3|。:,The cat caught the mouse.
+171,直到那时，他才意识到他已经上当受骗。,simplified,直:zhi2|到:dao4|那:na4|时:shi2|，:|他:ta1|才:cai2|意:yi4|识:shi2|到:dao4|他:ta1|已:yi3|经:jing1|上:shang4|当:dang4|受:shou4|骗:pian4|。:,It was not until then that he realized he had been deceived.
+172,他的医生建议他戒烟。,simplified,他:ta1|的:de|医:yi1|生:sheng1|建:jian4|议:yi4|他:ta1|戒:jie4|烟:yan1|。:,His doctor advised him to quit smoking.
+173,我爸爸很忙。,neutral,我:wo3|爸:ba4|爸:ba4|很:hen3|忙:mang2|。:,My dad is very busy.
+174,他用了一些手段来和Nancy私下交谈。,simplified,他:ta1|用:yong4|了:le|一:yi1|些:xie1|手:shou3|段:duan4|来:lai2|和:he2|Nancy:|私:si1|下:xia4|交:jiao1|谈:tan2|。:,He used some means to talk to Nancy privately.
+175,把这些座位留给老人。,simplified,把:ba3|这:zhe4|些:xie1|座:zuo4|位:wei4|留:liu2|给:gei3|老:lao3|人:ren2|。:,Leave these seats for the elderly.
+176,我无法取代她做英语老师。,simplified,我:wo3|无:wu2|法:fa3|取:qu3|代:dai4|她:ta1|做:zuo4|英:ying1|语:yu3|老:lao3|师:shi1|。:,I cannot replace her as the English teacher.
+177,他们粗心大意，还没意识到危险。,simplified,他:ta1|们:men|粗:cu1|心:xin1|大:da4|意:yi4|，:|还:hai2|没:mei2|意:yi4|识:shi2|到:dao4|危:wei1|险:xian3|。:,They were careless and still hadn't realized the danger.
+178,她挥着她的手，直到火车消失在视线之外。,simplified,她:ta1|挥:hui1|着:zhe|她:ta1|的:de|手:shou3|，:|直:zhi2|到:dao4|火:huo3|车:che1|消:xiao1|失:shi1|在:zai4|视:shi4|线:xian4|之:zhi1|外:wai4|。:,She waved her hand until the train disappeared from sight.
+179,当她发现他们还没有学校，她就办了一个。,simplified,当:dang1|她:ta1|发:fa1|现:xian4|他:ta1|们:men|还:hai2|没:mei2|有:you3|学:xue2|校:xiao4|，:|她:ta1|就:jiu4|办:ban4|了:le|一:yi2|个:ge4|。:,"When she found out they didn't have a school, she started one."
+180,谢谢你的答复。,simplified,谢:xie4|谢:xie4|你:ni3|的:de|答:da2|复:fu4|。:,Thank you for your response.
+181,Jack买不起新自行车。,simplified,Jack:|买:mai3|不:bu4|起:qi3|新:xin1|自:zi4|行:xing2|车:che1|。:,Jack can't afford a new bicycle.
+182,他寻找一切可能的逃生途径。,simplified,他:ta1|寻:xun2|找:zhao3|一:yi1|切:qie4|可:ke3|能:neng2|的:de|逃:tao2|生:sheng1|途:tu2|径:jing4|。:,He is looking for every possible escape route.
+183,对严格限制经济的批评蜂拥而来。,simplified,对:dui4|严:yan2|格:ge2|限:xian4|制:zhi4|经:jing1|济:ji4|的:de|批:pi1|评:ping2|蜂:feng1|拥:yong1|而:er2|来:lai2|。:,Criticism of the strict economic restrictions is pouring in.
+184,这药创造了奇迹。,simplified,这:zhe4|药:yao4|创:chuang4|造:zao4|了:le|奇:qi2|迹:ji4|。:,This medicine worked wonders.
+185,你最好打消这么可笑的念头。,neutral,你:ni3|最:zui4|好:hao3|打:da3|消:xiao1|这:zhe4|么:me|可:ke3|笑:xiao4|的:de|念:nian4|头:tou|。:,You'd better dismiss such a ridiculous idea.
+186,我看见一个长头发的女生。,simplified,我:wo3|看:kan4|见:jian4|一:yi2|个:ge4|长:zhang3|头:tou2|发:fa4|的:de|女:nv3|生:sheng1|。:,I saw a girl with long hair.
+187,外交谈判帮助结束了冲突。,simplified,外:wai4|交:jiao1|谈:tan2|判:pan4|帮:bang1|助:zhu4|结:jie2|束:shu4|了:le|冲:chong1|突:tu1|。:,Diplomatic negotiations helped end the conflict.
+188,我发现了我爸爸收藏了30年的报纸。,simplified,我:wo3|发:fa1|现:xian4|了:le|我:wo3|爸:ba4|爸:ba4|收:shou1|藏:cang2|了:le|30:|年:nian2|的:de|报:bao4|纸:zhi3|。:,I discovered my dad has been collecting newspapers for 30 years.
+189,如何克服日元升高是个大问题。,simplified,如:ru2|何:he2|克:ke4|服:fu2|日:ri4|元:yuan2|升:sheng1|高:gao1|是:shi4|个:ge4|大:da4|问:wen4|题:ti2|。:,How to overcome the rising yen is a big issue.
+190,你想走的时候就走吧。,neutral,你:ni3|想:xiang3|走:zou3|的:de|时:shi2|候:hou4|就:jiu4|走:zou3|吧:ba|。:,You can leave whenever you want.
+191,他们在画展上授予了她一等奖。,simplified,他:ta1|们:men|在:zai4|画:hua4|展:zhan3|上:shang4|授:shou4|予:yu3|了:le|她:ta1|一:yi4|等:deng3|奖:jiang3|。:,They awarded her first prize at the art exhibition.
+192,你可以骑上我的摩托车去遛一圈。,simplified,你:ni3|可:ke3|以:yi3|骑:qi2|上:shang4|我:wo3|的:de|摩:mo2|托:tuo1|车:che1|去:qu4|遛:liu2|一:yi1|圈:quan1|。:,You can take my motorcycle for a ride.
+193,他给我们讲了一个有趣的故事，我们都笑了起来。,simplified,他:ta1|给:gei3|我:wo3|们:men|讲:jiang3|了:le|一:yi2|个:ge4|有:you3|趣:qu4|的:de|故:gu4|事:shi4|，:|我:wo3|们:men|都:dou1|笑:xiao4|了:le|起:qi3|来:lai2|。:,"He told us an interesting story, and we all laughed."
+194,如何料理黑鲷：做刺身是最好吃的。,simplified,如:ru2|何:he2|料:liao4|理:li3|黑:hei1|鲷:diao1|：:|做:zuo4|刺:ci4|身:shen1|是:shi4|最:zui4|好:hao3|吃:chi1|的:de|。:,How to prepare black sea bream: sashimi is the best way to enjoy it.
+195,让我们来澄清一下这个问题。,simplified,让:rang4|我:wo3|们:men|来:lai2|澄:cheng2|清:qing1|一:yi1|下:xia4|这:zhe4|个:ge|问:wen4|题:ti2|。:,Let's clarify this issue.
+196,别忘了在你的信上贴张邮票。,simplified,别:bie2|忘:wang4|了:le|在:zai4|你:ni3|的:de|信:xin4|上:shang4|贴:tie1|张:zhang1|邮:you2|票:piao4|。:,Don't forget to put a stamp on your letter.
+197,我的生意终于走上了正轨。,simplified,我:wo3|的:de|生:sheng1|意:yi4|终:zhong1|于:yu2|走:zou3|上:shang4|了:le|正:zheng4|轨:gui3|。:,My business has finally gotten on track.
+198,如果你需要笔的话，我借你一支。,simplified,如:ru2|果:guo3|你:ni3|需:xu1|要:yao4|笔:bi3|的:de|话:hua4|，:|我:wo3|借:jie4|你:ni3|一:yi1|支:zhi1|。:,"If you need a pen, I can lend you one."
+199,我要回房间了，在那儿我可以学习。,simplified,我:wo3|要:yao4|回:hui2|房:fang2|间:jian1|了:le|，:|在:zai4|那:na4|儿:er2|我:wo3|可:ke3|以:yi3|学:xue2|习:xi2|。:,"I'm going back to my room, where I can study."
+200,照这样的情况，很抱歉，我不能接受你的盛情邀请。,simplified,照:zhao4|这:zhe4|样:yang4|的:de|情:qing2|况:kuang4|，:|很:hen3|抱:bao4|歉:qian4|，:|我:wo3|不:bu4|能:neng2|接:jie1|受:shou4|你:ni3|的:de|盛:sheng4|情:qing2|邀:yao1|请:qing3|。:,"Given the circumstances, I'm sorry, but I can't accept your generous invitation."
+201,在一天之内完成它几乎是不可能的。,neutral,在:zai4|一:yi1|天:tian1|之:zhi1|内:nei4|完:wan2|成:cheng2|它:ta1|几:ji1|乎:hu1|是:shi4|不:bu4|可:ke3|能:neng2|的:de|。:,It's almost impossible to finish it in one day.
+202,接下来该采取什么行动就交给你了。,simplified,接:jie1|下:xia4|来:lai2|该:gai1|采:cai3|取:qu3|什:shen2|么:me|行:xing2|动:dong4|就:jiu4|交:jiao1|给:gei3|你:ni3|了:le|。:,The next steps are up to you.
+203,老师给我们布置了家庭作业。,simplified,老:lao3|师:shi1|给:gei3|我:wo3|们:men|布:bu4|置:zhi4|了:le|家:jia1|庭:ting2|作:zuo4|业:ye4|。:,The teacher assigned us homework.
+204,我们看着这孩子玩耍。,simplified,我:wo3|们:men|看:kan4|着:zhe|这:zhe4|孩:hai2|子:zi|玩:wan2|耍:shua3|。:,We watched the child play.
+205,你开始学习英语了吗？,simplified,你:ni3|开:kai1|始:shi3|学:xue2|习:xi2|英:ying1|语:yu3|了:le|吗:ma|？:,Have you started learning English?
+206,它们是瓜。,simplified,它:ta1|们:men|是:shi4|瓜:gua1|。:,They are melons.
+207,你走了，我们都会想你的。,simplified,你:ni3|走:zou3|了:le|，:|我:wo3|们:men|都:dou1|会:hui4|想:xiang3|你:ni3|的:de|。:,We will all miss you when you leave.
+208,电视的优点在于它给体育爱好者提供了更大的方便。,simplified,电:dian4|视:shi4|的:de|优:you1|点:dian3|在:zai4|于:yu2|它:ta1|给:gei3|体:ti3|育:yu4|爱:ai4|好:hao4|者:zhe3|提:ti2|供:gong1|了:le|更:geng4|大:da4|的:de|方:fang1|便:bian4|。:,The advantage of television is that it provides greater convenience for sports fans.
+209,我没有拜访他，因为我感冒了。,simplified,我:wo3|没:mei2|有:you3|拜:bai4|访:fang3|他:ta1|，:|因:yin1|为:wei4|我:wo3|感:gan3|冒:mao4|了:le|。:,I didn't visit him because I caught a cold.
+210,乘公交车费时。,simplified,乘:cheng2|公:gong1|交:jiao1|车:che1|费:fei4|时:shi2|。:,Taking the bus is time-consuming.
+211,由于火车延误，我迟到了。,simplified,由:you2|于:yu2|火:huo3|车:che1|延:yan2|误:wu4|，:|我:wo3|迟:chi2|到:dao4|了:le|。:,I was late due to the train delay.
+212,他还没来。他肯定错过公交车了。,simplified,他:ta1|还:hai2|没:mei2|来:lai2|。:|他:ta1|肯:ken3|定:ding4|错:cuo4|过:guo4|公:gong1|交:jiao1|车:che1|了:le|。:,He hasn't arrived yet. He must have missed the bus.
+213,这种款式的帽子现在很流行。,simplified,这:zhe4|种:zhong3|款:kuan3|式:shi4|的:de|帽:mao4|子:zi|现:xian4|在:zai4|很:hen3|流:liu2|行:xing2|。:,This style of hat is very popular right now.
+214,其他的一切都好。,neutral,其:qi2|他:ta1|的:de|一:yi1|切:qie4|都:dou1|好:hao3|。:,Everything else is fine.
+215,你可以想象在月球上行走吗？,simplified,你:ni3|可:ke3|以:yi3|想:xiang3|象:xiang4|在:zai4|月:yue4|球:qiu2|上:shang4|行:xing2|走:zou3|吗:ma|？:,Can you imagine walking on the moon?
+216,你会溜冰吗？,simplified,你:ni3|会:hui4|溜:liu1|冰:bing1|吗:ma|？:,Can you skate?
+217,他有可能赢得比赛。,simplified,他:ta1|有:you3|可:ke3|能:neng2|赢:ying2|得:de2|比:bi3|赛:sai4|。:,He has a chance to win the competition.
+218,这件事至关重要。,simplified,这:zhe4|件:jian4|事:shi4|至:zhi4|关:guan1|重:zhong4|要:yao4|。:,This matter is crucial.
+219,不要拉我的腿！,neutral,不:bu2|要:yao4|拉:la1|我:wo3|的:de|腿:tui3|！:,Don't pull my leg!
+220,我无法相信自己的眼睛。,neutral,我:wo3|无:wu2|法:fa3|相:xiang1|信:xin4|自:zi4|己:ji3|的:de|眼:yan3|睛:jing1|。:,I can't believe my eyes.
+221,我去听他的演讲去晚了。,simplified,我:wo3|去:qu4|听:ting1|他:ta1|的:de|演:yan3|讲:jiang3|去:qu4|晚:wan3|了:le|。:,I arrived late to hear his speech.
+222,你考虑周到，没有打扰我们。,simplified,你:ni3|考:kao3|虑:lv4|周:zhou1|到:dao4|，:|没:mei2|有:you3|打:da3|扰:rao3|我:wo3|们:men|。:,You were considerate and didn't disturb us.
+223,这件事他铭记于心。,simplified,这:zhe4|件:jian4|事:shi4|他:ta1|铭:ming2|记:ji4|于:yu2|心:xin1|。:,He remembers this matter deeply.
+224,这本书对你来说读起来太难了。,simplified,这:zhe4|本:ben3|书:shu1|对:dui4|你:ni3|来:lai2|说:shuo1|读:du2|起:qi3|来:lai2|太:tai4|难:nan2|了:le|。:,This book is too difficult for you to read.
+225,我什么都不想喝。,neutral,我:wo3|什:shen2|么:me|都:dou1|不:bu4|想:xiang3|喝:he1|。:,I don't want to drink anything.
+226,一块岩石从上面落下。,neutral,一:yi1|块:kuai4|岩:yan2|石:shi2|从:cong2|上:shang4|面:mian4|落:la4|下:xia4|。:,A rock fell from above.
+227,我头痛。,neutral,我:wo3|头:tou2|痛:tong4|。:,I have a headache.
+228,布什继里根之后当上了总统。,simplified,布:bu4|什:shen2|继:ji4|里:li3|根:gen1|之:zhi1|后:hou4|当:dang1|上:shang4|了:le|总:zong3|统:tong3|。:,Bush became president after Reagan.
+229,他的努力没有成果。,neutral,他:ta1|的:de|努:nu3|力:li4|没:mei2|有:you3|成:cheng2|果:guo3|。:,His efforts did not yield results.
+230,今天刮冷风。,neutral,今:jin1|天:tian1|刮:gua1|冷:leng3|风:feng1|。:,It's windy and cold today.
+231,你在撒谎。,simplified,你:ni3|在:zai4|撒:sa1|谎:huang3|。:,You are lying.
+232,自助者天助。,neutral,自:zi4|助:zhu4|者:zhe3|天:tian1|助:zhu4|。:,God helps those who help themselves.
+233,和你的车比起来，我的车很小。,simplified,和:he2|你:ni3|的:de|车:che1|比:bi3|起:qi3|来:lai2|，:|我:wo3|的:de|车:che1|很:hen3|小:xiao3|。:,My car is small compared to yours.
+234,他很年轻，更重要的是，他很帅。,simplified,他:ta1|很:hen3|年:nian2|轻:qing1|，:|更:geng4|重:zhong4|要:yao4|的:de|是:shi4|，:|他:ta1|很:hen3|帅:shuai4|。:,"He is young, and more importantly, he is handsome."
+235,和她争辩是没用的。,simplified,和:he2|她:ta1|争:zheng1|辩:bian4|是:shi4|没:mei2|用:yong4|的:de|。:,It's useless to argue with her.
+236,太可惜了！,neutral,太:tai4|可:ke3|惜:xi1|了:le|！:,What a pity!
+237,听到她成功的消息，他很高兴。,simplified,听:ting1|到:dao4|她:ta1|成:cheng2|功:gong1|的:de|消:xiao1|息:xi1|，:|他:ta1|很:hen3|高:gao1|兴:xing4|。:,He was happy to hear the news of her success.
+238,男孩们窃窃私语，我知道他们准备做些什么。,simplified,男:nan2|孩:hai2|们:men|窃:qie4|窃:qie4|私:si1|语:yu3|，:|我:wo3|知:zhi1|道:dao4|他:ta1|们:men|准:zhun3|备:bei4|做:zuo4|些:xie1|什:shen2|么:me|。:,"The boys are whispering, and I know what they are planning to do."
+239,我要预订一间6月3日的单人房。,simplified,我:wo3|要:yao4|预:yu4|订:ding4|一:yi1|间:jian1|6:|月:yue4|3:|日:ri4|的:de|单:dan1|人:ren2|房:fang2|。:,I want to book a single room for June 3rd.
+240,请帮我找一下我的钱包。,simplified,请:qing3|帮:bang1|我:wo3|找:zhao3|一:yi1|下:xia4|我:wo3|的:de|钱:qian2|包:bao1|。:,Please help me find my wallet.
+241,她给我讲了一个有趣的故事。,simplified,她:ta1|给:gei3|我:wo3|讲:jiang3|了:le|一:yi2|个:ge4|有:you3|趣:qu4|的:de|故:gu4|事:shi4|。:,She told me an interesting story.
+242,他登上了前往洛杉矶的飞机。,simplified,他:ta1|登:deng1|上:shang4|了:le|前:qian2|往:wang3|洛:luo4|杉:shan1|矶:ji1|的:de|飞:fei1|机:ji1|。:,He boarded the plane to Los Angeles.
+243,什么时候开始？,neutral,什:shen2|么:me|时:shi2|候:hou4|开:kai1|始:shi3|？:,When does it start?
+244,他儿子小时候就死于癌症了。,neutral,他:ta1|儿:er2|子:zi|小:xiao3|时:shi2|候:hou4|就:jiu4|死:si3|于:yu2|癌:ai2|症:zheng4|了:le|。:,His son died of cancer when he was young.
+245,这本书有精美的插图。,simplified,这:zhe4|本:ben3|书:shu1|有:you3|精:jing1|美:mei3|的:de|插:cha1|图:tu2|。:,This book has beautiful illustrations.
+246,她和她妹妹一样亲切。,simplified,她:ta1|和:he2|她:ta1|妹:mei4|妹:mei4|一:yi1|样:yang4|亲:qin1|切:qie4|。:,She is as kind as her sister.
+247,随着时间的推移，比赛增加了规则以使之更安全。,simplified,随:sui2|着:zhe|时:shi2|间:jian1|的:de|推:tui1|移:yi2|，:|比:bi3|赛:sai4|增:zeng1|加:jia1|了:le|规:gui1|则:ze2|以:yi3|使:shi3|之:zhi1|更:geng4|安:an1|全:quan2|。:,"Over time, the competition added rules to make it safer."
+248,他看上去是一个十足的绅士。,simplified,他:ta1|看:kan4|上:shang4|去:qu4|是:shi4|一:yi2|个:ge4|十:shi2|足:zu2|的:de|绅:shen1|士:shi4|。:,He looks like a true gentleman.
+249,金子比水重得多。,neutral,金:jin1|子:zi|比:bi3|水:shui3|重:zhong4|得:de2|多:duo1|。:,Gold is much heavier than water.
+250,我们的任务到目前为止很轻松，但从现在开始将会变得很难。,simplified,我:wo3|们:men|的:de|任:ren4|务:wu4|到:dao4|目:mu4|前:qian2|为:wei2|止:zhi3|很:hen3|轻:qing1|松:song1|，:|但:dan4|从:cong2|现:xian4|在:zai4|开:kai1|始:shi3|将:jiang1|会:hui4|变:bian4|得:de2|很:hen3|难:nan2|。:,"Our task has been easy so far, but it will become difficult from now on."
+251,你自己拿蛋糕吃吧。,neutral,你:ni3|自:zi4|己:ji3|拿:na2|蛋:dan4|糕:gao1|吃:chi1|吧:ba|。:,You can take the cake yourself.
+252,他给我讲述了他的一生。,simplified,他:ta1|给:gei3|我:wo3|讲:jiang3|述:shu4|了:le|他:ta1|的:de|一:yi1|生:sheng1|。:,He told me about his life.
+253,事故耽误了我们半小时。,simplified,事:shi4|故:gu4|耽:dan1|误:wu4|了:le|我:wo3|们:men|半:ban4|小:xiao3|时:shi2|。:,The accident delayed us by half an hour.
+254,这种秘密总有一天会被揭露的。,simplified,这:zhe4|种:zhong3|秘:mi4|密:mi4|总:zong3|有:you3|一:yi1|天:tian1|会:hui4|被:bei4|揭:jie1|露:lu4|的:de|。:,This kind of secret will be revealed one day.
+255,我没什么可依靠的了。,neutral,我:wo3|没:mei2|什:shen2|么:me|可:ke3|依:yi1|靠:kao4|的:de|了:le|。:,I have nothing to rely on anymore.
+256,我做完我的功课后，就读这本书。,simplified,我:wo3|做:zuo4|完:wan2|我:wo3|的:de|功:gong1|课:ke4|后:hou4|，:|就:jiu4|读:du2|这:zhe4|本:ben3|书:shu1|。:,"After I finish my homework, I will read this book."
+257,能不能麻烦你告诉我去邻村怎么走？,simplified,能:neng2|不:bu4|能:neng2|麻:ma2|烦:fan2|你:ni3|告:gao4|诉:su4|我:wo3|去:qu4|邻:lin2|村:cun1|怎:zen3|么:me|走:zou3|？:,Could you please tell me how to get to the neighboring village?
+258,她住在罗素广场56号。,simplified,她:ta1|住:zhu4|在:zai4|罗:luo2|素:su4|广:guang3|场:chang3|56:|号:hao4|。:,She lives at 56 Russell Square.
+259,我们有很多听众。,simplified,我:wo3|们:men|有:you3|很:hen3|多:duo1|听:ting1|众:zhong4|。:,We have many listeners.
+260,请写信告诉我你们学校的情况。,simplified,请:qing3|写:xie3|信:xin4|告:gao4|诉:su4|我:wo3|你:ni3|们:men|学:xue2|校:xiao4|的:de|情:qing2|况:kuang4|。:,Please write to me and tell me about your school.
+261,看见新鲜龙虾，我有了食欲。,simplified,看:kan4|见:jian4|新:xin1|鲜:xian1|龙:long2|虾:xia1|，:|我:wo3|有:you3|了:le|食:shi2|欲:yu4|。:,Seeing fresh lobsters made me hungry.
+262,最后三周，Jim一直试图带我出去吃饭。,simplified,最:zui4|后:hou4|三:san1|周:zhou1|，:|Jim:|一:yi4|直:zhi2|试:shi4|图:tu2|带:dai4|我:wo3|出:chu1|去:qu4|吃:chi1|饭:fan4|。:,"In the last three weeks, Jim has been trying to take me out to dinner."
+263,这狗跑得多快啊！,neutral,这:zhe4|狗:gou3|跑:pao3|得:de2|多:duo1|快:kuai4|啊:a|！:,How fast this dog runs!
+264,你上班迟到了。,simplified,你:ni3|上:shang4|班:ban1|迟:chi2|到:dao4|了:le|。:,You are late for work.
+265,护士会告诉你怎么做。,simplified,护:hu4|士:shi4|会:hui4|告:gao4|诉:su4|你:ni3|怎:zen3|么:me|做:zuo4|。:,The nurse will tell you what to do.
+266,不要相信一个你一点都不了解他过去的人。,neutral,不:bu2|要:yao4|相:xiang1|信:xin4|一:yi2|个:ge4|你:ni3|一:yi4|点:dian3|都:dou1|不:bu4|了:liao3|解:jie3|他:ta1|过:guo4|去:qu4|的:de|人:ren2|。:,Don't trust someone whose past you don't know at all.
+267,下周我去温哥华看我妹妹。,simplified,下:xia4|周:zhou1|我:wo3|去:qu4|温:wen1|哥:ge1|华:hua2|看:kan4|我:wo3|妹:mei4|妹:mei4|。:,I'm going to Vancouver next week to see my sister.
+268,罗杰斯先生和史密斯小姐昨天宣布订婚。,simplified,罗:luo2|杰:jie2|斯:si1|先:xian1|生:sheng1|和:he2|史:shi3|密:mi4|斯:si1|小:xiao3|姐:jie3|昨:zuo2|天:tian1|宣:xuan1|布:bu4|订:ding4|婚:hun1|。:,Mr. Rogers and Miss Smith announced their engagement yesterday.
+269,你多久后需要它？,neutral,你:ni3|多:duo1|久:jiu3|后:hou4|需:xu1|要:yao4|它:ta1|？:,How long do you need it after?
+270,诚信是一种重要的美德。,simplified,诚:cheng2|信:xin4|是:shi4|一:yi1|种:zhong3|重:zhong4|要:yao4|的:de|美:mei3|德:de2|。:,Integrity is an important virtue.
+271,鲍勃第一个到达终点线。,simplified,鲍:bao4|勃:bo2|第:di4|一:yi2|个:ge4|到:dao4|达:da2|终:zhong1|点:dian3|线:xian4|。:,Bob was the first to reach the finish line.
+272,这是我见过最美的景色了。,simplified,这:zhe4|是:shi4|我:wo3|见:jian4|过:guo4|最:zui4|美:mei3|的:de|景:jing3|色:se4|了:le|。:,This is the most beautiful scenery I have ever seen.
+273,科学和数学我都喜欢。,simplified,科:ke1|学:xue2|和:he2|数:shu4|学:xue2|我:wo3|都:dou1|喜:xi3|欢:huan1|。:,I like both science and math.
+274,我们的计划从一开始就出错了。,simplified,我:wo3|们:men|的:de|计:ji4|划:hua4|从:cong2|一:yi1|开:kai1|始:shi3|就:jiu4|出:chu1|错:cuo4|了:le|。:,Our plan went wrong from the very beginning.
+275,她不喜欢我说话的方式。,simplified,她:ta1|不:bu4|喜:xi3|欢:huan1|我:wo3|说:shuo1|话:hua4|的:de|方:fang1|式:shi4|。:,She doesn't like the way I speak.
+276,他请求她给予优待。,simplified,他:ta1|请:qing3|求:qiu2|她:ta1|给:ji3|予:yu3|优:you1|待:dai4|。:,He asked her to give him special treatment.
+277,能不能请你把盐递给我？,simplified,能:neng2|不:bu4|能:neng2|请:qing3|你:ni3|把:ba3|盐:yan2|递:di4|给:gei3|我:wo3|？:,Could you please pass me the salt?
+278,他熟睡着。,neutral,他:ta1|熟:shu2|睡:shui4|着:zhe|。:,He is sound asleep.
+279,在这种天气下，我最好是待在家里而不要出去。,neutral,在:zai4|这:zhe4|种:zhong3|天:tian1|气:qi4|下:xia4|，:|我:wo3|最:zui4|好:hao3|是:shi4|待:dai4|在:zai4|家:jia1|里:li3|而:er2|不:bu2|要:yao4|出:chu1|去:qu4|。:,"In this weather, I’d better stay home rather than go out."
+280,你不这么认为吗？,simplified,你:ni3|不:bu4|这:zhe4|么:me|认:ren4|为:wei2|吗:ma|？:,Don't you think so?
+281,Tom否认偷了钱。,simplified,Tom:|否:fou3|认:ren4|偷:tou1|了:le|钱:qian2|。:,Tom denied stealing the money.
+282,我想减肥。,neutral,我:wo3|想:xiang3|减:jian3|肥:fei2|。:,I want to lose weight.
+283,我听到这个消息很吃惊。,simplified,我:wo3|听:ting1|到:dao4|这:zhe4|个:ge|消:xiao1|息:xi1|很:hen3|吃:chi1|惊:jing1|。:,I was surprised to hear the news.
+284,她一直和她的兄弟争吵。,neutral,她:ta1|一:yi4|直:zhi2|和:he2|她:ta1|的:de|兄:xiong1|弟:di4|争:zheng1|吵:chao3|。:,She has been arguing with her brother.
+285,只有为数不多的几个电视节目值得关注。,simplified,只:zhi3|有:you3|为:wei2|数:shu4|不:bu4|多:duo1|的:de|几:ji3|个:ge4|电:dian4|视:shi4|节:jie2|目:mu4|值:zhi2|得:de|关:guan1|注:zhu4|。:,Only a few TV shows are worth watching.
+286,我不明白为什么你这么批评他。,simplified,我:wo3|不:bu4|明:ming2|白:bai2|为:wei4|什:shen2|么:me|你:ni3|这:zhe4|么:me|批:pi1|评:ping2|他:ta1|。:,I don't understand why you criticize him so much.
+287,你想再来杯酒吗？,simplified,你:ni3|想:xiang3|再:zai4|来:lai2|杯:bei1|酒:jiu3|吗:ma|？:,Would you like another drink?
+288,他努力工作。,neutral,他:ta1|努:nu3|力:li4|工:gong1|作:zuo4|。:,He works hard.
+289,自由是有代价的。,neutral,自:zi4|由:you2|是:shi4|有:you3|代:dai4|价:jia4|的:de|。:,Freedom comes at a cost.
+290,几分钟后，电话响了。,simplified,几:ji3|分:fen1|钟:zhong1|后:hou4|，:|电:dian4|话:hua4|响:xiang3|了:le|。:,"A few minutes later, the phone rang."
+291,月球是地球唯一的卫星。,simplified,月:yue4|球:qiu2|是:shi4|地:di4|球:qiu2|唯:wei2|一:yi1|的:de|卫:wei4|星:xing1|。:,The Moon is Earth's only satellite.
+292,他和他的姐妹们目前都住在东京。,simplified,他:ta1|和:he2|他:ta1|的:de|姐:jie3|妹:mei4|们:men|目:mu4|前:qian2|都:dou1|住:zhu4|在:zai4|东:dong1|京:jing1|。:,He and his sisters currently live in Tokyo.
+293,孩子们洗了他们的脚。,simplified,孩:hai2|子:zi|们:men|洗:xi3|了:le|他:ta1|们:men|的:de|脚:jiao3|。:,The children washed their feet.
+294,我的计划是参观苏格兰的古堡。,simplified,我:wo3|的:de|计:ji4|划:hua4|是:shi4|参:can1|观:guan1|苏:su1|格:ge2|兰:lan2|的:de|古:gu3|堡:bao3|。:,My plan is to visit the castles in Scotland.
+295,他是哈佛大学的生物学教授。,simplified,他:ta1|是:shi4|哈:ha1|佛:fu2|大:da4|学:xue2|的:de|生:sheng1|物:wu4|学:xue2|教:jiao4|授:shou4|。:,He is a biology professor at Harvard University.
+296,我期待听到你在这件事上的想法 。,neutral,我:wo3|期:qi1|待:dai4|听:ting1|到:dao4|你:ni3|在:zai4|这:zhe4|件:jian4|事:shi4|上:shang4|的:de|想:xiang3|法:fa3|。:,I look forward to hearing your thoughts on this matter.
+297,他长大了会成为一名医生。,simplified,他:ta1|长:zhang3|大:da4|了:le|会:hui4|成:cheng2|为:wei2|一:yi1|名:ming2|医:yi1|生:sheng1|。:,He will become a doctor when he grows up.
+298,银行对风险客户收取较高的贷款利息。,simplified,银:yin2|行:hang2|对:dui4|风:feng1|险:xian3|客:ke4|户:hu4|收:shou1|取:qu3|较:jiao4|高:gao1|的:de|贷:dai4|款:kuan3|利:li4|息:xi1|。:,Banks charge higher loan interest rates to risky clients.
+299,你为什么说要去公园散步？,simplified,你:ni3|为:wei4|什:shen2|么:me|说:shuo1|要:yao4|去:qu4|公:gong1|园:yuan2|散:san4|步:bu4|？:,Why did you say you wanted to take a walk in the park?
+300,观众人数庞大。,simplified,观:guan1|众:zhong4|人:ren2|数:shu4|庞:pang2|大:da4|。:,The audience is large.
+301,写下你名字的大写字母。,simplified,写:xie3|下:xia4|你:ni3|名:ming2|字:zi4|的:de|大:da4|写:xie3|字:zi4|母:mu3|。:,Write down the capital letters of your name.
+302,我不太明白他说什么。,simplified,我:wo3|不:bu4|太:tai4|明:ming2|白:bai2|他:ta1|说:shuo1|什:shen2|么:me|。:,I don't quite understand what he said.
+303,我对外籍员工没有偏见。,simplified,我:wo3|对:dui4|外:wai4|籍:ji2|员:yuan2|工:gong1|没:mei2|有:you3|偏:pian1|见:jian4|。:,I have no prejudice against foreign employees.
+304,我明早八点来接你。,simplified,我:wo3|明:ming2|早:zao3|八:ba1|点:dian3|来:lai2|接:jie1|你:ni3|。:,I'll pick you up at eight tomorrow morning.
+305,我相信他会信守诺言。,simplified,我:wo3|相:xiang1|信:xin4|他:ta1|会:hui4|信:xin4|守:shou3|诺:nuo4|言:yan2|。:,I believe he will keep his promise.
+306,我们看见池里有很多活鱼。,simplified,我:wo3|们:men|看:kan4|见:jian4|池:chi2|里:li3|有:you3|很:hen3|多:duo1|活:huo2|鱼:yu2|。:,We saw many live fish in the pond.
+307,用鼻子顶住一个球很困难。,simplified,用:yong4|鼻:bi2|子:zi|顶:ding3|住:zhu4|一:yi2|个:ge4|球:qiu2|很:hen3|困:kun4|难:nan2|。:,It's difficult to balance a ball with your nose.
+308,您学习吗？,simplified,您:nin2|学:xue2|习:xi2|吗:ma|？:,Are you studying?
+309,他有很多历史书籍。,simplified,他:ta1|有:you3|很:hen3|多:duo1|历:li4|史:shi3|书:shu1|籍:ji2|。:,He has many history books.
+310,所有迹象表明她好起来了。,simplified,所:suo3|有:you3|迹:ji4|象:xiang4|表:biao3|明:ming2|她:ta1|好:hao3|起:qi3|来:lai2|了:le|。:,All signs indicate that she is getting better.
+311,即使他们有很好的酒单，我也不想在这里用餐。,simplified,即:ji2|使:shi3|他:ta1|们:men|有:you3|很:hen3|好:hao3|的:de|酒:jiu3|单:dan1|，:|我:wo3|也:ye3|不:bu4|想:xiang3|在:zai4|这:zhe4|里:li3|用:yong4|餐:can1|。:,"Even though they have a great wine list, I don't want to dine here."
+312,建筑物在地震中摇晃。,simplified,建:jian4|筑:zhu4|物:wu4|在:zai4|地:di4|震:zhen4|中:zhong1|摇:yao2|晃:huang4|。:,The building shook during the earthquake.
+313,由医生来决定某人何时该死是对的吗？,simplified,由:you2|医:yi1|生:sheng1|来:lai2|决:jue2|定:ding4|某:mou3|人:ren2|何:he2|时:shi2|该:gai1|死:si3|是:shi4|对:dui4|的:de|吗:ma|？:,Is it right for a doctor to decide when someone should die?
+314,谁来为风险投资提供资金？,simplified,谁:shui2|来:lai2|为:wei4|风:feng1|险:xian3|投:tou2|资:zi1|提:ti2|供:gong1|资:zi1|金:jin1|？:,Who will fund the venture capital?
+315,他很快便与小区里新来的男孩交上了朋友。,simplified,他:ta1|很:hen3|快:kuai4|便:bian4|与:yu3|小:xiao3|区:qu1|里:li3|新:xin1|来:lai2|的:de|男:nan2|孩:hai2|交:jiao1|上:shang4|了:le|朋:peng2|友:you3|。:,He quickly became friends with the new boy in the neighborhood.
+316,他的政权必定会崩溃。,simplified,他:ta1|的:de|政:zheng4|权:quan2|必:bi4|定:ding4|会:hui4|崩:beng1|溃:kui4|。:,His regime is bound to collapse.
+317,小偷迅速地窜入了人群。,simplified,小:xiao3|偷:tou1|迅:xun4|速:su4|地:di4|窜:cuan4|入:ru4|了:le|人:ren2|群:qun2|。:,The thief quickly slipped into the crowd.
+318,我上周不忙。,neutral,我:wo3|上:shang4|周:zhou1|不:bu4|忙:mang2|。:,I wasn't busy last week.
+319,游泳使腿部强健。,neutral,游:you2|泳:yong3|使:shi3|腿:tui3|部:bu4|强:qiang2|健:jian4|。:,Swimming strengthens the legs.
+320,现在的人教育程度比以前高得多。,simplified,现:xian4|在:zai4|的:de|人:ren2|教:jiao4|育:yu4|程:cheng2|度:du4|比:bi3|以:yi3|前:qian2|高:gao1|得:de2|多:duo1|。:,People today are much more educated than before.
+321,我不能让自己做这样的事。,simplified,我:wo3|不:bu4|能:neng2|让:rang4|自:zi4|己:ji3|做:zuo4|这:zhe4|样:yang4|的:de|事:shi4|。:,I can't let myself do such things.
+322,接受对方的准则就是给予他权力。,simplified,接:jie1|受:shou4|对:dui4|方:fang1|的:de|准:zhun3|则:ze2|就:jiu4|是:shi4|给:ji3|予:yu3|他:ta1|权:quan2|力:li4|。:,Accepting the other person's standards is giving them power.
+323,我将确保你们在第一年后有一个增长。,simplified,我:wo3|将:jiang1|确:que4|保:bao3|你:ni3|们:men|在:zai4|第:di4|一:yi1|年:nian2|后:hou4|有:you3|一:yi2|个:ge4|增:zeng1|长:zhang3|。:,I will ensure you have growth after the first year.
+324,他对日本的历史非常感兴趣。我们很惊讶他在这方面的丰富知识。,simplified,他:ta1|对:dui4|日:ri4|本:ben3|的:de|历:li4|史:shi3|非:fei1|常:chang2|感:gan3|兴:xing4|趣:qu4|。:|我:wo3|们:men|很:hen3|惊:jing1|讶:ya4|他:ta1|在:zai4|这:zhe4|方:fang1|面:mian4|的:de|丰:feng1|富:fu4|知:zhi1|识:shi2|。:,He is very interested in the history of Japan. We were surprised by his extensive knowledge in this area.
+325,把你的自行车放好。,simplified,把:ba3|你:ni3|的:de|自:zi4|行:xing2|车:che1|放:fang4|好:hao3|。:,Put your bicycle away properly.
+326,昨天是Alice去了演唱会。,neutral,昨:zuo2|天:tian1|是:shi4|Alice:|去:qu4|了:le|演:yan3|唱:chang4|会:hui4|。:,"Yesterday, Alice went to the concert."
+327,我们去了林中散步。,simplified,我:wo3|们:men|去:qu4|了:le|林:lin2|中:zhong1|散:san4|步:bu4|。:,We went for a walk in the woods.
+328,汽笛声响起，船开始慢慢地驶离港口。,simplified,汽:qi4|笛:di2|声:sheng1|响:xiang3|起:qi3|，:|船:chuan2|开:kai1|始:shi3|慢:man4|慢:man4|地:di4|驶:shi3|离:li2|港:gang3|口:kou3|。:,"The horn sounded, and the ship slowly began to leave the port."
+329,孩子们应该每天喝牛奶。,simplified,孩:hai2|子:zi|们:men|应:ying1|该:gai1|每:mei3|天:tian1|喝:he1|牛:niu2|奶:nai3|。:,Children should drink milk every day.
+330,这张照片让我想起童年的快乐时光。,simplified,这:zhe4|张:zhang1|照:zhao4|片:pian1|让:rang4|我:wo3|想:xiang3|起:qi3|童:tong2|年:nian2|的:de|快:kuai4|乐:le4|时:shi2|光:guang1|。:,This photo reminds me of the happy times in my childhood.
+331,简而言之，我不同意。,simplified,简:jian3|而:er2|言:yan2|之:zhi1|，:|我:wo3|不:bu4|同:tong2|意:yi4|。:,"In short, I disagree."
+332,但是他不常微笑。,neutral,但:dan4|是:shi4|他:ta1|不:bu4|常:chang2|微:wei1|笑:xiao4|。:,But he doesn't smile often.
+333,要去博物馆，你就得乘那辆车。,simplified,要:yao4|去:qu4|博:bo2|物:wu4|馆:guan3|，:|你:ni3|就:jiu4|得:de2|乘:cheng2|那:na4|辆:liang4|车:che1|。:,"To go to the museum, you have to take that bus."
+334,除非雨停了，我们才会出去。,simplified,除:chu2|非:fei1|雨:yu3|停:ting2|了:le|，:|我:wo3|们:men|才:cai2|会:hui4|出:chu1|去:qu4|。:,We will only go out if the rain stops.
+335,我爸爸对我的爱和照顾不比我妈妈少。,simplified,我:wo3|爸:ba4|爸:ba4|对:dui4|我:wo3|的:de|爱:ai4|和:he2|照:zhao4|顾:gu4|不:bu4|比:bi3|我:wo3|妈:ma1|妈:ma1|少:shao3|。:,My dad's love and care for me is no less than my mom's.
+336,他试图游过河，但是失败了。,simplified,他:ta1|试:shi4|图:tu2|游:you2|过:guo4|河:he2|，:|但:dan4|是:shi4|失:shi1|败:bai4|了:le|。:,"He tried to swim across the river, but he failed."
+337,告诉我你对湘南做了什么。,simplified,告:gao4|诉:su4|我:wo3|你:ni3|对:dui4|湘:xiang1|南:nan2|做:zuo4|了:le|什:shen2|么:me|。:,Tell me what you did in Xiangnan.
+338,我已经受够了这个计划。,simplified,我:wo3|已:yi3|经:jing1|受:shou4|够:gou4|了:le|这:zhe4|个:ge|计:ji4|划:hua4|。:,I've had enough of this plan.
+339,他不再是以前那个他。,neutral,他:ta1|不:bu4|再:zai4|是:shi4|以:yi3|前:qian2|那:na4|个:ge|他:ta1|。:,He is no longer the person he used to be.
+340,我发现他在花园里干活。,simplified,我:wo3|发:fa1|现:xian4|他:ta1|在:zai4|花:hua1|园:yuan2|里:li3|干:gan4|活:huo2|。:,I found him working in the garden.
+341,毕加索是个有名的艺术家。,simplified,毕:bi4|加:jia1|索:suo3|是:shi4|个:ge4|有:you3|名:ming2|的:de|艺:yi4|术:shu4|家:jia1|。:,Picasso is a famous artist.
+342,这是一个例外。,neutral,这:zhe4|是:shi4|一:yi2|个:ge4|例:li4|外:wai4|。:,This is an exception.
+343,他说他饿了。,simplified,他:ta1|说:shuo1|他:ta1|饿:e4|了:le|。:,He said he is hungry.
+344,生活很困难，但我更坚强。,simplified,生:sheng1|活:huo2|很:hen3|困:kun4|难:nan2|，:|但:dan4|我:wo3|更:geng4|坚:jian1|强:qiang2|。:,"Life is tough, but I am stronger."
+345,这个班有多少男生？,neutral,这:zhe4|个:ge|班:ban1|有:you3|多:duo1|少:shao3|男:nan2|生:sheng1|？:,How many boys are in this class?
+346,这一消息证实了我的怀疑。,simplified,这:zhe4|一:yi1|消:xiao1|息:xi1|证:zheng4|实:shi2|了:le|我:wo3|的:de|怀:huai2|疑:yi2|。:,This news confirmed my suspicions.
+347,看那座被雪覆盖的山。,neutral,看:kan4|那:na4|座:zuo4|被:bei4|雪:xue3|覆:fu4|盖:gai4|的:de|山:shan1|。:,Look at that snow-covered mountain.
+348,她没有任何亲戚朋友照顾她。,simplified,她:ta1|没:mei2|有:you3|任:ren4|何:he2|亲:qin1|戚:qi1|朋:peng2|友:you3|照:zhao4|顾:gu4|她:ta1|。:,She has no relatives or friends to take care of her.
+349,你的妈妈会开车吗？,simplified,你:ni3|的:de|妈:ma1|妈:ma1|会:hui4|开:kai1|车:che1|吗:ma|？:,Can your mom drive?
+350,现在的孩子认为解决任何生活问题都像重新开始一个电脑游戏那么简单。,simplified,现:xian4|在:zai4|的:de|孩:hai2|子:zi|认:ren4|为:wei2|解:jie3|决:jue2|任:ren4|何:he2|生:sheng1|活:huo2|问:wen4|题:ti2|都:dou1|像:xiang4|重:chong2|新:xin1|开:kai1|始:shi3|一:yi2|个:ge4|电:dian4|脑:nao3|游:you2|戏:xi4|那:na4|么:me|简:jian3|单:dan1|。:,Today's kids think solving any life problem is as easy as restarting a computer game.
+351,我们也去了庙里。,simplified,我:wo3|们:men|也:ye3|去:qu4|了:le|庙:miao4|里:li3|。:,We also went to the temple.
+352,我想要去伦敦。,simplified,我:wo3|想:xiang3|要:yao4|去:qu4|伦:lun2|敦:dun1|。:,I want to go to London.
+353,你其实没必要带伞。,simplified,你:ni3|其:qi2|实:shi2|没:mei2|必:bi4|要:yao4|带:dai4|伞:san3|。:,You actually don't need to bring an umbrella.
+354,这箱子是空的，里面什么也没有。,neutral,这:zhe4|箱:xiang1|子:zi|是:shi4|空:kong1|的:de|，:|里:li3|面:mian4|什:shen2|么:me|也:ye3|没:mei2|有:you3|。:,This box is empty; there's nothing inside.
+355,他大半生都住在国外。,simplified,他:ta1|大:da4|半:ban4|生:sheng1|都:dou1|住:zhu4|在:zai4|国:guo2|外:wai4|。:,He has lived abroad for most of his life.
+356,情况一天比一天差。,neutral,情:qing2|况:kuang4|一:yi1|天:tian1|比:bi3|一:yi1|天:tian1|差:cha4|。:,The situation is getting worse day by day.
+357,这架飞机一次可以携带40名乘客。,simplified,这:zhe4|架:jia4|飞:fei1|机:ji1|一:yi1|次:ci4|可:ke3|以:yi3|携:xie2|带:dai4|40:|名:ming2|乘:cheng2|客:ke4|。:,This plane can carry 40 passengers at a time.
+358,你们对外语感兴趣吗？,simplified,你:ni3|们:men|对:dui4|外:wai4|语:yu3|感:gan3|兴:xing4|趣:qu4|吗:ma|？:,Are you interested in foreign languages?
+359,没有人跑在他前面。,neutral,没:mei2|有:you3|人:ren2|跑:pao3|在:zai4|他:ta1|前:qian2|面:mian4|。:,No one is ahead of him.
+360,如果我现在有100万日元，我会买辆车。,simplified,如:ru2|果:guo3|我:wo3|现:xian4|在:zai4|有:you3|100:|万:wan4|日:ri4|元:yuan2|，:|我:wo3|会:hui4|买:mai3|辆:liang4|车:che1|。:,"If I had 1 million yen right now, I would buy a car."
+361,你相信上帝吗？,simplified,你:ni3|相:xiang1|信:xin4|上:shang4|帝:di4|吗:ma|？:,Do you believe in God?
+362,在某种程度上你是对的，但我还是有疑问。,simplified,在:zai4|某:mou3|种:zhong3|程:cheng2|度:du4|上:shang4|你:ni3|是:shi4|对:dui4|的:de|，:|但:dan4|我:wo3|还:hai2|是:shi4|有:you3|疑:yi2|问:wen4|。:,"You're right to some extent, but I still have doubts."
+363,我们终于登上了富士山山顶。,simplified,我:wo3|们:men|终:zhong1|于:yu2|登:deng1|上:shang4|了:le|富:fu4|士:shi4|山:shan1|山:shan1|顶:ding3|。:,We finally reached the summit of Mount Fuji.
+364,他们午饭吃了三明治。,simplified,他:ta1|们:men|午:wu3|饭:fan4|吃:chi1|了:le|三:san1|明:ming2|治:zhi4|。:,They had sandwiches for lunch.
+365,我也想要和你身上那件同样的外套。,simplified,我:wo3|也:ye3|想:xiang3|要:yao4|和:he2|你:ni3|身:shen1|上:shang4|那:na4|件:jian4|同:tong2|样:yang4|的:de|外:wai4|套:tao4|。:,I want the same coat you have.
+366,你觉得她最想要什么纪念品？,simplified,你:ni3|觉:jue2|得:de|她:ta1|最:zui4|想:xiang3|要:yao4|什:shen2|么:me|纪:ji4|念:nian4|品:pin3|？:,What souvenir do you think she wants the most?
+367,做你想做的。,neutral,做:zuo4|你:ni3|想:xiang3|做:zuo4|的:de|。:,Do what you want to do.
+368,这些食物看起来很好吃。,simplified,这:zhe4|些:xie1|食:shi2|物:wu4|看:kan4|起:qi3|来:lai2|很:hen3|好:hao3|吃:chi1|。:,These foods look delicious.
+369,她的故事带我回到了童年。,simplified,她:ta1|的:de|故:gu4|事:shi4|带:dai4|我:wo3|回:hui2|到:dao4|了:le|童:tong2|年:nian2|。:,Her story took me back to my childhood.
+370,我不知道他什么时候从法国回来。,simplified,我:wo3|不:bu4|知:zhi1|道:dao4|他:ta1|什:shen2|么:me|时:shi2|候:hou4|从:cong2|法:fa3|国:guo2|回:hui2|来:lai2|。:,I don't know when he will return from France.
+371,我有一个大家庭。,neutral,我:wo3|有:you3|一:yi2|个:ge4|大:da4|家:jia1|庭:ting2|。:,I have a big family.
+372,明早九点给我打电话。,simplified,明:ming2|早:zao3|九:jiu3|点:dian3|给:gei3|我:wo3|打:da3|电:dian4|话:hua4|。:,Call me at nine o'clock tomorrow morning.
+373,这不是我的包。,neutral,这:zhe4|不:bu2|是:shi4|我:wo3|的:de|包:bao1|。:,This is not my bag.
+374,我错拿了你的雨伞。,simplified,我:wo3|错:cuo4|拿:na2|了:le|你:ni3|的:de|雨:yu3|伞:san3|。:,I accidentally took your umbrella.
+375,你怎么拼“pretty”？,neutral,你:ni3|怎:zen3|么:me|拼:pin1|“:|pretty:|”:|？:,"How do you spell ""pretty""?"
+376,开车真的非常简单。,simplified,开:kai1|车:che1|真:zhen1|的:de|非:fei1|常:chang2|简:jian3|单:dan1|。:,Driving is really very easy.
+377,如果你没有其它可说的，那对我说“嗨，你怎么样？”就毫无意义。,simplified,如:ru2|果:guo3|你:ni3|没:mei2|有:you3|其:qi2|它:ta1|可:ke3|说:shuo1|的:de|，:|那:na4|对:dui4|我:wo3|说:shuo1|“:|嗨:hai1|，:|你:ni3|怎:zen3|么:me|样:yang4|？:|”:|就:jiu4|毫:hao2|无:wu2|意:yi4|义:yi4|。:,"If you have nothing else to say, then saying ""Hi, how are you?"" to me is meaningless."
+378,会议室正在使用中。,simplified,会:hui4|议:yi4|室:shi4|正:zheng4|在:zai4|使:shi3|用:yong4|中:zhong1|。:,The meeting room is in use.
+379,检查一下！,simplified,检:jian3|查:cha2|一:yi1|下:xia4|！:,Check it out!
+380,他尝了芝士蛋糕。,neutral,他:ta1|尝:chang2|了:le|芝:zhi1|士:shi4|蛋:dan4|糕:gao1|。:,He tried the cheesecake.
+381,她无法直视我的脸。,simplified,她:ta1|无:wu2|法:fa3|直:zhi2|视:shi4|我:wo3|的:de|脸:lian3|。:,She can't look me in the face.
+382,睡眠是最大的小偷，它偷了我们一半的生命。,simplified,睡:shui4|眠:mian2|是:shi4|最:zui4|大:da4|的:de|小:xiao3|偷:tou1|，:|它:ta1|偷:tou1|了:le|我:wo3|们:men|一:yi2|半:ban4|的:de|生:sheng1|命:ming4|。:,Sleep is the greatest thief; it steals half of our lives.
+383,我对摄影感兴趣。,simplified,我:wo3|对:dui4|摄:she4|影:ying3|感:gan3|兴:xing4|趣:qu4|。:,I am interested in photography.
+384,我买了一盏古老的灯。,simplified,我:wo3|买:mai3|了:le|一:yi1|盏:zhan3|古:gu3|老:lao3|的:de|灯:deng1|。:,I bought an old lamp.
+385,你可以坐船去那。,neutral,你:ni3|可:ke3|以:yi3|坐:zuo4|船:chuan2|去:qu4|那:na4|。:,You can take a boat there.
+386,说和做是两码事。,simplified,说:shuo1|和:he2|做:zuo4|是:shi4|两:liang3|码:ma3|事:shi4|。:,Saying and doing are two different things.
+387,他说得好像知道这个秘密一样。,simplified,他:ta1|说:shuo1|得:de2|好:hao3|像:xiang4|知:zhi1|道:dao4|这:zhe4|个:ge|秘:mi4|密:mi4|一:yi1|样:yang4|。:,He talks as if he knows the secret.
+388,他拿到了现代文学的文凭。,simplified,他:ta1|拿:na2|到:dao4|了:le|现:xian4|代:dai4|文:wen2|学:xue2|的:de|文:wen2|凭:ping2|。:,He obtained a degree in modern literature.
+389,他不蠢。,neutral,他:ta1|不:bu4|蠢:chun3|。:,He is not stupid.
+390,爱，就是一个人把另一个人的心揉碎的过程。,simplified,爱:ai4|，:|就:jiu4|是:shi4|一:yi2|个:ge4|人:ren2|把:ba3|另:ling4|一:yi2|个:ge4|人:ren2|的:de|心:xin1|揉:rou2|碎:sui4|的:de|过:guo4|程:cheng2|。:,Love is the process of one person crushing another's heart.
+391,他们生活得很幸福。,simplified,他:ta1|们:men|生:sheng1|活:huo2|得:de2|很:hen3|幸:xing4|福:fu2|。:,They live very happily.
+392,她有很多事要做。,neutral,她:ta1|有:you3|很:hen3|多:duo1|事:shi4|要:yao4|做:zuo4|。:,She has a lot to do.
+393,我直视他的眼睛。,simplified,我:wo3|直:zhi2|视:shi4|他:ta1|的:de|眼:yan3|睛:jing1|。:,I looked him straight in the eye.
+394,全体销售人员通宵达旦地工作了一周。,simplified,全:quan2|体:ti3|销:xiao1|售:shou4|人:ren2|员:yuan2|通:tong1|宵:xiao1|达:da2|旦:dan4|地:di4|工:gong1|作:zuo4|了:le|一:yi1|周:zhou1|。:,All the salespeople worked tirelessly for a week.
+395,这个诗人兼学者死了。,simplified,这:zhe4|个:ge|诗:shi1|人:ren2|兼:jian1|学:xue2|者:zhe3|死:si3|了:le|。:,This poet and scholar has died.
+396,他简单地阐述了他的理由。,simplified,他:ta1|简:jian3|单:dan1|地:di4|阐:chan3|述:shu4|了:le|他:ta1|的:de|理:li3|由:you2|。:,He simply stated his reasons.
+397,你还需要茶吗？,simplified,你:ni3|还:hai2|需:xu1|要:yao4|茶:cha2|吗:ma|？:,Do you still need tea?
+398,有效期到1997年3月31日为止。,simplified,有:you3|效:xiao4|期:qi1|到:dao4|1997:|年:nian2|3:|月:yue4|31:|日:ri4|为:wei2|止:zhi3|。:,"Valid until March 31, 1997."
+399,我们去滑雪怎么样？,simplified,我:wo3|们:men|去:qu4|滑:hua2|雪:xue3|怎:zen3|么:me|样:yang4|？:,How about we go skiing?
+400,我们采取了强有力的预防措施。,simplified,我:wo3|们:men|采:cai3|取:qu3|了:le|强:qiang2|有:you3|力:li4|的:de|预:yu4|防:fang2|措:cuo4|施:shi1|。:,We took strong preventive measures.
+401,他在森林中迷了路。,neutral,他:ta1|在:zai4|森:sen1|林:lin2|中:zhong1|迷:mi2|了:le|路:lu4|。:,He got lost in the forest.
+402,不要把我们的计划告诉任何人。,simplified,不:bu2|要:yao4|把:ba3|我:wo3|们:men|的:de|计:ji4|划:hua4|告:gao4|诉:su4|任:ren4|何:he2|人:ren2|。:,Don't tell anyone about our plan.
+403,Tom躲在桌子底下。,neutral,Tom:|躲:duo3|在:zai4|桌:zhuo1|子:zi|底:di3|下:xia4|。:,Tom is hiding under the table.
+404,他告诉了我们许多经验教训。,simplified,他:ta1|告:gao4|诉:su4|了:le|我:wo3|们:men|许:xu3|多:duo1|经:jing1|验:yan4|教:jiao4|训:xun4|。:,He shared many lessons with us.
+405,这房子里似乎在办派对。,neutral,这:zhe4|房:fang2|子:zi|里:li3|似:si4|乎:hu1|在:zai4|办:ban4|派:pai4|对:dui4|。:,It seems like there's a party in this house.
+406,我会教你怎么开车。,simplified,我:wo3|会:hui4|教:jiao4|你:ni3|怎:zen3|么:me|开:kai1|车:che1|。:,I will teach you how to drive.
+407,威尼斯的圣马可广场在夏季总是挤满了游客。,simplified,威:wei1|尼:ni2|斯:si1|的:de|圣:sheng4|马:ma3|可:ke3|广:guang3|场:chang3|在:zai4|夏:xia4|季:ji4|总:zong3|是:shi4|挤:ji3|满:man3|了:le|游:you2|客:ke4|。:,St. Mark's Square in Venice is always crowded with tourists in the summer.
+408,我们必须保持家庭传统。,simplified,我:wo3|们:men|必:bi4|须:xu1|保:bao3|持:chi2|家:jia1|庭:ting2|传:chuan2|统:tong3|。:,We must uphold family traditions.
+409,他能游得很快。,neutral,他:ta1|能:neng2|游:you2|得:de2|很:hen3|快:kuai4|。:,He can swim very fast.
+410,一个神圣的仪式在庄严的庙宇中举行。,simplified,一:yi2|个:ge4|神:shen2|圣:sheng4|的:de|仪:yi2|式:shi4|在:zai4|庄:zhuang1|严:yan2|的:de|庙:miao4|宇:yu3|中:zhong1|举:ju3|行:xing2|。:,A sacred ceremony is held in the solemn temple.
+411,我厌倦了我的工作。,simplified,我:wo3|厌:yan4|倦:juan4|了:le|我:wo3|的:de|工:gong1|作:zuo4|。:,I'm tired of my job.
+412,你们周日送货吗？,simplified,你:ni3|们:men|周:zhou1|日:ri4|送:song4|货:huo4|吗:ma|？:,Do you deliver on Sundays?
+413,我想再来一杯啤酒。,simplified,我:wo3|想:xiang3|再:zai4|来:lai2|一:yi1|杯:bei1|啤:pi2|酒:jiu3|。:,I would like another beer.
+414,他可能迷路了。,neutral,他:ta1|可:ke3|能:neng2|迷:mi2|路:lu4|了:le|。:,He might be lost.
+415,他出卖了我。,simplified,他:ta1|出:chu1|卖:mai4|了:le|我:wo3|。:,He betrayed me.
+416,天冷得足以让湖结冰。,simplified,天:tian1|冷:leng3|得:de2|足:zu2|以:yi3|让:rang4|湖:hu2|结:jie2|冰:bing1|。:,It's cold enough for the lake to freeze.
+417,我不知道，也不想知道。,neutral,我:wo3|不:bu4|知:zhi1|道:dao4|，:|也:ye3|不:bu4|想:xiang3|知:zhi1|道:dao4|。:,"I don't know, and I don't want to know."
+418,去年她离开了日本。,simplified,去:qu4|年:nian2|她:ta1|离:li2|开:kai1|了:le|日:ri4|本:ben3|。:,She left Japan last year.
+419,这意味着其他人只能从听你说的话来了解你和喜欢你。,simplified,这:zhe4|意:yi4|味:wei4|着:zhe|其:qi2|他:ta1|人:ren2|只:zhi3|能:neng2|从:cong2|听:ting1|你:ni3|说:shuo1|的:de|话:hua4|来:lai2|了:liao3|解:jie3|你:ni3|和:he2|喜:xi3|欢:huan1|你:ni3|。:,This means others can only get to know and like you by listening to what you say.
+420,今晚我将在朋友家过夜。,simplified,今:jin1|晚:wan3|我:wo3|将:jiang1|在:zai4|朋:peng2|友:you3|家:jia1|过:guo4|夜:ye4|。:,I'll be staying at a friend's house tonight.
+421,我需要购买新的镜架。,simplified,我:wo3|需:xu1|要:yao4|购:gou4|买:mai3|新:xin1|的:de|镜:jing4|架:jia4|。:,I need to buy new frames.
+422,我弟弟手里拿着一个摄像机。,simplified,我:wo3|弟:di4|弟:di|手:shou3|里:li3|拿:na2|着:zhe|一:yi2|个:ge4|摄:she4|像:xiang4|机:ji1|。:,My brother is holding a camera.
+423,我们在这里下车吧。,simplified,我:wo3|们:men|在:zai4|这:zhe4|里:li3|下:xia4|车:che1|吧:ba|。:,Let's get off here.
+424,"Kate, 坐吧。",neutral,"Kate:|,:|坐:zuo4|吧:ba|。:","Kate, have a seat."
+425,我妹妹21岁，是个大学生。,simplified,我:wo3|妹:mei4|妹:mei4|21:|岁:sui4|，:|是:shi4|个:ge4|大:da4|学:xue2|生:sheng1|。:,My sister is 21 and a college student.
+426,你会发现难以满足她。,simplified,你:ni3|会:hui4|发:fa1|现:xian4|难:nan2|以:yi3|满:man3|足:zu2|她:ta1|。:,You will find it hard to satisfy her.
+427,除非我死了！,neutral,除:chu2|非:fei1|我:wo3|死:si3|了:le|！:,Unless I die!
+428,我尊敬长辈。,simplified,我:wo3|尊:zun1|敬:jing4|长:zhang3|辈:bei4|。:,I respect my elders.
+429,有什么比失明更不幸的呢？,neutral,有:you3|什:shen2|么:me|比:bi3|失:shi1|明:ming2|更:geng4|不:bu4|幸:xing4|的:de|呢:ne|？:,What could be more unfortunate than blindness?
+430,他们的合同在这个月底到期。,simplified,他:ta1|们:men|的:de|合:he2|同:tong2|在:zai4|这:zhe4|个:ge|月:yue4|底:di3|到:dao4|期:qi1|。:,Their contract expires at the end of this month.
+431,帮我一下。,neutral,帮:bang1|我:wo3|一:yi1|下:xia4|。:,Help me out.
+432,爱都是嫉妒的。,simplified,爱:ai4|都:dou1|是:shi4|嫉:ji2|妒:du4|的:de|。:,Love is always jealous.
+433,仅三分之一的成员出席了会议。,simplified,仅:jin3|三:san1|分:fen1|之:zhi1|一:yi1|的:de|成:cheng2|员:yuan2|出:chu1|席:xi2|了:le|会:hui4|议:yi4|。:,Only one-third of the members attended the meeting.
+434,让我看看那些照片。,simplified,让:rang4|我:wo3|看:kan4|看:kan4|那:na4|些:xie1|照:zhao4|片:pian1|。:,Let me see those photos.
+435,厕所冲水不正常。,simplified,厕:ce4|所:suo3|冲:chong1|水:shui3|不:bu4|正:zheng4|常:chang2|。:,The toilet doesn't flush properly.
+436,我们的孩子喜欢狗，但我更喜欢猫。,simplified,我:wo3|们:men|的:de|孩:hai2|子:zi|喜:xi3|欢:huan1|狗:gou3|，:|但:dan4|我:wo3|更:geng4|喜:xi3|欢:huan1|猫:mao1|。:,"Our child likes dogs, but I prefer cats."
+437,我欠她10美元。,neutral,我:wo3|欠:qian4|她:ta1|10:|美:mei3|元:yuan2|。:,I owe her 10 dollars.
+438,我们必须考虑到他很年轻。,simplified,我:wo3|们:men|必:bi4|须:xu1|考:kao3|虑:lv4|到:dao4|他:ta1|很:hen3|年:nian2|轻:qing1|。:,We must take into account that he is very young.
+439,她一到，我们就开始。,simplified,她:ta1|一:yi1|到:dao4|，:|我:wo3|们:men|就:jiu4|开:kai1|始:shi3|。:,We will start as soon as she arrives.
+440,我挑不出他的毛病。,neutral,我:wo3|挑:tiao1|不:bu4|出:chu1|他:ta1|的:de|毛:mao2|病:bing4|。:,I can't find any faults with him.
+441,你能为我腾出几分钟时间吗?,simplified,你:ni3|能:neng2|为:wei4|我:wo3|腾:teng2|出:chu1|几:ji3|分:fen1|钟:zhong1|时:shi2|间:jian1|吗:ma|?:,Can you spare a few minutes for me?
+442,2月我们有个短期休假。,simplified,2:|月:yue4|我:wo3|们:men|有:you3|个:ge4|短:duan3|期:qi1|休:xiu1|假:jia4|。:,We have a short vacation in February.
+443,你有义务还债。,simplified,你:ni3|有:you3|义:yi4|务:wu4|还:huan2|债:zhai4|。:,You have an obligation to pay back the debt.
+444,她没有辜负我们的期望。,simplified,她:ta1|没:mei2|有:you3|辜:gu1|负:fu4|我:wo3|们:men|的:de|期:qi1|望:wang4|。:,She did not disappoint our expectations.
+445,停车场是免费的。,simplified,停:ting2|车:che1|场:chang3|是:shi4|免:mian3|费:fei4|的:de|。:,The parking lot is free.
+446,他父母对他期望过高。,neutral,他:ta1|父:fu4|母:mu3|对:dui4|他:ta1|期:qi1|望:wang4|过:guo4|高:gao1|。:,His parents have high expectations for him.
+447,问题是我们如何应付目前的困难。,simplified,问:wen4|题:ti2|是:shi4|我:wo3|们:men|如:ru2|何:he2|应:ying4|付:fu4|目:mu4|前:qian2|的:de|困:kun4|难:nan2|。:,The question is how we deal with the current difficulties.
+448,她戴上了她的帽子。,neutral,她:ta1|戴:dai4|上:shang4|了:le|她:ta1|的:de|帽:mao4|子:zi|。:,She put on her hat.
+449,我想看看。,neutral,我:wo3|想:xiang3|看:kan4|看:kan4|。:,I want to take a look.
+450,你在听我说吗？,simplified,你:ni3|在:zai4|听:ting1|我:wo3|说:shuo1|吗:ma|？:,Are you listening to me?
+451,孩子在这条河里游泳太危险了。,simplified,孩:hai2|子:zi|在:zai4|这:zhe4|条:tiao2|河:he2|里:li3|游:you2|泳:yong3|太:tai4|危:wei1|险:xian3|了:le|。:,It's too dangerous for children to swim in this river.
+452,报纸、杂志和新闻广播讲述着世界上正在发生的事。,simplified,报:bao4|纸:zhi3|、:|杂:za2|志:zhi4|和:he2|新:xin1|闻:wen2|广:guang3|播:bo1|讲:jiang3|述:shu4|着:zhe|世:shi4|界:jie4|上:shang4|正:zheng4|在:zai4|发:fa1|生:sheng1|的:de|事:shi4|。:,"Newspapers, magazines, and news broadcasts report on what is happening in the world."
+453,每年有成千上万的外国人访问日本。,simplified,每:mei3|年:nian2|有:you3|成:cheng2|千:qian1|上:shang4|万:wan4|的:de|外:wai4|国:guo2|人:ren2|访:fang3|问:wen4|日:ri4|本:ben3|。:,Thousands of foreigners visit Japan every year.
+454,这被认为是一件大事。,simplified,这:zhe4|被:bei4|认:ren4|为:wei2|是:shi4|一:yi1|件:jian4|大:da4|事:shi4|。:,This is considered a big deal.
+455,如果你快一点，还能赶上他。,neutral,如:ru2|果:guo3|你:ni3|快:kuai4|一:yi4|点:dian3|，:|还:hai2|能:neng2|赶:gan3|上:shang4|他:ta1|。:,"If you hurry, you can still catch up with him."
+456,老人试图游5公里。,simplified,老:lao3|人:ren2|试:shi4|图:tu2|游:you2|5:|公:gong1|里:li3|。:,The old man tried to swim 5 kilometers.
+457,除了雨天，我都是骑车去上班的。,simplified,除:chu2|了:le|雨:yu3|天:tian1|，:|我:wo3|都:dou1|是:shi4|骑:qi2|车:che1|去:qu4|上:shang4|班:ban1|的:de|。:,I ride my bike to work every day except rainy days.
+458,她原谅了男孩的粗鲁。,simplified,她:ta1|原:yuan2|谅:liang4|了:le|男:nan2|孩:hai2|的:de|粗:cu1|鲁:lu3|。:,She forgave the boy for being rude.
+459,病人随时会死。,neutral,病:bing4|人:ren2|随:sui2|时:shi2|会:hui4|死:si3|。:,The patient could die at any moment.
+460,是它的两倍大。,neutral,是:shi4|它:ta1|的:de|两:liang3|倍:bei4|大:da4|。:,It's twice its size.
+461,一个人要为他的行为负责。,simplified,一:yi2|个:ge4|人:ren2|要:yao4|为:wei4|他:ta1|的:de|行:xing2|为:wei2|负:fu4|责:ze2|。:,A person must take responsibility for their actions.
+462,你会代替我去派对吗？,simplified,你:ni3|会:hui4|代:dai4|替:ti4|我:wo3|去:qu4|派:pai4|对:dui4|吗:ma|？:,Will you go to the party in my place?
+463,她放下手中的针线活，并站了起来。,simplified,她:ta1|放:fang4|下:xia4|手:shou3|中:zhong1|的:de|针:zhen1|线:xian4|活:huo2|，:|并:bing4|站:zhan4|了:le|起:qi3|来:lai2|。:,She put down her sewing and stood up.
+464,这是找零。,neutral,这:zhe4|是:shi4|找:zhao3|零:ling2|。:,This is your change.
+465,他是日本最伟大的艺术家之一。,simplified,他:ta1|是:shi4|日:ri4|本:ben3|最:zui4|伟:wei3|大:da4|的:de|艺:yi4|术:shu4|家:jia1|之:zhi1|一:yi1|。:,He is one of the greatest artists in Japan.
+466,父亲常常在空闲时间读侦探小说。,simplified,父:fu4|亲:qin1|常:chang2|常:chang2|在:zai4|空:kong4|闲:xian2|时:shi2|间:jian1|读:du2|侦:zhen1|探:tan4|小:xiao3|说:shuo1|。:,My father often reads detective novels in his free time.
+467,我通常在晚上洗澡。,neutral,我:wo3|通:tong1|常:chang2|在:zai4|晚:wan3|上:shang4|洗:xi3|澡:zao3|。:,I usually take a shower in the evening.
+468,这对他没有影响。,neutral,这:zhe4|对:dui4|他:ta1|没:mei2|有:you3|影:ying3|响:xiang3|。:,It has no effect on him.
+469,他每天去学校学习。,simplified,他:ta1|每:mei3|天:tian1|去:qu4|学:xue2|校:xiao4|学:xue2|习:xi2|。:,He goes to school to study every day.
+470,妈妈为我准备了午饭。,simplified,妈:ma1|妈:ma1|为:wei4|我:wo3|准:zhun3|备:bei4|了:le|午:wu3|饭:fan4|。:,Mom prepared lunch for me.
+471,你能再给我点茶吗？,simplified,你:ni3|能:neng2|再:zai4|给:gei3|我:wo3|点:dian3|茶:cha2|吗:ma|？:,Can you give me some more tea?
+472,一些人通过阅读来放松。,simplified,一:yi1|些:xie1|人:ren2|通:tong1|过:guo4|阅:yue4|读:du2|来:lai2|放:fang4|松:song1|。:,Some people relax by reading.
+473,整个夏天，我们在那里过得很愉快。,simplified,整:zheng3|个:ge4|夏:xia4|天:tian1|，:|我:wo3|们:men|在:zai4|那:na4|里:li3|过:guo4|得:de2|很:hen3|愉:yu2|快:kuai4|。:,We had a great time there all summer.
+474,有了坚定的目标，你会做得很好。,simplified,有:you3|了:le|坚:jian1|定:ding4|的:de|目:mu4|标:biao1|，:|你:ni3|会:hui4|做:zuo4|得:de2|很:hen3|好:hao3|。:,"With a clear goal, you'll do well."
+475,我厌倦了他的老笑话。,simplified,我:wo3|厌:yan4|倦:juan4|了:le|他:ta1|的:de|老:lao3|笑:xiao4|话:hua4|。:,I'm tired of his old jokes.
+476,她的眼里涌出了泪水。,neutral,她:ta1|的:de|眼:yan3|里:li3|涌:yong3|出:chu1|了:le|泪:lei4|水:shui3|。:,Tears welled up in her eyes.
+477,公园里有很多人。,neutral,公:gong1|园:yuan2|里:li3|有:you3|很:hen3|多:duo1|人:ren2|。:,There are many people in the park.
+478,第一排的座位5美元。,neutral,第:di4|一:yi1|排:pai2|的:de|座:zuo4|位:wei4|5:|美:mei3|元:yuan2|。:,The front row seats are 5 dollars.
+479,你更喜欢哪个，这个还是那个？,neutral,你:ni3|更:geng4|喜:xi3|欢:huan1|哪:na3|个:ge|，:|这:zhe4|个:ge|还:hai2|是:shi4|那:na4|个:ge|？:,"Which do you prefer, this one or that one?"
+480,我小时候常常独自玩耍。,neutral,我:wo3|小:xiao3|时:shi2|候:hou4|常:chang2|常:chang2|独:du2|自:zi4|玩:wan2|耍:shua3|。:,I often played alone when I was a child.
+481,这是去牛津大学的车吗？,simplified,这:zhe4|是:shi4|去:qu4|牛:niu2|津:jin1|大:da4|学:xue2|的:de|车:che1|吗:ma|？:,Is this the bus to Oxford University?
+482,我们将于下周日结婚。,simplified,我:wo3|们:men|将:jiang1|于:yu2|下:xia4|周:zhou1|日:ri4|结:jie2|婚:hun1|。:,We will get married next Sunday.
+483,你觉得这件毛衣怎么样？,simplified,你:ni3|觉:jue2|得:de|这:zhe4|件:jian4|毛:mao2|衣:yi1|怎:zen3|么:me|样:yang4|？:,What do you think of this sweater?
+484,小丑做了个鬼脸。,simplified,小:xiao3|丑:chou3|做:zuo4|了:le|个:ge4|鬼:gui3|脸:lian3|。:,The clown made a funny face.
+485,她下周日回家，也就是10号。,neutral,她:ta1|下:xia4|周:zhou1|日:ri4|回:hui2|家:jia1|，:|也:ye3|就:jiu4|是:shi4|10:|号:hao4|。:,"She will go home next Sunday, which is the 10th."
+486,我们的生活不是由物质，而是由精神来下定义的。,simplified,我:wo3|们:men|的:de|生:sheng1|活:huo2|不:bu2|是:shi4|由:you2|物:wu4|质:zhi4|，:|而:er2|是:shi4|由:you2|精:jing1|神:shen2|来:lai2|下:xia4|定:ding4|义:yi4|的:de|。:,"Our lives are defined not by material things, but by spirit."
+487,我们有你的尺寸，但是没有那个颜色。,simplified,我:wo3|们:men|有:you3|你:ni3|的:de|尺:chi3|寸:cun4|，:|但:dan4|是:shi4|没:mei2|有:you3|那:na4|个:ge|颜:yan2|色:se4|。:,"We have your size, but not that color."
+488,我赚钱养家。,simplified,我:wo3|赚:zhuan4|钱:qian2|养:yang3|家:jia1|。:,I earn money to support the family.
+489,在这儿等到他回来为止。,simplified,在:zai4|这:zhe4|儿:er2|等:deng3|到:dao4|他:ta1|回:hui2|来:lai2|为:wei2|止:zhi3|。:,Wait here until he comes back.
+490,你不应该在学校大楼里奔跑。,simplified,你:ni3|不:bu4|应:ying1|该:gai1|在:zai4|学:xue2|校:xiao4|大:da4|楼:lou2|里:li3|奔:ben1|跑:pao3|。:,You shouldn't run in the school building.
+491,我们国家不缺石油。,simplified,我:wo3|们:men|国:guo2|家:jia1|不:bu4|缺:que1|石:shi2|油:you2|。:,Our country is not lacking in oil.
+492,他被选为市长。,simplified,他:ta1|被:bei4|选:xuan3|为:wei4|市:shi4|长:zhang3|。:,He was elected as mayor.
+493,这男人和他妻子互相帮助。,neutral,这:zhe4|男:nan2|人:ren2|和:he2|他:ta1|妻:qi1|子:zi3|互:hu4|相:xiang1|帮:bang1|助:zhu4|。:,The man and his wife help each other.
+494,爸爸今天很不耐烦。,simplified,爸:ba4|爸:ba4|今:jin1|天:tian1|很:hen3|不:bu4|耐:nai4|烦:fan2|。:,Dad is very impatient today.
+495,那个学生跑得很快，不是吗？,simplified,那:na4|个:ge|学:xue2|生:sheng1|跑:pao3|得:de2|很:hen3|快:kuai4|，:|不:bu2|是:shi4|吗:ma|？:,"That student runs very fast, doesn't he?"
+496,你是我的阳光。,simplified,你:ni3|是:shi4|我:wo3|的:de|阳:yang2|光:guang1|。:,You are my sunshine.
+497,这音乐值得听许多次。,simplified,这:zhe4|音:yin1|乐:yue4|值:zhi2|得:de|听:ting1|许:xu3|多:duo1|次:ci4|。:,This music is worth listening to many times.
+498,听到这个让我感觉热血沸腾。,simplified,听:ting1|到:dao4|这:zhe4|个:ge|让:rang4|我:wo3|感:gan3|觉:jue2|热:re4|血:xue4|沸:fei4|腾:teng2|。:,Hearing this makes me feel excited.
+499,许多人在工业城市工作。,simplified,许:xu3|多:duo1|人:ren2|在:zai4|工:gong1|业:ye4|城:cheng2|市:shi4|工:gong1|作:zuo4|。:,Many people work in industrial cities.
+500,严重吗？,simplified,严:yan2|重:zhong4|吗:ma|？:,Is it serious?
+501,物价上涨了。,simplified,物:wu4|价:jia4|上:shang4|涨:zhang3|了:le|。:,Prices have gone up.
+502,那栋灰色的大楼吗？,simplified,那:na4|栋:dong4|灰:hui1|色:se4|的:de|大:da4|楼:lou2|吗:ma|？:,That gray building?
+503,这首歌让我想家了。,simplified,这:zhe4|首:shou3|歌:ge1|让:rang4|我:wo3|想:xiang3|家:jia1|了:le|。:,This song makes me homesick.
+504,你该戒烟戒酒了。,simplified,你:ni3|该:gai1|戒:jie4|烟:yan1|戒:jie4|酒:jiu3|了:le|。:,You should quit smoking and drinking.
+505,爸爸乘早上7点的地铁去上班。,simplified,爸:ba4|爸:ba4|乘:cheng2|早:zao3|上:shang4|7:|点:dian3|的:de|地:di4|铁:tie3|去:qu4|上:shang4|班:ban1|。:,Dad takes the subway to work at 7 in the morning.
+506,我认识史密斯先生有好多年了。,simplified,我:wo3|认:ren4|识:shi2|史:shi3|密:mi4|斯:si1|先:xian1|生:sheng1|有:you3|好:hao3|多:duo1|年:nian2|了:le|。:,I have known Mr. Smith for many years.
+507,我不会说法语，也不会说德语。,simplified,我:wo3|不:bu2|会:hui4|说:shuo1|法:fa3|语:yu3|，:|也:ye3|不:bu2|会:hui4|说:shuo1|德:de2|语:yu3|。:,"I can't speak French, nor can I speak German."
+508,我们按例处罚了他。,simplified,我:wo3|们:men|按:an4|例:li4|处:chu3|罚:fa2|了:le|他:ta1|。:,We punished him as usual.
+509,老实说，我不喜欢他。,simplified,老:lao3|实:shi2|说:shuo1|，:|我:wo3|不:bu4|喜:xi3|欢:huan1|他:ta1|。:,"To be honest, I don't like him."
+510,要掌握法语一点都不容易。,simplified,要:yao4|掌:zhang3|握:wo4|法:fa3|语:yu3|一:yi4|点:dian3|都:dou1|不:bu4|容:rong2|易:yi4|。:,It's not easy to master French at all.
+511,我的房间号是多少？,simplified,我:wo3|的:de|房:fang2|间:jian1|号:hao4|是:shi4|多:duo1|少:shao3|？:,What is my room number?
+512,过河拆桥。,simplified,过:guo4|河:he2|拆:chai1|桥:qiao2|。:,Burn the bridge after crossing it.
+513,油墨快没了。,neutral,油:you2|墨:mo4|快:kuai4|没:mei2|了:le|。:,The ink is almost gone.
+514,老人坐了下来。,simplified,老:lao3|人:ren2|坐:zuo4|了:le|下:xia4|来:lai2|。:,The old man sat down.
+515,他出国留学了。,simplified,他:ta1|出:chu1|国:guo2|留:liu2|学:xue2|了:le|。:,He went abroad to study.
+516,我用两千日元买了这本书。,simplified,我:wo3|用:yong4|两:liang3|千:qian1|日:ri4|元:yuan2|买:mai3|了:le|这:zhe4|本:ben3|书:shu1|。:,I bought this book for two thousand yen.
+517,这部电影为她赢得了人气。,simplified,这:zhe4|部:bu4|电:dian4|影:ying3|为:wei4|她:ta1|赢:ying2|得:de2|了:le|人:ren2|气:qi4|。:,This movie won her popularity.
+518,她给客人看了她的宝宝。,simplified,她:ta1|给:gei3|客:ke4|人:ren2|看:kan4|了:le|她:ta1|的:de|宝:bao3|宝:bao3|。:,She showed her baby to the guests.
+519,他很快就会回来的。,simplified,他:ta1|很:hen3|快:kuai4|就:jiu4|会:hui4|回:hui2|来:lai2|的:de|。:,He will be back soon.
+520,这只是偶发事件。,simplified,这:zhe4|只:zhi3|是:shi4|偶:ou3|发:fa1|事:shi4|件:jian4|。:,This is just an isolated incident.
+521,他进来的同时，铃响了。,simplified,他:ta1|进:jin4|来:lai2|的:de|同:tong2|时:shi2|，:|铃:ling2|响:xiang3|了:le|。:,The bell rang as he came in.
+522,据说他爸爸在外国去世了。,simplified,据:ju4|说:shuo1|他:ta1|爸:ba4|爸:ba4|在:zai4|外:wai4|国:guo2|去:qu4|世:shi4|了:le|。:,It is said that his father passed away abroad.
+523,消防车到达之前，房子就全烧了。,simplified,消:xiao1|防:fang2|车:che1|到:dao4|达:da2|之:zhi1|前:qian2|，:|房:fang2|子:zi|就:jiu4|全:quan2|烧:shao1|了:le|。:,The house was completely burned down before the fire truck arrived.
+524,我没见过也没听过这样的事。,simplified,我:wo3|没:mei2|见:jian4|过:guo4|也:ye3|没:mei2|听:ting1|过:guo4|这:zhe4|样:yang4|的:de|事:shi4|。:,I have neither seen nor heard of such a thing.
+525,你支持还是反对堕胎？,neutral,你:ni3|支:zhi1|持:chi2|还:hai2|是:shi4|反:fan3|对:dui4|堕:duo4|胎:tai1|？:,Do you support or oppose abortion?
+526,Ken七月底要去美国了。,simplified,Ken:|七:qi1|月:yue4|底:di3|要:yao4|去:qu4|美:mei3|国:guo2|了:le|。:,Ken is going to the United States at the end of July.
+527,你的学校在这个城市吗？,simplified,你:ni3|的:de|学:xue2|校:xiao4|在:zai4|这:zhe4|个:ge|城:cheng2|市:shi4|吗:ma|？:,Is your school in this city?
+528,最后她没有来。,simplified,最:zui4|后:hou4|她:ta1|没:mei2|有:you3|来:lai2|。:,"In the end, she didn't come."
+529,你叔叔让你开他的车了吗？,simplified,你:ni3|叔:shu1|叔:shu1|让:rang4|你:ni3|开:kai1|他:ta1|的:de|车:che1|了:le|吗:ma|？:,Did your uncle let you drive his car?
+530,昨晚我领居家着火了。,simplified,昨:zuo2|晚:wan3|我:wo3|领:ling3|居:ju1|家:jia1|着:zhao2|火:huo3|了:le|。:,My neighbor's house caught fire last night.
+531,你的提议值得考虑。,simplified,你:ni3|的:de|提:ti2|议:yi4|值:zhi2|得:de|考:kao3|虑:lv4|。:,Your proposal is worth considering.
+532,她现在正待在她叔叔家。,simplified,她:ta1|现:xian4|在:zai4|正:zheng4|待:dai4|在:zai4|她:ta1|叔:shu1|叔:shu1|家:jia1|。:,She is currently staying at her uncle's house.
+533,你对女人有一套。,neutral,你:ni3|对:dui4|女:nv3|人:ren2|有:you3|一:yi1|套:tao4|。:,You have a way with women.
+534,我身负一个重要的任务。,simplified,我:wo3|身:shen1|负:fu4|一:yi2|个:ge4|重:zhong4|要:yao4|的:de|任:ren4|务:wu4|。:,I have an important mission.
+535,着火了！快跑啊！,neutral,着:zhao2|火:huo3|了:le|！:|快:kuai4|跑:pao3|啊:a|！:,There's a fire! Run!
+536,好习惯是从小养成的。,simplified,好:hao3|习:xi2|惯:guan4|是:shi4|从:cong2|小:xiao3|养:yang3|成:cheng2|的:de|。:,Good habits are formed from a young age.
+537,我们偶然碰到了她。,simplified,我:wo3|们:men|偶:ou3|然:ran2|碰:peng4|到:dao4|了:le|她:ta1|。:,We ran into her by chance.
+538,祝你旅途愉快。,neutral,祝:zhu4|你:ni3|旅:lv3|途:tu2|愉:yu2|快:kuai4|。:,Have a pleasant journey.
+539,我开门的时候弄坏了锁。,simplified,我:wo3|开:kai1|门:men2|的:de|时:shi2|候:hou4|弄:nong4|坏:huai4|了:le|锁:suo3|。:,I broke the lock when I opened the door.
+540,我有两个儿子，一个在东京，另一个在名古屋。,simplified,我:wo3|有:you3|两:liang3|个:ge4|儿:er2|子:zi|，:|一:yi2|个:ge4|在:zai4|东:dong1|京:jing1|，:|另:ling4|一:yi2|个:ge4|在:zai4|名:ming2|古:gu3|屋:wu1|。:,"I have two sons, one in Tokyo and the other in Nagoya."
+541,她是什么时候出生的？,neutral,她:ta1|是:shi4|什:shen2|么:me|时:shi2|候:hou4|出:chu1|生:sheng1|的:de|？:,When was she born?
+542,你现在好点了吗？,simplified,你:ni3|现:xian4|在:zai4|好:hao3|点:dian3|了:le|吗:ma|？:,Are you feeling better now?
+543,我胃痛。,neutral,我:wo3|胃:wei4|痛:tong4|。:,I have a stomachache.
+544,一些同学看见我给了他巧克力。,simplified,一:yi1|些:xie1|同:tong2|学:xue2|看:kan4|见:jian4|我:wo3|给:gei3|了:le|他:ta1|巧:qiao3|克:ke4|力:li4|。:,Some classmates saw me give him chocolate.
+545,许多词是根据拼写来发音的，不过有些不是。,simplified,许:xu3|多:duo1|词:ci2|是:shi4|根:gen1|据:ju4|拼:pin1|写:xie3|来:lai2|发:fa1|音:yin1|的:de|，:|不:bu4|过:guo4|有:you3|些:xie1|不:bu2|是:shi4|。:,"Many words are pronounced based on their spelling, but some are not."
+546,国际货币基金组织不考虑再借款给该国。,simplified,国:guo2|际:ji4|货:huo4|币:bi4|基:ji1|金:jin1|组:zu3|织:zhi1|不:bu4|考:kao3|虑:lv4|再:zai4|借:jie4|款:kuan3|给:gei3|该:gai1|国:guo2|。:,The International Monetary Fund is not considering lending money to the country again.
+547,因为我想成为翻译。,simplified,因:yin1|为:wei4|我:wo3|想:xiang3|成:cheng2|为:wei2|翻:fan1|译:yi4|。:,Because I want to become a translator.
+548,乡间有很多树。,simplified,乡:xiang1|间:jian1|有:you3|很:hen3|多:duo1|树:shu4|。:,There are many trees in the countryside.
+549,道路结冰导致了很多起事故。,simplified,道:dao4|路:lu4|结:jie2|冰:bing1|导:dao3|致:zhi4|了:le|很:hen3|多:duo1|起:qi3|事:shi4|故:gu4|。:,Icy roads caused many accidents.
+550,迟做总比不做好。,simplified,迟:chi2|做:zuo4|总:zong3|比:bi3|不:bu4|做:zuo4|好:hao3|。:,Doing it late is better than not doing it at all.
+551,你乘飞机还是乘火车去？,simplified,你:ni3|乘:cheng2|飞:fei1|机:ji1|还:hai2|是:shi4|乘:cheng2|火:huo3|车:che1|去:qu4|？:,Are you taking a plane or a train?
+552,我洗完碗后看了电视。,simplified,我:wo3|洗:xi3|完:wan2|碗:wan3|后:hou4|看:kan4|了:le|电:dian4|视:shi4|。:,I watched TV after washing the dishes.
+553,这里允许拍照吗？,simplified,这:zhe4|里:li3|允:yun3|许:xu3|拍:pai1|照:zhao4|吗:ma|？:,Is photography allowed here?
+554,他是非不分。,neutral,他:ta1|是:shi4|非:fei1|不:bu4|分:fen1|。:,He can't tell right from wrong.
+555,数据表明年轻人抽烟的现象没有减少。,simplified,数:shu4|据:ju4|表:biao3|明:ming2|年:nian2|轻:qing1|人:ren2|抽:chou1|烟:yan1|的:de|现:xian4|象:xiang4|没:mei2|有:you3|减:jian3|少:shao3|。:,Data shows that smoking among young people has not decreased.
+556,奈良是个非常古老的城市。,neutral,奈:nai4|良:liang2|是:shi4|个:ge4|非:fei1|常:chang2|古:gu3|老:lao3|的:de|城:cheng2|市:shi4|。:,Nara is a very ancient city.
+557,她迷路了，紧接着天开始下雨了。,simplified,她:ta1|迷:mi2|路:lu4|了:le|，:|紧:jin3|接:jie1|着:zhe|天:tian1|开:kai1|始:shi3|下:xia4|雨:yu3|了:le|。:,"She got lost, and then it started to rain."
+558,她认为计划很好，但不可行。,simplified,她:ta1|认:ren4|为:wei2|计:ji4|划:hua4|很:hen3|好:hao3|，:|但:dan4|不:bu4|可:ke3|行:xing2|。:,"She thinks the plan is good, but impractical."
+559,我们为表演者鼓掌。,simplified,我:wo3|们:men|为:wei4|表:biao3|演:yan3|者:zhe3|鼓:gu3|掌:zhang3|。:,We applauded the performers.
+560,我在找关于古罗马历史的书。,simplified,我:wo3|在:zai4|找:zhao3|关:guan1|于:yu2|古:gu3|罗:luo2|马:ma3|历:li4|史:shi3|的:de|书:shu1|。:,I'm looking for books about ancient Roman history.
+561,我没朋友帮我。,neutral,我:wo3|没:mei2|朋:peng2|友:you3|帮:bang1|我:wo3|。:,I have no friends to help me.
+562,我不想等那么久。,neutral,我:wo3|不:bu4|想:xiang3|等:deng3|那:na4|么:me|久:jiu3|。:,I don't want to wait that long.
+563,他的忠告总是很明智。,simplified,他:ta1|的:de|忠:zhong1|告:gao4|总:zong3|是:shi4|很:hen3|明:ming2|智:zhi4|。:,His advice is always very wise.
+564,我们都期待看到你和你的家人。,simplified,我:wo3|们:men|都:dou1|期:qi1|待:dai4|看:kan4|到:dao4|你:ni3|和:he2|你:ni3|的:de|家:jia1|人:ren2|。:,We all look forward to seeing you and your family.
+565,这是这个诗人出生的村子。,simplified,这:zhe4|是:shi4|这:zhe4|个:ge|诗:shi1|人:ren2|出:chu1|生:sheng1|的:de|村:cun1|子:zi|。:,This is the village where the poet was born.
+566,让窗子关着。,simplified,让:rang4|窗:chuang1|子:zi|关:guan1|着:zhe|。:,Keep the window closed.
+567,他的故事一部分是真的。,neutral,他:ta1|的:de|故:gu4|事:shi4|一:yi1|部:bu4|分:fen4|是:shi4|真:zhen1|的:de|。:,Part of his story is true.
+568,他是美国人。,simplified,他:ta1|是:shi4|美:mei3|国:guo2|人:ren2|。:,He is American.
+569,史密斯夫妇现在分居了。,simplified,史:shi3|密:mi4|斯:si1|夫:fu1|妇:fu4|现:xian4|在:zai4|分:fen1|居:ju1|了:le|。:,The Smiths are now separated.
+570,我们吃面包夹黄油。,simplified,我:wo3|们:men|吃:chi1|面:mian4|包:bao1|夹:jia1|黄:huang2|油:you2|。:,We eat bread with butter.
+571,她不会乘飞机因为害怕坠机。,simplified,她:ta1|不:bu2|会:hui4|乘:cheng2|飞:fei1|机:ji1|因:yin1|为:wei4|害:hai4|怕:pa4|坠:zhui4|机:ji1|。:,She won't take a plane because she's afraid of crashing.
+572,你成功与否取决于你自身的努力。,simplified,你:ni3|成:cheng2|功:gong1|与:yu3|否:fou3|取:qu3|决:jue2|于:yu2|你:ni3|自:zi4|身:shen1|的:de|努:nu3|力:li4|。:,Your success depends on your own efforts.
+573,他受邀做俱乐部的主席。,neutral,他:ta1|受:shou4|邀:yao1|做:zuo4|俱:ju4|乐:le4|部:bu4|的:de|主:zhu3|席:xi2|。:,He was invited to be the president of the club.
+574,知足常乐。,neutral,知:zhi1|足:zu2|常:chang2|乐:le4|。:,Contentment brings happiness.
+575,今晚你可以在他家联络到他。,simplified,今:jin1|晚:wan3|你:ni3|可:ke3|以:yi3|在:zai4|他:ta1|家:jia1|联:lian2|络:luo4|到:dao4|他:ta1|。:,You can reach him at his house tonight.
+576,你工作太努力了。,neutral,你:ni3|工:gong1|作:zuo4|太:tai4|努:nu3|力:li4|了:le|。:,You work too hard.
+577,得不到的东西就最想得到。,simplified,得:de2|不:bu2|到:dao4|的:de|东:dong1|西:xi1|就:jiu4|最:zui4|想:xiang3|得:de|到:dao4|。:,The things we can't have are the ones we desire the most.
+578,学校8点半开始上课。,simplified,学:xue2|校:xiao4|8:|点:dian3|半:ban4|开:kai1|始:shi3|上:shang4|课:ke4|。:,Classes start at 8:30 at school.
+579,这个月底前，我们必须交报告。,simplified,这:zhe4|个:ge|月:yue4|底:di3|前:qian2|，:|我:wo3|们:men|必:bi4|须:xu1|交:jiao1|报:bao4|告:gao4|。:,We must submit the report by the end of this month.
+580,他这个时候该到了。,simplified,他:ta1|这:zhe4|个:ge|时:shi2|候:hou4|该:gai1|到:dao4|了:le|。:,He should have arrived by now.
+581,我很感激你在我生病的时候照顾我。,simplified,我:wo3|很:hen3|感:gan3|激:ji1|你:ni3|在:zai4|我:wo3|生:sheng1|病:bing4|的:de|时:shi2|候:hou4|照:zhao4|顾:gu4|我:wo3|。:,I appreciate you taking care of me when I was sick.
+582,很难说明天的天气将会怎样。,simplified,很:hen3|难:nan2|说:shuo1|明:ming2|天:tian1|的:de|天:tian1|气:qi4|将:jiang1|会:hui4|怎:zen3|样:yang4|。:,It's hard to say what the weather will be like tomorrow.
+583,他丢了块肉给一条狗。,simplified,他:ta1|丢:diu1|了:le|块:kuai4|肉:rou4|给:gei3|一:yi1|条:tiao2|狗:gou3|。:,He threw a piece of meat to a dog.
+584,我会给你开个药方。,simplified,我:wo3|会:hui4|给:gei3|你:ni3|开:kai1|个:ge4|药:yao4|方:fang1|。:,I will write you a prescription.
+585,不要探听别人的事。,neutral,不:bu2|要:yao4|探:tan4|听:ting1|别:bie2|人:ren2|的:de|事:shi4|。:,Don't pry into other people's affairs.
+586,纽约市的人口有多少？,simplified,纽:niu3|约:yue1|市:shi4|的:de|人:ren2|口:kou3|有:you3|多:duo1|少:shao3|？:,What is the population of New York City?
+587,天知道他去哪儿了。,neutral,天:tian1|知:zhi1|道:dao4|他:ta1|去:qu4|哪:na3|儿:er2|了:le|。:,God knows where he went.
+588,她在一棵树下坐着。,simplified,她:ta1|在:zai4|一:yi1|棵:ke1|树:shu4|下:xia4|坐:zuo4|着:zhe|。:,She is sitting under a tree.
+589,我的一个叔叔给我了一些有用的建议。,simplified,我:wo3|的:de|一:yi2|个:ge4|叔:shu1|叔:shu1|给:gei3|我:wo3|了:le|一:yi1|些:xie1|有:you3|用:yong4|的:de|建:jian4|议:yi4|。:,One of my uncles gave me some useful advice.
+590,她很想要一条新的连衣裙。,simplified,她:ta1|很:hen3|想:xiang3|要:yao4|一:yi1|条:tiao2|新:xin1|的:de|连:lian2|衣:yi1|裙:qun2|。:,She really wants a new dress.
+591,日本人放弃了战争。,neutral,日:ri4|本:ben3|人:ren2|放:fang4|弃:qi4|了:le|战:zhan4|争:zheng1|。:,The Japanese gave up the war.
+592,控制一个班级需要你做老师的所有技能。,simplified,控:kong4|制:zhi4|一:yi2|个:ge4|班:ban1|级:ji2|需:xu1|要:yao4|你:ni3|做:zuo4|老:lao3|师:shi1|的:de|所:suo3|有:you3|技:ji4|能:neng2|。:,Managing a class requires all the skills of a teacher.
+593,我想知道这个冬天在我们的城市会不会下雪。,simplified,我:wo3|想:xiang3|知:zhi1|道:dao4|这:zhe4|个:ge|冬:dong1|天:tian1|在:zai4|我:wo3|们:men|的:de|城:cheng2|市:shi4|会:hui4|不:bu2|会:hui4|下:xia4|雪:xue3|。:,I wonder if it will snow in our city this winter.
+594,他弟弟是个有名的足球选手。,neutral,他:ta1|弟:di4|弟:di|是:shi4|个:ge4|有:you3|名:ming2|的:de|足:zu2|球:qiu2|选:xuan3|手:shou3|。:,His brother is a famous soccer player.
+595,铃响了。,simplified,铃:ling2|响:xiang3|了:le|。:,The bell rang.
+596,响了。,neutral,响:xiang3|了:le|。:,It rang.
+597,她的悲伤无法言喻。,neutral,她:ta1|的:de|悲:bei1|伤:shang1|无:wu2|法:fa3|言:yan2|喻:yu4|。:,Her sadness is beyond words.
+598,我肯定你会喜欢我们今晚的菜肴。,simplified,我:wo3|肯:ken3|定:ding4|你:ni3|会:hui4|喜:xi3|欢:huan1|我:wo3|们:men|今:jin1|晚:wan3|的:de|菜:cai4|肴:yao2|。:,I'm sure you'll enjoy our dishes tonight.
+599,我能问一些问题吗？,simplified,我:wo3|能:neng2|问:wen4|一:yi1|些:xie1|问:wen4|题:ti2|吗:ma|？:,May I ask a few questions?
+600,我期待很快就能收到你的信。,neutral,我:wo3|期:qi1|待:dai4|很:hen3|快:kuai4|就:jiu4|能:neng2|收:shou1|到:dao4|你:ni3|的:de|信:xin4|。:,I look forward to receiving your letter soon.
+601,他在澳大利亚长大。,simplified,他:ta1|在:zai4|澳:ao4|大:da4|利:li4|亚:ya4|长:zhang3|大:da4|。:,He grew up in Australia.
+602,我弟弟没我两年前高。,neutral,我:wo3|弟:di4|弟:di|没:mei2|我:wo3|两:liang3|年:nian2|前:qian2|高:gao1|。:,My brother is not as tall as I was two years ago.
+603,他一直很担心他的女儿。,neutral,他:ta1|一:yi4|直:zhi2|很:hen3|担:dan1|心:xin1|他:ta1|的:de|女:nv3|儿:er2|。:,He has always been very worried about his daughter.
+604,难怪她表示不想再见到他了。因为他们分手了。,simplified,难:nan2|怪:guai4|她:ta1|表:biao3|示:shi4|不:bu4|想:xiang3|再:zai4|见:jian4|到:dao4|他:ta1|了:le|。:|因:yin1|为:wei4|他:ta1|们:men|分:fen1|手:shou3|了:le|。:,No wonder she said she didn't want to see him again. Because they broke up.
+605,他的化学很差。,simplified,他:ta1|的:de|化:hua4|学:xue2|很:hen3|差:cha4|。:,His chemistry is very poor.
+606,教堂位于山脚。,neutral,教:jiao4|堂:tang2|位:wei4|于:yu2|山:shan1|脚:jiao3|。:,The church is located at the foot of the mountain.
+607,在公车上，一个陌生人和我说了话。,simplified,在:zai4|公:gong1|车:che1|上:shang4|，:|一:yi2|个:ge4|陌:mo4|生:sheng1|人:ren2|和:he2|我:wo3|说:shuo1|了:le|话:hua4|。:,"On the bus, a stranger spoke to me."
+608,我很钦佩他的才干。,simplified,我:wo3|很:hen3|钦:qin1|佩:pei4|他:ta1|的:de|才:cai2|干:gan4|。:,I admire his talent.
+609,我猜想你可能是对的。,neutral,我:wo3|猜:cai1|想:xiang3|你:ni3|可:ke3|能:neng2|是:shi4|对:dui4|的:de|。:,I guess you might be right.
+610,老师不可能说过这样的事。,simplified,老:lao3|师:shi1|不:bu4|可:ke3|能:neng2|说:shuo1|过:guo4|这:zhe4|样:yang4|的:de|事:shi4|。:,The teacher couldn't have said such a thing.
+611,失之毫厘，谬之千里。,simplified,失:shi1|之:zhi1|毫:hao2|厘:li2|，:|谬:miu4|之:zhi1|千:qian1|里:li3|。:,A small error can lead to a big mistake.
+612,今天我头痛欲裂。,neutral,今:jin1|天:tian1|我:wo3|头:tou2|痛:tong4|欲:yu4|裂:lie4|。:,I have a splitting headache today.
+613,退休后他的收入少了一半。,neutral,退:tui4|休:xiu1|后:hou4|他:ta1|的:de|收:shou1|入:ru4|少:shao3|了:le|一:yi2|半:ban4|。:,His income was cut in half after retirement.
+614,她答应几时见他？,simplified,她:ta1|答:da1|应:ying4|几:ji3|时:shi2|见:jian4|他:ta1|？:,When did she agree to meet him?
+615,我对你的厚颜无耻感到惊讶。,simplified,我:wo3|对:dui4|你:ni3|的:de|厚:hou4|颜:yan2|无:wu2|耻:chi3|感:gan3|到:dao4|惊:jing1|讶:ya4|。:,I am surprised by your shamelessness.
+616,她太放任她的孩子们了。,simplified,她:ta1|太:tai4|放:fang4|任:ren4|她:ta1|的:de|孩:hai2|子:zi|们:men|了:le|。:,She is too lenient with her children.
+617,年轻人应该尊敬老人。,simplified,年:nian2|轻:qing1|人:ren2|应:ying1|该:gai1|尊:zun1|敬:jing4|老:lao3|人:ren2|。:,Young people should respect the elderly.
+618,他不打算买一个摄像机。,simplified,他:ta1|不:bu4|打:da3|算:suan4|买:mai3|一:yi2|个:ge4|摄:she4|像:xiang4|机:ji1|。:,He doesn't plan to buy a camera.
+619,他在城市里一直受到噪音或者其他的干扰。,simplified,他:ta1|在:zai4|城:cheng2|市:shi4|里:li3|一:yi4|直:zhi2|受:shou4|到:dao4|噪:zao4|音:yin1|或:huo4|者:zhe3|其:qi2|他:ta1|的:de|干:gan1|扰:rao3|。:,He has been disturbed by noise or other distractions in the city.
+620,他们的旅行因为火车延期了。,simplified,他:ta1|们:men|的:de|旅:lv3|行:xing2|因:yin1|为:wei4|火:huo3|车:che1|延:yan2|期:qi1|了:le|。:,Their trip was delayed because of the train.
+621,Steve看上去很高兴。,simplified,Steve:|看:kan4|上:shang4|去:qu4|很:hen3|高:gao1|兴:xing4|。:,Steve looks very happy.
+622,她去过巴黎。,neutral,她:ta1|去:qu4|过:guo4|巴:ba1|黎:li2|。:,She has been to Paris.
+623,我看见书桌上有朵花。,simplified,我:wo3|看:kan4|见:jian4|书:shu1|桌:zhuo1|上:shang4|有:you3|朵:duo3|花:hua1|。:,I saw a flower on the desk.
+624,我头撞到了门，肿了一块。,simplified,我:wo3|头:tou2|撞:zhuang4|到:dao4|了:le|门:men2|，:|肿:zhong3|了:le|一:yi1|块:kuai4|。:,I bumped my head on the door and got a bump.
+625,你必须马上开始。,simplified,你:ni3|必:bi4|须:xu1|马:ma3|上:shang4|开:kai1|始:shi3|。:,You must start right away.
+626,我们在下个加油站停一下。,simplified,我:wo3|们:men|在:zai4|下:xia4|个:ge4|加:jia1|油:you2|站:zhan4|停:ting2|一:yi1|下:xia4|。:,Let's stop at the next gas station.
+627,你做了什么？,neutral,你:ni3|做:zuo4|了:le|什:shen2|么:me|？:,What did you do?
+628,舞台上有著名音乐家吗？,simplified,舞:wu3|台:tai2|上:shang4|有:you3|著:zhu4|名:ming2|音:yin1|乐:yue4|家:jia1|吗:ma|？:,Are there any famous musicians on stage?
+629,请你把冷气调高点。,simplified,请:qing3|你:ni3|把:ba3|冷:leng3|气:qi4|调:diao4|高:gao1|点:dian3|。:,Please turn up the air conditioning a bit.
+630,这不是我喜欢的类型。,simplified,这:zhe4|不:bu2|是:shi4|我:wo3|喜:xi3|欢:huan1|的:de|类:lei4|型:xing2|。:,This is not my type.
+631,我觉得你的工作可以。,simplified,我:wo3|觉:jue2|得:de|你:ni3|的:de|工:gong1|作:zuo4|可:ke3|以:yi3|。:,I think your work is good.
+632,我还有其他选择吗？,simplified,我:wo3|还:hai2|有:you3|其:qi2|他:ta1|选:xuan3|择:ze2|吗:ma|？:,Do I have any other options?
+633,开门的时候我把锁弄坏了。,simplified,开:kai1|门:men2|的:de|时:shi2|候:hou4|我:wo3|把:ba3|锁:suo3|弄:nong4|坏:huai4|了:le|。:,I broke the lock when I opened the door.
+634,她什么时候生的？,neutral,她:ta1|什:shen2|么:me|时:shi2|候:hou4|生:sheng1|的:de|？:,When was she born?
+635,我胃疼。,neutral,我:wo3|胃:wei4|疼:teng2|。:,I have a stomachache.
+636,一些同学看到我给他巧克力了。,simplified,一:yi1|些:xie1|同:tong2|学:xue2|看:kan4|到:dao4|我:wo3|给:gei3|他:ta1|巧:qiao3|克:ke4|力:li4|了:le|。:,Some classmates saw me give him chocolate.
+637,这孩子能数到20。,neutral,这:zhe4|孩:hai2|子:zi|能:neng2|数:shu4|到:dao4|20:|。:,This child can count to 20.
+638,这场秀棒极了，但是门票太贵了。,simplified,这:zhe4|场:chang3|秀:xiu4|棒:bang4|极:ji2|了:le|，:|但:dan4|是:shi4|门:men2|票:piao4|太:tai4|贵:gui4|了:le|。:,"The show was amazing, but the tickets were too expensive."
+639,火车因大雪被耽搁了。,simplified,火:huo3|车:che1|因:yin1|大:da4|雪:xue3|被:bei4|耽:dan1|搁:ge1|了:le|。:,The train was delayed due to heavy snow.
+640,这只梨闻上去很香。,simplified,这:zhe4|只:zhi3|梨:li2|闻:wen2|上:shang4|去:qu4|很:hen3|香:xiang1|。:,This pear smells very fragrant.
+641,“你想再来点咖啡吗？”“不，谢谢。我够了。”,simplified,“:|你:ni3|想:xiang3|再:zai4|来:lai2|点:dian3|咖:ka1|啡:fei1|吗:ma|？:|”:|“:|不:bu4|，:|谢:xie4|谢:xie4|。:|我:wo3|够:gou4|了:le|。:|”:,"Would you like some more coffee?"" ""No, thank you. I'm good."
+642,请把你们的全盘计划告诉我。,simplified,请:qing3|把:ba3|你:ni3|们:men|的:de|全:quan2|盘:pan2|计:ji4|划:hua4|告:gao4|诉:su4|我:wo3|。:,Please tell me your complete plan.
+643,“我爸爸不喝酒。”“我爸爸也不喝。”,neutral,“:|我:wo3|爸:ba4|爸:ba4|不:bu4|喝:he1|酒:jiu3|。:|”:|“:|我:wo3|爸:ba4|爸:ba4|也:ye3|不:bu4|喝:he1|。:|”:,"My dad doesn't drink."" ""My dad doesn't drink either."
+644,上个月，我们20岁的女儿生了个女孩。,simplified,上:shang4|个:ge4|月:yue4|，:|我:wo3|们:men|20:|岁:sui4|的:de|女:nv3|儿:er2|生:sheng1|了:le|个:ge4|女:nv3|孩:hai2|。:,"Last month, our 20-year-old daughter had a baby girl."
+645,他们坚持让他走。,simplified,他:ta1|们:men|坚:jian1|持:chi2|让:rang4|他:ta1|走:zou3|。:,They insisted on letting him go.
+646,我一直忙于写一部短篇小说。,simplified,我:wo3|一:yi4|直:zhi2|忙:mang2|于:yu2|写:xie3|一:yi1|部:bu4|短:duan3|篇:pian1|小:xiao3|说:shuo1|。:,I've been busy writing a short story.
+647,我的工作是洗碗。,neutral,我:wo3|的:de|工:gong1|作:zuo4|是:shi4|洗:xi3|碗:wan3|。:,My job is washing dishes.
+648,我想坐在无烟区。,neutral,我:wo3|想:xiang3|坐:zuo4|在:zai4|无:wu2|烟:yan1|区:qu1|。:,I want to sit in the non-smoking area.
+649,这辆车保养起来很贵。,simplified,这:zhe4|辆:liang4|车:che1|保:bao3|养:yang3|起:qi3|来:lai2|很:hen3|贵:gui4|。:,This car is expensive to maintain.
+650,物极必反。,neutral,物:wu4|极:ji2|必:bi4|反:fan3|。:,Extremes will turn into their opposites.
+651,如果我是你，我会在这种困难的情况下做同样的事。,simplified,如:ru2|果:guo3|我:wo3|是:shi4|你:ni3|，:|我:wo3|会:hui4|在:zai4|这:zhe4|种:zhong3|困:kun4|难:nan2|的:de|情:qing2|况:kuang4|下:xia4|做:zuo4|同:tong2|样:yang4|的:de|事:shi4|。:,"If I were you, I would do the same in this difficult situation."
+652,让我试试。,simplified,让:rang4|我:wo3|试:shi4|试:shi4|。:,Let me give it a try.
+653,他不惜用私人时间来工作。,simplified,他:ta1|不:bu4|惜:xi1|用:yong4|私:si1|人:ren2|时:shi2|间:jian1|来:lai2|工:gong1|作:zuo4|。:,He doesn't hesitate to use his personal time to work.
+654,会议在9点结束了。,simplified,会:hui4|议:yi4|在:zai4|9:|点:dian3|结:jie2|束:shu4|了:le|。:,The meeting ended at 9 o'clock.
+655,你想要杯果汁吗？,simplified,你:ni3|想:xiang3|要:yao4|杯:bei1|果:guo3|汁:zhi1|吗:ma|？:,Would you like a glass of juice?
+656,巨大的柱子遮住了视线，让人看不到湖。,simplified,巨:ju4|大:da4|的:de|柱:zhu4|子:zi|遮:zhe1|住:zhu4|了:le|视:shi4|线:xian4|，:|让:rang4|人:ren2|看:kan4|不:bu2|到:dao4|湖:hu2|。:,"The huge columns blocked the view, making it impossible to see the lake."
+657,欢迎回家。,neutral,欢:huan1|迎:ying2|回:hui2|家:jia1|。:,Welcome home.
+658,你只要在这里写下你的姓名和地址就行了。,simplified,你:ni3|只:zhi3|要:yao4|在:zai4|这:zhe4|里:li3|写:xie3|下:xia4|你:ni3|的:de|姓:xing4|名:ming2|和:he2|地:di4|址:zhi3|就:jiu4|行:xing2|了:le|。:,You just need to write your name and address here.
+659,这是湖的最深处。,simplified,这:zhe4|是:shi4|湖:hu2|的:de|最:zui4|深:shen1|处:chu4|。:,This is the deepest part of the lake.
+660,我们整个夏天都和他们待在一起。,simplified,我:wo3|们:men|整:zheng3|个:ge4|夏:xia4|天:tian1|都:dou1|和:he2|他:ta1|们:men|待:dai4|在:zai4|一:yi4|起:qi3|。:,We spent the whole summer with them.
+661,在非洲找不到野生的老虎。,neutral,在:zai4|非:fei1|洲:zhou1|找:zhao3|不:bu2|到:dao4|野:ye3|生:sheng1|的:de|老:lao3|虎:hu3|。:,You can't find wild tigers in Africa.
+662,我们给Robert取了个绰号叫“Bob”。,simplified,我:wo3|们:men|给:gei3|Robert:|取:qu3|了:le|个:ge4|绰:chuo4|号:hao4|叫:jiao4|“:|Bob:|”:|。:,"We gave Robert the nickname ""Bob."""
+663,那个穿棕色大衣的女人是谁？,simplified,那:na4|个:ge|穿:chuan1|棕:zong1|色:se4|大:da4|衣:yi1|的:de|女:nv3|人:ren2|是:shi4|谁:shui2|？:,Who is that woman in the brown coat?
+664,我喝了杯咖啡来保持清醒。,simplified,我:wo3|喝:he1|了:le|杯:bei1|咖:ka1|啡:fei1|来:lai2|保:bao3|持:chi2|清:qing1|醒:xing3|。:,I had a cup of coffee to stay awake.
+665,你可能是对的，但我和你意见相反。,simplified,你:ni3|可:ke3|能:neng2|是:shi4|对:dui4|的:de|，:|但:dan4|我:wo3|和:he2|你:ni3|意:yi4|见:jian4|相:xiang1|反:fan3|。:,"You might be right, but I disagree with you."
+666,我们同意了第二天一早开始。,simplified,我:wo3|们:men|同:tong2|意:yi4|了:le|第:di4|二:er4|天:tian1|一:yi1|早:zao3|开:kai1|始:shi3|。:,We agreed to start early the next morning.
+667,我会帮你应急处理一下。,simplified,我:wo3|会:hui4|帮:bang1|你:ni3|应:ying4|急:ji2|处:chu3|理:li3|一:yi1|下:xia4|。:,I will help you with the emergency handling.
+668,这家店从9点开到18点。,neutral,这:zhe4|家:jia1|店:dian4|从:cong2|9:|点:dian3|开:kai1|到:dao4|18:|点:dian3|。:,This store is open from 9 AM to 6 PM.
+669,你知道从火车站到市政府有多远？,simplified,你:ni3|知:zhi1|道:dao4|从:cong2|火:huo3|车:che1|站:zhan4|到:dao4|市:shi4|政:zheng4|府:fu3|有:you3|多:duo1|远:yuan3|？:,Do you know how far it is from the train station to the city hall?
+670,你知道音乐家什么时候来这儿吗？,simplified,你:ni3|知:zhi1|道:dao4|音:yin1|乐:yue4|家:jia1|什:shen2|么:me|时:shi2|候:hou4|来:lai2|这:zhe4|儿:er2|吗:ma|？:,Do you know when the musician is coming here?
+671,他在气头上，说了所有他想说的话就回家了。,simplified,他:ta1|在:zai4|气:qi4|头:tou2|上:shang4|，:|说:shuo1|了:le|所:suo3|有:you3|他:ta1|想:xiang3|说:shuo1|的:de|话:hua4|就:jiu4|回:hui2|家:jia1|了:le|。:,He was angry and said everything he wanted to say before going home.
+672,我总是在离手不远的地方放一本字典。,simplified,我:wo3|总:zong3|是:shi4|在:zai4|离:li2|手:shou3|不:bu4|远:yuan3|的:de|地:di4|方:fang1|放:fang4|一:yi1|本:ben3|字:zi4|典:dian3|。:,I always keep a dictionary close at hand.
+673,树上有些苹果，不是吗？,simplified,树:shu4|上:shang4|有:you3|些:xie1|苹:ping2|果:guo3|，:|不:bu2|是:shi4|吗:ma|？:,"There are some apples on the tree, aren't there?"
+674,你想要什么？,neutral,你:ni3|想:xiang3|要:yao4|什:shen2|么:me|？:,What do you want?
+675,Ann在黑板上写了些什么。,simplified,Ann:|在:zai4|黑:hei1|板:ban3|上:shang4|写:xie3|了:le|些:xie1|什:shen2|么:me|。:,Ann wrote something on the blackboard.
+676,Jane正要离开家。,simplified,Jane:|正:zheng4|要:yao4|离:li2|开:kai1|家:jia1|。:,Jane is about to leave home.
+677,他是营销部的负责人。,simplified,他:ta1|是:shi4|营:ying2|销:xiao1|部:bu4|的:de|负:fu4|责:ze2|人:ren2|。:,He is the head of the marketing department.
+678,没有水，我们无法生存。,simplified,没:mei2|有:you3|水:shui3|，:|我:wo3|们:men|无:wu2|法:fa3|生:sheng1|存:cun2|。:,"Without water, we cannot survive."
+679,我希望如此。,neutral,我:wo3|希:xi1|望:wang4|如:ru2|此:ci3|。:,I hope so.
+680,我还了从图书馆借的书，又借了些新的。,simplified,我:wo3|还:hai2|了:le|从:cong2|图:tu2|书:shu1|馆:guan3|借:jie4|的:de|书:shu1|，:|又:you4|借:jie4|了:le|些:xie1|新:xin1|的:de|。:,I returned the books I borrowed from the library and borrowed some new ones.
+681,我每天早上6点叫醒他。,neutral,我:wo3|每:mei3|天:tian1|早:zao3|上:shang4|6:|点:dian3|叫:jiao4|醒:xing3|他:ta1|。:,I wake him up at 6 every morning.
+682,天日渐回暖。,simplified,天:tian1|日:ri4|渐:jian4|回:hui2|暖:nuan3|。:,The days are gradually getting warmer.
+683,现在他应该已经到了。,simplified,现:xian4|在:zai4|他:ta1|应:ying1|该:gai1|已:yi3|经:jing1|到:dao4|了:le|。:,He should have arrived by now.
+684,我们很高兴今晚能见到大家。,simplified,我:wo3|们:men|很:hen3|高:gao1|兴:xing4|今:jin1|晚:wan3|能:neng2|见:jian4|到:dao4|大:da4|家:jia1|。:,We are very happy to see everyone tonight.
+685,彼得是一个利他主义的游戏玩家，他会把东西给需要的人，而不是为一己之私利出售。,simplified,彼:bi3|得:de2|是:shi4|一:yi2|个:ge4|利:li4|他:ta1|主:zhu3|义:yi4|的:de|游:you2|戏:xi4|玩:wan2|家:jia1|，:|他:ta1|会:hui4|把:ba3|东:dong1|西:xi1|给:gei3|需:xu1|要:yao4|的:de|人:ren2|，:|而:er2|不:bu2|是:shi4|为:wei4|一:yi1|己:ji3|之:zhi1|私:si1|利:li4|出:chu1|售:shou4|。:,Peter is an altruistic gamer; he gives things to those in need instead of selling them for personal gain.
+686,这是我们的荣幸。,simplified,这:zhe4|是:shi4|我:wo3|们:men|的:de|荣:rong2|幸:xing4|。:,It is our honor.
+687,我登上去伦敦的火车。,simplified,我:wo3|登:deng1|上:shang4|去:qu4|伦:lun2|敦:dun1|的:de|火:huo3|车:che1|。:,I took the train to London.
+688,请不要做任何有损松野家族名声的事！,simplified,请:qing3|不:bu2|要:yao4|做:zuo4|任:ren4|何:he2|有:you3|损:sun3|松:song1|野:ye3|家:jia1|族:zu2|名:ming2|声:sheng1|的:de|事:shi4|！:,Please do not do anything that would harm the reputation of the Matsunoya family!
+689,我妹妹每周上两次钢琴课。,simplified,我:wo3|妹:mei4|妹:mei4|每:mei3|周:zhou1|上:shang4|两:liang3|次:ci4|钢:gang1|琴:qin2|课:ke4|。:,My sister takes piano lessons twice a week.
+690,所有苹果树都被砍倒了。,simplified,所:suo3|有:you3|苹:ping2|果:guo3|树:shu4|都:dou1|被:bei4|砍:kan3|倒:dao4|了:le|。:,All the apple trees have been cut down.
+691,他把头发剪短了。,simplified,他:ta1|把:ba3|头:tou2|发:fa4|剪:jian3|短:duan3|了:le|。:,He cut his hair short.
+692,面对巨大的困难，他成功了。,neutral,面:mian4|对:dui4|巨:ju4|大:da4|的:de|困:kun4|难:nan2|，:|他:ta1|成:cheng2|功:gong1|了:le|。:,He succeeded in the face of great difficulties.
+693,你已经见过史密斯先生了吗？,simplified,你:ni3|已:yi3|经:jing1|见:jian4|过:guo4|史:shi3|密:mi4|斯:si1|先:xian1|生:sheng1|了:le|吗:ma|？:,Have you met Mr. Smith yet?
+694,Ann是啦啦队队长。,simplified,Ann:|是:shi4|啦:la|啦:la|队:dui4|队:dui4|长:zhang3|。:,Ann is the cheerleading captain.
+695,他和班上其他男生一样聪明。,simplified,他:ta1|和:he2|班:ban1|上:shang4|其:qi2|他:ta1|男:nan2|生:sheng1|一:yi1|样:yang4|聪:cong1|明:ming2|。:,He is as smart as the other boys in the class.
+696,你读给我听的时候，我就可以做缝纫了。,simplified,你:ni3|读:du2|给:gei3|我:wo3|听:ting1|的:de|时:shi2|候:hou4|，:|我:wo3|就:jiu4|可:ke3|以:yi3|做:zuo4|缝:feng2|纫:ren4|了:le|。:,I can sew when you read it to me.
+697,我们尽情在湖里游泳。,simplified,我:wo3|们:men|尽:jin4|情:qing2|在:zai4|湖:hu2|里:li3|游:you2|泳:yong3|。:,We swim freely in the lake.
+698,我不同意你的看法。,neutral,我:wo3|不:bu4|同:tong2|意:yi4|你:ni3|的:de|看:kan4|法:fa3|。:,I disagree with your opinion.
+699,种瓜得瓜，种豆得豆。,neutral,种:zhong4|瓜:gua1|得:de2|瓜:gua1|，:|种:zhong4|豆:dou4|得:de2|豆:dou4|。:,You reap what you sow.
+700,自行车从右侧超过汽车是不合法的。,simplified,自:zi4|行:xing2|车:che1|从:cong2|右:you4|侧:ce4|超:chao1|过:guo4|汽:qi4|车:che1|是:shi4|不:bu4|合:he2|法:fa3|的:de|。:,It is illegal to overtake cars on the right side with a bicycle.
+701,大好的前途摆在他面前。,neutral,大:da4|好:hao3|的:de|前:qian2|途:tu2|摆:bai3|在:zai4|他:ta1|面:mian4|前:qian2|。:,A bright future lies ahead of him.
+702,这个房间里有个电视机。,simplified,这:zhe4|个:ge|房:fang2|间:jian1|里:li3|有:you3|个:ge4|电:dian4|视:shi4|机:ji1|。:,There is a television in this room.
+703,今天天气很好。,neutral,今:jin1|天:tian1|天:tian1|气:qi4|很:hen3|好:hao3|。:,The weather is nice today.
+704,有些人喜欢运动，有些人不喜欢。,simplified,有:you3|些:xie1|人:ren2|喜:xi3|欢:huan1|运:yun4|动:dong4|，:|有:you3|些:xie1|人:ren2|不:bu4|喜:xi3|欢:huan1|。:,"Some people like sports, while others do not."
+705,没人知道那机器长什么样子。,simplified,没:mei2|人:ren2|知:zhi1|道:dao4|那:na4|机:ji1|器:qi4|长:zhang3|什:shen2|么:me|样:yang4|子:zi|。:,No one knows what that machine looks like.
+706,8月份没课。,simplified,8:|月:yue4|份:fen4|没:mei2|课:ke4|。:,There are no classes in August.
+707,你能猜到我有什么吗？,simplified,你:ni3|能:neng2|猜:cai1|到:dao4|我:wo3|有:you3|什:shen2|么:me|吗:ma|？:,Can you guess what I have?
+708,你的笔比我的好。,neutral,你:ni3|的:de|笔:bi3|比:bi3|我:wo3|的:de|好:hao3|。:,Your pen is better than mine.
+709,为什么不问问你老师的建议呢？,simplified,为:wei4|什:shen2|么:me|不:bu4|问:wen4|问:wen4|你:ni3|老:lao3|师:shi1|的:de|建:jian4|议:yi4|呢:ne|？:,Why not ask your teacher for advice?
+710,把你的名字用大写写下来。,simplified,把:ba3|你:ni3|的:de|名:ming2|字:zi4|用:yong4|大:da4|写:xie3|写:xie3|下:xia4|来:lai2|。:,Write your name in capital letters.
+711,花园被木栅栏围了起来。,simplified,花:hua1|园:yuan2|被:bei4|木:mu4|栅:zha4|栏:lan2|围:wei2|了:le|起:qi3|来:lai2|。:,The garden is surrounded by a wooden fence.
+712,这将是你最后一次被欺骗了。,simplified,这:zhe4|将:jiang1|是:shi4|你:ni3|最:zui4|后:hou4|一:yi1|次:ci4|被:bei4|欺:qi1|骗:pian4|了:le|。:,This will be the last time you are deceived.
+713,我们觉得他的威胁只是一个玩笑。,simplified,我:wo3|们:men|觉:jue2|得:de|他:ta1|的:de|威:wei1|胁:xie2|只:zhi3|是:shi4|一:yi2|个:ge4|玩:wan2|笑:xiao4|。:,We think his threat was just a joke.
+714,过去我们每个周末都去溜冰。,simplified,过:guo4|去:qu4|我:wo3|们:men|每:mei3|个:ge4|周:zhou1|末:mo4|都:dou1|去:qu4|溜:liu1|冰:bing1|。:,We used to go skating every weekend.
+715,我家附近有个漂亮的公园。,neutral,我:wo3|家:jia1|附:fu4|近:jin4|有:you3|个:ge4|漂:piao4|亮:liang4|的:de|公:gong1|园:yuan2|。:,There is a beautiful park near my home.
+716,如果不是因为有你的帮助，我不可能完成了这个工作。,simplified,如:ru2|果:guo3|不:bu2|是:shi4|因:yin1|为:wei4|有:you3|你:ni3|的:de|帮:bang1|助:zhu4|，:|我:wo3|不:bu4|可:ke3|能:neng2|完:wan2|成:cheng2|了:le|这:zhe4|个:ge|工:gong1|作:zuo4|。:,I couldn't have completed this work without your help.
+717,字典上写的不总是对的。,simplified,字:zi4|典:dian3|上:shang4|写:xie3|的:de|不:bu4|总:zong3|是:shi4|对:dui4|的:de|。:,What is written in the dictionary is not always correct.
+718,Donna是含着金钥匙出生的。,simplified,Donna:|是:shi4|含:han2|着:zhe|金:jin1|钥:yao4|匙:shi|出:chu1|生:sheng1|的:de|。:,Donna was born with a silver spoon in her mouth.
+719,我以前从没见过她。,simplified,我:wo3|以:yi3|前:qian2|从:cong2|没:mei2|见:jian4|过:guo4|她:ta1|。:,I had never seen her before.
+720,澳洲比南美洲小。,neutral,澳:ao4|洲:zhou1|比:bi3|南:nan2|美:mei3|洲:zhou1|小:xiao3|。:,Australia is smaller than South America.
+721,如果我是你，我也会这么做。,neutral,如:ru2|果:guo3|我:wo3|是:shi4|你:ni3|，:|我:wo3|也:ye3|会:hui4|这:zhe4|么:me|做:zuo4|。:,"If I were you, I would do the same."
+722,晚上好。,neutral,晚:wan3|上:shang4|好:hao3|。:,Good evening.
+723,这条连衣裙很便宜。,simplified,这:zhe4|条:tiao2|连:lian2|衣:yi1|裙:qun2|很:hen3|便:pian2|宜:yi|。:,This dress is very cheap.
+724,她教我如何游泳。,neutral,她:ta1|教:jiao4|我:wo3|如:ru2|何:he2|游:you2|泳:yong3|。:,She taught me how to swim.
+725,为什么你昨晚睡不着？,simplified,为:wei4|什:shen2|么:me|你:ni3|昨:zuo2|晚:wan3|睡:shui4|不:bu4|着:zhe|？:,Why couldn't you sleep last night?
+726,他善用他的天赋。,simplified,他:ta1|善:shan4|用:yong4|他:ta1|的:de|天:tian1|赋:fu4|。:,He makes good use of his talent.
+727,许多工人死于饥饿。,simplified,许:xu3|多:duo1|工:gong1|人:ren2|死:si3|于:yu2|饥:ji1|饿:e4|。:,Many workers died of hunger.
+728,她非常周到和耐心。,neutral,她:ta1|非:fei1|常:chang2|周:zhou1|到:dao4|和:he2|耐:nai4|心:xin1|。:,She is very thoughtful and patient.
+729,你是我的一切。,neutral,你:ni3|是:shi4|我:wo3|的:de|一:yi1|切:qie4|。:,You are my everything.
+730,目前，我妹妹在一家超市当收银员。,simplified,目:mu4|前:qian2|，:|我:wo3|妹:mei4|妹:mei4|在:zai4|一:yi1|家:jia1|超:chao1|市:shi4|当:dang1|收:shou1|银:yin2|员:yuan2|。:,"Currently, my sister works as a cashier at a supermarket."
+731,她邀请我们去她的生日派对。,simplified,她:ta1|邀:yao1|请:qing3|我:wo3|们:men|去:qu4|她:ta1|的:de|生:sheng1|日:ri4|派:pai4|对:dui4|。:,She invited us to her birthday party.
+732,她忙着编织。,simplified,她:ta1|忙:mang2|着:zhe|编:bian1|织:zhi1|。:,She is busy weaving.
+733,鞋是皮制的。,neutral,鞋:xie2|是:shi4|皮:pi2|制:zhi4|的:de|。:,The shoes are made of leather.
+734,他很难写他的名字。,simplified,他:ta1|很:hen3|难:nan2|写:xie3|他:ta1|的:de|名:ming2|字:zi4|。:,He finds it hard to write his name.
+735,我会在5点左右打电话给你。,simplified,我:wo3|会:hui4|在:zai4|5:|点:dian3|左:zuo3|右:you4|打:da3|电:dian4|话:hua4|给:gei3|你:ni3|。:,I will call you around 5 o'clock.
+736,我妹妹嫁给了一个医生。,simplified,我:wo3|妹:mei4|妹:mei4|嫁:jia4|给:gei3|了:le|一:yi2|个:ge4|医:yi1|生:sheng1|。:,My sister married a doctor.
+737,不要往我房间里看。,simplified,不:bu2|要:yao4|往:wang3|我:wo3|房:fang2|间:jian1|里:li3|看:kan4|。:,Don't look into my room.
+738,他们说她是在德国出生的。,simplified,他:ta1|们:men|说:shuo1|她:ta1|是:shi4|在:zai4|德:de2|国:guo2|出:chu1|生:sheng1|的:de|。:,They said she was born in Germany.
+739,你累了，不是吗？,simplified,你:ni3|累:lei4|了:le|，:|不:bu2|是:shi4|吗:ma|？:,"You're tired, aren't you?"
+740,我爸爸坚持要我去那地方看看。,simplified,我:wo3|爸:ba4|爸:ba4|坚:jian1|持:chi2|要:yao4|我:wo3|去:qu4|那:na4|地:di4|方:fang1|看:kan4|看:kan4|。:,My dad insists that I go see that place.
+741,她一整晚都在哭。,neutral,她:ta1|一:yi1|整:zheng3|晚:wan3|都:dou1|在:zai4|哭:ku1|。:,She cried all night.
+742,他半夜打了个电话给我。,simplified,他:ta1|半:ban4|夜:ye4|打:da3|了:le|个:ge4|电:dian4|话:hua4|给:gei3|我:wo3|。:,He called me in the middle of the night.
+743,他的性情古怪。,neutral,他:ta1|的:de|性:xing4|情:qing2|古:gu3|怪:guai4|。:,His temperament is strange.
+744,有些人喜欢海，还有些人更喜欢山。,neutral,有:you3|些:xie1|人:ren2|喜:xi3|欢:huan1|海:hai3|，:|还:hai2|有:you3|些:xie1|人:ren2|更:geng4|喜:xi3|欢:huan1|山:shan1|。:,"Some people like the sea, while others prefer the mountains."
+745,飞行愉快！,simplified,飞:fei1|行:xing2|愉:yu2|快:kuai4|！:,Have a pleasant flight!
+746,学校因大雪停课一天。,simplified,学:xue2|校:xiao4|因:yin1|大:da4|雪:xue3|停:ting2|课:ke4|一:yi1|天:tian1|。:,School was canceled for a day due to heavy snow.
+747,他们有他们自己的文化。,simplified,他:ta1|们:men|有:you3|他:ta1|们:men|自:zi4|己:ji3|的:de|文:wen2|化:hua4|。:,They have their own culture.
+748,凡人皆有得意时。,neutral,凡:fan2|人:ren2|皆:jie1|有:you3|得:de2|意:yi4|时:shi2|。:,Everyone has their moments of success.
+749,我每时每刻都在为你而活。,simplified,我:wo3|每:mei3|时:shi2|每:mei3|刻:ke4|都:dou1|在:zai4|为:wei4|你:ni3|而:er2|活:huo2|。:,I live for you every moment.
+750,他各科全优。,neutral,他:ta1|各:ge4|科:ke1|全:quan2|优:you1|。:,He excels in all subjects.
+751,风刮得太猛，他们没法在公园里玩了。,simplified,风:feng1|刮:gua1|得:de2|太:tai4|猛:meng3|，:|他:ta1|们:men|没:mei2|法:fa3|在:zai4|公:gong1|园:yuan2|里:li3|玩:wan2|了:le|。:,The wind is blowing too hard for them to play in the park.
+752,不要插手我的事。,neutral,不:bu2|要:yao4|插:cha1|手:shou3|我:wo3|的:de|事:shi4|。:,Don't interfere in my affairs.
+753,我怕你没法跟她结婚。,simplified,我:wo3|怕:pa4|你:ni3|没:mei2|法:fa3|跟:gen1|她:ta1|结:jie2|婚:hun1|。:,I'm afraid you won't be able to marry her.
+754,大学在20年前由他的父亲建立。,simplified,大:da4|学:xue2|在:zai4|20:|年:nian2|前:qian2|由:you2|他:ta1|的:de|父:fu4|亲:qin1|建:jian4|立:li4|。:,The university was established by his father 20 years ago.
+755,“等他回来，我要让他给你打电话吗？”“是的，谢谢。”,simplified,“:|等:deng3|他:ta1|回:hui2|来:lai2|，:|我:wo3|要:yao4|让:rang4|他:ta1|给:gei3|你:ni3|打:da3|电:dian4|话:hua4|吗:ma|？:|”:|“:|是:shi4|的:de|，:|谢:xie4|谢:xie4|。:|”:,"Should I have him call you when he gets back?"" ""Yes, thank you."
+756,他的兴趣爱好是收集旧邮票。,simplified,他:ta1|的:de|兴:xing4|趣:qu4|爱:ai4|好:hao4|是:shi4|收:shou1|集:ji2|旧:jiu4|邮:you2|票:piao4|。:,His hobby is collecting old stamps.
+757,他刚离开家。,simplified,他:ta1|刚:gang1|离:li2|开:kai1|家:jia1|。:,He just left home.
+758,再试也无济于事了。,simplified,再:zai4|试:shi4|也:ye3|无:wu2|济:ji4|于:yu2|事:shi4|了:le|。:,Trying again won't help.
+759,派对延期了一周。,neutral,派:pai4|对:dui4|延:yan2|期:qi1|了:le|一:yi1|周:zhou1|。:,The party has been postponed by a week.
+760,水沸腾后变为蒸汽。,simplified,水:shui3|沸:fei4|腾:teng2|后:hou4|变:bian4|为:wei4|蒸:zheng1|汽:qi4|。:,Water turns into steam after boiling.
+761,他说他没有进房间，那是骗人的。,simplified,他:ta1|说:shuo1|他:ta1|没:mei2|有:you3|进:jin4|房:fang2|间:jian1|，:|那:na4|是:shi4|骗:pian4|人:ren2|的:de|。:,"He said he didn't go into the room, which is a lie."
+762,我听到这个消息很惊讶。,simplified,我:wo3|听:ting1|到:dao4|这:zhe4|个:ge|消:xiao1|息:xi1|很:hen3|惊:jing1|讶:ya4|。:,I was surprised to hear this news.
+763,这位是安田先生。,neutral,这:zhe4|位:wei4|是:shi4|安:an1|田:tian2|先:xian1|生:sheng1|。:,This is Mr. Ando.
+764,我五点到你家来接你。,simplified,我:wo3|五:wu3|点:dian3|到:dao4|你:ni3|家:jia1|来:lai2|接:jie1|你:ni3|。:,I'll come to your house to pick you up at five.
+765,这些天我的视力正在变差。,simplified,这:zhe4|些:xie1|天:tian1|我:wo3|的:de|视:shi4|力:li4|正:zheng4|在:zai4|变:bian4|差:cha4|。:,My eyesight has been getting worse these days.
+766,我对他的态度变了。,simplified,我:wo3|对:dui4|他:ta1|的:de|态:tai4|度:du4|变:bian4|了:le|。:,My attitude towards him has changed.
+767,我去公园散了步。,neutral,我:wo3|去:qu4|公:gong1|园:yuan2|散:san4|了:le|步:bu4|。:,I took a walk in the park.
+768,他这么说很奇怪。,simplified,他:ta1|这:zhe4|么:me|说:shuo1|很:hen3|奇:qi2|怪:guai4|。:,It's strange for him to say that.
+769,这周放什么电影？,neutral,这:zhe4|周:zhou1|放:fang4|什:shen2|么:me|电:dian4|影:ying3|？:,What movies are being released this week?
+770,健康与运动及节制密不可分。,simplified,健:jian4|康:kang1|与:yu3|运:yun4|动:dong4|及:ji2|节:jie2|制:zhi4|密:mi4|不:bu4|可:ke3|分:fen1|。:,Health is closely related to exercise and moderation.
+771,我现在在上班，所以晚点打给你。,simplified,我:wo3|现:xian4|在:zai4|在:zai4|上:shang4|班:ban1|，:|所:suo3|以:yi3|晚:wan3|点:dian3|打:da3|给:gei3|你:ni3|。:,"I'm at work right now, so I'll call you later."
+772,我同意。,neutral,我:wo3|同:tong2|意:yi4|。:,I agree.
+773,他迟早会回来的。,simplified,他:ta1|迟:chi2|早:zao3|会:hui4|回:hui2|来:lai2|的:de|。:,He will come back sooner or later.
+774,想吃多少饼干就吃多少。,simplified,想:xiang3|吃:chi1|多:duo1|少:shao3|饼:bing3|干:gan1|就:jiu4|吃:chi1|多:duo1|少:shao3|。:,Eat as many cookies as you want.
+775,狗的嗅觉灵敏。,simplified,狗:gou3|的:de|嗅:xiu4|觉:jue2|灵:ling2|敏:min3|。:,Dogs have a keen sense of smell.
+776,似乎很便宜。,neutral,似:si4|乎:hu1|很:hen3|便:pian2|宜:yi|。:,It seems very cheap.
+777,死刑在美国的很多州都被废除了。,simplified,死:si3|刑:xing2|在:zai4|美:mei3|国:guo2|的:de|很:hen3|多:duo1|州:zhou1|都:dou1|被:bei4|废:fei4|除:chu2|了:le|。:,The death penalty has been abolished in many states in the U.S.
+778,我学英语学了4年了。,simplified,我:wo3|学:xue2|英:ying1|语:yu3|学:xue2|了:le|4:|年:nian2|了:le|。:,I've been learning English for 4 years.
+779,请把姓名和地址告诉我。,simplified,请:qing3|把:ba3|姓:xing4|名:ming2|和:he2|地:di4|址:zhi3|告:gao4|诉:su4|我:wo3|。:,Please tell me your name and address.
+780,这封信寄错地方了。,simplified,这:zhe4|封:feng1|信:xin4|寄:ji4|错:cuo4|地:di4|方:fang1|了:le|。:,This letter was sent to the wrong place.
+781,你必须在天黑前回来。,simplified,你:ni3|必:bi4|须:xu1|在:zai4|天:tian1|黑:hei1|前:qian2|回:hui2|来:lai2|。:,You must come back before dark.
+782,一个丑男人敲了我的门。,simplified,一:yi2|个:ge4|丑:chou3|男:nan2|人:ren2|敲:qiao1|了:le|我:wo3|的:de|门:men2|。:,An ugly man knocked on my door.
+783,清心的人有福了。,neutral,清:qing1|心:xin1|的:de|人:ren2|有:you3|福:fu2|了:le|。:,Blessed are the pure in heart.
+784,日本的首都是东京。,simplified,日:ri4|本:ben3|的:de|首:shou3|都:du1|是:shi4|东:dong1|京:jing1|。:,The capital of Japan is Tokyo.
+785,服务生，我要点菜。,simplified,服:fu2|务:wu4|生:sheng1|，:|我:wo3|要:yao4|点:dian3|菜:cai4|。:,"Waiter, I would like to order."
+786,我们正要进房间。,simplified,我:wo3|们:men|正:zheng4|要:yao4|进:jin4|房:fang2|间:jian1|。:,We are about to enter the room.
+787,万一你生病了，吃这个药。,simplified,万:wan4|一:yi1|你:ni3|生:sheng1|病:bing4|了:le|，:|吃:chi1|这:zhe4|个:ge|药:yao4|。:,"In case you get sick, take this medicine."
+788,现在是行动的时候了。,simplified,现:xian4|在:zai4|是:shi4|行:xing2|动:dong4|的:de|时:shi2|候:hou4|了:le|。:,Now is the time to take action.
+789,没有空气，人无法存在。,neutral,没:mei2|有:you3|空:kong1|气:qi4|，:|人:ren2|无:wu2|法:fa3|存:cun2|在:zai4|。:,"Without air, humans cannot exist."
+790,昨天是我17岁生日。,neutral,昨:zuo2|天:tian1|是:shi4|我:wo3|17:|岁:sui4|生:sheng1|日:ri4|。:,Yesterday was my 17th birthday.
+791,世界末日是什么时候？,neutral,世:shi4|界:jie4|末:mo4|日:ri4|是:shi4|什:shen2|么:me|时:shi2|候:hou4|？:,When is the end of the world?
+792,我肯定他会成功的。,neutral,我:wo3|肯:ken3|定:ding4|他:ta1|会:hui4|成:cheng2|功:gong1|的:de|。:,I'm sure he will succeed.
+793,我想去西雅图。,neutral,我:wo3|想:xiang3|去:qu4|西:xi1|雅:ya3|图:tu2|。:,I want to go to Seattle.
+794,左上角的那个动物是条龙。,simplified,左:zuo3|上:shang4|角:jiao3|的:de|那:na4|个:ge|动:dong4|物:wu4|是:shi4|条:tiao2|龙:long2|。:,The animal in the upper left corner is a dragon.
+795,遭受心脏病困扰的人数增加了。,simplified,遭:zao1|受:shou4|心:xin1|脏:zang4|病:bing4|困:kun4|扰:rao3|的:de|人:ren2|数:shu4|增:zeng1|加:jia1|了:le|。:,The number of people suffering from heart disease has increased.
+796,这个消息预示着什么？,simplified,这:zhe4|个:ge|消:xiao1|息:xi1|预:yu4|示:shi4|着:zhe|什:shen2|么:me|？:,What does this news signify?
+797,你能用这台相机帮我们拍张照吗？,simplified,你:ni3|能:neng2|用:yong4|这:zhe4|台:tai2|相:xiang4|机:ji1|帮:bang1|我:wo3|们:men|拍:pai1|张:zhang1|照:zhao4|吗:ma|？:,Can you help us take a picture with this camera?
+798,一个从俄勒冈州来的朋友，布朗先生明天会来拜访我们。,simplified,一:yi2|个:ge4|从:cong2|俄:e2|勒:lei1|冈:gang1|州:zhou1|来:lai2|的:de|朋:peng2|友:you3|，:|布:bu4|朗:lang3|先:xian1|生:sheng1|明:ming2|天:tian1|会:hui4|来:lai2|拜:bai4|访:fang3|我:wo3|们:men|。:,"A friend from Oregon, Mr. Brown, will visit us tomorrow."
+799,孩子给他刚死了的狗挖了个坟。,simplified,孩:hai2|子:zi|给:gei3|他:ta1|刚:gang1|死:si3|了:le|的:de|狗:gou3|挖:wa1|了:le|个:ge4|坟:fen2|。:,The child dug a grave for his recently deceased dog.
+800,成千上万的人对这个广告很失望。,neutral,成:cheng2|千:qian1|上:shang4|万:wan4|的:de|人:ren2|对:dui4|这:zhe4|个:ge|广:guang3|告:gao4|很:hen3|失:shi1|望:wang4|。:,Thousands of people are disappointed with this advertisement.
+801,酸会和金属物质起化学反应。,simplified,酸:suan1|会:hui4|和:he2|金:jin1|属:shu3|物:wu4|质:zhi4|起:qi3|化:hua4|学:xue2|反:fan3|应:ying4|。:,Acids react chemically with metals.
+802,他们一直爬到悬崖顶上。,simplified,他:ta1|们:men|一:yi4|直:zhi2|爬:pa2|到:dao4|悬:xuan2|崖:ya2|顶:ding3|上:shang4|。:,They climbed all the way to the top of the cliff.
+803,我的电视机出故障了，所以我不得不拿去修。,simplified,我:wo3|的:de|电:dian4|视:shi4|机:ji1|出:chu1|故:gu4|障:zhang4|了:le|，:|所:suo3|以:yi3|我:wo3|不:bu4|得:de2|不:bu4|拿:na2|去:qu4|修:xiu1|。:,"My TV broke down, so I had to take it for repair."
+804,他从英国来。,simplified,他:ta1|从:cong2|英:ying1|国:guo2|来:lai2|。:,He comes from the UK.
+805,大家都知道她的英语说得很好。,simplified,大:da4|家:jia1|都:dou1|知:zhi1|道:dao4|她:ta1|的:de|英:ying1|语:yu3|说:shuo1|得:de2|很:hen3|好:hao3|。:,Everyone knows she speaks English very well.
+806,他们都是好老师。,simplified,他:ta1|们:men|都:dou1|是:shi4|好:hao3|老:lao3|师:shi1|。:,They are all good teachers.
+807,我该取消通话吗?,simplified,我:wo3|该:gai1|取:qu3|消:xiao1|通:tong1|话:hua4|吗:ma|?:,Should I cancel the call?
+808,我爸爸去世有10年了。,neutral,我:wo3|爸:ba4|爸:ba4|去:qu4|世:shi4|有:you3|10:|年:nian2|了:le|。:,My dad passed away 10 years ago.
+809,援救人员为了找到孩子，仔细搜索了那个区域。,simplified,援:yuan2|救:jiu4|人:ren2|员:yuan2|为:wei4|了:le|找:zhao3|到:dao4|孩:hai2|子:zi|，:|仔:zi3|细:xi4|搜:sou1|索:suo3|了:le|那:na4|个:ge|区:qu1|域:yu4|。:,Rescuers carefully searched the area to find the child.
+810,做运动有利于健康。,simplified,做:zuo4|运:yun4|动:dong4|有:you3|利:li4|于:yu2|健:jian4|康:kang1|。:,Exercising is beneficial for health.
+811,我能用一下你的字典吗？,simplified,我:wo3|能:neng2|用:yong4|一:yi1|下:xia4|你:ni3|的:de|字:zi4|典:dian3|吗:ma|？:,Can I use your dictionary?
+812,我也碰到过和你一样的问题。,simplified,我:wo3|也:ye3|碰:peng4|到:dao4|过:guo4|和:he2|你:ni3|一:yi1|样:yang4|的:de|问:wen4|题:ti2|。:,I've encountered the same problem as you.
+813,他无法辨别真伪。,simplified,他:ta1|无:wu2|法:fa3|辨:bian4|别:bie2|真:zhen1|伪:wei3|。:,He can't tell the difference between real and fake.
+814,他们在加利福尼亚种橙子。,simplified,他:ta1|们:men|在:zai4|加:jia1|利:li4|福:fu2|尼:ni2|亚:ya4|种:zhong3|橙:cheng2|子:zi|。:,They are growing oranges in California.
+815,我尽量留着胃吃甜点。,neutral,我:wo3|尽:jin3|量:liang4|留:liu2|着:zhe|胃:wei4|吃:chi1|甜:tian2|点:dian3|。:,I'm trying to save room for dessert.
+816,我们估计能在两周内到那个地方。,simplified,我:wo3|们:men|估:gu1|计:ji4|能:neng2|在:zai4|两:liang3|周:zhou1|内:nei4|到:dao4|那:na4|个:ge|地:di4|方:fang1|。:,We estimate we can reach that place in two weeks.
+817,你们自己吃蛋糕。,simplified,你:ni3|们:men|自:zi4|己:ji3|吃:chi1|蛋:dan4|糕:gao1|。:,You all eat the cake yourselves.
+818,由于产量过剩，卷心菜的价格下降了。,simplified,由:you2|于:yu2|产:chan3|量:liang4|过:guo4|剩:sheng4|，:|卷:juan3|心:xin1|菜:cai4|的:de|价:jia4|格:ge2|下:xia4|降:jiang4|了:le|。:,"Due to oversupply, the price of cabbage has dropped."
+819,他总喝他的黑咖啡。,simplified,他:ta1|总:zong3|喝:he1|他:ta1|的:de|黑:hei1|咖:ka1|啡:fei1|。:,He always drinks his black coffee.
+820,Davis先生看上去很累。,neutral,Davis:|先:xian1|生:sheng1|看:kan4|上:shang4|去:qu4|很:hen3|累:lei4|。:,Mr. Davis looks very tired.
+821,这张书桌是木制的。,simplified,这:zhe4|张:zhang1|书:shu1|桌:zhuo1|是:shi4|木:mu4|制:zhi4|的:de|。:,This desk is made of wood.
+822,我今天有空。,neutral,我:wo3|今:jin1|天:tian1|有:you3|空:kong4|。:,I am free today.
+823,我们走开的时候，房子被盗窃了。,simplified,我:wo3|们:men|走:zou3|开:kai1|的:de|时:shi2|候:hou4|，:|房:fang2|子:zi|被:bei4|盗:dao4|窃:qie4|了:le|。:,The house was robbed while we were away.
+824,音乐是人类共通的语言。,simplified,音:yin1|乐:yue4|是:shi4|人:ren2|类:lei4|共:gong4|通:tong1|的:de|语:yu3|言:yan2|。:,Music is a universal language for humanity.
+825,他们就快从香港抵达了。,simplified,他:ta1|们:men|就:jiu4|快:kuai4|从:cong2|香:xiang1|港:gang3|抵:di3|达:da2|了:le|。:,They are about to arrive from Hong Kong.
+826,他怎么敢拆我的信！,neutral,他:ta1|怎:zen3|么:me|敢:gan3|拆:chai1|我:wo3|的:de|信:xin4|！:,How dare he open my letter!
+827,他向那位女士问好。,simplified,他:ta1|向:xiang4|那:na4|位:wei4|女:nv3|士:shi4|问:wen4|好:hao3|。:,He greeted that lady.
+828,母亲很担心孩子。,simplified,母:mu3|亲:qin1|很:hen3|担:dan1|心:xin1|孩:hai2|子:zi|。:,The mother is very worried about her child.
+829,如果他当时再努力一点，他就成功了。,neutral,如:ru2|果:guo3|他:ta1|当:dang1|时:shi2|再:zai4|努:nu3|力:li4|一:yi4|点:dian3|，:|他:ta1|就:jiu4|成:cheng2|功:gong1|了:le|。:,"If he had tried a little harder at that time, he would have succeeded."
+830,尽量试着用好你的时间。,simplified,尽:jin3|量:liang4|试:shi4|着:zhe|用:yong4|好:hao3|你:ni3|的:de|时:shi2|间:jian1|。:,Try your best to make good use of your time.
+831,比起歌舞伎，我更喜欢能乐表演，因为我觉得后者比前者优雅。,simplified,比:bi3|起:qi3|歌:ge1|舞:wu3|伎:ji4|，:|我:wo3|更:geng4|喜:xi3|欢:huan1|能:neng2|乐:le4|表:biao3|演:yan3|，:|因:yin1|为:wei4|我:wo3|觉:jue2|得:de|后:hou4|者:zhe3|比:bi3|前:qian2|者:zhe3|优:you1|雅:ya3|。:,I prefer Noh performances to Kabuki because I find the former more elegant than the latter.
+832,我看不出有其他方法能让他接受我们的提议。,simplified,我:wo3|看:kan4|不:bu4|出:chu1|有:you3|其:qi2|他:ta1|方:fang1|法:fa3|能:neng2|让:rang4|他:ta1|接:jie1|受:shou4|我:wo3|们:men|的:de|提:ti2|议:yi4|。:,I can't see any other way for him to accept our proposal.
+833,你可以买你喜欢的那个，而不是两个都买。,simplified,你:ni3|可:ke3|以:yi3|买:mai3|你:ni3|喜:xi3|欢:huan1|的:de|那:na4|个:ge|，:|而:er2|不:bu2|是:shi4|两:liang3|个:ge4|都:dou1|买:mai3|。:,You can buy the one you like instead of buying both.
+834,这句句子的意思模棱两可。,neutral,这:zhe4|句:ju4|句:ju4|子:zi|的:de|意:yi4|思:si|模:mo2|棱:leng2|两:liang3|可:ke3|。:,This sentence is ambiguous.
+835,晚饭后，我总想睡觉。,simplified,晚:wan3|饭:fan4|后:hou4|，:|我:wo3|总:zong3|想:xiang3|睡:shui4|觉:jiao4|。:,I always feel like sleeping after dinner.
+836,他去美国学医了。,simplified,他:ta1|去:qu4|美:mei3|国:guo2|学:xue2|医:yi1|了:le|。:,He went to the United States to study medicine.
+837,这显然是今年出版的最好的小说。,simplified,这:zhe4|显:xian3|然:ran2|是:shi4|今:jin1|年:nian2|出:chu1|版:ban3|的:de|最:zui4|好:hao3|的:de|小:xiao3|说:shuo1|。:,This is clearly the best novel published this year.
+838,人们相信鲸有他们自己的语言。,simplified,人:ren2|们:men|相:xiang1|信:xin4|鲸:jing1|有:you3|他:ta1|们:men|自:zi4|己:ji3|的:de|语:yu3|言:yan2|。:,People believe that whales have their own language.
+839,她班上大约有40个学生。,simplified,她:ta1|班:ban1|上:shang4|大:da4|约:yue1|有:you3|40:|个:ge4|学:xue2|生:sheng1|。:,There are about 40 students in her class.
+840,请别在这里拍照。,simplified,请:qing3|别:bie2|在:zai4|这:zhe4|里:li3|拍:pai1|照:zhao4|。:,Please don't take photos here.
+841,每月发工资的那天，我给我妈5000日元。,simplified,每:mei3|月:yue4|发:fa1|工:gong1|资:zi1|的:de|那:na4|天:tian1|，:|我:wo3|给:gei3|我:wo3|妈:ma1|5000:|日:ri4|元:yuan2|。:,"On payday every month, I give my mom 5,000 yen."
+842,我们应该告诉孩子怎么保护自己。,simplified,我:wo3|们:men|应:ying1|该:gai1|告:gao4|诉:su4|孩:hai2|子:zi|怎:zen3|么:me|保:bao3|护:hu4|自:zi4|己:ji3|。:,We should teach the children how to protect themselves.
+843,我认识她两年了。,simplified,我:wo3|认:ren4|识:shi2|她:ta1|两:liang3|年:nian2|了:le|。:,I have known her for two years.
+844,你得在涉谷换乘火车。,simplified,你:ni3|得:de2|在:zai4|涉:she4|谷:gu3|换:huan4|乘:cheng2|火:huo3|车:che1|。:,You need to transfer trains in Shibuya.
+845,让我进去。,simplified,让:rang4|我:wo3|进:jin4|去:qu4|。:,Let me in.
+846,你很快就会习惯吃日本料理了。,simplified,你:ni3|很:hen3|快:kuai4|就:jiu4|会:hui4|习:xi2|惯:guan4|吃:chi1|日:ri4|本:ben3|料:liao4|理:li3|了:le|。:,You'll get used to eating Japanese food soon.
+847,我有很多朋友帮我。,neutral,我:wo3|有:you3|很:hen3|多:duo1|朋:peng2|友:you3|帮:bang1|我:wo3|。:,I have many friends who help me.
+848,我们班有四十个学生。,simplified,我:wo3|们:men|班:ban1|有:you3|四:si4|十:shi2|个:ge4|学:xue2|生:sheng1|。:,There are forty students in our class.
+849,东京是一个很大的城市。,simplified,东:dong1|京:jing1|是:shi4|一:yi2|个:ge4|很:hen3|大:da4|的:de|城:cheng2|市:shi4|。:,Tokyo is a very large city.
+850,旅行最快的方式是乘飞机。,simplified,旅:lv3|行:xing2|最:zui4|快:kuai4|的:de|方:fang1|式:shi4|是:shi4|乘:cheng2|飞:fei1|机:ji1|。:,The fastest way to travel is by plane.
+851,在城市里行驶的车辆数量增加了。,simplified,在:zai4|城:cheng2|市:shi4|里:li3|行:xing2|驶:shi3|的:de|车:che1|辆:liang4|数:shu4|量:liang4|增:zeng1|加:jia1|了:le|。:,The number of vehicles in the city has increased.
+852,她老是吹嘘自己是个游泳健将。,simplified,她:ta1|老:lao3|是:shi4|吹:chui1|嘘:xu1|自:zi4|己:ji3|是:shi4|个:ge4|游:you2|泳:yong3|健:jian4|将:jiang4|。:,She always boasts that she is a swimming champion.
+853,你准备待多久？,simplified,你:ni3|准:zhun3|备:bei4|待:dai4|多:duo1|久:jiu3|？:,How long are you planning to stay?
+854,番茄容易遭受很多病害。,neutral,番:fan1|茄:qie2|容:rong2|易:yi4|遭:zao1|受:shou4|很:hen3|多:duo1|病:bing4|害:hai4|。:,Tomatoes are susceptible to many diseases.
+855,我妹妹目前不学习。,simplified,我:wo3|妹:mei4|妹:mei4|目:mu4|前:qian2|不:bu4|学:xue2|习:xi2|。:,My sister is not studying at the moment.
+856,我在想哪个跑步运动员会跑第一。,simplified,我:wo3|在:zai4|想:xiang3|哪:na3|个:ge|跑:pao3|步:bu4|运:yun4|动:dong4|员:yuan2|会:hui4|跑:pao3|第:di4|一:yi1|。:,I'm wondering which runner will come in first.
+857,我爸爸不喜欢足球。,neutral,我:wo3|爸:ba4|爸:ba4|不:bu4|喜:xi3|欢:huan1|足:zu2|球:qiu2|。:,My dad doesn't like soccer.
+858,你昨天早上在打网球吗？,simplified,你:ni3|昨:zuo2|天:tian1|早:zao3|上:shang4|在:zai4|打:da3|网:wang3|球:qiu2|吗:ma|？:,Were you playing tennis yesterday morning?
+859,我能用一下你的铅笔吗？,simplified,我:wo3|能:neng2|用:yong4|一:yi1|下:xia4|你:ni3|的:de|铅:qian1|笔:bi3|吗:ma|？:,Can I use your pencil for a moment?
+860,你明早7点来接我吗？,simplified,你:ni3|明:ming2|早:zao3|7:|点:dian3|来:lai2|接:jie1|我:wo3|吗:ma|？:,Are you coming to pick me up at 7 tomorrow morning?
+861,秋天树叶会掉落。,simplified,秋:qiu1|天:tian1|树:shu4|叶:ye4|会:hui4|掉:diao4|落:luo4|。:,Leaves fall in autumn.
+862,我听了，但什么也没听到。,neutral,我:wo3|听:ting1|了:le|，:|但:dan4|什:shen2|么:me|也:ye3|没:mei2|听:ting1|到:dao4|。:,"I listened, but I didn't hear anything."
+863,警察大概从一个月前就开始找被偷物品了。,neutral,警:jing3|察:cha2|大:da4|概:gai4|从:cong2|一:yi2|个:ge4|月:yue4|前:qian2|就:jiu4|开:kai1|始:shi3|找:zhao3|被:bei4|偷:tou1|物:wu4|品:pin3|了:le|。:,The police have probably been looking for the stolen items for about a month.
+864,他睡着的时候，打呼声很响。,neutral,他:ta1|睡:shui4|着:zhao2|的:de|时:shi2|候:hou4|，:|打:da3|呼:hu1|声:sheng1|很:hen3|响:xiang3|。:,He snores loudly when he falls asleep.
+865,去那个村庄的唯一途径是过河。,simplified,去:qu4|那:na4|个:ge|村:cun1|庄:zhuang1|的:de|唯:wei2|一:yi1|途:tu2|径:jing4|是:shi4|过:guo4|河:he2|。:,The only way to that village is to cross the river.
+866,书桌上有几本书。,simplified,书:shu1|桌:zhuo1|上:shang4|有:you3|几:ji3|本:ben3|书:shu1|。:,There are several books on the desk.
+867,他以牺牲自己的健康为代价完成了这项工作。,simplified,他:ta1|以:yi3|牺:xi1|牲:sheng1|自:zi4|己:ji3|的:de|健:jian4|康:kang1|为:wei4|代:dai4|价:jia4|完:wan2|成:cheng2|了:le|这:zhe4|项:xiang4|工:gong1|作:zuo4|。:,He completed the work at the cost of his health.
+868,把问题澄清一下。,simplified,把:ba3|问:wen4|题:ti2|澄:cheng2|清:qing1|一:yi1|下:xia4|。:,Clarify the issue.
+869,这本书我能借多久？,simplified,这:zhe4|本:ben3|书:shu1|我:wo3|能:neng2|借:jie4|多:duo1|久:jiu3|？:,How long can I borrow this book?
+870,我爸爸是哈佛大学毕业的。,simplified,我:wo3|爸:ba4|爸:ba4|是:shi4|哈:ha1|佛:fu2|大:da4|学:xue2|毕:bi4|业:ye4|的:de|。:,My dad graduated from Harvard University.
+871,她拿了其中一个玻璃花瓶。,neutral,她:ta1|拿:na2|了:le|其:qi2|中:zhong1|一:yi2|个:ge4|玻:bo1|璃:li2|花:hua1|瓶:ping2|。:,She took one of the glass vases.
+872,他有花不完的钱。,simplified,他:ta1|有:you3|花:hua1|不:bu4|完:wan2|的:de|钱:qian2|。:,He has endless money.
+873,我起来的时候天还是黑的呢。,simplified,我:wo3|起:qi3|来:lai2|的:de|时:shi2|候:hou4|天:tian1|还:hai2|是:shi4|黑:hei1|的:de|呢:ne|。:,It was still dark when I got up.
+874,我们早点走不是更好吗？,simplified,我:wo3|们:men|早:zao3|点:dian3|走:zou3|不:bu2|是:shi4|更:geng4|好:hao3|吗:ma|？:,Wouldn't it be better if we left earlier?
+875,你听得见吗？,simplified,你:ni3|听:ting1|得:de|见:jian4|吗:ma|？:,Can you hear me?
+876,3的三次方等于27。,neutral,3:|的:de|三:san1|次:ci4|方:fang1|等:deng3|于:yu2|27:|。:,3 cubed equals 27.
+877,我认识那个坐得最靠近门的男孩。,simplified,我:wo3|认:ren4|识:shi2|那:na4|个:ge|坐:zuo4|得:de2|最:zui4|靠:kao4|近:jin4|门:men2|的:de|男:nan2|孩:hai2|。:,I know the boy who sits closest to the door.
+878,她酷爱打网球。,simplified,她:ta1|酷:ku4|爱:ai4|打:da3|网:wang3|球:qiu2|。:,She loves playing tennis.
+879,如果明天下雨，我就待在家。,neutral,如:ru2|果:guo3|明:ming2|天:tian1|下:xia4|雨:yu3|，:|我:wo3|就:jiu4|待:dai4|在:zai4|家:jia1|。:,"If it rains tomorrow, I will stay at home."
+880,她上飞机前，给我招了招手。,simplified,她:ta1|上:shang4|飞:fei1|机:ji1|前:qian2|，:|给:gei3|我:wo3|招:zhao1|了:le|招:zhao1|手:shou3|。:,She waved to me before getting on the plane.
+881,我尽快需要。,neutral,我:wo3|尽:jin3|快:kuai4|需:xu1|要:yao4|。:,I need it as soon as possible.
+882,天气又冷又湿。,simplified,天:tian1|气:qi4|又:you4|冷:leng3|又:you4|湿:shi1|。:,The weather is cold and damp again.
+883,学生不该忽略自己的身份。,simplified,学:xue2|生:sheng1|不:bu4|该:gai1|忽:hu1|略:lve4|自:zi4|己:ji3|的:de|身:shen1|份:fen4|。:,Students should not ignore their identity.
+884,要做蛋糕，你要用到鸡蛋，黄油和糖。,simplified,要:yao4|做:zuo4|蛋:dan4|糕:gao1|，:|你:ni3|要:yao4|用:yong4|到:dao4|鸡:ji1|蛋:dan4|，:|黄:huang2|油:you2|和:he2|糖:tang2|。:,"To make a cake, you need eggs, butter, and sugar."
+885,我们过去常在公园玩。,simplified,我:wo3|们:men|过:guo4|去:qu4|常:chang2|在:zai4|公:gong1|园:yuan2|玩:wan2|。:,We used to play in the park.
+886,比起出门，我更喜欢待在家。,simplified,比:bi3|起:qi3|出:chu1|门:men2|，:|我:wo3|更:geng4|喜:xi3|欢:huan1|待:dai4|在:zai4|家:jia1|。:,I prefer staying at home to going out.
+887,这本书谁想要就给谁吧。,simplified,这:zhe4|本:ben3|书:shu1|谁:shui2|想:xiang3|要:yao4|就:jiu4|给:gei3|谁:shui2|吧:ba|。:,Let whoever wants this book have it.
+888,我对纽约了如指掌。,simplified,我:wo3|对:dui4|纽:niu3|约:yue1|了:liao3|如:ru2|指:zhi3|掌:zhang3|。:,I know New York like the back of my hand.
+889,许多年轻女孩喜欢这个歌手。,simplified,许:xu3|多:duo1|年:nian2|轻:qing1|女:nv3|孩:hai2|喜:xi3|欢:huan1|这:zhe4|个:ge|歌:ge1|手:shou3|。:,Many young girls like this singer.
+890,你昨天看到的那个男人是我叔叔。,neutral,你:ni3|昨:zuo2|天:tian1|看:kan4|到:dao4|的:de|那:na4|个:ge|男:nan2|人:ren2|是:shi4|我:wo3|叔:shu1|叔:shu1|。:,The man you saw yesterday is my uncle.
+891,我们需要的是帮助。,simplified,我:wo3|们:men|需:xu1|要:yao4|的:de|是:shi4|帮:bang1|助:zhu4|。:,What we need is help.
+892,那个男人，就是他的孩子很友好的那个.,neutral,那:na4|个:ge|男:nan2|人:ren2|，:|就:jiu4|是:shi4|他:ta1|的:de|孩:hai2|子:zi|很:hen3|友:you3|好:hao3|的:de|那:na4|个:ge|.:,That man is the one whose child is very friendly.
+893,记者租了间很贵的房。,simplified,记:ji4|者:zhe3|租:zu1|了:le|间:jian1|很:hen3|贵:gui4|的:de|房:fang2|。:,The journalist rented a very expensive room.
+894,那就是那台他用来写文章的电脑。,simplified,那:na4|就:jiu4|是:shi4|那:na4|台:tai2|他:ta1|用:yong4|来:lai2|写:xie3|文:wen2|章:zhang1|的:de|电:dian4|脑:nao3|。:,That is the computer he uses to write articles.
+895,他有个很有意思但很费功夫的工作。,simplified,他:ta1|有:you3|个:ge4|很:hen3|有:you3|意:yi4|思:si|但:dan4|很:hen3|费:fei4|功:gong1|夫:fu|的:de|工:gong1|作:zuo4|。:,He has a very interesting but labor-intensive job.
+896,他为一份印刷量很大的报纸工作。,simplified,他:ta1|为:wei4|一:yi1|份:fen4|印:yin4|刷:shua1|量:liang4|很:hen3|大:da4|的:de|报:bao4|纸:zhi3|工:gong1|作:zuo4|。:,He works for a newspaper with a large circulation.
+897,那个写的文章让你很感兴趣的记者是我的邻居。,simplified,那:na4|个:ge|写:xie3|的:de|文:wen2|章:zhang1|让:rang4|你:ni3|很:hen3|感:gan3|兴:xing4|趣:qu4|的:de|记:ji4|者:zhe3|是:shi4|我:wo3|的:de|邻:lin2|居:ju1|。:,The journalist who wrote the article that interests you is my neighbor.
+898,我怀孕了。,neutral,我:wo3|怀:huai2|孕:yun4|了:le|。:,I am pregnant.
+899,不管我跟她说了多少次，她还是继续犯同样的错误。,simplified,不:bu4|管:guan3|我:wo3|跟:gen1|她:ta1|说:shuo1|了:le|多:duo1|少:shao3|次:ci4|，:|她:ta1|还:hai2|是:shi4|继:ji4|续:xu4|犯:fan4|同:tong2|样:yang4|的:de|错:cuo4|误:wu4|。:,"No matter how many times I tell her, she still keeps making the same mistake."
+900,他们过着和平的生活。,simplified,他:ta1|们:men|过:guo4|着:zhe|和:he2|平:ping2|的:de|生:sheng1|活:huo2|。:,They live a peaceful life.
+901,他希望已经成功了。,simplified,他:ta1|希:xi1|望:wang4|已:yi3|经:jing1|成:cheng2|功:gong1|了:le|。:,He hopes he has succeeded.
+902,他英勇的行为带给了他光荣。,simplified,他:ta1|英:ying1|勇:yong3|的:de|行:xing2|为:wei2|带:dai4|给:gei3|了:le|他:ta1|光:guang1|荣:rong2|。:,His brave actions brought him honor.
+903,她不但漂亮，而且聪明。,simplified,她:ta1|不:bu4|但:dan4|漂:piao4|亮:liang4|，:|而:er2|且:qie3|聪:cong1|明:ming2|。:,She is not only beautiful but also smart.
+904,我有两本英语书。,simplified,我:wo3|有:you3|两:liang3|本:ben3|英:ying1|语:yu3|书:shu1|。:,I have two English books.
+905,你有几本书?,simplified,你:ni3|有:you3|几:ji3|本:ben3|书:shu1|?:,How many books do you have?
+906,一年有十二个月。,neutral,一:yi1|年:nian2|有:you3|十:shi2|二:er4|个:ge4|月:yue4|。:,There are twelve months in a year.
+907,王小明和旺月两个人都是我的好朋友。,neutral,王:wang2|小:xiao3|明:ming2|和:he2|旺:wang4|月:yue4|两:liang3|个:ge4|人:ren2|都:dou1|是:shi4|我:wo3|的:de|好:hao3|朋:peng2|友:you3|。:,Both Wang Xiaoming and Wang Yue are my good friends.
+908,现在我爸爸不在家。,simplified,现:xian4|在:zai4|我:wo3|爸:ba4|爸:ba4|不:bu4|在:zai4|家:jia1|。:,My dad is not home right now.
+909,"这不是你的书,这是我的书。",simplified,"这:zhe4|不:bu2|是:shi4|你:ni3|的:de|书:shu1|,:|这:zhe4|是:shi4|我:wo3|的:de|书:shu1|。:",This is not your book; this is my book.
+910,"过去,我是中学生,现在我是大学生.",simplified,"过:guo4|去:qu4|,:|我:wo3|是:shi4|中:zhong1|学:xue2|生:sheng1|,:|现:xian4|在:zai4|我:wo3|是:shi4|大:da4|学:xue2|生:sheng1|.:","In the past, I was a high school student; now I am a college student."
+911,我不工作.,neutral,我:wo3|不:bu4|工:gong1|作:zuo4|.:,I don't work.
+912,我有一个哥哥，也有一个姐姐。,neutral,我:wo3|有:you3|一:yi2|个:ge4|哥:ge1|哥:ge1|，:|也:ye3|有:you3|一:yi2|个:ge4|姐:jie3|姐:jie3|。:,I have an older brother and an older sister.
+913,小明还不知道他明年去哪儿。,neutral,小:xiao3|明:ming2|还:hai2|不:bu4|知:zhi1|道:dao4|他:ta1|明:ming2|年:nian2|去:qu4|哪:na3|儿:er2|。:,Xiaoming still doesn't know where he will go next year.
+914,我的朋友十七岁了。,neutral,我:wo3|的:de|朋:peng2|友:you3|十:shi2|七:qi1|岁:sui4|了:le|。:,My friend is seventeen years old.
+915,今天下午我有两个小时的英语课和两个小时的汉语课。,simplified,今:jin1|天:tian1|下:xia4|午:wu3|我:wo3|有:you3|两:liang3|个:ge4|小:xiao3|时:shi2|的:de|英:ying1|语:yu3|课:ke4|和:he2|两:liang3|个:ge4|小:xiao3|时:shi2|的:de|汉:han4|语:yu3|课:ke4|。:,I have two hours of English class and two hours of Chinese class this afternoon.
+916,汉语字是很美丽的。,simplified,汉:han4|语:yu3|字:zi4|是:shi4|很:hen3|美:mei3|丽:li4|的:de|。:,Chinese characters are very beautiful.
+917,我也过得很愉快。,neutral,我:wo3|也:ye3|过:guo4|得:de2|很:hen3|愉:yu2|快:kuai4|。:,I'm also having a great time.
+918,我听说他打麻将很厉害。,simplified,我:wo3|听:ting1|说:shuo1|他:ta1|打:da3|麻:ma2|将:jiang1|很:hen3|厉:li4|害:hai4|。:,I heard he is very good at playing Mahjong.
+919,日本靠阿拉伯国家提供石油。,simplified,日:ri4|本:ben3|靠:kao4|阿:a1|拉:la1|伯:bo2|国:guo2|家:jia1|提:ti2|供:gong1|石:shi2|油:you2|。:,Japan relies on Arab countries for oil.
+920,我们学校在市中心。,simplified,我:wo3|们:men|学:xue2|校:xiao4|在:zai4|市:shi4|中:zhong1|心:xin1|。:,Our school is in the city center.
+921,我把我仅有的钱给了那个男孩。,simplified,我:wo3|把:ba3|我:wo3|仅:jin3|有:you3|的:de|钱:qian2|给:gei3|了:le|那:na4|个:ge|男:nan2|孩:hai2|。:,I gave all the money I had to that boy.
+922,你赞成还是反对这个计划？,simplified,你:ni3|赞:zan4|成:cheng2|还:hai2|是:shi4|反:fan3|对:dui4|这:zhe4|个:ge|计:ji4|划:hua4|？:,Do you support or oppose this plan?
+923,这是你的信。,neutral,这:zhe4|是:shi4|你:ni3|的:de|信:xin4|。:,This is your letter.
+924,她坚持认为那是我的错。,simplified,她:ta1|坚:jian1|持:chi2|认:ren4|为:wei2|那:na4|是:shi4|我:wo3|的:de|错:cuo4|。:,She insists that it was my fault.
+925,习惯是第二天性。,simplified,习:xi2|惯:guan4|是:shi4|第:di4|二:er4|天:tian1|性:xing4|。:,Habits are a second nature.
+926,慎也娶了个漂亮姑娘。,neutral,慎:shen4|也:ye3|娶:qu3|了:le|个:ge4|漂:piao4|亮:liang4|姑:gu1|娘:niang2|。:,Shen also married a beautiful girl.
+927,米价下跌了。,neutral,米:mi3|价:jia4|下:xia4|跌:die1|了:le|。:,Rice prices have dropped.
+928,你必须从失败中吸取教训。,simplified,你:ni3|必:bi4|须:xu1|从:cong2|失:shi1|败:bai4|中:zhong1|吸:xi1|取:qu3|教:jiao4|训:xun4|。:,You must learn from your failures.
+929,京都有很多所大学。,simplified,京:jing1|都:du1|有:you3|很:hen3|多:duo1|所:suo3|大:da4|学:xue2|。:,There are many universities in Kyoto.
+930,睡过头不是迟到的理由。,simplified,睡:shui4|过:guo4|头:tou2|不:bu2|是:shi4|迟:chi2|到:dao4|的:de|理:li3|由:you2|。:,Oversleeping is not an excuse for being late.
+931,我也听过一个类似的故事。,simplified,我:wo3|也:ye3|听:ting1|过:guo4|一:yi2|个:ge4|类:lei4|似:si4|的:de|故:gu4|事:shi4|。:,I've heard a similar story too.
+932,参见上文。,simplified,参:can1|见:jian4|上:shang4|文:wen2|。:,See the above text.
+933,我们把书桌整理干净吧。,simplified,我:wo3|们:men|把:ba3|书:shu1|桌:zhuo1|整:zheng3|理:li3|干:gan1|净:jing4|吧:ba|。:,Let's tidy up the desk.
+934,麦克和他妹妹会说法语，但不会说日语。,simplified,麦:mai4|克:ke4|和:he2|他:ta1|妹:mei4|妹:mei4|会:hui4|说:shuo1|法:fa3|语:yu3|，:|但:dan4|不:bu2|会:hui4|说:shuo1|日:ri4|语:yu3|。:,"Mike and his sister can speak French, but they can't speak Japanese."
+935,这问题正在被讨论。,simplified,这:zhe4|问:wen4|题:ti2|正:zheng4|在:zai4|被:bei4|讨:tao3|论:lun4|。:,This issue is being discussed.
+936,Kent生来就是个领导人。,simplified,Kent:|生:sheng1|来:lai2|就:jiu4|是:shi4|个:ge4|领:ling3|导:dao3|人:ren2|。:,Kent was born to be a leader.
+937,跳上一列正在开的火车是很危险的。,simplified,跳:tiao4|上:shang4|一:yi1|列:lie4|正:zheng4|在:zai4|开:kai1|的:de|火:huo3|车:che1|是:shi4|很:hen3|危:wei1|险:xian3|的:de|。:,Jumping onto a moving train is very dangerous.
+938,让我们别来，我们就更想来了。,simplified,让:rang4|我:wo3|们:men|别:bie2|来:lai2|，:|我:wo3|们:men|就:jiu4|更:geng4|想:xiang3|来:lai2|了:le|。:,"The more we are told not to come, the more we want to."
+939,他的医生命令他休息。,neutral,他:ta1|的:de|医:yi1|生:sheng1|命:ming4|令:ling4|他:ta1|休:xiu1|息:xi1|。:,His doctor ordered him to rest.
+940,我们7点吃了早饭。,simplified,我:wo3|们:men|7:|点:dian3|吃:chi1|了:le|早:zao3|饭:fan4|。:,We had breakfast at 7 o'clock.
+941,他年轻的时候穷困潦倒。,simplified,他:ta1|年:nian2|轻:qing1|的:de|时:shi2|候:hou4|穷:qiong2|困:kun4|潦:liao2|倒:dao3|。:,He was poor and struggling when he was young.
+942,我希望住在你家附近。,neutral,我:wo3|希:xi1|望:wang4|住:zhu4|在:zai4|你:ni3|家:jia1|附:fu4|近:jin4|。:,I hope to live near your house.
+943,他把他的自行车刷成红色。,simplified,他:ta1|把:ba3|他:ta1|的:de|自:zi4|行:xing2|车:che1|刷:shua1|成:cheng2|红:hong2|色:se4|。:,He painted his bicycle red.
+944,总统拒绝回答那个问题。,simplified,总:zong3|统:tong3|拒:ju4|绝:jue2|回:hui2|答:da2|那:na4|个:ge|问:wen4|题:ti2|。:,The president refused to answer that question.
+945,他告诉我什么时候该说是。,simplified,他:ta1|告:gao4|诉:su4|我:wo3|什:shen2|么:me|时:shi2|候:hou4|该:gai1|说:shuo1|是:shi4|。:,He told me when to say yes.
+946,她帮她爸爸干了花园里的活。,neutral,她:ta1|帮:bang1|她:ta1|爸:ba4|爸:ba4|干:gan4|了:le|花:hua1|园:yuan2|里:li3|的:de|活:huo2|。:,She helped her dad with the work in the garden.
+947,我希望将来成为一名牙医。,simplified,我:wo3|希:xi1|望:wang4|将:jiang1|来:lai2|成:cheng2|为:wei2|一:yi1|名:ming2|牙:ya2|医:yi1|。:,I hope to become a dentist in the future.
+948,他出席了会议。,simplified,他:ta1|出:chu1|席:xi2|了:le|会:hui4|议:yi4|。:,He attended the meeting.
+949,尤其是要注意你吃的和喝的东西。,simplified,尤:you2|其:qi2|是:shi4|要:yao4|注:zhu4|意:yi4|你:ni3|吃:chi1|的:de|和:he2|喝:he1|的:de|东:dong1|西:xi1|。:,Especially pay attention to what you eat and drink.
+950,我下周日不在家。,neutral,我:wo3|下:xia4|周:zhou1|日:ri4|不:bu4|在:zai4|家:jia1|。:,I won't be home next Sunday.
+951,她姐姐比我哥哥大。,neutral,她:ta1|姐:jie3|姐:jie3|比:bi3|我:wo3|哥:ge1|哥:ge1|大:da4|。:,Her sister is older than my brother.
+952,如果你想活得久一点就戒烟。,neutral,如:ru2|果:guo3|你:ni3|想:xiang3|活:huo2|得:de2|久:jiu3|一:yi4|点:dian3|就:jiu4|戒:jie4|烟:yan1|。:,"If you want to live longer, you should quit smoking."
+953,你今天忙吗？,simplified,你:ni3|今:jin1|天:tian1|忙:mang2|吗:ma|？:,Are you busy today?
+954,你有100万美元的话，你会做什么？,simplified,你:ni3|有:you3|100:|万:wan4|美:mei3|元:yuan2|的:de|话:hua4|，:|你:ni3|会:hui4|做:zuo4|什:shen2|么:me|？:,"If you had a million dollars, what would you do?"
+955,一个有名的建筑师造了这个房子。,neutral,一:yi2|个:ge4|有:you3|名:ming2|的:de|建:jian4|筑:zhu4|师:shi1|造:zao4|了:le|这:zhe4|个:ge|房:fang2|子:zi|。:,A famous architect built this house.
+956,他听到消息后失去了理智。,neutral,他:ta1|听:ting1|到:dao4|消:xiao1|息:xi1|后:hou4|失:shi1|去:qu4|了:le|理:li3|智:zhi4|。:,He lost his mind after hearing the news.
+957,我们面前的这幢高楼是什么？,simplified,我:wo3|们:men|面:mian4|前:qian2|的:de|这:zhe4|幢:chuang2|高:gao1|楼:lou2|是:shi4|什:shen2|么:me|？:,What is this tall building in front of us?
+958,好的，但我们先吃晚饭吧。,simplified,好:hao3|的:de|，:|但:dan4|我:wo3|们:men|先:xian1|吃:chi1|晚:wan3|饭:fan4|吧:ba|。:,"Okay, but let's have dinner first."
+959,我爸爸现在非常专注于股市。,simplified,我:wo3|爸:ba4|爸:ba4|现:xian4|在:zai4|非:fei1|常:chang2|专:zhuan1|注:zhu4|于:yu2|股:gu3|市:shi4|。:,My dad is very focused on the stock market right now.
+960,这是我所见过的最大型的构造了。,simplified,这:zhe4|是:shi4|我:wo3|所:suo3|见:jian4|过:guo4|的:de|最:zui4|大:da4|型:xing2|的:de|构:gou4|造:zao4|了:le|。:,This is the largest structure I have ever seen.
+961,我们爬上了一个陡坡。,simplified,我:wo3|们:men|爬:pa2|上:shang4|了:le|一:yi2|个:ge4|陡:dou3|坡:po1|。:,We climbed a steep slope.
+962,她休假期间花了一大笔钱。,simplified,她:ta1|休:xiu1|假:jia4|期:qi1|间:jian1|花:hua1|了:le|一:yi1|大:da4|笔:bi3|钱:qian2|。:,She spent a lot of money during her vacation.
+963,许多燕子不久就要从南方飞来了。,simplified,许:xu3|多:duo1|燕:yan4|子:zi|不:bu4|久:jiu3|就:jiu4|要:yao4|从:cong2|南:nan2|方:fang1|飞:fei1|来:lai2|了:le|。:,Many swallows will soon fly back from the south.
+964,一个真正的绅士不会出卖他的朋友。,simplified,一:yi2|个:ge4|真:zhen1|正:zheng4|的:de|绅:shen1|士:shi4|不:bu2|会:hui4|出:chu1|卖:mai4|他:ta1|的:de|朋:peng2|友:you3|。:,A true gentleman would not betray his friends.
+965,我们认为这份报告是假的。,simplified,我:wo3|们:men|认:ren4|为:wei2|这:zhe4|份:fen4|报:bao4|告:gao4|是:shi4|假:jia3|的:de|。:,We believe this report is fake.
+966,在这个城市，白人和黑人间的争端愈演愈烈。,simplified,在:zai4|这:zhe4|个:ge|城:cheng2|市:shi4|，:|白:bai2|人:ren2|和:he2|黑:hei1|人:ren2|间:jian1|的:de|争:zheng1|端:duan1|愈:yu4|演:yan3|愈:yu4|烈:lie4|。:,The disputes between whites and blacks in this city are escalating.
+967,现在休息一下。,simplified,现:xian4|在:zai4|休:xiu1|息:xi1|一:yi1|下:xia4|。:,Take a break now.
+968,你最好去一下医务室。,simplified,你:ni3|最:zui4|好:hao3|去:qu4|一:yi1|下:xia4|医:yi1|务:wu4|室:shi4|。:,You'd better visit the infirmary.
+969,这个国家的政府压迫人民。,simplified,这:zhe4|个:ge|国:guo2|家:jia1|的:de|政:zheng4|府:fu3|压:ya1|迫:po4|人:ren2|民:min2|。:,The government of this country oppresses the people.
+970,我们去年遇到了赤字。,simplified,我:wo3|们:men|去:qu4|年:nian2|遇:yu4|到:dao4|了:le|赤:chi4|字:zi4|。:,We faced a deficit last year.
+971,我喉咙很干。,simplified,我:wo3|喉:hou2|咙:long2|很:hen3|干:gan4|。:,My throat is very dry.
+972,观察鸟类是个很好的业余爱好。,simplified,观:guan1|察:cha2|鸟:niao3|类:lei4|是:shi4|个:ge4|很:hen3|好:hao3|的:de|业:ye4|余:yu2|爱:ai4|好:hao4|。:,Birdwatching is a great hobby.
+973,谁是你的汉语老师?,simplified,谁:shui2|是:shi4|你:ni3|的:de|汉:han4|语:yu3|老:lao3|师:shi1|?:,Who is your Chinese teacher?
+974,谁的老师是从英国来的?,simplified,谁:shui2|的:de|老:lao3|师:shi1|是:shi4|从:cong2|英:ying1|国:guo2|来:lai2|的:de|?:,Whose teacher is from the UK?
+975,我工作.,neutral,我:wo3|工:gong1|作:zuo4|.:,I work.
+976,我在银行工作。,simplified,我:wo3|在:zai4|银:yin2|行:hang2|工:gong1|作:zuo4|。:,I work at a bank.
+977,我不喜欢在银行工作.,simplified,我:wo3|不:bu4|喜:xi3|欢:huan1|在:zai4|银:yin2|行:hang2|工:gong1|作:zuo4|.:,I don't like working at a bank.
+978,你做什么工作?,neutral,你:ni3|做:zuo4|什:shen2|么:me|工:gong1|作:zuo4|?:,What do you do for work?
+979,"王小明说英语,但英语书不多.",simplified,"王:wang2|小:xiao3|明:ming2|说:shuo1|英:ying1|语:yu3|,:|但:dan4|英:ying1|语:yu3|书:shu1|不:bu4|多:duo1|.:","Wang Xiaoming speaks English, but he doesn't have many English books."
+980,我有很多法语书.,simplified,我:wo3|有:you3|很:hen3|多:duo1|法:fa3|语:yu3|书:shu1|.:,I have many French books.
+981,你家有多少人？,neutral,你:ni3|家:jia1|有:you3|多:duo1|少:shao3|人:ren2|？:,How many people are in your family?
+982,他的家在哪儿?,neutral,他:ta1|的:de|家:jia1|在:zai4|哪:na3|儿:er2|?:,Where is his home?
+983,我汉语老师是男的.,simplified,我:wo3|汉:han4|语:yu3|老:lao3|师:shi1|是:shi4|男:nan2|的:de|.:,My Chinese teacher is male.
+984,这是谁的语法书?,simplified,这:zhe4|是:shi4|谁:shui2|的:de|语:yu3|法:fa3|书:shu1|?:,Whose grammar book is this?
+985,"我的班不大,只有十一个学生.",simplified,"我:wo3|的:de|班:ban1|不:bu4|大:da4|,:|只:zhi3|有:you3|十:shi2|一:yi2|个:ge4|学:xue2|生:sheng1|.:","My class isn't big, there are only eleven students."
+986,"我现在在家,他来我家.",simplified,"我:wo3|现:xian4|在:zai4|在:zai4|家:jia1|,:|他:ta1|来:lai2|我:wo3|家:jia1|.:","I am at home now, he is coming to my house."
+987,他说的词典图书馆没有.,simplified,他:ta1|说:shuo1|的:de|词:ci2|典:dian3|图:tu2|书:shu1|馆:guan3|没:mei2|有:you3|.:,The dictionary he mentioned is not in the library.
+988,说汉语的人都在吗?,simplified,说:shuo1|汉:han4|语:yu3|的:de|人:ren2|都:dou1|在:zai4|吗:ma|?:,Is everyone who speaks Chinese here?
+989,"王小明还没有去过美国,他很想明年去.",simplified,"王:wang2|小:xiao3|明:ming2|还:hai2|没:mei2|有:you3|去:qu4|过:guo4|美:mei3|国:guo2|,:|他:ta1|很:hen3|想:xiang3|明:ming2|年:nian2|去:qu4|.:",Wang Xiaoming has not been to the United States yet; he really wants to go next year.
+990,他现在在英国工作.,simplified,他:ta1|现:xian4|在:zai4|在:zai4|英:ying1|国:guo2|工:gong1|作:zuo4|.:,He is working in the UK now.
+991,他现在在法国工作.,simplified,他:ta1|现:xian4|在:zai4|在:zai4|法:fa3|国:guo2|工:gong1|作:zuo4|.:,He is working in France now.
+992,他还没有去过法国，他很想明年去。,simplified,他:ta1|还:hai2|没:mei2|有:you3|去:qu4|过:guo4|法:fa3|国:guo2|，:|他:ta1|很:hen3|想:xiang3|明:ming2|年:nian2|去:qu4|。:,"He has never been to France, but he really wants to go next year."
+993,我明年想学汉语.,simplified,我:wo3|明:ming2|年:nian2|想:xiang3|学:xue2|汉:han4|语:yu3|.:,I want to learn Chinese next year.
+994,我是法国人.,simplified,我:wo3|是:shi4|法:fa3|国:guo2|人:ren2|.:,I am French.
+995,"你有几个姐姐,几个哥哥?",neutral,"你:ni3|有:you3|几:ji3|个:ge4|姐:jie3|姐:jie3|,:|几:ji3|个:ge4|哥:ge1|哥:ge1|?:",How many sisters and brothers do you have?
+996,"妈妈比爸爸大,",simplified,"妈:ma1|妈:ma1|比:bi3|爸:ba4|爸:ba4|大:da4|,:",Mom is older than Dad.
+997,妈妈比爸爸大五岁.,simplified,妈:ma1|妈:ma1|比:bi3|爸:ba4|爸:ba4|大:da4|五:wu3|岁:sui4|.:,Mom is five years older than Dad.
+998,李红法语比旺月说得好.,simplified,李:li3|红:hong2|法:fa3|语:yu3|比:bi3|旺:wang4|月:yue4|说:shuo1|得:de2|好:hao3|.:,Li Hong speaks French better than Wang Yue.
+999,Maria花很多钱买衣服。,simplified,Maria:|花:hua1|很:hen3|多:duo1|钱:qian2|买:mai3|衣:yi1|服:fu2|。:,Maria spends a lot of money on clothes.
+1000,他的分数总比我高，尽管他学习得少一点。,simplified,他:ta1|的:de|分:fen1|数:shu4|总:zong3|比:bi3|我:wo3|高:gao1|，:|尽:jin3|管:guan3|他:ta1|学:xue2|习:xi2|得:de2|少:shao3|一:yi4|点:dian3|。:,"His scores are always higher than mine, even though he studies a little less."
