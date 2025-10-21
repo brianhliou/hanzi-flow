@@ -1,7 +1,21 @@
 import type { Sentence } from './types';
 
+// In-memory cache - persists across route navigation but not page refresh
+let cachedSentences: Sentence[] | null = null;
+
 export async function loadSentences(): Promise<Sentence[]> {
-  const response = await fetch('/data/sentences.json');
+  // Return from cache if available
+  if (cachedSentences) {
+    if (process.env.NODE_ENV === 'development') {
+      console.log('📦 Returning sentences from in-memory cache');
+    }
+    return cachedSentences;
+  }
+
+  if (process.env.NODE_ENV === 'development') {
+    console.log('🌐 Loading sentences from network...');
+  }
+  const response = await fetch('/data/sentences/sentences_with_translation.json');
   if (!response.ok) {
     throw new Error('Failed to load sentences');
   }
@@ -30,6 +44,14 @@ export async function loadSentences(): Promise<Sentence[]> {
   // Remove priority sentences from main list to avoid duplicates
   const remainingSentences = sentences.filter((s: Sentence) => !prioritySet.has(s.sentence));
 
-  return [...priorityItems, ...remainingSentences];
+  const result = [...priorityItems, ...remainingSentences];
   // END TEMP BLOCK
+
+  // Store in cache before returning
+  cachedSentences = result;
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`✓ Cached ${result.length} sentences in memory`);
+  }
+
+  return result;
 }

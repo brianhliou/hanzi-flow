@@ -1,12 +1,12 @@
 export interface CharPinyin {
   char: string;
-  pinyin: string;
-  char_id: number | null;  // Character ID from chinese_characters.csv (null for non-Chinese)
+  pinyin: string | null;  // null for non-Chinese characters (punctuation, etc.)
 }
 
 export interface Sentence {
   id: number;
   sentence: string;
+  english_translation: string;
   script_type: 'simplified' | 'traditional' | 'neutral' | 'ambiguous';
   chars: CharPinyin[];
 }

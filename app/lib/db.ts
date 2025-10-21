@@ -33,7 +33,21 @@ export interface SentenceProgress {
   last_seen_ts: number;      // Most recent practice timestamp (epoch ms)
   seen_count: number;        // Total times sentence has been practiced
   pass_count: number;        // Total times all Chinese chars were correct on first attempt
+  cumulative_score: number;  // Sum of all scores (true average = cumulative_score / seen_count)
+  ewma_pass: number;         // Exponentially weighted moving average pass rate (recency-weighted)
   last_outcome: 'pass' | 'fail';  // Result of most recent attempt
+}
+
+/**
+ * Sentence queue record
+ * Stores prefetched batch of sentences for practice session
+ */
+export interface SentenceQueue {
+  id: number;                // Primary key (always 1 - singleton table)
+  sentences: number[];       // Array of sentence IDs (sids)
+  current_index: number;     // Current position in queue (0-based)
+  generated_at: number;      // Timestamp when batch was generated (epoch ms)
+  script_filter: 'simplified' | 'traditional' | 'mixed';  // Script filter used for generation
 }
 
 /**
@@ -43,6 +57,7 @@ class HanziFlowDB extends Dexie {
   // Typed tables
   words!: Table<WordMastery, number>;
   sentences!: Table<SentenceProgress, number>;
+  queue!: Table<SentenceQueue, number>;
 
   constructor() {
     super('HanziFlowDB');
@@ -60,6 +75,14 @@ class HanziFlowDB extends Dexie {
       // Primary key: sid
       // Indexes: last_seen_ts (for recency queries)
       sentences: 'sid, last_seen_ts'
+    });
+
+    // Schema version 3: add sentence queue for adaptive selection
+    this.version(3).stores({
+      words: 'char_id, next_review_ts, last_seen_ts',
+      sentences: 'sid, last_seen_ts',
+      // Primary key: id (singleton - always 1)
+      queue: 'id'
     });
   }
 }
@@ -87,7 +110,9 @@ export async function getAllSentences(): Promise<SentenceProgress[]> {
 export async function resetDatabase(): Promise<void> {
   await db.words.clear();
   await db.sentences.clear();
-  console.log('Database cleared');
+  if (process.env.NODE_ENV === 'development') {
+    console.log('Database cleared');
+  }
 }
 
 /**

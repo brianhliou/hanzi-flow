@@ -1,6 +1,72 @@
 /**
- * Character type detection utilities
+ * Character type detection utilities and character ID mapping
  */
+
+// ============================================================================
+// CHARACTER ID MAPPING
+// ============================================================================
+
+let charToIdMap: Map<string, number> | null = null;
+
+/**
+ * Load character ID mapping from CSV
+ */
+export async function loadCharacterMapping(): Promise<Map<string, number>> {
+  // Return from cache if available
+  if (charToIdMap) {
+    if (process.env.NODE_ENV === 'development') {
+      console.log('📦 Returning character mapping from in-memory cache');
+    }
+    return charToIdMap;
+  }
+
+  if (process.env.NODE_ENV === 'development') {
+    console.log('🌐 Loading character mapping from network...');
+  }
+  const response = await fetch('/data/character_set/chinese_characters.csv');
+  if (!response.ok) {
+    throw new Error('Failed to load character mapping');
+  }
+
+  const csvText = await response.text();
+  const lines = csvText.split('\n');
+
+  charToIdMap = new Map();
+
+  // Skip header line
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+
+    // Parse CSV line: id,char,script_type,...
+    const match = line.match(/^(\d+),([^,]+),/);
+    if (match) {
+      const id = parseInt(match[1], 10);
+      const char = match[2];
+      charToIdMap.set(char, id);
+    }
+  }
+
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`✓ Cached ${charToIdMap.size} character mappings in memory`);
+  }
+  return charToIdMap;
+}
+
+/**
+ * Get character ID for a given character
+ * Returns null for non-Chinese characters (punctuation, etc.)
+ */
+export function getCharId(char: string): number | null {
+  if (!charToIdMap) {
+    throw new Error('Character mapping not loaded. Call loadCharacterMapping() first.');
+  }
+  return charToIdMap.get(char) ?? null;
+}
+
+// ============================================================================
+// CHARACTER TYPE DETECTION
+// ============================================================================
 
 /**
  * Check if a string is punctuation.

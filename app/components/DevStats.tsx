@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { getAllWords, getAllSentences, getDatabaseStats, resetDatabase, type WordMastery, type SentenceProgress } from '@/lib/db';
 import { loadSentences } from '@/lib/sentences';
+import { loadCharacterMapping, getCharId } from '@/lib/characters';
 import type { Sentence } from '@/lib/types';
 
 /**
@@ -21,6 +22,10 @@ export default function DevStats() {
 
   const loadData = async () => {
     setLoading(true);
+
+    // Load character mapping first
+    await loadCharacterMapping();
+
     const statsData = await getDatabaseStats();
     const wordsData = await getAllWords();
     const sentencesData = await getAllSentences();
@@ -33,8 +38,10 @@ export default function DevStats() {
     for (const sentence of sentencesCorpus) {
       // Build character lookup
       for (const char of sentence.chars) {
-        if (char.char_id !== null && !charLookup.has(char.char_id)) {
-          charLookup.set(char.char_id, char.char);
+        if (!char.pinyin) continue; // Skip non-Chinese
+        const char_id = getCharId(char.char);
+        if (char_id !== null && !charLookup.has(char_id)) {
+          charLookup.set(char_id, char.char);
         }
       }
       // Build sentence lookup
@@ -83,7 +90,7 @@ export default function DevStats() {
       {/* Summary Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div className="bg-white dark:bg-gray-700 p-3 rounded">
-          <div className="text-xs text-gray-500 dark:text-gray-400">Total Words</div>
+          <div className="text-xs text-gray-500 dark:text-gray-400">Total Unique Characters</div>
           <div className="text-2xl font-bold">{stats.totalWords}</div>
         </div>
         <div className="bg-white dark:bg-gray-700 p-3 rounded">
@@ -100,30 +107,38 @@ export default function DevStats() {
         </div>
       </div>
 
-      {/* Toggle Word List */}
-      <button
-        onClick={() => setShowWords(!showWords)}
-        className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
-      >
-        {showWords ? 'Hide' : 'Show'} All Words ({words.length})
-      </button>
+      {/* Toggle Buttons - Fixed Section */}
+      <div className="flex gap-6">
+        <button
+          onClick={() => setShowWords(!showWords)}
+          className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          {showWords ? 'Hide' : 'Show'} All Characters ({words.length})
+        </button>
+        <button
+          onClick={() => setShowSentences(!showSentences)}
+          className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          {showSentences ? 'Hide' : 'Show'} All Sentences ({sentences.length})
+        </button>
+      </div>
 
       {/* Word List */}
       {showWords && words.length > 0 && (
-        <div className="max-h-96 overflow-auto bg-white dark:bg-gray-700 p-4 rounded">
+        <div className="max-h-96 overflow-auto bg-white dark:bg-gray-700 rounded">
           <table className="w-full text-xs">
-            <thead className="sticky top-0 bg-gray-100 dark:bg-gray-800">
+            <thead className="sticky top-0 bg-gray-100 dark:bg-gray-800 z-10">
               <tr>
-                <th className="text-left p-1">ID</th>
-                <th className="text-left p-1">Char</th>
-                <th className="text-left p-1">Mastery</th>
-                <th className="text-left p-1">True %</th>
-                <th className="text-left p-1">EWMA</th>
-                <th className="text-left p-1">Correct</th>
-                <th className="text-left p-1">Attempts</th>
-                <th className="text-left p-1">Streak</th>
-                <th className="text-left p-1">Stability</th>
-                <th className="text-left p-1">Outcome</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">ID</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Char</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Mastery</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">True %</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">EWMA</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Correct</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Attempts</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Streak</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Stability</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Outcome</th>
               </tr>
             </thead>
             <tbody>
@@ -162,41 +177,74 @@ export default function DevStats() {
         </div>
       )}
 
-      {/* Toggle Sentence List */}
-      <button
-        onClick={() => setShowSentences(!showSentences)}
-        className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
-      >
-        {showSentences ? 'Hide' : 'Show'} All Sentences ({sentences.length})
-      </button>
-
       {/* Sentence List */}
       {showSentences && sentences.length > 0 && (
-        <div className="max-h-96 overflow-auto bg-white dark:bg-gray-700 p-4 rounded">
+        <div className="max-h-96 overflow-auto bg-white dark:bg-gray-700 rounded">
           <table className="w-full text-xs">
-            <thead className="sticky top-0 bg-gray-100 dark:bg-gray-800">
+            <thead className="sticky top-0 bg-gray-100 dark:bg-gray-800 z-10">
               <tr>
-                <th className="text-left p-1">SID</th>
-                <th className="text-left p-1">Sentence</th>
-                <th className="text-left p-1">Pass %</th>
-                <th className="text-left p-1">Pass</th>
-                <th className="text-left p-1">Seen</th>
-                <th className="text-left p-1">Outcome</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">SID</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Sentence</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Pass %</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">True Avg</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">EWMA</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Delta</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Pass</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Seen</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Last Seen</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Introduced</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Outcome</th>
               </tr>
             </thead>
             <tbody>
               {sentences.map((sent) => {
-                const passRate = sent.seen_count > 0
+                const truePassRate = sent.seen_count > 0
                   ? ((sent.pass_count / sent.seen_count) * 100).toFixed(1)
                   : '0.0';
+                const trueAvgScore = sent.seen_count > 0
+                  ? (sent.cumulative_score / sent.seen_count).toFixed(3)
+                  : '0.000';
+
+                // Delta: difference between EWMA and true average (positive = improving)
+                const delta = sent.seen_count > 0
+                  ? (sent.ewma_pass - (sent.cumulative_score / sent.seen_count)).toFixed(3)
+                  : '0.000';
+                const deltaNum = parseFloat(delta);
+
+                // Format timestamps
+                const now = Date.now();
+                const lastSeenAgo = Math.floor((now - sent.last_seen_ts) / 60000); // minutes
+                const lastSeenStr = lastSeenAgo < 60
+                  ? `${lastSeenAgo}m`
+                  : lastSeenAgo < 1440
+                  ? `${Math.floor(lastSeenAgo / 60)}h`
+                  : `${Math.floor(lastSeenAgo / 1440)}d`;
+
+                const introducedAgo = Math.floor((now - sent.introduced_ts) / 60000);
+                const introducedStr = introducedAgo < 60
+                  ? `${introducedAgo}m`
+                  : introducedAgo < 1440
+                  ? `${Math.floor(introducedAgo / 60)}h`
+                  : `${Math.floor(introducedAgo / 1440)}d`;
 
                 return (
                   <tr key={sent.sid} className="border-t dark:border-gray-600">
                     <td className="p-1">{sent.sid}</td>
                     <td className="p-1">{sentenceLookup.get(sent.sid) || '?'}</td>
-                    <td className="p-1">{passRate}%</td>
+                    <td className="p-1">{truePassRate}%</td>
+                    <td className="p-1">{trueAvgScore}</td>
+                    <td className="p-1">{sent.ewma_pass.toFixed(3)}</td>
+                    <td className={`p-1 ${
+                      deltaNum > 0.05 ? 'text-green-600 dark:text-green-400' :
+                      deltaNum < -0.05 ? 'text-red-600 dark:text-red-400' :
+                      'text-gray-600 dark:text-gray-400'
+                    }`}>
+                      {deltaNum > 0 ? '+' : ''}{delta}
+                    </td>
                     <td className="p-1">{sent.pass_count}</td>
                     <td className="p-1">{sent.seen_count}</td>
+                    <td className="p-1 text-gray-500">{lastSeenStr}</td>
+                    <td className="p-1 text-gray-500">{introducedStr}</td>
                     <td className="p-1">
                       <span
                         className={`px-1 py-0.5 rounded text-xs ${

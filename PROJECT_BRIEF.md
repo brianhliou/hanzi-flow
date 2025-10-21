@@ -160,15 +160,19 @@ id,char,codepoint,pinyins,script_type,variants,gloss_en,examples
 - [x] JSON export for frontend consumption
 
 ### Frontend ✓
-- [x] Landing page with project description
+- [x] Landing page with value props and "How It Works"
 - [x] Interactive practice interface
-- [x] Character-by-character sentence display
-- [x] Pinyin input with tone number validation
+- [x] Character-by-character sentence display with audio
+- [x] Pinyin input with tone number validation (supports v/ü substitution)
 - [x] Real-time feedback (✓/✗ indicators)
-- [x] Sentence-level scoring
+- [x] Sentence-level scoring with English translations
 - [x] Progress tracking across sentences
 - [x] Result review after each sentence
 - [x] Responsive design with dark mode support
+- [x] Script preference system (simplified/traditional/mixed)
+- [x] Settings page with database reset
+- [x] Navigation component across all pages
+- [x] First-run modal for script selection
 
 ### Core Components
 - **Practice Page** (`app/practice/page.tsx`): Main learning interface
@@ -176,84 +180,194 @@ id,char,codepoint,pinyins,script_type,variants,gloss_en,examples
   - Accepts pinyin input (tone3 format: wo3, ni3, ta1)
   - Validates against context-aware pinyin
   - Shows results and advances to next character/sentence
+  - Displays English translations after completion
 
 - **Scoring System** (`lib/scoring.ts`):
-  - Normalizes user input (lowercase, trim)
+  - Normalizes user input (lowercase, trim, v→ü conversion)
   - Compares against expected pinyin
   - Calculates accuracy percentage
 
-- **Data Loading** (`lib/sentences.ts`):
-  - Loads sentences from JSON
-  - Provides TypeScript interfaces
+- **Data Loading** (`lib/sentences.ts`, `lib/characters.ts`):
+  - In-memory caching for fast navigation
+  - Preloading on homepage for instant practice start
+  - Character ID mapping for mastery tracking
+
+---
+
+### Advanced Features (Recently Completed) ✓
+
+#### Mastery Tracking System
+- [x] **IndexedDB Persistence** (`lib/db.ts`)
+  - Word-level mastery tracking (Dexie.js wrapper)
+  - Sentence-level progress tracking
+  - Queue management for NSS algorithm
+  - ~Database reset utility
+
+- [x] **EWMA-based Mastery** (`lib/mastery.ts`)
+  - Exponentially Weighted Moving Average for word mastery (α=0.15)
+  - Sentence-level pass rate tracking (α=0.2)
+  - SRS scheduling with next_review_ts
+  - Cumulative scoring and attempt tracking
+
+#### Next Sentence Selection (NSS) Algorithm
+- [x] **Adaptive Difficulty** (`lib/sentence-selection.ts`)
+  - Dynamic k-band (2-5 unknowns normal, 1-3 under backlog)
+  - Cold start protection with dynamic k_cap (12→10→8→none based on avg mastery)
+  - Overdue word boosting (1.2x weight)
+  - Sentence novelty scoring (time-based)
+  - Pass penalty to avoid grinding
+
+- [x] **Batch Generation & Prefetching**
+  - Generates batches of 10 sentences
+  - Prefetches next batch when 2 remain
+  - 5-level fallback cascade for edge cases
+  - Script-type filtering (simplified/traditional/mixed)
+
+- [x] **Comprehensive Logging** (`lib/logger.ts`)
+  - NSS algorithm debugging (development only)
+  - Rejection tracking (no unknowns / k_cap violations)
+  - Mastery distribution stats (every 10 batches)
+  - Auto-save to log files (development only)
+
+#### Environment Gating
+- [x] **Development vs Production**
+  - NSS logs gated to development only
+  - Debug console.logs wrapped in NODE_ENV checks
+  - File logging API (development only)
+  - DevStats component (development only)
+  - Clean production builds with minimal logging
 
 ---
 
 ## What's NOT Yet Built (Roadmap)
 
-### High Priority - Core Learning Features
-- [ ] **Adaptive Sentence Selection**
-  - Filter sentences by difficulty (based on character frequency)
-  - Select sentences targeting unknown characters
-  - Maintain 90-95% comprehension level
-  - Dynamic difficulty adjustment
+### Immediate Priority (Current Sprint)
+- [ ] **User-Facing Stats Page**
+  - Total characters practiced
+  - Characters mastered (s ≥ threshold)
+  - Unique sentences seen vs total attempts
+  - Overall accuracy percentage
+  - Mastery breakdown (learning/proficient/mastered buckets)
+  - Progress bars showing X / Y characters in corpus
 
-- [ ] **Word-Level Mastery Tracking**
-  - Track character/word exposure and success rate
-  - Implement spaced repetition scheduling (SRS)
-  - Forgetting curve modeling
-  - Related-word graph for contextual learning
+### High Priority (Post-MVP Launch)
+- [ ] **HSK Level Data Pipeline**
+  - Scrape/integrate HSK 3.0 character lists (9 levels)
+  - Tag all characters with HSK level in data pipeline
+  - Tag sentences with HSK level (based on character composition)
+  - User preference: filter practice by HSK level
+  - Stats page: show progress by HSK level
+  - **Effort**: 4-6 hours data work + 4-6 hours frontend integration
+  - **Impact**: Aligns with curriculum, huge value for learners
 
-- [ ] **User Accounts & Persistence**
-  - Database integration (PostgreSQL/SQLite)
-  - User authentication
-  - Progress saving across sessions
-  - Known/unknown character sets per user
+- [ ] **Mobile PWA Optimization**
+  - Make app installable on phones (manifest.json)
+  - Offline support (service workers)
+  - Better touch keyboard handling
+  - Mobile-optimized layouts
+  - **Effort**: 8-12 hours
+  - **Impact**: Most language learning happens on mobile
 
-- [ ] **Tone Accuracy System**
-  - Detailed tone error tracking (e.g., tone 2 vs tone 3 confusion)
+### Medium Priority (Nice to Have)
+- [ ] **Review Mode**
+  - Practice mode: "Learn New" vs "Review"
+  - Filter sentences by overdue words (past next_review_ts)
+  - Filter by low mastery (s < 0.5)
+  - Word-level review (isolated character practice, no sentences)
+  - **Effort**: 6-8 hours
+  - **Impact**: Addresses forgetting curve
+
+- [ ] **Character Detail View**
+  - Click character → show detailed info
+  - Etymology, stroke order diagrams
+  - Example compounds, usage notes
+  - Requires external data (Unihan, HanziJS, Hanzi Writer)
+  - **Effort**: 4-8 hours
+  - **Impact**: Educational value for learners
+
+- [ ] **Sentence-Level Audio**
+  - Full sentence pronunciation (not just characters)
+  - Requires TTS API (Google/Azure) or pre-recorded audio
+  - **Effort**: Depends on audio source
+  - **Impact**: Listening comprehension practice
+
+### Lower Priority (Future)
+- [ ] **Tone Error Analytics**
+  - Track specific tone confusion (tone 2 vs tone 3)
   - Tone-specific practice drills
   - Optional tone-less practice mode
 
-### Medium Priority - Analytics & Feedback
-- [ ] **Progress Analytics Dashboard**
-  - Character coverage percentage
-  - Reading level estimation
-  - Weak radicals identification
-  - Tone error pattern visualization
-  - Time-to-mastery predictions
-
-- [ ] **Enhanced Feedback**
-  - Show correct answer on incorrect input
-  - Hint system (radical breakdown, example words)
-  - Audio pronunciation (TTS or recordings)
-  - Character etymology and mnemonic aids
-
-### Lower Priority - Polish & Extensions
-- [ ] **Corpus Management**
-  - Filter by script type (simplified/traditional)
+- [ ] **Custom Corpus Management**
   - Import custom sentence lists
   - Topic/domain filtering (news, literature, spoken)
-  - Sentence quality ratings
+  - Sentence difficulty ratings
 
-- [ ] **Motivation Layer**
-  - Daily streak tracking
-  - Milestone achievements
-  - Coverage goals (HSK levels, character counts)
-  - Study reminders
+- [ ] **Character Writing Practice**
+  - Reverse mode: show pinyin, type character (requires Chinese IME)
+  - Stroke order practice
+  - Handwriting recognition (premium feature)
 
-- [ ] **Mobile Optimization**
-  - Progressive Web App (PWA)
-  - Mobile keyboard handling
-  - Touch-optimized UI
-  - Offline mode
+### Explicitly Decided Against (For Now)
+- ❌ **Study Streaks / Session Tracking**
+  - Feels forced/gamified
+  - Adds complexity (what is a "session"?)
+  - User prefers casual grinding
 
-### Future Monetization
-- [ ] Freemium model (basic adaptive reading free)
-- [ ] Premium corpora (news, literature, specialized domains)
-- [ ] AI pronunciation feedback
-- [ ] Advanced analytics and study insights
-- [ ] Creator marketplace for sentence decks
-- [ ] Institutional licensing
+- ❌ **Session Summary Popups**
+  - "You practiced 10 sentences!" feels clumsy
+  - Prefer continuous flow over chunked sessions
+
+- ❌ **User Accounts / Cloud Sync**
+  - Local-first approach (IndexedDB)
+  - Portable, no server costs
+  - Privacy-friendly
+
+---
+
+## Current Design Work: Stats Page
+
+### Production View (User-Facing)
+**Goal**: Motivate users, show progress, avoid technical jargon
+
+```
+┌─────────────────────────────────────┐
+│ Your Progress                        │
+├─────────────────────────────────────┤
+│                                      │
+│  Total Characters Practiced: 232     │
+│  Characters Mastered: 87             │
+│  Sentences Practiced: 42             │
+│  Total Attempts: 127                 │
+│  Overall Accuracy: 73%               │
+│                                      │
+│  Mastery Breakdown:                  │
+│  ████████░░  Learning (145 chars)    │
+│  ████░░░░░░  Proficient (62 chars)   │
+│  ██░░░░░░░░  Mastered (25 chars)     │
+│                                      │
+│  Progress: 232 / 1,847 (12.6%)       │
+│  ████░░░░░░░░░░░░░░░░                │
+└─────────────────────────────────────┘
+```
+
+**Thresholds** (subject to tuning):
+- Learning: s < 0.6
+- Proficient: 0.6 ≤ s < 0.8
+- Mastered: s ≥ 0.8
+
+**Open Questions**:
+1. What s-value = "learned"? (0.7? 0.75? 0.8?)
+2. Accuracy: word-level or sentence-level? (Leaning word-level)
+3. Should "characters practiced" show total corpus size or just characters that appear in sentences?
+
+### Development View (Superset)
+Same as production, **plus**:
+- Raw IndexedDB metrics (avg mastery, avg success, total attempts)
+- NSS algorithm health indicators
+- Database table viewers (characters, sentences)
+- Reset database button
+
+**Layout**: Production stats at top, developer stats below in collapsible sections
 
 ---
 
@@ -281,12 +395,50 @@ We use **jieba** for word segmentation, then **pypinyin** to generate context-ap
 - Simpler validation logic
 - Can optionally display tone marks in UI while accepting numbers as input
 
-### Why No Database Yet?
-- Faster MVP development
-- File-based data is portable and versionable
-- Easy to inspect and debug
-- Sufficient for single-user prototype
-- Will migrate to PostgreSQL/SQLite when adding user accounts
+### Why IndexedDB (Not PostgreSQL)?
+- **Local-first**: No server, no auth, instant start
+- **Privacy**: All data stays on user's device
+- **Portable**: Export/import via browser
+- **Fast**: No network latency
+- **Free**: No hosting costs for MVP
+- **Trade-off**: No cross-device sync (acceptable for portfolio project)
+
+### How Does NSS Work?
+**Next Sentence Selection** adaptively picks sentences based on:
+
+1. **Difficulty (k unknowns)**:
+   - Target: 2-5 unknown characters per sentence (normal)
+   - Tightens to 1-3 under review backlog (>80 due words)
+   - Cold start cap: 12→10→8 unknowns based on avg mastery
+
+2. **Scoring Formula**:
+   ```
+   score = base_gain + novelty - pass_penalty - k_penalty
+
+   base_gain = Σ(1 - s) × 1.2 if overdue
+   novelty = 0.05 × log(1 + hours_since_seen)
+   pass_penalty = 0.1 × ewma_pass
+   k_penalty = 0.2 × |k - k_band| if outside band
+   ```
+
+3. **Batch Generation**:
+   - Sample 200 candidates from eligible pool
+   - Score all, select top 10
+   - Shuffle to mix difficulty
+   - Prefetch next batch when 2 remain
+
+4. **Fallback Cascade** (if <10 sentences scored):
+   1. Relax k_band to [1, 6]
+   2. Ignore cooldown (60 min)
+   3. Lower θ_known to 0.65
+   4. Drop ewma_skip filter
+   5. Random selection (emergency)
+
+**Why EWMA over Leitner/SM-2?**
+- Simpler implementation (no interval calculation)
+- Gradual adaptation (vs discrete boxes/intervals)
+- Works naturally with sentence-level scoring
+- Mastery can both increase AND decrease (realistic forgetting)
 
 ---
 
@@ -389,6 +541,6 @@ A: Out of scope for MVP. Focus is on recognition and typing (pinyin input method
 
 ---
 
-**Last Updated**: 2025-10-19
-**Project Status**: MVP Complete - Core practice interface working, adaptive features pending
-**Next Milestone**: User accounts + mastery tracking + adaptive sentence selection
+**Last Updated**: 2025-10-20
+**Project Status**: Advanced MVP - NSS algorithm complete, mastery tracking live, stats page in progress
+**Next Milestone**: User-facing stats page + production deployment

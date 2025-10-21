@@ -19,7 +19,11 @@ export function removeTones(pinyin: string): string {
 
 /**
  * Check if user's pinyin input matches the expected pinyin.
- * Accepts both with tones (shi4) and without tones (shi).
+ * Accepts:
+ * - Exact match with correct tone (shi4 = shi4)
+ * - Toneless input (shi = shi4)
+ * Rejects:
+ * - Wrong tone (shi2 ≠ shi4)
  */
 export function checkPinyin(userInput: string, expected: string): boolean {
   const normalized = normalizePinyin(userInput);
@@ -30,7 +34,15 @@ export function checkPinyin(userInput: string, expected: string): boolean {
     return true;
   }
 
-  // Match without tones
+  // Check if user provided a tone number
+  const userHasTone = /[1-4]/.test(normalized);
+
+  if (userHasTone) {
+    // User typed a tone, so it must match exactly (already failed above)
+    return false; // Wrong tone - reject!
+  }
+
+  // User didn't type a tone - accept if base pinyin matches
   const normalizedNoTone = removeTones(normalized);
   const expectedNoTone = removeTones(normalizedExpected);
 

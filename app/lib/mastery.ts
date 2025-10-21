@@ -6,7 +6,8 @@ import { db, type WordMastery, type SentenceProgress } from './db';
 
 // Learning algorithm constants
 const ALPHA = 0.2;              // Learning rate for mastery score
-const BETA = 0.15;              // EWMA smoothing factor
+const BETA = 0.15;              // EWMA smoothing factor for word success rate
+const GAMMA = 0.2;              // EWMA smoothing factor for sentence pass rate
 const INITIAL_S = 0.3;          // Starting mastery score
 const INITIAL_STABILITY = 1.0;  // Initial stability (days)
 const STABILITY_UP = 1.4;       // Correct answer multiplier
@@ -127,7 +128,9 @@ export async function recordSentenceAttempt(
       }
     });
 
-    console.log(`Recorded ${uniqueAttempts.size} word attempts`);
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`Recorded ${uniqueAttempts.size} word attempts`);
+    }
   } catch (error) {
     // Silent error handling - don't block user progress
     console.error('Failed to record sentence attempt:', error);
@@ -139,14 +142,15 @@ export async function recordSentenceAttempt(
  * Tracks how often a sentence has been practiced and overall pass/fail rate
  *
  * @param sid - Sentence ID from sentences.json
- * @param passed - Whether user got all Chinese characters correct on first attempt
+ * @param score - Sentence score [0,1] as average of unique character correctness
  */
 export async function recordSentenceProgress(
   sid: number,
-  passed: boolean
+  score: number
 ): Promise<void> {
   try {
     const now = Date.now();
+    const e = score; // Score is already in [0,1] range
 
     // Fetch existing record or create new one
     let sentence = await db.sentences.get(sid);
@@ -159,9 +163,25 @@ export async function recordSentenceProgress(
         last_seen_ts: now,
         seen_count: 0,
         pass_count: 0,
+        cumulative_score: 0,
+        ewma_pass: 0.3, // Initial EWMA (same as word mastery initial)
         last_outcome: 'fail', // Will be updated below
       };
     }
+
+    // Calculate EWMA pass rate
+    // For first attempt (seen_count === 0), set directly to outcome
+    // For subsequent attempts, use exponential smoothing
+    const newEwmaPass =
+      sentence.seen_count === 0
+        ? e
+        : Math.max(
+            0,
+            Math.min(1, sentence.ewma_pass + GAMMA * (e - sentence.ewma_pass))
+          );
+
+    // Consider it a "pass" if score is 1.0 (100% correct)
+    const passed = score >= 1.0;
 
     // Update record
     const updated: SentenceProgress = {
@@ -169,13 +189,17 @@ export async function recordSentenceProgress(
       last_seen_ts: now,
       seen_count: sentence.seen_count + 1,
       pass_count: sentence.pass_count + (passed ? 1 : 0),
+      cumulative_score: sentence.cumulative_score + score,
+      ewma_pass: newEwmaPass,
       last_outcome: passed ? 'pass' : 'fail',
     };
 
     // Save to database
     await db.sentences.put(updated);
 
-    console.log(`Recorded sentence ${sid} progress: ${passed ? 'pass' : 'fail'}`);
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`Recorded sentence ${sid} progress: score=${score.toFixed(2)} ${passed ? 'pass' : 'fail'}`);
+    }
   } catch (error) {
     // Silent error handling - don't block user progress
     console.error('Failed to record sentence progress:', error);

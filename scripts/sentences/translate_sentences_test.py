@@ -138,6 +138,7 @@ def translate_batch(
         # Give more tokens for longer sentences
         max_tokens = MAX_TOKENS_PER_SENTENCE * len(sentences)
 
+        print(f"(calling API...)", end=' ', flush=True)
         response = client.chat.completions.create(
             model=MODEL,
             messages=[
@@ -145,8 +146,10 @@ def translate_batch(
                 {"role": "user", "content": user_prompt}
             ],
             temperature=TEMPERATURE,
-            max_tokens=max_tokens
+            max_tokens=max_tokens,
+            timeout=60.0  # 60 second timeout
         )
+        print(f"(got response)", end=' ', flush=True)
 
         # Extract response text
         response_text = response.choices[0].message.content
@@ -168,6 +171,30 @@ def translate_batch(
 
         return translations, stats
 
+    except openai.RateLimitError as e:
+        print(f"\n   RATE LIMIT ERROR: {e}")
+        print(f"   Waiting 60 seconds before retrying...")
+        time.sleep(60)
+        # Return empty translations - caller can retry
+        return [''] * len(sentences), {
+            'prompt_tokens': 0,
+            'completion_tokens': 0,
+            'total_tokens': 0,
+            'cost': 0,
+            'status': 'rate_limited',
+            'error': str(e)
+        }
+    except openai.APITimeoutError as e:
+        print(f"\n   TIMEOUT ERROR: {e}")
+        # Return empty translations on error
+        return [''] * len(sentences), {
+            'prompt_tokens': 0,
+            'completion_tokens': 0,
+            'total_tokens': 0,
+            'cost': 0,
+            'status': 'timeout',
+            'error': str(e)
+        }
     except Exception as e:
         print(f"\n   ERROR: {e}")
         # Return empty translations on error
@@ -511,8 +538,24 @@ def main():
         # Prepare batch for translation
         batch_input = [(s['id'], s['sentence']) for s in batch]
 
-        # Translate
-        translations, stats = translate_batch(client, batch_input)
+        # Translate with retry for rate limits
+        max_retries = 3
+        retry_count = 0
+        while retry_count < max_retries:
+            translations, stats = translate_batch(client, batch_input)
+
+            # Break on success or permanent failure
+            if stats['status'] in ['success', 'failed']:
+                break
+
+            # Retry on rate limit or timeout
+            if stats['status'] in ['rate_limited', 'timeout']:
+                retry_count += 1
+                if retry_count < max_retries:
+                    print(f"      Retrying ({retry_count}/{max_retries})...", end=' ', flush=True)
+                else:
+                    print(f"      Max retries reached, skipping batch")
+                    break
 
         if stats['status'] == 'success':
             print(f"✓ (${stats['cost']:.4f})")
@@ -551,9 +594,14 @@ def main():
                 sentence['english_translation'] = ''
                 logger.error("Sentence %s failed: %s", sentence['id'], sentence['sentence'])
 
-        # Small delay to be respectful to API
-        if i + BATCH_SIZE < len(sentences):
-            time.sleep(0.5)
+        # Save progress after each batch (in case of interruption)
+        save_translated_sentences(sentences, OUTPUT_CSV)
+
+        # Delay to respect rate limits
+        # For Tier 1 (500 RPM), we need at least 0.12s between requests
+        # Using 2 seconds to be very safe and avoid hitting limits
+        if i < len(needs_translation):
+            time.sleep(2.0)
 
     elapsed_time = time.time() - start_time
 
