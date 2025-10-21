@@ -1,14 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getAllWords, getAllSentences, getDatabaseStats, resetDatabase, type WordMastery, type SentenceProgress } from '@/lib/db';
+import { getAllWords, getAllSentences, getDatabaseStats, type WordMastery, type SentenceProgress } from '@/lib/db';
 import { loadSentences } from '@/lib/sentences';
 import { loadCharacterMapping, getCharId } from '@/lib/characters';
 import type { Sentence } from '@/lib/types';
 
 /**
  * Development component for inspecting IndexedDB word mastery data
- * Shows stats and allows resetting the database
+ * Shows detailed stats and word/sentence tables for debugging
  */
 export default function DevStats() {
   const [stats, setStats] = useState<any>(null);
@@ -60,13 +60,6 @@ export default function DevStats() {
     loadData();
   }, []);
 
-  const handleReset = async () => {
-    if (confirm('Are you sure you want to reset all mastery data? This cannot be undone.')) {
-      await resetDatabase();
-      await loadData();
-    }
-  };
-
   if (loading) {
     return (
       <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
@@ -77,15 +70,7 @@ export default function DevStats() {
 
   return (
     <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg space-y-4">
-      <div className="flex justify-between items-center">
-        <h3 className="text-lg font-bold">IndexedDB Stats (Dev)</h3>
-        <button
-          onClick={handleReset}
-          className="px-3 py-1 bg-red-600 hover:bg-red-700 text-white text-sm rounded transition-colors"
-        >
-          Reset Database
-        </button>
-      </div>
+      <h3 className="text-lg font-bold">IndexedDB Stats</h3>
 
       {/* Summary Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -138,6 +123,9 @@ export default function DevStats() {
                 <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Attempts</th>
                 <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Streak</th>
                 <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Stability</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Next Review</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Last Seen</th>
+                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Introduced</th>
                 <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Outcome</th>
               </tr>
             </thead>
@@ -146,6 +134,46 @@ export default function DevStats() {
                 const trueSuccessRate = word.n_attempts > 0
                   ? ((word.n_correct / word.n_attempts) * 100).toFixed(1)
                   : '0.0';
+
+                // Format timestamps
+                const now = Date.now();
+
+                // Next Review - show as "due in X" or "overdue by X"
+                const nextReviewDelta = word.next_review_ts - now;
+                const nextReviewAbs = Math.abs(nextReviewDelta);
+                const nextReviewMinutes = Math.floor(nextReviewAbs / 60000);
+                let nextReviewStr = '';
+                if (nextReviewMinutes < 60) {
+                  nextReviewStr = nextReviewDelta < 0
+                    ? `due ${nextReviewMinutes}m ago`
+                    : `in ${nextReviewMinutes}m`;
+                } else if (nextReviewMinutes < 1440) {
+                  const hours = Math.floor(nextReviewMinutes / 60);
+                  nextReviewStr = nextReviewDelta < 0
+                    ? `due ${hours}h ago`
+                    : `in ${hours}h`;
+                } else {
+                  const days = Math.floor(nextReviewMinutes / 1440);
+                  nextReviewStr = nextReviewDelta < 0
+                    ? `due ${days}d ago`
+                    : `in ${days}d`;
+                }
+
+                // Last Seen
+                const lastSeenAgo = Math.floor((now - word.last_seen_ts) / 60000);
+                const lastSeenStr = lastSeenAgo < 60
+                  ? `${lastSeenAgo}m`
+                  : lastSeenAgo < 1440
+                  ? `${Math.floor(lastSeenAgo / 60)}h`
+                  : `${Math.floor(lastSeenAgo / 1440)}d`;
+
+                // Introduced
+                const introducedAgo = Math.floor((now - word.introduced_ts) / 60000);
+                const introducedStr = introducedAgo < 60
+                  ? `${introducedAgo}m`
+                  : introducedAgo < 1440
+                  ? `${Math.floor(introducedAgo / 60)}h`
+                  : `${Math.floor(introducedAgo / 1440)}d`;
 
                 return (
                   <tr key={word.char_id} className="border-t dark:border-gray-600">
@@ -158,6 +186,11 @@ export default function DevStats() {
                     <td className="p-1">{word.n_attempts}</td>
                     <td className="p-1">{word.streak_correct}</td>
                     <td className="p-1">{word.stability_days.toFixed(1)}</td>
+                    <td className={`p-1 ${nextReviewDelta < 0 ? 'text-orange-600 dark:text-orange-400' : 'text-gray-500'}`}>
+                      {nextReviewStr}
+                    </td>
+                    <td className="p-1 text-gray-500">{lastSeenStr}</td>
+                    <td className="p-1 text-gray-500">{introducedStr}</td>
                     <td className="p-1">
                       <span
                         className={`px-1 py-0.5 rounded text-xs ${

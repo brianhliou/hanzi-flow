@@ -1,4 +1,19 @@
 /**
+ * Pinyin Input Validation & Scoring
+ *
+ * Validates user pinyin input against expected character readings, handles
+ * tone marks, fuzzy matching (v→ü), and calculates sentence-level accuracy.
+ *
+ * Features:
+ * - Tone-aware validation (with/without tone numbers)
+ * - Fuzzy matching for common input variations (v→ü, case-insensitive)
+ * - Per-character correctness tracking
+ * - Sentence-level scoring (average of unique character correctness)
+ *
+ * Used by: practice/page.tsx for real-time input validation
+ */
+
+/**
  * Normalize pinyin input for comparison.
  * Handles variations like:
  * - Case insensitive (NI3 vs ni3)

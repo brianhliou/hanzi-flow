@@ -1,6 +1,16 @@
 /**
- * IndexedDB database schema using Dexie.js
- * Stores word-level mastery data for spaced repetition and adaptive learning
+ * IndexedDB Schema & Utilities (Dexie.js wrapper)
+ *
+ * Client-side storage for character mastery, sentence progress, and NSS queue.
+ * Local-first architecture: no backend, no sync, offline-capable.
+ *
+ * Tables:
+ * - words: Character mastery tracking (WordMastery interface)
+ * - sentences: Sentence practice history (SentenceProgress interface)
+ * - queue: NSS batch prefetch (SentenceQueue interface)
+ *
+ * Schema versions: Currently v3 (added queue table)
+ * Architecture rationale: See PROJECT_BRIEF.md "Why IndexedDB?"
  */
 
 import Dexie, { Table } from 'dexie';

@@ -49,15 +49,26 @@ python3 build_step4_variants.py
 - Creates bidirectional variant links (e.g., 发 ↔ 發|髮)
 - Filters out self-referential variants
 - Output: `../../data/build_artifacts/step4_variants.csv` adds columns: `script_type`, `variants`
-- Final step: Copy to `../../data/chinese_characters.csv`
+
+### Step 5: HSK Level Classification
+```bash
+python3 build_step5_hsk.py
+```
+- Downloads HSK 3.0 character lists (levels 1-9) from krmanik/HSK-3.0 repo
+- Saves source files to `../../data/sources/hsk30/` (HSK_1.txt through HSK_7-9.txt)
+- Assigns HSK levels to simplified characters from official lists
+- Propagates HSK levels to traditional variants via our variant mappings
+- Characters not in HSK 1-9 curriculum: assigned empty/null hsk_level
+- Output: `../../data/build_artifacts/step5_hsk.csv` adds column: `hsk_level`
+- Final step: Copy to `../../data/chinese_characters.csv` and `../../app/public/data/character_set/chinese_characters.csv`
 
 ## Final Dataset
 
 **Source of Truth**: `../../data/chinese_characters.csv`
 
-This is the production dataset for the app. All columns from step4:
+This is the production dataset for the app. All columns from step5:
 
-Copy of `step4_variants.csv` with all columns:
+Copy of `step5_hsk.csv` with all columns:
 - `id` - Sequential integer (1-20992)
 - `char` - The Chinese character
 - `codepoint` - Unicode identifier (e.g., U+4E00)
@@ -66,6 +77,7 @@ Copy of `step4_variants.csv` with all columns:
 - `variants` - Pipe-separated variant characters (e.g., `發|髮`)
 - `gloss_en` - Short English gloss from CC-CEDICT
 - `examples` - Pipe-separated example words (up to 3)
+- `hsk_level` - HSK level (1, 2, 3, 4, 5, 6, or "7-9") or empty for non-HSK characters
 
 ## Coverage Statistics
 
@@ -74,6 +86,7 @@ Copy of `step4_variants.csv` with all columns:
 - **67.4%** have English glosses (14,152 characters)
 - **41.1%** have example words (8,618 characters)
 - **34.6%** have variants (7,254 characters)
+- **20.0%** have HSK levels (4,192 characters in HSK 1-9 curriculum)
 
 ## Script Type Distribution
 
@@ -82,16 +95,48 @@ Copy of `step4_variants.csv` with all columns:
 - **Neutral**: 65.4% (13,738 characters)
 - **Ambiguous**: 0.0% (2 characters - rare merger cases)
 
+## HSK Level Distribution
+
+- **HSK 1**: 2.0% (415 characters - 300 simplified + 115 traditional variants)
+- **HSK 2**: 2.0% (429 characters - 299 simplified + 130 traditional variants)
+- **HSK 3**: 2.1% (435 characters)
+- **HSK 4**: 2.1% (432 characters)
+- **HSK 5**: 2.0% (423 characters)
+- **HSK 6**: 2.0% (414 characters)
+- **HSK 7-9**: 7.8% (1,644 characters - 1,200 simplified + 444 traditional variants)
+- **No HSK**: 80.0% (16,800 characters - archaic, rare, or specialized)
+
 ## Build Artifacts
 
-Intermediate CSVs are stored in `../../data/build_artifacts/` for audit purposes:
+Intermediate CSVs are stored in `../../data/character_set/` for audit purposes:
 - `step1_base.csv` - Base character set
 - `step2_pinyin.csv` - With pinyin
 - `step3_cedict.csv` - With glosses and examples
-- `step4_variants.csv` - Complete with all columns
+- `step4_variants.csv` - With script types and variants
+- `step5_hsk.csv` - Complete with HSK levels (final output)
 
 ## Rebuilding
 
 If source data is updated:
 1. Re-run all steps in order (each step reads from the previous step's output)
-2. Copy final `step4_variants.csv` to `../../data/chinese_characters.csv`
+2. Copy final `step5_hsk.csv` to:
+   - `../../data/chinese_characters.csv` (main dataset)
+   - `../../app/public/data/character_set/chinese_characters.csv` (production/frontend)
+
+## HSK Data Source
+
+HSK 3.0 character lists are downloaded from:
+- **Repository**: https://github.com/elkmovie/hsk30
+- **License**: MIT License (Copyright 2021 Pleco Inc.)
+- **Source**: OCR'd from official Chinese government HSK 3.0 PDF
+- **Levels**: 1-6 (300 chars each), 7-9 grouped (1,200 chars)
+- **Format**: Tab-separated format (number + character), simplified Chinese only
+- **Local Cache**: `../../data/sources/elkmovie_hsk30/`
+- **Accuracy**: All 3,000 characters complete (fixes OCR errors in other datasets)
+
+**Why elkmovie over krmanik?**
+The elkmovie dataset fixes critical OCR errors found in the krmanik/HSK-3.0 dataset:
+- HSK 2: 入 (rù, "enter") was mis-recognized as duplicate 人 (rén, "person")
+- HSK 7-9: 抛 (pāo, simplified "throw") was mis-recognized as 拋 (traditional variant)
+
+**Note**: Traditional character HSK levels are derived by propagating simplified character levels through our variant mappings. This assumes semantic equivalence between simplified/traditional pairs at the same difficulty level.

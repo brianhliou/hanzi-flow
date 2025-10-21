@@ -1,5 +1,15 @@
 /**
- * Word mastery tracking and spaced repetition logic
+ * Character & Sentence Mastery Tracking
+ *
+ * Records user attempts, updates mastery scores using exponential smoothing (EWMA),
+ * and manages spaced repetition intervals. Tracks both character-level and
+ * sentence-level progress in IndexedDB.
+ *
+ * Algorithm: ALPHA=0.2 (mastery), BETA=0.15 (word success), GAMMA=0.2 (sentence pass)
+ * SRS: INITIAL_STABILITY=1hr, STABILITY_UP=1.2x, MIN_STABILITY=30min
+ *
+ * Storage: IndexedDB via db.ts
+ * Details: PROJECT_BRIEF.md "Why EWMA over Leitner/SM-2?"
  */
 
 import { db, type WordMastery, type SentenceProgress } from './db';
@@ -9,10 +19,10 @@ const ALPHA = 0.2;              // Learning rate for mastery score
 const BETA = 0.15;              // EWMA smoothing factor for word success rate
 const GAMMA = 0.2;              // EWMA smoothing factor for sentence pass rate
 const INITIAL_S = 0.3;          // Starting mastery score
-const INITIAL_STABILITY = 1.0;  // Initial stability (days)
-const STABILITY_UP = 1.4;       // Correct answer multiplier
+const INITIAL_STABILITY = 1/24; // Initial stability: 1 hour (was 1.0 day)
+const STABILITY_UP = 1.2;       // Correct answer multiplier: slower growth (was 1.4)
 const STABILITY_DOWN = 0.7;     // Wrong answer multiplier
-const MIN_STABILITY = 0.5;      // Minimum stability bound (days)
+const MIN_STABILITY = 0.5/24;   // Minimum stability: 30 minutes (was 0.5 day)
 const MAX_STABILITY = 60;       // Maximum stability bound (days)
 
 /**

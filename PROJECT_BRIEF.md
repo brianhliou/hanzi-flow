@@ -415,21 +415,21 @@ We use **jieba** for word segmentation, then **pypinyin** to generate context-ap
    ```
    score = base_gain + novelty - pass_penalty - k_penalty
 
-   base_gain = Σ(1 - s) × 1.2 if overdue
+   base_gain = Σ(1 - s) × 2.0 if overdue  [tuned: was 1.2]
    novelty = 0.05 × log(1 + hours_since_seen)
    pass_penalty = 0.1 × ewma_pass
-   k_penalty = 0.2 × |k - k_band| if outside band
+   k_penalty = 0.35 × |k - k_band| if outside band  [tuned: was 0.2]
    ```
 
 3. **Batch Generation**:
-   - Sample 200 candidates from eligible pool
+   - Sample 300 candidates from eligible pool  [tuned: was 200]
    - Score all, select top 10
    - Shuffle to mix difficulty
    - Prefetch next batch when 2 remain
 
 4. **Fallback Cascade** (if <10 sentences scored):
    1. Relax k_band to [1, 6]
-   2. Ignore cooldown (60 min)
+   2. Ignore cooldown (20 min)  [tuned: was 60 min]
    3. Lower θ_known to 0.65
    4. Drop ewma_skip filter
    5. Random selection (emergency)
@@ -439,6 +439,42 @@ We use **jieba** for word segmentation, then **pypinyin** to generate context-ap
 - Gradual adaptation (vs discrete boxes/intervals)
 - Works naturally with sentence-level scoring
 - Mastery can both increase AND decrease (realistic forgetting)
+
+**Recent Tuning (Phase 1 - Same-Day Review Optimization)**:
+- **SRS Timing**: Reduced initial stability from 1 day to 1 hour for same-day review
+- **Growth Rate**: Slower stability growth (1.2x vs 1.4x) keeps words in review rotation longer
+- **Review Boost**: Increased overdue_boost from 1.2 to 2.0 for stronger SRS signal
+- **Difficulty**: Stronger k_penalty (0.35 vs 0.2) better enforces difficulty band
+- **Repetition**: Reduced cooldown to 20 min for more same-day practice opportunities
+- **Sampling**: Increased pool from 200 to 300 for better candidate selection
+
+**Future Consideration (Phase 2 - Character-Aware Sampling)**:
+
+*Not currently implemented - documented for future reference*
+
+**Problem**: With 80,000 sentences in corpus and random sampling of 300 candidates, probability of selecting a specific sentence is only 0.375%. Even if a sentence was practiced 1 hour ago and contains characters due for review, it's unlikely to be sampled again.
+
+**Proposed Solution**: Multi-level sampling strategy
+1. **Get priority characters** (50-100 chars needing review/practice)
+   - Sort by priority: `(1-s) × overdue_factor × recency_weight`
+2. **Find sentences containing those characters**
+   - Build review-focused candidate pool
+3. **Biased sampling**:
+   - 70% from review pool (contains due/struggling characters)
+   - 30% from new material pool
+   - Total: 300 candidates
+4. **Score and select as usual**
+
+**Trade-offs**:
+- **Pros**: Direct targeting of characters needing attention, higher review probability
+- **Cons**: More complex architecture, potential performance impact, risk of over-fitting to specific sentences
+- **Decision**: Start with Phase 1 parameter tuning. Only implement if Phase 1 insufficient.
+
+**Alternative Approaches Considered**:
+- Cycle-based (instead of time-based) review scheduling
+- Hybrid time + cycle approach
+- Smaller "active corpus" rotation (5k-10k sentences)
+- All deferred in favor of simpler parameter tuning
 
 ---
 

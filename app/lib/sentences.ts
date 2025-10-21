@@ -1,7 +1,30 @@
 import type { Sentence } from './types';
 
+/**
+ * Corpus metadata from sentences JSON
+ */
+export interface SentenceMetadata {
+  totalSentences: number;
+  totalCharsInCorpus: number;
+  generatedAt: string;
+  version: string;
+}
+
 // In-memory cache - persists across route navigation but not page refresh
 let cachedSentences: Sentence[] | null = null;
+let cachedMetadata: SentenceMetadata | null = null;
+
+/**
+ * Get corpus metadata (cached)
+ */
+export async function getCorpusMetadata(): Promise<SentenceMetadata> {
+  // Load sentences if not cached (will populate metadata)
+  if (!cachedMetadata) {
+    await loadSentences();
+  }
+
+  return cachedMetadata!;
+}
 
 export async function loadSentences(): Promise<Sentence[]> {
   // Return from cache if available
@@ -19,7 +42,14 @@ export async function loadSentences(): Promise<Sentence[]> {
   if (!response.ok) {
     throw new Error('Failed to load sentences');
   }
-  const sentences = await response.json();
+  const data = await response.json();
+
+  // Extract metadata and sentences from new format
+  const metadata: SentenceMetadata = data.metadata;
+  const sentences: Sentence[] = data.sentences;
+
+  // Cache metadata
+  cachedMetadata = metadata;
 
   // TEMP: Prioritize test sentences with alphanumeric/punctuation - REMOVE THIS BLOCK LATER
   // Sentences to load first (in order)

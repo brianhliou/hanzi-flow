@@ -7,25 +7,35 @@ import Navigation from '@/components/Navigation';
 type ScriptType = 'simplified' | 'traditional' | 'mixed';
 
 const SCRIPT_PREFERENCE_KEY = 'hanzi-flow-script-preference';
+const AUDIO_ENABLED_KEY = 'hanzi-flow-audio-enabled';
 
 export default function SettingsPage() {
-  const [selectedScript, setSelectedScript] = useState<ScriptType>('mixed');
+  const [selectedScript, setSelectedScript] = useState<ScriptType | null>(null);
+  const [audioEnabled, setAudioEnabled] = useState<boolean>(true);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [resetSuccess, setResetSuccess] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
 
-  // Load preference on mount
+  // Load preferences on mount (client-side only to avoid hydration mismatch)
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem(SCRIPT_PREFERENCE_KEY) as ScriptType | null;
-      if (saved) {
-        setSelectedScript(saved);
-      }
-    }
+    const savedScript = localStorage.getItem(SCRIPT_PREFERENCE_KEY) as ScriptType | null;
+    setSelectedScript(savedScript); // Keep as null if no preference saved
+
+    const savedAudio = localStorage.getItem(AUDIO_ENABLED_KEY);
+    setAudioEnabled(savedAudio === null ? true : savedAudio === 'true'); // Default to enabled
+
+    setIsHydrated(true); // Mark as hydrated
   }, []);
 
   const handleScriptChange = (script: ScriptType) => {
     setSelectedScript(script);
     localStorage.setItem(SCRIPT_PREFERENCE_KEY, script);
+  };
+
+  const handleAudioToggle = () => {
+    const newValue = !audioEnabled;
+    setAudioEnabled(newValue);
+    localStorage.setItem(AUDIO_ENABLED_KEY, String(newValue));
   };
 
   const handleReset = async () => {
@@ -36,13 +46,20 @@ export default function SettingsPage() {
     setTimeout(() => setResetSuccess(false), 3000);
   };
 
+  // DEV MODE ONLY: Reset script preference to trigger modal (without losing progress data)
+  const handleResetScriptPreference = () => {
+    localStorage.removeItem(SCRIPT_PREFERENCE_KEY);
+    setSelectedScript(null);
+    // No reload needed - state update is enough to show unselected cards
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation currentPage="settings" />
 
       {/* Content */}
       <div className="flex-1 p-8">
-        <div className="max-w-4xl mx-auto space-y-12">
+        <div className="max-w-4xl mx-auto space-y-8">
           <div>
             <h1 className="text-3xl font-bold mb-2">Settings</h1>
             <p className="text-gray-600 dark:text-gray-400">
@@ -59,47 +76,99 @@ export default function SettingsPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Simplified */}
-              <button
-                onClick={() => handleScriptChange('simplified')}
-                className={`p-6 rounded-lg border-2 transition-all text-center ${
-                  selectedScript === 'simplified'
-                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20'
-                    : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
-                }`}
-              >
-                <div className="text-5xl mb-3">简体</div>
-                <div className="font-semibold text-lg">Simplified</div>
-              </button>
-
-              {/* Traditional */}
-              <button
-                onClick={() => handleScriptChange('traditional')}
-                className={`p-6 rounded-lg border-2 transition-all text-center ${
-                  selectedScript === 'traditional'
-                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20'
-                    : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
-                }`}
-              >
-                <div className="text-5xl mb-3">繁體</div>
-                <div className="font-semibold text-lg">Traditional</div>
-              </button>
-
-              {/* Mixed */}
-              <button
-                onClick={() => handleScriptChange('mixed')}
-                className={`p-6 rounded-lg border-2 transition-all text-center ${
-                  selectedScript === 'mixed'
-                    ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20'
-                    : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
-                }`}
-              >
-                <div className="text-4xl mb-3 whitespace-nowrap">
-                  简体 + 繁體
+            {!isHydrated ? (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Hydration placeholder - show neutral non-interactive cards */}
+                <div className="p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 text-center opacity-50">
+                  <div className="text-5xl mb-3">简体</div>
+                  <div className="font-semibold text-lg">Simplified</div>
                 </div>
-                <div className="font-semibold text-lg">Mixed</div>
-              </button>
+                <div className="p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 text-center opacity-50">
+                  <div className="text-5xl mb-3">繁體</div>
+                  <div className="font-semibold text-lg">Traditional</div>
+                </div>
+                <div className="p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 text-center opacity-50">
+                  <div className="text-4xl mb-3 whitespace-nowrap">简体 + 繁體</div>
+                  <div className="font-semibold text-lg">Mixed</div>
+                </div>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Simplified */}
+                <button
+                  onClick={() => handleScriptChange('simplified')}
+                  className={`p-6 rounded-lg border-2 transition-all text-center ${
+                    selectedScript === 'simplified'
+                      ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20'
+                      : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+                  }`}
+                >
+                  <div className="text-5xl mb-3">简体</div>
+                  <div className="font-semibold text-lg">Simplified</div>
+                </button>
+
+                {/* Traditional */}
+                <button
+                  onClick={() => handleScriptChange('traditional')}
+                  className={`p-6 rounded-lg border-2 transition-all text-center ${
+                    selectedScript === 'traditional'
+                      ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20'
+                      : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+                  }`}
+                >
+                  <div className="text-5xl mb-3">繁體</div>
+                  <div className="font-semibold text-lg">Traditional</div>
+                </button>
+
+                {/* Mixed */}
+                <button
+                  onClick={() => handleScriptChange('mixed')}
+                  className={`p-6 rounded-lg border-2 transition-all text-center ${
+                    selectedScript === 'mixed'
+                      ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20'
+                      : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+                  }`}
+                >
+                  <div className="text-4xl mb-3 whitespace-nowrap">
+                    简体 + 繁體
+                  </div>
+                  <div className="font-semibold text-lg">Mixed</div>
+                </button>
+              </div>
+            )}
+          </section>
+
+          {/* Audio Settings */}
+          <section className="space-y-4">
+            <div>
+              <h2 className="text-xl font-semibold mb-1">Audio Settings</h2>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Control audio feedback during practice
+              </p>
+            </div>
+
+            <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-semibold mb-1">Pronunciation Audio</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Play audio when you answer incorrectly
+                  </p>
+                </div>
+                <button
+                  onClick={handleAudioToggle}
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                    audioEnabled ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'
+                  }`}
+                  aria-label="Toggle audio"
+                >
+                  <span
+                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                      audioEnabled ? 'translate-x-6' : 'translate-x-1'
+                    }`}
+                  />
+                </button>
+              </div>
             </div>
           </section>
 
@@ -153,6 +222,24 @@ export default function SettingsPage() {
                 </div>
               )}
             </div>
+
+            {/* DEV MODE ONLY: Reset script preference button */}
+            {process.env.NODE_ENV === 'development' && (
+              <div className="border border-orange-300 dark:border-orange-700 bg-orange-50 dark:bg-orange-900/20 rounded-lg p-6">
+                <h3 className="font-semibold mb-2 text-orange-800 dark:text-orange-300">
+                  [DEV] Reset Script Preference
+                </h3>
+                <p className="text-sm text-orange-700 dark:text-orange-400 mb-4">
+                  Development only: Clears script preference to trigger the selection modal on practice page. Does NOT delete progress data.
+                </p>
+                <button
+                  onClick={handleResetScriptPreference}
+                  className="px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors"
+                >
+                  [DEV] Clear Script Preference
+                </button>
+              </div>
+            )}
           </section>
         </div>
       </div>

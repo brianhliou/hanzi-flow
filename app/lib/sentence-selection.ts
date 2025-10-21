@@ -1,11 +1,16 @@
 /**
- * Next Sentence Selection (NSS) Algorithm
+ * Next Sentence Selection (NSS) - Adaptive sentence picker
  *
- * Adaptive sentence selector that balances:
- * - Word-level spaced repetition (SRS)
- * - Sentence-level mastery tracking
- * - Difficulty management (k unknowns per sentence)
- * - Review backlog control
+ * Selects practice sentences based on character mastery, difficulty (k unknowns),
+ * and spaced repetition. Samples 300 candidates, scores them, returns top 10.
+ *
+ * Key concepts:
+ * - k: Number of "unknown" characters (s < θ_known) in a sentence
+ * - Scoring: base_gain + novelty - pass_penalty - k_penalty
+ * - Batching: Prefetch 10 sentences from pool of 300 candidates
+ *
+ * Config: selection-config.ts
+ * Details: PROJECT_BRIEF.md "How Does NSS Work"
  */
 
 import { db, type SentenceQueue, type SentenceProgress, type WordMastery } from './db';

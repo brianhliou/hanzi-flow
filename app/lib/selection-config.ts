@@ -37,7 +37,7 @@ export const SELECTION_CONFIG = {
   // ============================================================================
 
   /** Don't repeat sentence within this many minutes */
-  cooldown_minutes: 60,
+  cooldown_minutes: 20,
 
   /** Skip sentence if ewma_pass >= this threshold (mastered) */
   ewma_skip_threshold: 0.9,
@@ -50,7 +50,7 @@ export const SELECTION_CONFIG = {
   // ============================================================================
 
   /** Multiplier for words due for review (SRS boost) */
-  overdue_boost: 1.2,
+  overdue_boost: 2.0,
 
   /** Weight for novelty (time since last seen) */
   novelty_weight: 0.05,
@@ -59,7 +59,7 @@ export const SELECTION_CONFIG = {
   pass_penalty_weight: 0.1,
 
   /** Penalty for difficulty outside k_band */
-  k_penalty_weight: 0.2,
+  k_penalty_weight: 0.35,
 
   // ============================================================================
   // BATCHING
@@ -72,7 +72,7 @@ export const SELECTION_CONFIG = {
   prefetch_threshold: 2,
 
   /** Number of candidate sentences to sample and score per batch generation */
-  pool_sample_size: 200,
+  pool_sample_size: 300,
 
   /** Optional: invalidate queue after this duration (ms). Set to 0 to disable. */
   queue_max_age_ms: 0,  // Disabled - keep queue indefinitely
@@ -99,6 +99,18 @@ export const SELECTION_CONFIG = {
     /** Advanced: no cap needed, k_penalty handles it */
     advanced: { threshold: 1.0, k_cap: null }
   },
+
+  // ============================================================================
+  // MASTERY THRESHOLDS (for stats/progress tracking)
+  // ============================================================================
+
+  /** Character mastery threshold - characters with s >= this value are "mastered" */
+  mastered_threshold: 0.8,
+
+  /** Character learning threshold - characters with s >= this but < mastered are "learning" */
+  learning_threshold: 0.4,
+
+  /** Characters with s < learning_threshold are "new/struggling" */
 } as const;
 
 export type SelectionConfig = typeof SELECTION_CONFIG;

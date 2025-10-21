@@ -14,6 +14,7 @@ import Navigation from '@/components/Navigation';
 type ScriptFilter = 'simplified' | 'traditional' | 'mixed';
 
 const SCRIPT_PREFERENCE_KEY = 'hanzi-flow-script-preference';
+const AUDIO_ENABLED_KEY = 'hanzi-flow-audio-enabled';
 
 export default function PracticePage() {
   const [scriptFilter, setScriptFilter] = useState<ScriptFilter | null>(null);
@@ -35,6 +36,7 @@ export default function PracticePage() {
   const [retryCount, setRetryCount] = useState(0);
   const [showTranslation, setShowTranslation] = useState(false);
   const [exceededRetryIndices, setExceededRetryIndices] = useState<Set<number>>(new Set());
+  const [audioEnabled, setAudioEnabled] = useState<boolean>(true);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const MAX_RETRIES = 5;
@@ -44,6 +46,7 @@ export default function PracticePage() {
     const endingPunctuationSet = new Set([
       '。', '，', '！', '？', '；', '：',  // Chinese punctuation
       '」', '』', '）', '】', '》', '〉',  // Closing brackets/quotes
+      '\u201D', '\u2019',                // Chinese closing quotes (" ')
       '、', '…', '·',                    // Other punctuation
       '.', ',', '!', '?', ';', ':',      // English punctuation
       ')', ']', '}', '"', '\'',          // English closing
@@ -67,7 +70,7 @@ export default function PracticePage() {
       });
   }, []);
 
-  // Step 2: Check script preference after mount
+  // Step 2: Check script preference and audio setting after mount
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
@@ -78,6 +81,10 @@ export default function PracticePage() {
       // No preference set - show modal
       setShowScriptModal(true);
     }
+
+    // Load audio preference (defaults to enabled)
+    const savedAudio = localStorage.getItem(AUDIO_ENABLED_KEY);
+    setAudioEnabled(savedAudio === null ? true : savedAudio === 'true');
   }, []);
 
   // Step 3: Get first sentence when both sentences and preference are ready
@@ -248,8 +255,8 @@ export default function PracticePage() {
           return;
         }
 
-        // Play audio for correct pronunciation on every wrong attempt
-        if (currentChar.pinyin) {
+        // Play audio for correct pronunciation on every wrong attempt (if enabled)
+        if (audioEnabled && currentChar.pinyin) {
           playPinyinAudio(currentChar.pinyin).catch((error) => {
             // Silently handle audio errors - don't block user progress
             console.warn('Audio playback failed:', error);
@@ -348,7 +355,7 @@ export default function PracticePage() {
         <Navigation currentPage="practice" />
 
         {/* First-Run Script Selection Modal */}
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div className="fixed inset-0 bg-white dark:bg-black bg-opacity-90 dark:bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white dark:bg-gray-900 rounded-lg p-8 max-w-4xl w-full">
             <h2 className="text-2xl font-bold mb-2">Welcome to Hanzi Flow!</h2>
             <p className="text-gray-600 dark:text-gray-400 mb-6">
