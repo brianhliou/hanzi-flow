@@ -2,6 +2,9 @@
  * Audio playback utilities for pinyin pronunciation
  */
 
+// Global audio cache - persists across page navigation within session
+const audioCache = new Map<string, HTMLAudioElement>();
+
 /**
  * Normalize pinyin to ensure neutral tone (empty string) is converted to tone 0.
  * Audio files use tone number 0 for neutral tone.
@@ -38,22 +41,30 @@ export async function playPinyinAudio(pinyin: string): Promise<void> {
     return;
   }
 
-  // Construct audio file path
-  const audioPath = `/data/audio/${normalizedPinyin}.ogg`;
-
   try {
-    const audio = new Audio(audioPath);
+    // Try to get from cache first
+    let audio = audioCache.get(normalizedPinyin);
+
+    if (!audio) {
+      // Not cached, create new and cache it
+      const audioPath = `/data/audio/${normalizedPinyin}.ogg`;
+      audio = new Audio(audioPath);
+      audioCache.set(normalizedPinyin, audio);
+    }
+
+    // Clone the audio element so we can play multiple times simultaneously
+    const playableAudio = audio.cloneNode(true) as HTMLAudioElement;
 
     // Return a promise that resolves when audio finishes
     return new Promise((resolve, reject) => {
-      audio.onended = () => resolve();
-      audio.onerror = () => {
-        console.warn(`Audio file not found: ${audioPath}`);
-        reject(new Error(`Audio file not found: ${audioPath}`));
+      playableAudio.onended = () => resolve();
+      playableAudio.onerror = () => {
+        console.warn(`Audio file not found: ${normalizedPinyin}.ogg`);
+        reject(new Error(`Audio file not found: ${normalizedPinyin}.ogg`));
       };
 
-      audio.play().catch((error) => {
-        console.warn(`Failed to play audio: ${audioPath}`, error);
+      playableAudio.play().catch((error) => {
+        console.warn(`Failed to play audio: ${normalizedPinyin}.ogg`, error);
         reject(error);
       });
     });
@@ -75,10 +86,18 @@ export function preloadPinyinAudio(pinyin: string): void {
     return;
   }
 
+  // Check cache first - don't preload if already cached
+  if (audioCache.has(normalizedPinyin)) {
+    return;
+  }
+
   const audioPath = `/data/audio/${normalizedPinyin}.ogg`;
   const audio = new Audio();
   audio.preload = 'auto';
   audio.src = audioPath;
+
+  // Store in cache for future use
+  audioCache.set(normalizedPinyin, audio);
 }
 
 /**
