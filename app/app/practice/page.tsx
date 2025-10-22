@@ -6,7 +6,7 @@ import { loadSentences } from '@/lib/sentences';
 import { checkPinyin, calculateScore } from '@/lib/scoring';
 import { convertToneNumbers } from '@/lib/pinyin';
 import { getCharType, loadCharacterMapping, getCharId } from '@/lib/characters';
-import { playPinyinAudio } from '@/lib/audio';
+import { playPinyinAudio, preloadMultiplePinyinAudio } from '@/lib/audio';
 import { recordSentenceAttempt, recordSentenceProgress } from '@/lib/mastery';
 import { getNextSentence } from '@/lib/sentence-selection';
 import Navigation from '@/components/Navigation';
@@ -140,6 +140,20 @@ export default function PracticePage() {
         console.error('Failed to get next sentence:', error);
       });
   }, [allSentences, scriptFilter, hskFilter, currentSentence]);
+
+  // Preload audio for all characters in current sentence
+  useEffect(() => {
+    if (!currentSentence) return;
+
+    const pinyinList = currentSentence.chars
+      .filter(c => c.pinyin && c.pinyin.trim() !== '')
+      .map(c => c.pinyin as string);
+
+    if (pinyinList.length > 0) {
+      preloadMultiplePinyinAudio(pinyinList);
+    }
+  }, [currentSentence]);
+
   const currentChar = currentSentence?.chars[state.currentCharIndex];
   const finishedCurrentSentence =
     currentSentence && state.currentCharIndex >= currentSentence.chars.length;
