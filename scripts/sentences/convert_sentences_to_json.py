@@ -2,11 +2,56 @@
 """
 Convert sentence CSV to JSON format for the web app.
 Includes English translations and corpus metadata.
+Applies content filters to remove unwanted sentences.
 """
 import csv
 import json
+import re
 from datetime import datetime
 from pathlib import Path
+from collections import defaultdict
+
+
+# =============================================================================
+# SENTENCE FILTERS
+# =============================================================================
+# Patterns to filter out sentences (case-insensitive regex)
+# Add new patterns here to filter additional content
+FILTER_PATTERNS = [
+    r'Tatoeba',           # Remove sentences mentioning Tatoeba website
+    r'鸡巴',              # Vulgar slang (male genitalia)
+    r'婊子',              # Bitch
+    r'屄',                # Vulgar (female genitalia)
+    r'肏',                # Fuck
+    # r'offensive_word',  # Future: Add profanity filters here
+]
+
+# Maximum sentence length (in characters)
+MAX_SENTENCE_LENGTH = 50
+
+
+def should_filter_sentence(sentence, english_translation):
+    """
+    Check if a sentence should be filtered out based on FILTER_PATTERNS and length.
+
+    Args:
+        sentence: Chinese sentence text
+        english_translation: English translation text
+
+    Returns:
+        (should_filter: bool, reason: str) - True if sentence should be removed
+    """
+    # Check length first (faster)
+    if len(sentence) > MAX_SENTENCE_LENGTH:
+        return True, f"too long ({len(sentence)} chars > {MAX_SENTENCE_LENGTH})"
+
+    combined_text = f"{sentence} {english_translation}"
+
+    for pattern in FILTER_PATTERNS:
+        if re.search(pattern, combined_text, re.IGNORECASE):
+            return True, f"matches pattern: {pattern}"
+
+    return False, ""
 
 
 def parse_char_pinyin_pairs(pairs_str):
@@ -53,14 +98,15 @@ def calculate_unique_chars(converted_sentences):
     return len(unique_chars)
 
 
-def convert_to_json(input_file='../../data/sentences/cmn_sentences_with_char_pinyin_and_translation_TEST.csv',
+def convert_to_json(input_file='../../data/sentences/cmn_sentences_with_char_pinyin_and_translation_and_hsk_UPDATED.csv',
                    output_file='../../app/public/data/sentences/sentences_with_translation.json',
                    limit=None):
     """
     Convert CSV to JSON format for the web app with metadata wrapper.
+    Includes HSK level classification for sentences.
 
     Args:
-        input_file: Input CSV path
+        input_file: Input CSV path (with HSK levels)
         output_file: Output JSON path
         limit: Max number of sentences (None for all)
     """
@@ -74,32 +120,53 @@ def convert_to_json(input_file='../../data/sentences/cmn_sentences_with_char_pin
 
     # Convert to structured format
     converted = []
-    filtered_count = 0
+    filter_stats = defaultdict(int)  # Track why sentences were filtered
 
     for row in sentences:
+        # Check content filters first
+        should_filter, filter_reason = should_filter_sentence(
+            row['sentence'],
+            row['english_translation']
+        )
+        if should_filter:
+            filter_stats[filter_reason] += 1
+            continue
+
         pairs = parse_char_pinyin_pairs(row['char_pinyin_pairs'])
 
         # Skip sentences with no Chinese characters at all
         has_chinese = any(p['pinyin'] for p in pairs)
         if not has_chinese:
-            filtered_count += 1
+            filter_stats['no Chinese characters'] += 1
             continue
 
-        converted.append({
+        sentence_obj = {
             'id': int(row['id']),  # Preserve original CSV ID
             'sentence': row['sentence'],
             'english_translation': row['english_translation'],
             'script_type': row['script_type'],
             'chars': pairs
-        })
+        }
+
+        # Add HSK level if present (empty string means unclassified)
+        hsk_level = row.get('sentence_hsk_level', '').strip()
+        if hsk_level:
+            sentence_obj['hskLevel'] = hsk_level
+
+        converted.append(sentence_obj)
 
         # Apply limit
         if limit and len(converted) >= limit:
             break
 
     print(f"\nConverted {len(converted):,} sentences")
-    if filtered_count > 0:
-        print(f"Filtered out {filtered_count:,} sentences (no Chinese characters)")
+
+    # Show filtering stats
+    if filter_stats:
+        total_filtered = sum(filter_stats.values())
+        print(f"\nFiltered out {total_filtered:,} sentences:")
+        for reason, count in sorted(filter_stats.items(), key=lambda x: -x[1]):
+            print(f"  - {count:,} sentences: {reason}")
 
     # Calculate unique characters
     print("Calculating unique characters in corpus...")
@@ -112,14 +179,38 @@ def convert_to_json(input_file='../../data/sentences/cmn_sentences_with_char_pin
             'totalSentences': len(converted),
             'totalCharsInCorpus': unique_char_count,
             'generatedAt': datetime.now().isoformat(),
-            'version': '1.0'
+            'version': '2.0'  # Updated version with HSK levels
         },
         'sentences': converted
     }
 
-    # Write JSON (minified - no indentation)
+    # Write JSON with custom formatting:
+    # - Metadata block: prettified
+    # - Sentences: one per line (compact)
+    print(f"\nWriting JSON to {output_file}...")
     with open(output_file, 'w', encoding='utf-8') as f:
-        json.dump(output_data, f, ensure_ascii=False)
+        f.write('{\n')
+
+        # Write metadata block (pretty)
+        f.write('  "metadata": ')
+        f.write(json.dumps(output_data['metadata'], ensure_ascii=False, indent=4).replace('\n', '\n  '))
+        f.write(',\n')
+
+        # Write sentences array header
+        f.write('  "sentences": [\n')
+
+        # Write each sentence on one line
+        for i, sentence in enumerate(converted):
+            f.write('    ')
+            f.write(json.dumps(sentence, ensure_ascii=False, separators=(',', ': ')))
+            if i < len(converted) - 1:
+                f.write(',\n')
+            else:
+                f.write('\n')
+
+        # Close sentences array and root object
+        f.write('  ]\n')
+        f.write('}\n')
 
     print(f"\n✓ Created {output_file}")
 

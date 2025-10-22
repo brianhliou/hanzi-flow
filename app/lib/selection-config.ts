@@ -66,7 +66,7 @@ export const SELECTION_CONFIG = {
   // ============================================================================
 
   /** Number of sentences to generate per batch */
-  batch_size: 10,
+  batch_size: 8,
 
   /** Start prefetching next batch when this many sentences remain */
   prefetch_threshold: 2,

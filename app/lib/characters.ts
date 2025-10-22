@@ -7,9 +7,10 @@
 // ============================================================================
 
 let charToIdMap: Map<string, number> | null = null;
+let charToPinyinsMap: Map<string, string[]> | null = null;
 
 /**
- * Load character ID mapping from CSV
+ * Load character ID and pinyin mapping from CSV
  */
 export async function loadCharacterMapping(): Promise<Map<string, number>> {
   // Return from cache if available
@@ -32,25 +33,61 @@ export async function loadCharacterMapping(): Promise<Map<string, number>> {
   const lines = csvText.split('\n');
 
   charToIdMap = new Map();
+  charToPinyinsMap = new Map();
 
   // Skip header line
   for (let i = 1; i < lines.length; i++) {
     const line = lines[i].trim();
     if (!line) continue;
 
-    // Parse CSV line: id,char,script_type,...
-    const match = line.match(/^(\d+),([^,]+),/);
-    if (match) {
-      const id = parseInt(match[1], 10);
-      const char = match[2];
+    // Parse CSV line: id,char,codepoint,pinyins,...
+    // Use proper CSV parsing to handle quoted fields
+    const fields = parseCSVLine(line);
+    if (fields.length >= 4) {
+      const id = parseInt(fields[0], 10);
+      const char = fields[1];
+      const pinyinsStr = fields[3]; // pinyins column
+
       charToIdMap.set(char, id);
+
+      // Parse pinyins: "lè(283)|yuè(54)|le4|yue4" → ["lè(283)", "yuè(54)", "le4", "yue4"]
+      if (pinyinsStr && pinyinsStr.trim()) {
+        const pinyinsList = pinyinsStr.split('|').map(p => p.trim()).filter(p => p);
+        charToPinyinsMap.set(char, pinyinsList);
+      }
     }
   }
 
   if (process.env.NODE_ENV === 'development') {
     console.log(`✓ Cached ${charToIdMap.size} character mappings in memory`);
+    console.log(`✓ Cached ${charToPinyinsMap.size} pinyin mappings in memory`);
   }
   return charToIdMap;
+}
+
+/**
+ * Simple CSV line parser that handles quoted fields
+ */
+function parseCSVLine(line: string): string[] {
+  const fields: string[] = [];
+  let current = '';
+  let inQuotes = false;
+
+  for (let i = 0; i < line.length; i++) {
+    const char = line[i];
+
+    if (char === '"') {
+      inQuotes = !inQuotes;
+    } else if (char === ',' && !inQuotes) {
+      fields.push(current);
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+  fields.push(current); // Add last field
+
+  return fields;
 }
 
 /**
@@ -62,6 +99,20 @@ export function getCharId(char: string): number | null {
     throw new Error('Character mapping not loaded. Call loadCharacterMapping() first.');
   }
   return charToIdMap.get(char) ?? null;
+}
+
+/**
+ * Get all valid pinyins for a character from character_set
+ * Returns empty array for non-Chinese characters or if character not found
+ *
+ * Format: ["lè(283)", "yuè(54)", "le4", "yue4"]
+ * Note: May include frequency data like "lè(283)" - caller should strip if needed
+ */
+export function getValidPinyins(char: string): string[] {
+  if (!charToPinyinsMap) {
+    throw new Error('Character mapping not loaded. Call loadCharacterMapping() first.');
+  }
+  return charToPinyinsMap.get(char) ?? [];
 }
 
 // ============================================================================

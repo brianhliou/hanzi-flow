@@ -3,7 +3,7 @@
 Classify sentences by HSK level based on maximum character HSK level.
 
 Input:
-- cmn_sentences_with_char_pinyin_and_translation_TEST.csv
+- cmn_sentences_with_char_pinyin_and_translation.csv
 - chinese_characters.csv (with hsk_level column)
 
 Output:
@@ -77,20 +77,21 @@ def classify_sentence_hsk(char_pinyin_pairs, char_hsk_map):
     """
     Calculate sentence HSK level from char:pinyin pairs.
 
-    Uses maximum HSK level of all Chinese characters in the sentence,
-    ignoring punctuation and characters without HSK levels.
+    NEW LOGIC: If sentence contains ANY non-HSK Chinese characters,
+    classify as "beyond-hsk". Otherwise use maximum HSK level.
 
     Args:
         char_pinyin_pairs: Pipe-separated pairs like "我:wo3|爱:ai4|你:ni3"
         char_hsk_map: Dict mapping character → hsk_level
 
     Returns:
-        HSK level string ("1"-"6", "7-9", or "" for no HSK chars)
+        HSK level string ("1"-"6", "7-9", "beyond-hsk", or "" for no Chinese chars)
     """
     if not char_pinyin_pairs:
         return ""
 
     hsk_levels = []
+    has_non_hsk = False
 
     # Parse pairs
     pairs = char_pinyin_pairs.split('|')
@@ -108,21 +109,26 @@ def classify_sentence_hsk(char_pinyin_pairs, char_hsk_map):
         # Look up HSK level
         hsk_level = char_hsk_map.get(char, '')
 
-        # Skip if no HSK level
-        if not hsk_level:
-            continue
+        if hsk_level:
+            # Has HSK level
+            hsk_levels.append(hsk_level)
+        else:
+            # Chinese character without HSK level
+            has_non_hsk = True
 
-        hsk_levels.append(hsk_level)
+    # If contains any non-HSK character, classify as beyond-hsk
+    if has_non_hsk:
+        return "beyond-hsk"
 
-    # Calculate max HSK level
+    # No Chinese characters at all
     if len(hsk_levels) == 0:
-        return ""  # No HSK characters found
+        return ""
 
-    # Return maximum using custom sort key
+    # Pure HSK sentence - return maximum level
     return max(hsk_levels, key=hsk_sort_key)
 
 
-def classify_sentences(input_csv='../../data/sentences/cmn_sentences_with_char_pinyin_and_translation_TEST.csv',
+def classify_sentences(input_csv='../../data/sentences/cmn_sentences_with_char_pinyin_and_translation.csv',
                        output_csv='../../data/sentences/cmn_sentences_with_char_pinyin_and_translation_and_hsk.csv',
                        char_csv='../../data/chinese_characters.csv'):
     """
@@ -209,22 +215,29 @@ def generate_statistics(sentences,
     print("Sentence distribution by HSK level:")
 
     # Define order for display
-    ordered_levels = ['1', '2', '3', '4', '5', '6', '7-9', 'null']
+    ordered_levels = ['1', '2', '3', '4', '5', '6', '7-9', 'beyond-hsk', 'null']
 
     for level in ordered_levels:
         count = level_counts.get(level, 0)
         pct = count / total_sentences * 100
-        label = f"HSK {level}" if level != 'null' else "No HSK"
-        print(f"  {label:8s}: {count:6,} ({pct:5.1f}%)")
+        if level == 'null':
+            label = "No HSK"
+        elif level == 'beyond-hsk':
+            label = "Beyond HSK"
+        else:
+            label = f"HSK {level}"
+        print(f"  {label:11s}: {count:6,} ({pct:5.1f}%)")
 
     print(f"\nTotal sentences: {total_sentences:,}")
 
     # Calculate additional stats
-    sentences_with_hsk = sum(level_counts[level] for level in ordered_levels if level != 'null')
+    sentences_with_hsk = sum(level_counts[level] for level in ordered_levels if level not in ['null', 'beyond-hsk'])
+    sentences_beyond_hsk = level_counts.get('beyond-hsk', 0)
     sentences_without_hsk = level_counts.get('null', 0)
 
-    print(f"\nSentences with HSK classification: {sentences_with_hsk:,} ({sentences_with_hsk/total_sentences*100:.1f}%)")
-    print(f"Sentences without HSK (null): {sentences_without_hsk:,} ({sentences_without_hsk/total_sentences*100:.1f}%)")
+    print(f"\nSentences with HSK 1-9: {sentences_with_hsk:,} ({sentences_with_hsk/total_sentences*100:.1f}%)")
+    print(f"Sentences beyond HSK: {sentences_beyond_hsk:,} ({sentences_beyond_hsk/total_sentences*100:.1f}%)")
+    print(f"Sentences without Chinese (null): {sentences_without_hsk:,} ({sentences_without_hsk/total_sentences*100:.1f}%)")
 
     # Save statistics to JSON
     stats = {
@@ -248,34 +261,64 @@ def generate_statistics(sentences,
     # Generate bar chart
     print(f"\nGenerating distribution chart...")
 
-    levels_for_chart = ordered_levels
+    # Exclude 'null' from chart (too small, mention in subtitle instead)
+    levels_for_chart = [l for l in ordered_levels if l != 'null']
     counts_for_chart = [level_counts.get(level, 0) for level in levels_for_chart]
+    percentages_for_chart = [(count / total_sentences * 100) for count in counts_for_chart]
 
     # Create figure
-    fig, ax = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(14, 7))
 
-    # Create bars
-    colors = ['#3b82f6', '#60a5fa', '#93c5fd', '#bfdbfe', '#dbeafe', '#eff6ff', '#8b5cf6', '#94a3b8']
-    bars = ax.bar(levels_for_chart, counts_for_chart, color=colors)
+    # Color scheme: HSK 1-6 in blue gradient, 7-9 in purple, beyond-hsk in orange
+    colors = [
+        '#1e40af',  # HSK 1 - dark blue
+        '#3b82f6',  # HSK 2 - blue
+        '#60a5fa',  # HSK 3 - light blue
+        '#93c5fd',  # HSK 4 - lighter blue
+        '#bfdbfe',  # HSK 5 - very light blue
+        '#dbeafe',  # HSK 6 - pale blue
+        '#8b5cf6',  # HSK 7-9 - purple (grouped advanced levels)
+        '#f59e0b',  # beyond-hsk - orange (non-HSK characters)
+    ]
+    bars = ax.bar(levels_for_chart, counts_for_chart, color=colors, edgecolor='white', linewidth=1.5)
 
     # Customize chart
-    ax.set_xlabel('HSK Level', fontsize=12)
-    ax.set_ylabel('Number of Sentences', fontsize=12)
-    ax.set_title('Sentence Distribution by HSK Level', fontsize=14, fontweight='bold')
+    ax.set_xlabel('HSK Level', fontsize=13, fontweight='bold')
+    ax.set_ylabel('Number of Sentences', fontsize=13, fontweight='bold')
 
-    # Add value labels on bars
-    for bar in bars:
+    # Title with subtitle showing total sentences
+    null_count = level_counts.get('null', 0)
+    subtitle = f'Total: {total_sentences:,} sentences'
+    if null_count > 0:
+        subtitle += f' ({null_count} without Chinese characters excluded from chart)'
+    ax.set_title('Sentence Distribution by HSK Level\n' + subtitle,
+                 fontsize=14, fontweight='bold', pad=20)
+
+    # Add value labels on bars with counts and percentages
+    for i, (bar, count, pct) in enumerate(zip(bars, counts_for_chart, percentages_for_chart)):
         height = bar.get_height()
+        # Show count and percentage
+        label = f'{int(height):,}\n({pct:.1f}%)'
         ax.text(bar.get_x() + bar.get_width()/2., height,
-                f'{int(height):,}',
-                ha='center', va='bottom', fontsize=10)
+                label,
+                ha='center', va='bottom', fontsize=10, fontweight='bold')
 
     # Add grid
     ax.yaxis.grid(True, linestyle='--', alpha=0.3)
     ax.set_axisbelow(True)
 
-    # Format y-axis
+    # Format y-axis and set limit with headroom for legend
     ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'{int(x):,}'))
+    ax.set_ylim(0, 18000)  # Fixed upper limit to ensure legend doesn't overlap
+
+    # Add legend explaining special categories
+    from matplotlib.patches import Patch
+    legend_elements = [
+        Patch(facecolor='#3b82f6', label='HSK 1-6: Official beginner to intermediate'),
+        Patch(facecolor='#8b5cf6', label='HSK 7-9: Advanced levels (grouped)'),
+        Patch(facecolor='#f59e0b', label='Beyond HSK: Contains non-HSK characters')
+    ]
+    ax.legend(handles=legend_elements, loc='upper right', fontsize=10, framealpha=0.9)
 
     plt.tight_layout()
     plt.savefig(output_chart, dpi=150, bbox_inches='tight')

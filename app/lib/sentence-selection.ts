@@ -15,7 +15,7 @@
 
 import { db, type SentenceQueue, type SentenceProgress, type WordMastery } from './db';
 import { SELECTION_CONFIG } from './selection-config';
-import type { Sentence } from './types';
+import type { Sentence, HskFilter } from './types';
 import { nssLog, nssWarn, nssError } from './logger';
 import { getCharId } from './characters';
 
@@ -26,6 +26,31 @@ type ScriptFilter = 'simplified' | 'traditional' | 'mixed';
 // ============================================================================
 // HELPER FUNCTIONS
 // ============================================================================
+
+/**
+ * Parse HSK filter to get array of included levels
+ * Examples:
+ *   "1" → ["1"]
+ *   "1-3" → ["1", "2", "3"]
+ *   "1-6" → ["1", "2", "3", "4", "5", "6"]
+ *   "1-9" → ["1", "2", "3", "4", "5", "6", "7-9"]
+ *   "1-beyond" → ["1", "2", "3", "4", "5", "6", "7-9", "beyond-hsk"]
+ */
+function parseHskFilter(hskFilter: HskFilter): string[] {
+  // Map filter to included levels
+  const filterMap: Record<HskFilter, string[]> = {
+    '1': ['1'],
+    '1-2': ['1', '2'],
+    '1-3': ['1', '2', '3'],
+    '1-4': ['1', '2', '3', '4'],
+    '1-5': ['1', '2', '3', '4', '5'],
+    '1-6': ['1', '2', '3', '4', '5', '6'],
+    '1-9': ['1', '2', '3', '4', '5', '6', '7-9'],
+    '1-beyond': ['1', '2', '3', '4', '5', '6', '7-9', 'beyond-hsk']
+  };
+
+  return filterMap[hskFilter];
+}
 
 /**
  * Count how many words are currently due for review
@@ -188,6 +213,7 @@ function shouldSkip(
 export async function getEligibleSentences(
   allSentences: Sentence[],
   scriptFilter: ScriptFilter,
+  hskFilter: HskFilter,
   now: number,
   options: {
     ignoreCooldown?: boolean;
@@ -212,6 +238,27 @@ export async function getEligibleSentences(
   if (filtered.length === 0) {
     nssWarn('No sentences for script filter, using all non-ambiguous');
     filtered = allSentences.filter(s => s.script_type !== 'ambiguous');
+  }
+
+  // Step 1.5: Filter by HSK level
+  const allowedHskLevels = parseHskFilter(hskFilter);
+  const hskFiltered = filtered.filter(s => {
+    // If sentence has no HSK level, exclude it (we decided to ignore unclassified sentences)
+    if (!s.hskLevel) return false;
+
+    // Check if sentence's HSK level is in the allowed set
+    return allowedHskLevels.includes(s.hskLevel);
+  });
+
+  // Use HSK filtered results (or fall back to script-filtered if HSK filtering removed everything)
+  if (hskFiltered.length === 0) {
+    nssWarn('No sentences for HSK filter, using script-filtered sentences', {
+      hsk_filter: hskFilter,
+      script_filtered_count: filtered.length
+    });
+    filtered = filtered;  // Keep script-filtered sentences as fallback
+  } else {
+    filtered = hskFiltered;
   }
 
   // Step 2: Filter by cooldown and mastery skip
@@ -456,11 +503,12 @@ function takeTopN(scored: ScoredSentence[], n: number): ScoredSentence[] {
 async function applyFallbacks(
   allSentences: Sentence[],
   scriptFilter: ScriptFilter,
+  hskFilter: HskFilter,
   now: number,
   attempt: number
 ): Promise<{ pool: Sentence[]; k_min: number; k_max: number; θ_known: number }> {
   let { k_min, k_max } = getDifficultyBand(await countDueWords(now));
-  let θ_known = SELECTION_CONFIG.θ_known;
+  let θ_known: number = SELECTION_CONFIG.θ_known;
 
   switch (attempt) {
     case 1:
@@ -499,7 +547,7 @@ async function applyFallbacks(
       break;
   }
 
-  const pool = await getEligibleSentences(allSentences, scriptFilter, now, {
+  const pool = await getEligibleSentences(allSentences, scriptFilter, hskFilter, now, {
     ignoreCooldown: attempt >= 2,
     ignoreSkip: attempt >= 4
   });
@@ -516,7 +564,8 @@ async function applyFallbacks(
  */
 export async function generateSentenceBatch(
   allSentences: Sentence[],
-  scriptFilter: ScriptFilter
+  scriptFilter: ScriptFilter,
+  hskFilter: HskFilter
 ): Promise<SentenceQueue> {
   const now = Date.now();
 
@@ -540,7 +589,8 @@ export async function generateSentenceBatch(
     due_words: dueWords,
     k_band: [k_min, k_max],
     k_cap: k_cap ?? 'none',
-    avg_mastery: avgMastery.toFixed(3)
+    avg_mastery: avgMastery.toFixed(3),
+    hsk_filter: hskFilter
   });
 
   // Every 10 batches, log detailed mastery stats
@@ -561,7 +611,7 @@ export async function generateSentenceBatch(
   }
 
   // Step 2: Build candidate pool
-  let eligible = await getEligibleSentences(allSentences, scriptFilter, now);
+  let eligible = await getEligibleSentences(allSentences, scriptFilter, hskFilter, now);
 
   // Sample pool (or use all if less than pool_sample_size)
   const poolSize = Math.min(eligible.length, SELECTION_CONFIG.pool_sample_size);
@@ -572,11 +622,11 @@ export async function generateSentenceBatch(
 
   // Step 4: Apply fallbacks if needed
   let fallbackAttempt = 0;
-  let θ_known = SELECTION_CONFIG.θ_known;
+  let θ_known: number = SELECTION_CONFIG.θ_known;
 
   while (scored.length < SELECTION_CONFIG.batch_size && fallbackAttempt < 5) {
     fallbackAttempt++;
-    const fallback = await applyFallbacks(allSentences, scriptFilter, now, fallbackAttempt);
+    const fallback = await applyFallbacks(allSentences, scriptFilter, hskFilter, now, fallbackAttempt);
 
     k_min = fallback.k_min;
     k_max = fallback.k_max;
@@ -639,7 +689,8 @@ export async function generateSentenceBatch(
     sentences: shuffled.map(s => s.sid),
     current_index: 0,
     generated_at: now,
-    script_filter: scriptFilter
+    script_filter: scriptFilter,
+    hsk_filter: hskFilter
   };
 
   return queue;
@@ -663,27 +714,31 @@ let batchCounter = 0;
  */
 export async function getNextSentence(
   allSentences: Sentence[],
-  scriptFilter: ScriptFilter
+  scriptFilter: ScriptFilter,
+  hskFilter: HskFilter
 ): Promise<number> {
   // Step 1: Load current queue
   let queue = await db.queue.get(1);
 
-  // Step 2: Invalidate if script filter changed
-  if (queue && queue.script_filter !== scriptFilter) {
-    nssLog('Script filter changed, invalidating queue');
-    queue = null;
+  // Step 2: Invalidate if script filter or HSK filter changed
+  if (queue && (queue.script_filter !== scriptFilter || queue.hsk_filter !== hskFilter)) {
+    nssLog('Filter changed, invalidating queue', {
+      script_changed: queue.script_filter !== scriptFilter,
+      hsk_changed: queue.hsk_filter !== hskFilter
+    });
+    queue = undefined;
     nextBatchPromise = null;
   }
 
   // Step 3: If no queue or exhausted, generate/use prefetched
   if (!queue || queue.current_index >= queue.sentences.length) {
     if (nextBatchPromise) {
-      nssLog('Using prefetched batch');
+      nssLog('Queue exhausted, awaiting prefetched batch');
       queue = await nextBatchPromise;
       nextBatchPromise = null;
     } else {
-      nssLog('No queue, generating batch');
-      queue = await generateSentenceBatch(allSentences, scriptFilter);
+      nssLog('⚠️ Queue exhausted, no prefetch available - generating batch (blocking)');
+      queue = await generateSentenceBatch(allSentences, scriptFilter, hskFilter);
     }
 
     await db.queue.put(queue);
@@ -692,8 +747,11 @@ export async function getNextSentence(
   // Step 4: Trigger prefetch if near end
   if (queue.current_index >= queue.sentences.length - SELECTION_CONFIG.prefetch_threshold) {
     if (!nextBatchPromise) {
-      nssLog('Prefetching next batch (async)');
-      nextBatchPromise = generateSentenceBatch(allSentences, scriptFilter);
+      nssLog('Prefetching next batch (async)', {
+        current_index: queue.current_index,
+        remaining: queue.sentences.length - queue.current_index
+      });
+      nextBatchPromise = generateSentenceBatch(allSentences, scriptFilter, hskFilter);
       // Don't await - let it run in background
     }
   }

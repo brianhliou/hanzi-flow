@@ -54,13 +54,26 @@ python3 build_step4_variants.py
 ```bash
 python3 build_step5_hsk.py
 ```
-- Downloads HSK 3.0 character lists (levels 1-9) from krmanik/HSK-3.0 repo
-- Saves source files to `../../data/sources/hsk30/` (HSK_1.txt through HSK_7-9.txt)
+- Downloads HSK 3.0 character lists (levels 1-9) from elkmovie/hsk30 repo
+- Saves source files to `../../data/sources/elkmovie_hsk30/` (HSK_1.txt through HSK_7-9.txt)
 - Assigns HSK levels to simplified characters from official lists
 - Propagates HSK levels to traditional variants via our variant mappings
 - Characters not in HSK 1-9 curriculum: assigned empty/null hsk_level
-- Output: `../../data/build_artifacts/step5_hsk.csv` adds column: `hsk_level`
-- Final step: Copy to `../../data/chinese_characters.csv` and `../../app/public/data/character_set/chinese_characters.csv`
+- Output: `../../data/character_set/step5_hsk.csv` adds column: `hsk_level`
+
+### Step 6: Enrich with pypinyin Alternatives
+```bash
+python3 build_step6_enrich_pypinyin.py
+```
+- Uses pypinyin library with `heteronym=True` to discover alternative pronunciations
+- Enriches existing Unihan pinyins with colloquial/alternative readings
+- Examples:
+  - 谁: Adds `shei2` (colloquial) to existing `shuí(1065)` (formal)
+  - 地: Adds `de` (particle) to existing `dì(4976)` (noun)
+  - 的: Adds `di1`, `di2`, `di4` to existing `de(7394)`
+- Preserves frequency data from Unihan while adding new alternatives without frequencies
+- Output: `../../data/character_set/step6_enriched.csv` (enriched pinyins column)
+- **Final step**: Copy to `../../data/character_set/chinese_characters.csv` and `../../app/public/data/character_set/chinese_characters.csv`
 
 ## Final Dataset
 
@@ -113,15 +126,21 @@ Intermediate CSVs are stored in `../../data/character_set/` for audit purposes:
 - `step2_pinyin.csv` - With pinyin
 - `step3_cedict.csv` - With glosses and examples
 - `step4_variants.csv` - With script types and variants
-- `step5_hsk.csv` - Complete with HSK levels (final output)
+- `step5_hsk.csv` - With HSK levels
+- `step6_enriched.csv` - **Final output** with enriched pypinyin alternatives
 
 ## Rebuilding
 
 If source data is updated:
 1. Re-run all steps in order (each step reads from the previous step's output)
-2. Copy final `step5_hsk.csv` to:
-   - `../../data/chinese_characters.csv` (main dataset)
+2. Copy final `step6_enriched.csv` to:
+   - `../../data/character_set/chinese_characters.csv` (main dataset)
    - `../../app/public/data/character_set/chinese_characters.csv` (production/frontend)
+
+**Note**: Step 6 requires the `pypinyin` library:
+```bash
+pip install pypinyin
+```
 
 ## HSK Data Source
 

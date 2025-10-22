@@ -3,14 +3,17 @@
 import { useState, useEffect } from 'react';
 import { resetDatabase } from '@/lib/db';
 import Navigation from '@/components/Navigation';
+import type { HskFilter } from '@/lib/types';
 
 type ScriptType = 'simplified' | 'traditional' | 'mixed';
 
 const SCRIPT_PREFERENCE_KEY = 'hanzi-flow-script-preference';
+const HSK_PREFERENCE_KEY = 'hanzi-flow-hsk-preference';
 const AUDIO_ENABLED_KEY = 'hanzi-flow-audio-enabled';
 
 export default function SettingsPage() {
   const [selectedScript, setSelectedScript] = useState<ScriptType | null>(null);
+  const [selectedHsk, setSelectedHsk] = useState<HskFilter | null>(null);
   const [audioEnabled, setAudioEnabled] = useState<boolean>(true);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [resetSuccess, setResetSuccess] = useState(false);
@@ -20,6 +23,9 @@ export default function SettingsPage() {
   useEffect(() => {
     const savedScript = localStorage.getItem(SCRIPT_PREFERENCE_KEY) as ScriptType | null;
     setSelectedScript(savedScript); // Keep as null if no preference saved
+
+    const savedHsk = localStorage.getItem(HSK_PREFERENCE_KEY) as HskFilter | null;
+    setSelectedHsk(savedHsk); // Keep as null if no preference saved
 
     const savedAudio = localStorage.getItem(AUDIO_ENABLED_KEY);
     setAudioEnabled(savedAudio === null ? true : savedAudio === 'true'); // Default to enabled
@@ -32,6 +38,11 @@ export default function SettingsPage() {
     localStorage.setItem(SCRIPT_PREFERENCE_KEY, script);
   };
 
+  const handleHskChange = (hsk: HskFilter) => {
+    setSelectedHsk(hsk);
+    localStorage.setItem(HSK_PREFERENCE_KEY, hsk);
+  };
+
   const handleAudioToggle = () => {
     const newValue = !audioEnabled;
     setAudioEnabled(newValue);
@@ -41,16 +52,18 @@ export default function SettingsPage() {
   const handleReset = async () => {
     await resetDatabase();
     localStorage.removeItem(SCRIPT_PREFERENCE_KEY);
+    localStorage.removeItem(HSK_PREFERENCE_KEY);
     setShowResetConfirm(false);
     setResetSuccess(true);
     setTimeout(() => setResetSuccess(false), 3000);
   };
 
-  // DEV MODE ONLY: Reset script preference to trigger modal (without losing progress data)
-  const handleResetScriptPreference = () => {
+  // DEV MODE ONLY: Reset both preferences to trigger modal (without losing progress data)
+  const handleResetPreferences = () => {
     localStorage.removeItem(SCRIPT_PREFERENCE_KEY);
+    localStorage.removeItem(HSK_PREFERENCE_KEY);
     setSelectedScript(null);
-    // No reload needed - state update is enough to show unselected cards
+    setSelectedHsk(null);
   };
 
   return (
@@ -134,6 +147,53 @@ export default function SettingsPage() {
                   </div>
                   <div className="font-semibold text-lg">Mixed</div>
                 </button>
+              </div>
+            )}
+          </section>
+
+          {/* HSK Level Preference */}
+          <section className="space-y-4">
+            <div>
+              <h2 className="text-xl font-semibold mb-1">Max HSK Level</h2>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Includes all levels up to and including the selected level
+              </p>
+            </div>
+
+            {!isHydrated ? (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {/* Hydration placeholder */}
+                {['1', '1-2', '1-3', '1-4', '1-5', '1-6', '1-9', '1-beyond'].map((level) => (
+                  <div key={level} className="p-4 rounded-lg border-2 border-gray-200 dark:border-gray-700 text-center opacity-50">
+                    <div className="font-semibold mb-1">HSK {level}</div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                {[
+                  { value: '1' as HskFilter, label: 'HSK 1', subtitle: '300 chars' },
+                  { value: '1-2' as HskFilter, label: 'HSK 2', subtitle: '300 chars (600 total)' },
+                  { value: '1-3' as HskFilter, label: 'HSK 3', subtitle: '300 chars (900 total)' },
+                  { value: '1-4' as HskFilter, label: 'HSK 4', subtitle: '300 chars (1,200 total)' },
+                  { value: '1-5' as HskFilter, label: 'HSK 5', subtitle: '300 chars (1,500 total)' },
+                  { value: '1-6' as HskFilter, label: 'HSK 6', subtitle: '300 chars (1,800 total)' },
+                  { value: '1-9' as HskFilter, label: 'HSK 7-9', subtitle: '1,200 chars (3,000 total)' },
+                  { value: '1-beyond' as HskFilter, label: 'Beyond HSK', subtitle: '~4,000 chars total' },
+                ].map((option) => (
+                  <button
+                    key={option.value}
+                    onClick={() => handleHskChange(option.value)}
+                    className={`p-4 rounded-lg border-2 transition-all text-center ${
+                      selectedHsk === option.value
+                        ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20'
+                        : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
+                    }`}
+                  >
+                    <div className="font-semibold mb-1">{option.label}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">{option.subtitle}</div>
+                  </button>
+                ))}
               </div>
             )}
           </section>
@@ -223,20 +283,20 @@ export default function SettingsPage() {
               )}
             </div>
 
-            {/* DEV MODE ONLY: Reset script preference button */}
+            {/* DEV MODE ONLY: Reset preferences button */}
             {process.env.NODE_ENV === 'development' && (
               <div className="border border-orange-300 dark:border-orange-700 bg-orange-50 dark:bg-orange-900/20 rounded-lg p-6">
                 <h3 className="font-semibold mb-2 text-orange-800 dark:text-orange-300">
-                  [DEV] Reset Script Preference
+                  [DEV] Reset Preferences
                 </h3>
                 <p className="text-sm text-orange-700 dark:text-orange-400 mb-4">
-                  Development only: Clears script preference to trigger the selection modal on practice page. Does NOT delete progress data.
+                  Development only: Clear both script and HSK preferences to test the modal flow. Does NOT delete progress data.
                 </p>
                 <button
-                  onClick={handleResetScriptPreference}
+                  onClick={handleResetPreferences}
                   className="px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors"
                 >
-                  [DEV] Clear Script Preference
+                  [DEV] Clear All Preferences
                 </button>
               </div>
             )}

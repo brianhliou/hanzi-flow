@@ -1,39 +1,43 @@
 {
   "total_sentences": 79704,
-  "sentences_with_hsk": 79674,
-  "sentences_without_hsk": 30,
+  "sentences_with_hsk": 74724,
+  "sentences_without_hsk": 8,
   "distribution": {
     "1": {
-      "count": 10108,
-      "percentage": 12.68
+      "count": 9862,
+      "percentage": 12.37
     },
     "2": {
-      "count": 13831,
-      "percentage": 17.35
+      "count": 13399,
+      "percentage": 16.81
     },
     "3": {
-      "count": 14849,
-      "percentage": 18.63
+      "count": 14125,
+      "percentage": 17.72
     },
     "4": {
-      "count": 10593,
-      "percentage": 13.29
+      "count": 10080,
+      "percentage": 12.65
     },
     "5": {
-      "count": 8431,
-      "percentage": 10.58
+      "count": 7951,
+      "percentage": 9.98
     },
     "6": {
-      "count": 5897,
-      "percentage": 7.4
+      "count": 5418,
+      "percentage": 6.8
     },
     "7-9": {
-      "count": 15965,
-      "percentage": 20.03
+      "count": 13889,
+      "percentage": 17.43
+    },
+    "beyond-hsk": {
+      "count": 4972,
+      "percentage": 6.24
     },
     "null": {
-      "count": 30,
-      "percentage": 0.04
+      "count": 8,
+      "percentage": 0.01
     }
   }
 }

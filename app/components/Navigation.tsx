@@ -10,7 +10,7 @@ export default function Navigation({ currentPage }: NavigationProps) {
       <div className="max-w-4xl mx-auto flex justify-between items-center">
         <Link
           href="/"
-          className="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+          className="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
         >
           Hanzi Flow
         </Link>

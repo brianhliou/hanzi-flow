@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html {
+  /* Force scrollbar to always show to prevent layout shift */
+  overflow-y: scroll;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

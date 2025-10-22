@@ -1,0 +1,39 @@
+{
+  "total_sentences": 79603,
+  "by_sentence_count": {
+    "traditional": {
+      "count": 33178,
+      "percentage": 41.68
+    },
+    "simplified": {
+      "count": 33910,
+      "percentage": 42.6
+    },
+    "neutral": {
+      "count": 12392,
+      "percentage": 15.57
+    },
+    "ambiguous": {
+      "count": 123,
+      "percentage": 0.15
+    }
+  },
+  "by_character_count": {
+    "traditional": {
+      "count": 332636,
+      "percentage": 42.16
+    },
+    "simplified": {
+      "count": 365506,
+      "percentage": 46.33
+    },
+    "neutral": {
+      "count": 88932,
+      "percentage": 11.27
+    },
+    "ambiguous": {
+      "count": 1879,
+      "percentage": 0.24
+    }
+  }
+}

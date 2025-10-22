@@ -58,6 +58,7 @@ export interface SentenceQueue {
   current_index: number;     // Current position in queue (0-based)
   generated_at: number;      // Timestamp when batch was generated (epoch ms)
   script_filter: 'simplified' | 'traditional' | 'mixed';  // Script filter used for generation
+  hsk_filter: '1' | '1-2' | '1-3' | '1-4' | '1-5' | '1-6' | '1-9' | '1-beyond';  // HSK filter used for generation
 }
 
 /**

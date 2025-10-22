@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "total_syllables": 1478,
+    "total_syllables": 1598,
     "used_in_dataset": 1170,
     "coverage_percent": 79.16,
     "dataset_source": "cmn_sentences_with_char_pinyin.csv",
     "canonical_source": "Unihan_Readings.txt (kMandarin)",
-    "missing_from_unihan": 1
+    "missing_from_unihan": 1,
+    "missing_from_pypinyin_enrichment": 119
   },
   "syllables": [
     {
@@ -595,6 +596,14 @@
     {
       "base": "bing",
       "base_proper": "bing",
+      "tone": 0,
+      "pinyin_tone3": "bing0",
+      "filename": "bing0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "bing",
+      "base_proper": "bing",
       "tone": 1,
       "pinyin_tone3": "bing1",
       "filename": "bing1",
@@ -726,6 +735,14 @@
       "tone": 4,
       "pinyin_tone3": "ca4",
       "filename": "ca4",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "cai",
+      "base_proper": "cai",
+      "tone": 0,
+      "pinyin_tone3": "cai0",
+      "filename": "cai0",
       "exists_in_dataset": false
     },
     {
@@ -1083,6 +1100,14 @@
     {
       "base": "che",
       "base_proper": "che",
+      "tone": 0,
+      "pinyin_tone3": "che0",
+      "filename": "che0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "che",
+      "base_proper": "che",
       "tone": 1,
       "pinyin_tone3": "che1",
       "filename": "che1",
@@ -1115,6 +1140,14 @@
     {
       "base": "chen",
       "base_proper": "chen",
+      "tone": 0,
+      "pinyin_tone3": "chen0",
+      "filename": "chen0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "chen",
+      "base_proper": "chen",
       "tone": 1,
       "pinyin_tone3": "chen1",
       "filename": "chen1",
@@ -1143,6 +1176,14 @@
       "pinyin_tone3": "chen4",
       "filename": "chen4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "cheng",
+      "base_proper": "cheng",
+      "tone": 0,
+      "pinyin_tone3": "cheng0",
+      "filename": "cheng0",
+      "exists_in_dataset": false
     },
     {
       "base": "cheng",
@@ -1246,6 +1287,14 @@
       "tone": 4,
       "pinyin_tone3": "chong4",
       "filename": "chong4",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "chou",
+      "base_proper": "chou",
+      "tone": 0,
+      "pinyin_tone3": "chou0",
+      "filename": "chou0",
       "exists_in_dataset": false
     },
     {
@@ -1475,6 +1524,14 @@
     {
       "base": "chun",
       "base_proper": "chun",
+      "tone": 0,
+      "pinyin_tone3": "chun0",
+      "filename": "chun0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "chun",
+      "base_proper": "chun",
       "tone": 1,
       "pinyin_tone3": "chun1",
       "filename": "chun1",
@@ -1595,6 +1652,14 @@
     {
       "base": "cou",
       "base_proper": "cou",
+      "tone": 3,
+      "pinyin_tone3": "cou3",
+      "filename": "cou3",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "cou",
+      "base_proper": "cou",
       "tone": 4,
       "pinyin_tone3": "cou4",
       "filename": "cou4",
@@ -1687,6 +1752,14 @@
       "pinyin_tone3": "cui4",
       "filename": "cui4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "cun",
+      "base_proper": "cun",
+      "tone": 0,
+      "pinyin_tone3": "cun0",
+      "filename": "cun0",
+      "exists_in_dataset": false
     },
     {
       "base": "cun",
@@ -1827,6 +1900,14 @@
     {
       "base": "dan",
       "base_proper": "dan",
+      "tone": 0,
+      "pinyin_tone3": "dan0",
+      "filename": "dan0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "dan",
+      "base_proper": "dan",
       "tone": 1,
       "pinyin_tone3": "dan1",
       "filename": "dan1",
@@ -1851,6 +1932,14 @@
     {
       "base": "dang",
       "base_proper": "dang",
+      "tone": 0,
+      "pinyin_tone3": "dang0",
+      "filename": "dang0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "dang",
+      "base_proper": "dang",
       "tone": 1,
       "pinyin_tone3": "dang1",
       "filename": "dang1",
@@ -1871,6 +1960,14 @@
       "pinyin_tone3": "dang4",
       "filename": "dang4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "dao",
+      "base_proper": "dao",
+      "tone": 0,
+      "pinyin_tone3": "dao0",
+      "filename": "dao0",
+      "exists_in_dataset": false
     },
     {
       "base": "dao",
@@ -1927,6 +2024,14 @@
       "pinyin_tone3": "de2",
       "filename": "de2",
       "exists_in_dataset": true
+    },
+    {
+      "base": "dei",
+      "base_proper": "dei",
+      "tone": 1,
+      "pinyin_tone3": "dei1",
+      "filename": "dei1",
+      "exists_in_dataset": false
     },
     {
       "base": "dei",
@@ -2187,6 +2292,14 @@
     {
       "base": "du",
       "base_proper": "du",
+      "tone": 0,
+      "pinyin_tone3": "du0",
+      "filename": "du0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "du",
+      "base_proper": "du",
       "tone": 1,
       "pinyin_tone3": "du1",
       "filename": "du1",
@@ -2369,6 +2482,22 @@
       "exists_in_dataset": true
     },
     {
+      "base": "ei",
+      "base_proper": "ei",
+      "tone": 3,
+      "pinyin_tone3": "ei3",
+      "filename": "ei3",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "ei",
+      "base_proper": "ei",
+      "tone": 4,
+      "pinyin_tone3": "ei4",
+      "filename": "ei4",
+      "exists_in_dataset": false
+    },
+    {
       "base": "en",
       "base_proper": "en",
       "tone": 0,
@@ -2483,6 +2612,14 @@
     {
       "base": "fan",
       "base_proper": "fan",
+      "tone": 0,
+      "pinyin_tone3": "fan0",
+      "filename": "fan0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "fan",
+      "base_proper": "fan",
       "tone": 1,
       "pinyin_tone3": "fan1",
       "filename": "fan1",
@@ -2583,6 +2720,14 @@
       "pinyin_tone3": "fei4",
       "filename": "fei4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "fen",
+      "base_proper": "fen",
+      "tone": 0,
+      "pinyin_tone3": "fen0",
+      "filename": "fen0",
+      "exists_in_dataset": false
     },
     {
       "base": "fen",
@@ -2759,6 +2904,14 @@
       "pinyin_tone3": "ga4",
       "filename": "ga4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "gai",
+      "base_proper": "gai",
+      "tone": 0,
+      "pinyin_tone3": "gai0",
+      "filename": "gai0",
+      "exists_in_dataset": false
     },
     {
       "base": "gai",
@@ -3019,6 +3172,14 @@
     {
       "base": "gu",
       "base_proper": "gu",
+      "tone": 0,
+      "pinyin_tone3": "gu0",
+      "filename": "gu0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "gu",
+      "base_proper": "gu",
       "tone": 1,
       "pinyin_tone3": "gu1",
       "filename": "gu1",
@@ -3203,6 +3364,14 @@
     {
       "base": "guo",
       "base_proper": "guo",
+      "tone": 0,
+      "pinyin_tone3": "guo0",
+      "filename": "guo0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "guo",
+      "base_proper": "guo",
       "tone": 1,
       "pinyin_tone3": "guo1",
       "filename": "guo1",
@@ -3254,6 +3423,14 @@
       "tone": 3,
       "pinyin_tone3": "ha3",
       "filename": "ha3",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "ha",
+      "base_proper": "ha",
+      "tone": 4,
+      "pinyin_tone3": "ha4",
+      "filename": "ha4",
       "exists_in_dataset": false
     },
     {
@@ -3355,9 +3532,25 @@
     {
       "base": "hang",
       "base_proper": "hang",
+      "tone": 3,
+      "pinyin_tone3": "hang3",
+      "filename": "hang3",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "hang",
+      "base_proper": "hang",
       "tone": 4,
       "pinyin_tone3": "hang4",
       "filename": "hang4",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "hao",
+      "base_proper": "hao",
+      "tone": 0,
+      "pinyin_tone3": "hao0",
+      "filename": "hao0",
       "exists_in_dataset": false
     },
     {
@@ -3395,6 +3588,14 @@
     {
       "base": "he",
       "base_proper": "he",
+      "tone": 0,
+      "pinyin_tone3": "he0",
+      "filename": "he0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "he",
+      "base_proper": "he",
       "tone": 1,
       "pinyin_tone3": "he1",
       "filename": "he1",
@@ -3423,6 +3624,14 @@
       "pinyin_tone3": "hei1",
       "filename": "hei1",
       "exists_in_dataset": true
+    },
+    {
+      "base": "hen",
+      "base_proper": "hen",
+      "tone": 1,
+      "pinyin_tone3": "hen1",
+      "filename": "hen1",
+      "exists_in_dataset": false
     },
     {
       "base": "hen",
@@ -3481,6 +3690,14 @@
       "exists_in_dataset": false
     },
     {
+      "base": "hng",
+      "base_proper": "hng",
+      "tone": 0,
+      "pinyin_tone3": "hng0",
+      "filename": "hng0",
+      "exists_in_dataset": false
+    },
+    {
       "base": "hong",
       "base_proper": "hong",
       "tone": 1,
@@ -3511,6 +3728,14 @@
       "pinyin_tone3": "hong4",
       "filename": "hong4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "hou",
+      "base_proper": "hou",
+      "tone": 0,
+      "pinyin_tone3": "hou0",
+      "filename": "hou0",
+      "exists_in_dataset": false
     },
     {
       "base": "hou",
@@ -3587,6 +3812,14 @@
     {
       "base": "hua",
       "base_proper": "hua",
+      "tone": 0,
+      "pinyin_tone3": "hua0",
+      "filename": "hua0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "hua",
+      "base_proper": "hua",
       "tone": 1,
       "pinyin_tone3": "hua1",
       "filename": "hua1",
@@ -3611,6 +3844,14 @@
     {
       "base": "huai",
       "base_proper": "huai",
+      "tone": 0,
+      "pinyin_tone3": "huai0",
+      "filename": "huai0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "huai",
+      "base_proper": "huai",
       "tone": 2,
       "pinyin_tone3": "huai2",
       "filename": "huai2",
@@ -3623,6 +3864,14 @@
       "pinyin_tone3": "huai4",
       "filename": "huai4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "huan",
+      "base_proper": "huan",
+      "tone": 0,
+      "pinyin_tone3": "huan0",
+      "filename": "huan0",
+      "exists_in_dataset": false
     },
     {
       "base": "huan",
@@ -3655,6 +3904,14 @@
       "pinyin_tone3": "huan4",
       "filename": "huan4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "huang",
+      "base_proper": "huang",
+      "tone": 0,
+      "pinyin_tone3": "huang0",
+      "filename": "huang0",
+      "exists_in_dataset": false
     },
     {
       "base": "huang",
@@ -3803,6 +4060,14 @@
     {
       "base": "ji",
       "base_proper": "ji",
+      "tone": 0,
+      "pinyin_tone3": "ji0",
+      "filename": "ji0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "ji",
+      "base_proper": "ji",
       "tone": 1,
       "pinyin_tone3": "ji1",
       "filename": "ji1",
@@ -3907,6 +4172,14 @@
     {
       "base": "jiang",
       "base_proper": "jiang",
+      "tone": 0,
+      "pinyin_tone3": "jiang0",
+      "filename": "jiang0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "jiang",
+      "base_proper": "jiang",
       "tone": 1,
       "pinyin_tone3": "jiang1",
       "filename": "jiang1",
@@ -3967,6 +4240,14 @@
       "pinyin_tone3": "jiao4",
       "filename": "jiao4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "jie",
+      "base_proper": "jie",
+      "tone": 0,
+      "pinyin_tone3": "jie0",
+      "filename": "jie0",
+      "exists_in_dataset": false
     },
     {
       "base": "jie",
@@ -4355,6 +4636,14 @@
     {
       "base": "ke",
       "base_proper": "ke",
+      "tone": 0,
+      "pinyin_tone3": "ke0",
+      "filename": "ke0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "ke",
+      "base_proper": "ke",
       "tone": 1,
       "pinyin_tone3": "ke1",
       "filename": "ke1",
@@ -4459,6 +4748,14 @@
     {
       "base": "kou",
       "base_proper": "kou",
+      "tone": 0,
+      "pinyin_tone3": "kou0",
+      "filename": "kou0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "kou",
+      "base_proper": "kou",
       "tone": 1,
       "pinyin_tone3": "kou1",
       "filename": "kou1",
@@ -4535,6 +4832,14 @@
       "pinyin_tone3": "kua4",
       "filename": "kua4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "kuai",
+      "base_proper": "kuai",
+      "tone": 0,
+      "pinyin_tone3": "kuai0",
+      "filename": "kuai0",
+      "exists_in_dataset": false
     },
     {
       "base": "kuai",
@@ -4905,6 +5210,14 @@
       "exists_in_dataset": true
     },
     {
+      "base": "len",
+      "base_proper": "len",
+      "tone": 4,
+      "pinyin_tone3": "len4",
+      "filename": "len4",
+      "exists_in_dataset": false
+    },
+    {
       "base": "leng",
       "base_proper": "leng",
       "tone": 1,
@@ -4935,6 +5248,14 @@
       "pinyin_tone3": "leng4",
       "filename": "leng4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "li",
+      "base_proper": "li",
+      "tone": 0,
+      "pinyin_tone3": "li0",
+      "filename": "li0",
+      "exists_in_dataset": false
     },
     {
       "base": "li",
@@ -5067,6 +5388,14 @@
     {
       "base": "lie",
       "base_proper": "lie",
+      "tone": 0,
+      "pinyin_tone3": "lie0",
+      "filename": "lie0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "lie",
+      "base_proper": "lie",
       "tone": 1,
       "pinyin_tone3": "lie1",
       "filename": "lie1",
@@ -5126,6 +5455,14 @@
       "tone": 0,
       "pinyin_tone3": "ling0",
       "filename": "ling0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "ling",
+      "base_proper": "ling",
+      "tone": 1,
+      "pinyin_tone3": "ling1",
+      "filename": "ling1",
       "exists_in_dataset": false
     },
     {
@@ -5195,6 +5532,22 @@
     {
       "base": "long",
       "base_proper": "long",
+      "tone": 0,
+      "pinyin_tone3": "long0",
+      "filename": "long0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "long",
+      "base_proper": "long",
+      "tone": 1,
+      "pinyin_tone3": "long1",
+      "filename": "long1",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "long",
+      "base_proper": "long",
       "tone": 2,
       "pinyin_tone3": "long2",
       "filename": "long2",
@@ -5215,6 +5568,14 @@
       "pinyin_tone3": "long4",
       "filename": "long4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "lou",
+      "base_proper": "lou",
+      "tone": 0,
+      "pinyin_tone3": "lou0",
+      "filename": "lou0",
+      "exists_in_dataset": false
     },
     {
       "base": "lou",
@@ -5347,6 +5708,14 @@
     {
       "base": "luo",
       "base_proper": "luo",
+      "tone": 0,
+      "pinyin_tone3": "luo0",
+      "filename": "luo0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "luo",
+      "base_proper": "luo",
       "tone": 1,
       "pinyin_tone3": "luo1",
       "filename": "luo1",
@@ -5409,6 +5778,14 @@
       "exists_in_dataset": true
     },
     {
+      "base": "m",
+      "base_proper": "m",
+      "tone": 0,
+      "pinyin_tone3": "m0",
+      "filename": "m0",
+      "exists_in_dataset": false
+    },
+    {
       "base": "ma",
       "base_proper": "ma",
       "tone": 0,
@@ -5447,6 +5824,14 @@
       "pinyin_tone3": "ma4",
       "filename": "ma4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "mai",
+      "base_proper": "mai",
+      "tone": 0,
+      "pinyin_tone3": "mai0",
+      "filename": "mai0",
+      "exists_in_dataset": false
     },
     {
       "base": "mai",
@@ -5539,6 +5924,14 @@
     {
       "base": "mao",
       "base_proper": "mao",
+      "tone": 0,
+      "pinyin_tone3": "mao0",
+      "filename": "mao0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "mao",
+      "base_proper": "mao",
       "tone": 1,
       "pinyin_tone3": "mao1",
       "filename": "mao1",
@@ -5582,6 +5975,14 @@
       "tone": 1,
       "pinyin_tone3": "me1",
       "filename": "me1",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "mei",
+      "base_proper": "mei",
+      "tone": 0,
+      "pinyin_tone3": "mei0",
+      "filename": "mei0",
       "exists_in_dataset": false
     },
     {
@@ -5715,6 +6116,14 @@
     {
       "base": "mian",
       "base_proper": "mian",
+      "tone": 0,
+      "pinyin_tone3": "mian0",
+      "filename": "mian0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "mian",
+      "base_proper": "mian",
       "tone": 2,
       "pinyin_tone3": "mian2",
       "filename": "mian2",
@@ -5767,6 +6176,14 @@
       "pinyin_tone3": "miao4",
       "filename": "miao4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "mie",
+      "base_proper": "mie",
+      "tone": 0,
+      "pinyin_tone3": "mie0",
+      "filename": "mie0",
+      "exists_in_dataset": false
     },
     {
       "base": "mie",
@@ -5907,6 +6324,14 @@
     {
       "base": "mou",
       "base_proper": "mou",
+      "tone": 0,
+      "pinyin_tone3": "mou0",
+      "filename": "mou0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "mou",
+      "base_proper": "mou",
       "tone": 1,
       "pinyin_tone3": "mou1",
       "filename": "mou1",
@@ -5934,6 +6359,14 @@
       "tone": 4,
       "pinyin_tone3": "mou4",
       "filename": "mou4",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "mu",
+      "base_proper": "mu",
+      "tone": 0,
+      "pinyin_tone3": "mu0",
+      "filename": "mu0",
       "exists_in_dataset": false
     },
     {
@@ -5979,6 +6412,22 @@
     {
       "base": "na",
       "base_proper": "na",
+      "tone": 0,
+      "pinyin_tone3": "na0",
+      "filename": "na0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "na",
+      "base_proper": "na",
+      "tone": 1,
+      "pinyin_tone3": "na1",
+      "filename": "na1",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "na",
+      "base_proper": "na",
       "tone": 2,
       "pinyin_tone3": "na2",
       "filename": "na2",
@@ -6003,6 +6452,14 @@
     {
       "base": "nai",
       "base_proper": "nai",
+      "tone": 0,
+      "pinyin_tone3": "nai0",
+      "filename": "nai0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "nai",
+      "base_proper": "nai",
       "tone": 2,
       "pinyin_tone3": "nai2",
       "filename": "nai2",
@@ -6023,6 +6480,14 @@
       "pinyin_tone3": "nai4",
       "filename": "nai4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "nan",
+      "base_proper": "nan",
+      "tone": 0,
+      "pinyin_tone3": "nan0",
+      "filename": "nan0",
+      "exists_in_dataset": false
     },
     {
       "base": "nan",
@@ -6059,6 +6524,14 @@
     {
       "base": "nang",
       "base_proper": "nang",
+      "tone": 0,
+      "pinyin_tone3": "nang0",
+      "filename": "nang0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "nang",
+      "base_proper": "nang",
       "tone": 1,
       "pinyin_tone3": "nang1",
       "filename": "nang1",
@@ -6086,6 +6559,14 @@
       "tone": 4,
       "pinyin_tone3": "nang4",
       "filename": "nang4",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "nao",
+      "base_proper": "nao",
+      "tone": 0,
+      "pinyin_tone3": "nao0",
+      "filename": "nao0",
       "exists_in_dataset": false
     },
     {
@@ -6127,6 +6608,14 @@
       "pinyin_tone3": "ne0",
       "filename": "ne0",
       "exists_in_dataset": true
+    },
+    {
+      "base": "ne",
+      "base_proper": "ne",
+      "tone": 2,
+      "pinyin_tone3": "ne2",
+      "filename": "ne2",
+      "exists_in_dataset": false
     },
     {
       "base": "ne",
@@ -6193,6 +6682,14 @@
       "exists_in_dataset": false
     },
     {
+      "base": "ng",
+      "base_proper": "ng",
+      "tone": 0,
+      "pinyin_tone3": "ng0",
+      "filename": "ng0",
+      "exists_in_dataset": false
+    },
+    {
       "base": "ni",
       "base_proper": "ni",
       "tone": 1,
@@ -6255,6 +6752,14 @@
       "pinyin_tone3": "nian4",
       "filename": "nian4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "niang",
+      "base_proper": "niang",
+      "tone": 0,
+      "pinyin_tone3": "niang0",
+      "filename": "niang0",
+      "exists_in_dataset": false
     },
     {
       "base": "niang",
@@ -6383,6 +6888,14 @@
       "pinyin_tone3": "ning4",
       "filename": "ning4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "niu",
+      "base_proper": "niu",
+      "tone": 0,
+      "pinyin_tone3": "niu0",
+      "filename": "niu0",
+      "exists_in_dataset": false
     },
     {
       "base": "niu",
@@ -6521,6 +7034,14 @@
       "exists_in_dataset": false
     },
     {
+      "base": "nun",
+      "base_proper": "nun",
+      "tone": 4,
+      "pinyin_tone3": "nun4",
+      "filename": "nun4",
+      "exists_in_dataset": false
+    },
+    {
       "base": "nuo",
       "base_proper": "nuo",
       "tone": 2,
@@ -6543,6 +7064,14 @@
       "pinyin_tone3": "nuo4",
       "filename": "nuo4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "nv",
+      "base_proper": "nü",
+      "tone": 0,
+      "pinyin_tone3": "nv0",
+      "filename": "nv0",
+      "exists_in_dataset": false
     },
     {
       "base": "nv",
@@ -6591,6 +7120,30 @@
       "pinyin_tone3": "o2",
       "filename": "o2",
       "exists_in_dataset": true
+    },
+    {
+      "base": "o",
+      "base_proper": "o",
+      "tone": 3,
+      "pinyin_tone3": "o3",
+      "filename": "o3",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "o",
+      "base_proper": "o",
+      "tone": 4,
+      "pinyin_tone3": "o4",
+      "filename": "o4",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "ou",
+      "base_proper": "ou",
+      "tone": 0,
+      "pinyin_tone3": "ou0",
+      "filename": "ou0",
+      "exists_in_dataset": false
     },
     {
       "base": "ou",
@@ -6687,6 +7240,14 @@
       "pinyin_tone3": "pai4",
       "filename": "pai4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "pan",
+      "base_proper": "pan",
+      "tone": 0,
+      "pinyin_tone3": "pan0",
+      "filename": "pan0",
+      "exists_in_dataset": false
     },
     {
       "base": "pan",
@@ -6846,6 +7407,14 @@
       "tone": 4,
       "pinyin_tone3": "pen4",
       "filename": "pen4",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "peng",
+      "base_proper": "peng",
+      "tone": 0,
+      "pinyin_tone3": "peng0",
+      "filename": "peng0",
       "exists_in_dataset": false
     },
     {
@@ -7051,6 +7620,14 @@
     {
       "base": "ping",
       "base_proper": "ping",
+      "tone": 3,
+      "pinyin_tone3": "ping3",
+      "filename": "ping3",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "ping",
+      "base_proper": "ping",
       "tone": 4,
       "pinyin_tone3": "ping4",
       "filename": "ping4",
@@ -7118,6 +7695,14 @@
       "tone": 3,
       "pinyin_tone3": "pou3",
       "filename": "pou3",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "pou",
+      "base_proper": "pou",
+      "tone": 4,
+      "pinyin_tone3": "pou4",
+      "filename": "pou4",
       "exists_in_dataset": false
     },
     {
@@ -7371,6 +7956,14 @@
     {
       "base": "qin",
       "base_proper": "qin",
+      "tone": 0,
+      "pinyin_tone3": "qin0",
+      "filename": "qin0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "qin",
+      "base_proper": "qin",
       "tone": 1,
       "pinyin_tone3": "qin1",
       "filename": "qin1",
@@ -7579,6 +8172,14 @@
     {
       "base": "que",
       "base_proper": "que",
+      "tone": 0,
+      "pinyin_tone3": "que0",
+      "filename": "que0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "que",
+      "base_proper": "que",
       "tone": 1,
       "pinyin_tone3": "que1",
       "filename": "que1",
@@ -7622,6 +8223,22 @@
       "tone": 3,
       "pinyin_tone3": "qun3",
       "filename": "qun3",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "r",
+      "base_proper": "r",
+      "tone": 0,
+      "pinyin_tone3": "r0",
+      "filename": "r0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "ran",
+      "base_proper": "ran",
+      "tone": 0,
+      "pinyin_tone3": "ran0",
+      "filename": "ran0",
       "exists_in_dataset": false
     },
     {
@@ -7699,6 +8316,14 @@
     {
       "base": "re",
       "base_proper": "re",
+      "tone": 2,
+      "pinyin_tone3": "re2",
+      "filename": "re2",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "re",
+      "base_proper": "re",
       "tone": 3,
       "pinyin_tone3": "re3",
       "filename": "re3",
@@ -7711,6 +8336,14 @@
       "pinyin_tone3": "re4",
       "filename": "re4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "ren",
+      "base_proper": "ren",
+      "tone": 0,
+      "pinyin_tone3": "ren0",
+      "filename": "ren0",
+      "exists_in_dataset": false
     },
     {
       "base": "ren",
@@ -7774,6 +8407,14 @@
       "tone": 0,
       "pinyin_tone3": "rong0",
       "filename": "rong0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "rong",
+      "base_proper": "rong",
+      "tone": 1,
+      "pinyin_tone3": "rong1",
+      "filename": "rong1",
       "exists_in_dataset": false
     },
     {
@@ -8067,6 +8708,14 @@
     {
       "base": "sao",
       "base_proper": "sao",
+      "tone": 0,
+      "pinyin_tone3": "sao0",
+      "filename": "sao0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "sao",
+      "base_proper": "sao",
       "tone": 1,
       "pinyin_tone3": "sao1",
       "filename": "sao1",
@@ -8267,6 +8916,14 @@
     {
       "base": "shao",
       "base_proper": "shao",
+      "tone": 0,
+      "pinyin_tone3": "shao0",
+      "filename": "shao0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "shao",
+      "base_proper": "shao",
       "tone": 1,
       "pinyin_tone3": "shao1",
       "filename": "shao1",
@@ -8335,6 +8992,14 @@
       "pinyin_tone3": "shei2",
       "filename": "shei2",
       "exists_in_dataset": true
+    },
+    {
+      "base": "shen",
+      "base_proper": "shen",
+      "tone": 0,
+      "pinyin_tone3": "shen0",
+      "filename": "shen0",
+      "exists_in_dataset": false
     },
     {
       "base": "shen",
@@ -8467,6 +9132,14 @@
     {
       "base": "shou",
       "base_proper": "shou",
+      "tone": 2,
+      "pinyin_tone3": "shou2",
+      "filename": "shou2",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "shou",
+      "base_proper": "shou",
       "tone": 3,
       "pinyin_tone3": "shou3",
       "filename": "shou3",
@@ -8479,6 +9152,14 @@
       "pinyin_tone3": "shou4",
       "filename": "shou4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "shu",
+      "base_proper": "shu",
+      "tone": 0,
+      "pinyin_tone3": "shu0",
+      "filename": "shu0",
+      "exists_in_dataset": false
     },
     {
       "base": "shu",
@@ -8659,6 +9340,14 @@
     {
       "base": "shuo",
       "base_proper": "shuo",
+      "tone": 2,
+      "pinyin_tone3": "shuo2",
+      "filename": "shuo2",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "shuo",
+      "base_proper": "shuo",
       "tone": 4,
       "pinyin_tone3": "shuo4",
       "filename": "shuo4",
@@ -8731,6 +9420,14 @@
     {
       "base": "sou",
       "base_proper": "sou",
+      "tone": 0,
+      "pinyin_tone3": "sou0",
+      "filename": "sou0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "sou",
+      "base_proper": "sou",
       "tone": 1,
       "pinyin_tone3": "sou1",
       "filename": "sou1",
@@ -8751,6 +9448,14 @@
       "pinyin_tone3": "sou4",
       "filename": "sou4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "su",
+      "base_proper": "su",
+      "tone": 0,
+      "pinyin_tone3": "su0",
+      "filename": "su0",
+      "exists_in_dataset": false
     },
     {
       "base": "su",
@@ -8783,6 +9488,14 @@
       "pinyin_tone3": "su4",
       "filename": "su4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "suan",
+      "base_proper": "suan",
+      "tone": 0,
+      "pinyin_tone3": "suan0",
+      "filename": "suan0",
+      "exists_in_dataset": false
     },
     {
       "base": "suan",
@@ -8855,6 +9568,14 @@
       "pinyin_tone3": "sun3",
       "filename": "sun3",
       "exists_in_dataset": true
+    },
+    {
+      "base": "sun",
+      "base_proper": "sun",
+      "tone": 4,
+      "pinyin_tone3": "sun4",
+      "filename": "sun4",
+      "exists_in_dataset": false
     },
     {
       "base": "suo",
@@ -8979,6 +9700,14 @@
     {
       "base": "tan",
       "base_proper": "tan",
+      "tone": 0,
+      "pinyin_tone3": "tan0",
+      "filename": "tan0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "tan",
+      "base_proper": "tan",
       "tone": 1,
       "pinyin_tone3": "tan1",
       "filename": "tan1",
@@ -9007,6 +9736,14 @@
       "pinyin_tone3": "tan4",
       "filename": "tan4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "tang",
+      "base_proper": "tang",
+      "tone": 0,
+      "pinyin_tone3": "tang0",
+      "filename": "tang0",
+      "exists_in_dataset": false
     },
     {
       "base": "tang",
@@ -9081,6 +9818,22 @@
       "exists_in_dataset": true
     },
     {
+      "base": "tei",
+      "base_proper": "tei",
+      "tone": 1,
+      "pinyin_tone3": "tei1",
+      "filename": "tei1",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "teng",
+      "base_proper": "teng",
+      "tone": 0,
+      "pinyin_tone3": "teng0",
+      "filename": "teng0",
+      "exists_in_dataset": false
+    },
+    {
       "base": "teng",
       "base_proper": "teng",
       "tone": 1,
@@ -9102,6 +9855,14 @@
       "tone": 4,
       "pinyin_tone3": "teng4",
       "filename": "teng4",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "ti",
+      "base_proper": "ti",
+      "tone": 0,
+      "pinyin_tone3": "ti0",
+      "filename": "ti0",
       "exists_in_dataset": false
     },
     {
@@ -9135,6 +9896,14 @@
       "pinyin_tone3": "ti4",
       "filename": "ti4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "tian",
+      "base_proper": "tian",
+      "tone": 0,
+      "pinyin_tone3": "tian0",
+      "filename": "tian0",
+      "exists_in_dataset": false
     },
     {
       "base": "tian",
@@ -9243,6 +10012,14 @@
     {
       "base": "ting",
       "base_proper": "ting",
+      "tone": 0,
+      "pinyin_tone3": "ting0",
+      "filename": "ting0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "ting",
+      "base_proper": "ting",
       "tone": 1,
       "pinyin_tone3": "ting1",
       "filename": "ting1",
@@ -9270,6 +10047,14 @@
       "tone": 4,
       "pinyin_tone3": "ting4",
       "filename": "ting4",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "tong",
+      "base_proper": "tong",
+      "tone": 0,
+      "pinyin_tone3": "tong0",
+      "filename": "tong0",
       "exists_in_dataset": false
     },
     {
@@ -9483,6 +10268,14 @@
     {
       "base": "tuo",
       "base_proper": "tuo",
+      "tone": 0,
+      "pinyin_tone3": "tuo0",
+      "filename": "tuo0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "tuo",
+      "base_proper": "tuo",
       "tone": 1,
       "pinyin_tone3": "tuo1",
       "filename": "tuo1",
@@ -9607,6 +10400,14 @@
       "pinyin_tone3": "wan4",
       "filename": "wan4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "wang",
+      "base_proper": "wang",
+      "tone": 0,
+      "pinyin_tone3": "wang0",
+      "filename": "wang0",
+      "exists_in_dataset": false
     },
     {
       "base": "wang",
@@ -9819,6 +10620,14 @@
     {
       "base": "xi",
       "base_proper": "xi",
+      "tone": 0,
+      "pinyin_tone3": "xi0",
+      "filename": "xi0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "xi",
+      "base_proper": "xi",
       "tone": 1,
       "pinyin_tone3": "xi1",
       "filename": "xi1",
@@ -9847,6 +10656,14 @@
       "pinyin_tone3": "xi4",
       "filename": "xi4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "xia",
+      "base_proper": "xia",
+      "tone": 0,
+      "pinyin_tone3": "xia0",
+      "filename": "xia0",
+      "exists_in_dataset": false
     },
     {
       "base": "xia",
@@ -9995,6 +10812,14 @@
     {
       "base": "xie",
       "base_proper": "xie",
+      "tone": 0,
+      "pinyin_tone3": "xie0",
+      "filename": "xie0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "xie",
+      "base_proper": "xie",
       "tone": 1,
       "pinyin_tone3": "xie1",
       "filename": "xie1",
@@ -10103,6 +10928,14 @@
       "pinyin_tone3": "xing4",
       "filename": "xing4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "xiong",
+      "base_proper": "xiong",
+      "tone": 0,
+      "pinyin_tone3": "xiong0",
+      "filename": "xiong0",
+      "exists_in_dataset": false
     },
     {
       "base": "xiong",
@@ -10271,6 +11104,14 @@
       "pinyin_tone3": "xue4",
       "filename": "xue4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "xun",
+      "base_proper": "xun",
+      "tone": 0,
+      "pinyin_tone3": "xun0",
+      "filename": "xun0",
+      "exists_in_dataset": false
     },
     {
       "base": "xun",
@@ -10563,6 +11404,14 @@
     {
       "base": "ying",
       "base_proper": "ying",
+      "tone": 0,
+      "pinyin_tone3": "ying0",
+      "filename": "ying0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "ying",
+      "base_proper": "ying",
       "tone": 1,
       "pinyin_tone3": "ying1",
       "filename": "ying1",
@@ -10595,10 +11444,26 @@
     {
       "base": "yo",
       "base_proper": "yo",
+      "tone": 0,
+      "pinyin_tone3": "yo0",
+      "filename": "yo0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "yo",
+      "base_proper": "yo",
       "tone": 1,
       "pinyin_tone3": "yo1",
       "filename": "yo1",
       "exists_in_dataset": true
+    },
+    {
+      "base": "yong",
+      "base_proper": "yong",
+      "tone": 0,
+      "pinyin_tone3": "yong0",
+      "filename": "yong0",
+      "exists_in_dataset": false
     },
     {
       "base": "yong",
@@ -10715,6 +11580,14 @@
     {
       "base": "yuan",
       "base_proper": "yuan",
+      "tone": 0,
+      "pinyin_tone3": "yuan0",
+      "filename": "yuan0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "yuan",
+      "base_proper": "yuan",
       "tone": 1,
       "pinyin_tone3": "yuan1",
       "filename": "yuan1",
@@ -10747,10 +11620,26 @@
     {
       "base": "yue",
       "base_proper": "yue",
+      "tone": 0,
+      "pinyin_tone3": "yue0",
+      "filename": "yue0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "yue",
+      "base_proper": "yue",
       "tone": 1,
       "pinyin_tone3": "yue1",
       "filename": "yue1",
       "exists_in_dataset": true
+    },
+    {
+      "base": "yue",
+      "base_proper": "yue",
+      "tone": 2,
+      "pinyin_tone3": "yue2",
+      "filename": "yue2",
+      "exists_in_dataset": false
     },
     {
       "base": "yue",
@@ -10833,6 +11722,14 @@
       "exists_in_dataset": true
     },
     {
+      "base": "za",
+      "base_proper": "za",
+      "tone": 4,
+      "pinyin_tone3": "za4",
+      "filename": "za4",
+      "exists_in_dataset": false
+    },
+    {
       "base": "zai",
       "base_proper": "zai",
       "tone": 1,
@@ -10855,6 +11752,14 @@
       "pinyin_tone3": "zai4",
       "filename": "zai4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "zan",
+      "base_proper": "zan",
+      "tone": 0,
+      "pinyin_tone3": "zan0",
+      "filename": "zan0",
+      "exists_in_dataset": false
     },
     {
       "base": "zan",
@@ -11035,6 +11940,14 @@
     {
       "base": "zha",
       "base_proper": "zha",
+      "tone": 0,
+      "pinyin_tone3": "zha0",
+      "filename": "zha0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "zha",
+      "base_proper": "zha",
       "tone": 1,
       "pinyin_tone3": "zha1",
       "filename": "zha1",
@@ -11099,10 +12012,26 @@
     {
       "base": "zhan",
       "base_proper": "zhan",
+      "tone": 0,
+      "pinyin_tone3": "zhan0",
+      "filename": "zhan0",
+      "exists_in_dataset": false
+    },
+    {
+      "base": "zhan",
+      "base_proper": "zhan",
       "tone": 1,
       "pinyin_tone3": "zhan1",
       "filename": "zhan1",
       "exists_in_dataset": true
+    },
+    {
+      "base": "zhan",
+      "base_proper": "zhan",
+      "tone": 2,
+      "pinyin_tone3": "zhan2",
+      "filename": "zhan2",
+      "exists_in_dataset": false
     },
     {
       "base": "zhan",
@@ -11233,6 +12162,14 @@
       "exists_in_dataset": true
     },
     {
+      "base": "zhei",
+      "base_proper": "zhei",
+      "tone": 4,
+      "pinyin_tone3": "zhei4",
+      "filename": "zhei4",
+      "exists_in_dataset": false
+    },
+    {
       "base": "zhen",
       "base_proper": "zhen",
       "tone": 1,
@@ -11263,6 +12200,14 @@
       "pinyin_tone3": "zhen4",
       "filename": "zhen4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "zheng",
+      "base_proper": "zheng",
+      "tone": 0,
+      "pinyin_tone3": "zheng0",
+      "filename": "zheng0",
+      "exists_in_dataset": false
     },
     {
       "base": "zheng",
@@ -11351,6 +12296,14 @@
       "pinyin_tone3": "zhong4",
       "filename": "zhong4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "zhou",
+      "base_proper": "zhou",
+      "tone": 0,
+      "pinyin_tone3": "zhou0",
+      "filename": "zhou0",
+      "exists_in_dataset": false
     },
     {
       "base": "zhou",
@@ -11503,6 +12456,14 @@
       "pinyin_tone3": "zhuang4",
       "filename": "zhuang4",
       "exists_in_dataset": true
+    },
+    {
+      "base": "zhui",
+      "base_proper": "zhui",
+      "tone": 0,
+      "pinyin_tone3": "zhui0",
+      "filename": "zhui0",
+      "exists_in_dataset": false
     },
     {
       "base": "zhui",

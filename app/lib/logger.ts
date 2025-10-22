@@ -135,20 +135,20 @@ export function error(tag: string, message: string, data?: any): void {
   });
 }
 
-// Convenience exports for NSS logging (development only)
+// Convenience exports for NSS logging (disabled)
 export const nssLog = (message: string, data?: any) => {
-  if (process.env.NODE_ENV !== 'development') return;
-  log('NSS', message, data);
+  // NSS logging disabled
+  return;
 };
 
 export const nssWarn = (message: string, data?: any) => {
-  if (process.env.NODE_ENV !== 'development') return;
-  warn('NSS', message, data);
+  // NSS logging disabled
+  return;
 };
 
 export const nssError = (message: string, data?: any) => {
-  if (process.env.NODE_ENV !== 'development') return;
-  error('NSS', message, data);
+  // NSS logging disabled
+  return;
 };
 
 // ============================================================================

@@ -118,7 +118,9 @@ id,char,codepoint,pinyins,script_type,variants,gloss_en,examples
 {
   "id": 1,
   "sentence": "我們試試看！",
+  "english_translation": "Let's give it a try!",
   "script_type": "traditional",
+  "hskLevel": "3",
   "chars": [
     {"char": "我", "pinyin": "wo3"},
     {"char": "們", "pinyin": "men"},
@@ -133,7 +135,9 @@ id,char,codepoint,pinyins,script_type,variants,gloss_en,examples
 **Fields**:
 - `id`: Sentence identifier
 - `sentence`: Full Chinese text
+- `english_translation`: English translation of the sentence
 - `script_type`: `simplified`, `traditional`, `neutral`, or `ambiguous`
+- `hskLevel`: HSK level classification ("1"-"6" or "7-9"), optional (unclassified sentences excluded from practice)
 - `chars`: Array of character-pinyin pairs
   - `char`: Individual character
   - `pinyin`: Context-aware pinyin in TONE3 format (e.g., `wo3`, `men`, `shi4`)
@@ -170,9 +174,10 @@ id,char,codepoint,pinyins,script_type,variants,gloss_en,examples
 - [x] Result review after each sentence
 - [x] Responsive design with dark mode support
 - [x] Script preference system (simplified/traditional/mixed)
+- [x] HSK level preference system (cumulative filtering: 1, 1-2, 1-3, 1-4, 1-5, 1-6, 1-9)
 - [x] Settings page with database reset
 - [x] Navigation component across all pages
-- [x] First-run modal for script selection
+- [x] First-run modal for script and HSK level selection
 
 ### Core Components
 - **Practice Page** (`app/practice/page.tsx`): Main learning interface
@@ -222,6 +227,8 @@ id,char,codepoint,pinyins,script_type,variants,gloss_en,examples
   - Prefetches next batch when 2 remain
   - 5-level fallback cascade for edge cases
   - Script-type filtering (simplified/traditional/mixed)
+  - HSK level filtering (cumulative: "1-3" includes levels 1, 2, and 3)
+  - Queue invalidation when preferences change
 
 - [x] **Comprehensive Logging** (`lib/logger.ts`)
   - NSS algorithm debugging (development only)
@@ -251,14 +258,20 @@ id,char,codepoint,pinyins,script_type,variants,gloss_en,examples
   - Progress bars showing X / Y characters in corpus
 
 ### High Priority (Post-MVP Launch)
-- [ ] **HSK Level Data Pipeline**
-  - Scrape/integrate HSK 3.0 character lists (9 levels)
-  - Tag all characters with HSK level in data pipeline
-  - Tag sentences with HSK level (based on character composition)
-  - User preference: filter practice by HSK level
-  - Stats page: show progress by HSK level
-  - **Effort**: 4-6 hours data work + 4-6 hours frontend integration
+- [x] **HSK Level Data Pipeline** ✓ COMPLETED
+  - ✓ Integrated HSK 3.0 character lists (9 levels) - elkmovie/hsk30
+  - ✓ Tagged sentences with HSK level (based on character composition)
+  - ✓ User preference: filter practice by HSK level (cumulative ranges)
+  - ✓ UI: First-run modal and settings page with character counts
+  - ✓ NSS integration: Queue invalidation and filtering
   - **Impact**: Aligns with curriculum, huge value for learners
+
+- [ ] **HSK Stats Integration**
+  - Show progress by HSK level on stats page
+  - Character mastery breakdown by HSK level
+  - Visual progress indicators per level
+  - **Effort**: 2-3 hours
+  - **Impact**: Helps users track curriculum progress
 
 - [ ] **Mobile PWA Optimization**
   - Make app installable on phones (manifest.json)
@@ -574,9 +587,14 @@ A: Out of scope for MVP. Focus is on recognition and typing (pinyin input method
   - Unicode Unihan: https://unicode.org/charts/unihan.html
   - CC-CEDICT: https://www.mdbg.net/chinese/dictionary?page=cc-cedict
   - Tatoeba: https://tatoeba.org/en/downloads
+- **HSK Data Sources**:
+  - elkmovie/hsk30: https://github.com/elkmovie/hsk30
+    - Official HSK 3.0 character lists (9 levels, 3,000 total characters)
+    - Extracted from official PDF and OCR'ed using Pleco OCR
+    - Used as source of truth for sentence HSK classification
 
 ---
 
-**Last Updated**: 2025-10-20
-**Project Status**: Advanced MVP - NSS algorithm complete, mastery tracking live, stats page in progress
+**Last Updated**: 2025-10-21
+**Project Status**: Advanced MVP - NSS algorithm complete, mastery tracking live, HSK filtering live, stats page in progress
 **Next Milestone**: User-facing stats page + production deployment

@@ -60,7 +60,7 @@ OUTPUT_COST_PER_1M_TOKENS = 0.60  # $0.60 per 1M output tokens
 # Paths
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 INPUT_CSV = PROJECT_ROOT / 'data' / 'sentences' / 'cmn_sentences_with_char_pinyin.csv'
-OUTPUT_CSV = PROJECT_ROOT / 'data' / 'sentences' / 'cmn_sentences_with_char_pinyin_and_translation_TEST.csv'
+OUTPUT_CSV = PROJECT_ROOT / 'data' / 'sentences' / 'cmn_sentences_with_char_pinyin_and_translation.csv'
 LOG_FILE = PROJECT_ROOT / 'data' / 'sentences' / 'translation_test.log'
 
 

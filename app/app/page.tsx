@@ -28,83 +28,87 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-8">
-      <div className="max-w-4xl w-full space-y-12">
+      <div className="max-w-4xl w-full space-y-8">
         {/* Hero Section */}
-        <div className="text-center space-y-6">
+        <div className="text-center space-y-4">
           <h1 className="text-6xl font-bold">Hanzi Flow</h1>
           <p className="text-2xl text-gray-600 dark:text-gray-400">
-            Master Chinese Characters Through Practice
+            Master Chinese Reading with HSK 3.0-Aligned Adaptive Practice
           </p>
 
-          {/* Value Props */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4">
-            <div className="text-center">
-              <div className="text-2xl mb-1">✨</div>
-              <div className="text-sm font-medium">Adaptive Learning</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl mb-1">🎯</div>
-              <div className="text-sm font-medium">Spaced Repetition</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl mb-1">📊</div>
-              <div className="text-sm font-medium">Track Progress</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl mb-1">🆓</div>
-              <div className="text-sm font-medium">Free, No Signup</div>
-            </div>
+          {/* Stats Teaser */}
+          <div className="text-sm text-gray-500 dark:text-gray-500">
+            3,000+ characters • 75,000+ sentences • 9 HSK levels
+          </div>
+
+          {/* Primary CTA */}
+          <div className="pt-4">
+            <Link
+              href="/practice"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xl px-12 py-4 rounded-lg transition-colors shadow-lg hover:shadow-xl"
+            >
+              Start Practicing
+            </Link>
           </div>
         </div>
 
         {/* How It Works */}
-        <div className="space-y-6">
+        <div className="space-y-4">
           <h2 className="text-2xl font-semibold text-center">How It Works</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Step 1 */}
-            <div className="text-center space-y-3">
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 mb-2 h-32 flex items-center justify-center">
+            <div className="text-center space-y-2">
+              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mb-2 h-28 flex items-center justify-center relative">
                 <div className="text-6xl">你</div>
+                <div className="absolute top-2 right-2 text-xs bg-blue-600 text-white px-2 py-1 rounded">
+                  HSK 1
+                </div>
               </div>
-              <div className="font-semibold">1. See a Character</div>
+              <div className="font-semibold">1. Get a Sentence at Your Level</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                Practice with real Chinese sentences
+                AI selects sentences matching your HSK level and progress
               </div>
             </div>
 
             {/* Step 2 */}
-            <div className="text-center space-y-3">
-              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 mb-2 h-32 flex items-center justify-center">
+            <div className="text-center space-y-2">
+              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mb-2 h-28 flex items-center justify-center">
                 <div className="text-2xl font-mono text-gray-600">ni3</div>
               </div>
-              <div className="font-semibold">2. Type Pinyin</div>
+              <div className="font-semibold">2. Type Each Character's Pinyin</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                Enter the pronunciation
+                Practice pronunciation with real-time validation
               </div>
             </div>
 
             {/* Step 3 */}
-            <div className="text-center space-y-3">
-              <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-6 mb-2 h-32 flex items-center justify-center">
+            <div className="text-center space-y-2">
+              <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 mb-2 h-28 flex items-center justify-center">
                 <div className="text-5xl text-green-600">✓</div>
               </div>
-              <div className="font-semibold">3. Get Feedback</div>
+              <div className="font-semibold">3. System Adapts to You</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                Learn from instant corrections
+                Spaced repetition ensures you remember what you learn
               </div>
             </div>
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <Link
-            href="/practice"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xl px-12 py-5 rounded-lg transition-colors shadow-lg hover:shadow-xl"
-          >
-            Start Practicing
-          </Link>
+        {/* Simple Footer */}
+        <div className="text-center text-sm text-gray-500 dark:text-gray-500 pt-8">
+          <p>
+            Made by{' '}
+            <a
+              href="https://brianhliou.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Brian Lou
+            </a>
+          </p>
         </div>
+
       </div>
     </div>
   );

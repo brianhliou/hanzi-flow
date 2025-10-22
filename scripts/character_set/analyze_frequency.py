@@ -161,12 +161,12 @@ def generate_statistics(rows):
     return freqs
 
 
-def plot_frequency_distribution(rows, output_file='../../data/frequency_distribution.png'):
+def plot_frequency_distribution(rows, output_file='../../data/character_set/frequency_distribution.png'):
     """
     Generate distribution graphs.
     Creates two plots:
-    1. Full distribution (log scale)
-    2. Head distribution (top characters only)
+    1. Full distribution (log scale) - shows Zipf's law power distribution
+    2. Head distribution (top characters) - shows practical coverage for learners
     """
     print(f"\nGenerating frequency distribution graphs...")
 
@@ -178,35 +178,51 @@ def plot_frequency_distribution(rows, output_file='../../data/frequency_distribu
     sorted_freqs = sorted(non_zero_freqs, reverse=True)
 
     # Create figure with 2 subplots
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 5))
+
+    # Add main title
+    total_chars = len(freqs)
+    corpus_chars = len(sorted_freqs)
+    fig.suptitle('Character Frequency Distribution in Sentence Corpus',
+                 fontsize=14, fontweight='bold', y=0.98)
 
     # Plot 1: Full distribution (log scale)
-    ax1.plot(range(1, len(sorted_freqs) + 1), sorted_freqs, linewidth=2)
-    ax1.set_xlabel('Character Rank', fontsize=11)
+    ax1.plot(range(1, len(sorted_freqs) + 1), sorted_freqs, linewidth=2, color='#3b82f6')
+    ax1.set_xlabel('Character Rank (by frequency)', fontsize=11)
     ax1.set_ylabel('Frequency (log scale)', fontsize=11)
-    ax1.set_title(f'Character Frequency Distribution\n({len(sorted_freqs):,} chars in corpus, {zero_count:,} not found)',
-                  fontsize=12, fontweight='bold')
+    ax1.set_title(f'Full Distribution (Zipf\'s Law)\n{corpus_chars:,} characters found in corpus, {zero_count:,} not found',
+                  fontsize=11)
     ax1.set_yscale('log')
     ax1.grid(True, alpha=0.3)
     ax1.set_xlim(0, len(sorted_freqs))
 
-    # Add annotations
-    ax1.axhline(y=100, color='red', linestyle='--', alpha=0.5, label='100 occurrences')
-    ax1.axhline(y=1000, color='orange', linestyle='--', alpha=0.5, label='1,000 occurrences')
-    ax1.legend(fontsize=9)
+    # Add reference lines
+    ax1.axhline(y=100, color='#ef4444', linestyle='--', alpha=0.5, linewidth=1.5, label='100 occurrences')
+    ax1.axhline(y=1000, color='#f59e0b', linestyle='--', alpha=0.5, linewidth=1.5, label='1,000 occurrences')
+    ax1.legend(fontsize=9, loc='upper right')
 
     # Plot 2: Head distribution (top 2000 characters)
     top_n = min(2000, len(sorted_freqs))
-    ax2.plot(range(1, top_n + 1), sorted_freqs[:top_n], linewidth=2, color='green')
-    ax2.set_xlabel('Character Rank', fontsize=11)
-    ax2.set_ylabel('Frequency', fontsize=11)
-    ax2.set_title(f'Top {top_n:,} Characters (Linear Scale)', fontsize=12, fontweight='bold')
+    ax2.plot(range(1, top_n + 1), sorted_freqs[:top_n], linewidth=2, color='#10b981')
+    ax2.set_xlabel('Character Rank (by frequency)', fontsize=11)
+    ax2.set_ylabel('Frequency (linear scale)', fontsize=11)
+    ax2.set_title(f'Top {top_n:,} Most Common Characters\nShows steep decline in frequency (80/20 rule)',
+                  fontsize=11)
     ax2.grid(True, alpha=0.3)
     ax2.set_xlim(0, top_n)
 
-    # Add coverage annotation
-    top_1000_coverage = sum(sorted_freqs[:1000]) / sum(sorted_freqs) * 100 if len(sorted_freqs) >= 1000 else 0
-    ax2.text(0.98, 0.97, f'Top 1000 chars cover\n{top_1000_coverage:.1f}% of text',
+    # Add coverage annotations
+    total_occurrences = sum(sorted_freqs)
+    top_500_coverage = sum(sorted_freqs[:500]) / total_occurrences * 100 if len(sorted_freqs) >= 500 else 0
+    top_1000_coverage = sum(sorted_freqs[:1000]) / total_occurrences * 100 if len(sorted_freqs) >= 1000 else 0
+    top_2000_coverage = sum(sorted_freqs[:2000]) / total_occurrences * 100 if len(sorted_freqs) >= 2000 else 0
+
+    annotation_text = f'Coverage Milestones:\n'
+    annotation_text += f'Top 500:   {top_500_coverage:.1f}%\n'
+    annotation_text += f'Top 1000: {top_1000_coverage:.1f}%\n'
+    annotation_text += f'Top 2000: {top_2000_coverage:.1f}%'
+
+    ax2.text(0.98, 0.97, annotation_text,
              transform=ax2.transAxes, fontsize=9, verticalalignment='top', horizontalalignment='right',
              bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
 

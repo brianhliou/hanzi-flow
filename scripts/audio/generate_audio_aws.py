@@ -18,7 +18,7 @@ Usage:
     # Set TEST_LIMIT = None in the configuration section below
 
 Expected runtime: ~30-45 minutes for full run (with rate limiting)
-Expected output: ~1,478 OGG files in data/audio/syllables/
+Expected output: ~1,478 OGG files in app/public/data/audio/
 
 Features:
 - Automatic resume: Skips existing files if interrupted mid-run
@@ -59,7 +59,7 @@ OUTPUT_FORMAT = 'ogg_vorbis'  # OGG Vorbis (good compression, web-friendly)
 # Paths
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 INPUT_JSON = PROJECT_ROOT / 'data' / 'audio' / 'syllables_enumeration.json'
-OUTPUT_DIR = PROJECT_ROOT / 'data' / 'audio' / 'syllables'
+OUTPUT_DIR = PROJECT_ROOT / 'app' / 'public' / 'data' / 'audio'
 
 # Generation settings
 RATE_LIMIT_DELAY = 0.15  # seconds between requests (avoid throttling)

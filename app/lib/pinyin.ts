@@ -12,6 +12,51 @@ const TONE_MARKS: Record<string, string[]> = {
 };
 
 /**
+ * Convert pinyin with tone marks to tone numbers.
+ *
+ * Examples:
+ * - "wǒ" -> "wo3"
+ * - "nǐ" -> "ni3"
+ * - "shì" -> "shi4"
+ * - "liú" -> "liu2"
+ * - "nǚ" -> "nv3"
+ * - "de" -> "de0" (neutral tone)
+ */
+export function convertToneMarksToNumbers(pinyin: string): string {
+  if (!pinyin) return '';
+
+  let result = '';
+  let toneFound = 0;
+
+  for (const char of pinyin) {
+    let replaced = false;
+
+    // Check each vowel's tone marks
+    for (const [baseVowel, toneMarks] of Object.entries(TONE_MARKS)) {
+      const toneIndex = toneMarks.indexOf(char);
+      if (toneIndex !== -1) {
+        // Found a vowel (with or without tone mark)
+        result += baseVowel;
+        // Only update tone if this vowel has a tone mark (index > 0)
+        if (toneIndex > 0) {
+          toneFound = toneIndex;
+        }
+        replaced = true;
+        break;
+      }
+    }
+
+    if (!replaced) {
+      result += char;
+    }
+  }
+
+  // Append tone number (0 for neutral if no tone found)
+  // Convert ü to v for compatibility with audio files (e.g., nü3 -> nv3)
+  return (result + toneFound).replace(/ü/g, 'v');
+}
+
+/**
  * Convert pinyin with tone numbers to tone marks.
  *
  * Rules for tone placement:

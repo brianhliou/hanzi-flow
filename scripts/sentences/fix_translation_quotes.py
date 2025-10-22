@@ -15,7 +15,7 @@ from pathlib import Path
 
 # Paths
 PROJECT_ROOT = Path(__file__).parent.parent.parent
-INPUT_CSV = PROJECT_ROOT / 'data' / 'sentences' / 'cmn_sentences_with_char_pinyin_and_translation_TEST.csv'
+INPUT_CSV = PROJECT_ROOT / 'data' / 'sentences' / 'cmn_sentences_with_char_pinyin_and_translation.csv'
 OUTPUT_CSV = INPUT_CSV  # Overwrite the same file
 
 
