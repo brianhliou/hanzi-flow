@@ -4,7 +4,7 @@
 
 A privacy-first, local-first web application for learning Chinese characters through contextual sentence practice. Uses an adaptive algorithm to select sentences based on your mastery level, with support for both Simplified and Traditional Chinese.
 
-🔗 **[Live Demo](https://hanzi-flow.vercel.app)** (Coming soon)
+🔗 **[Live Demo](https://hanziflow.vercel.app)**
 
 ## Features
 
