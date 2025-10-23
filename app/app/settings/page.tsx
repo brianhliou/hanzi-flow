@@ -179,7 +179,7 @@ export default function SettingsPage() {
                   { value: '1-5' as HskFilter, label: 'HSK 5', subtitle: '300 chars (1,500 total)' },
                   { value: '1-6' as HskFilter, label: 'HSK 6', subtitle: '300 chars (1,800 total)' },
                   { value: '1-9' as HskFilter, label: 'HSK 7-9', subtitle: '1,200 chars (3,000 total)' },
-                  { value: '1-beyond' as HskFilter, label: 'Beyond HSK', subtitle: '~4,000 chars total' },
+                  { value: '1-beyond' as HskFilter, label: 'Beyond HSK', subtitle: '1,000 chars (4,000 total)' },
                 ].map((option) => (
                   <button
                     key={option.value}

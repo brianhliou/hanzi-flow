@@ -190,15 +190,15 @@ def plot_frequency_distribution(rows, output_file='../../data/character_set/freq
     ax1.plot(range(1, len(sorted_freqs) + 1), sorted_freqs, linewidth=2, color='#3b82f6')
     ax1.set_xlabel('Character Rank (by frequency)', fontsize=11)
     ax1.set_ylabel('Frequency (log scale)', fontsize=11)
-    ax1.set_title(f'Full Distribution (Zipf\'s Law)\n{corpus_chars:,} characters found in corpus, {zero_count:,} not found',
+    ax1.set_title(f'Full Distribution (Zipf\'s Law)\n{corpus_chars:,} characters in corpus',
                   fontsize=11)
     ax1.set_yscale('log')
     ax1.grid(True, alpha=0.3)
     ax1.set_xlim(0, len(sorted_freqs))
 
     # Add reference lines
-    ax1.axhline(y=100, color='#ef4444', linestyle='--', alpha=0.5, linewidth=1.5, label='100 occurrences')
-    ax1.axhline(y=1000, color='#f59e0b', linestyle='--', alpha=0.5, linewidth=1.5, label='1,000 occurrences')
+    ax1.axhline(y=100, color='#ef4444', linestyle='--', alpha=0.5, linewidth=1.5, label='≥100 occurrences')
+    ax1.axhline(y=1000, color='#f59e0b', linestyle='--', alpha=0.5, linewidth=1.5, label='≥1,000 occurrences')
     ax1.legend(fontsize=9, loc='upper right')
 
     # Plot 2: Head distribution (top 2000 characters)

@@ -422,7 +422,7 @@ export default function PracticePage() {
       { value: '1-5', label: 'HSK 5', subtitle: '300 chars (1,500 total)' },
       { value: '1-6', label: 'HSK 6', subtitle: '300 chars (1,800 total)' },
       { value: '1-9', label: 'HSK 7-9', subtitle: '1,200 chars (3,000 total)' },
-      { value: '1-beyond', label: 'Beyond HSK', subtitle: '~4,000 chars total' },
+      { value: '1-beyond', label: 'Beyond HSK', subtitle: '1,000 chars (4,000 total)' },
     ];
 
     const canSubmit = selectedScript !== null && selectedHsk !== null;

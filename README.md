@@ -11,7 +11,7 @@ A privacy-first, local-first web application for learning Chinese characters thr
 ### 🎯 **HSK 3.0 Curriculum Aligned**
 - Complete coverage of HSK levels 1-9 (3,000 official characters)
 - ~1,000 additional "Beyond HSK" characters for advanced learners
-- 80,000+ sentences from real-world usage
+- 75,000+ sentences from real-world usage
 
 ### 🧠 **Adaptive Learning (NSS Algorithm)**
 - Next Sentence Selection (NSS) algorithm picks optimal sentences
