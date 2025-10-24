@@ -6,6 +6,9 @@ A privacy-first, local-first web application for learning Chinese characters thr
 
 🔗 **[Live Demo](https://hanziflow.vercel.app)**
 
+![Hanzi Flow Practice Interface](.github/screenshot.png)
+*Character-by-character sentence practice with real-time feedback*
+
 ## Features
 
 ### 🎯 **HSK 3.0 Curriculum Aligned**
