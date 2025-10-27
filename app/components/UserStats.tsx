@@ -607,23 +607,21 @@ function MasteryBreakdownTabs({ masteredWords, learningWords, newWords, isDev }:
                     </button>
                   </div>
 
-                  {/* Line 2: Alt Pinyins (if any, wraps max 2 lines) */}
-                  {allPinyins.length > 1 && (
-                    <div className="flex flex-wrap items-start content-start gap-1 mb-1.5 h-[2.75rem] overflow-hidden">
-                      {allPinyins.slice(1).map((py, idx) => {
-                        const pinyinWithNumbers = convertToneMarksToNumbers(py);
-                        return (
-                          <button
-                            key={idx}
-                            onClick={() => playPinyinAudio(pinyinWithNumbers)}
-                            className="px-1.5 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-                          >
-                            {py}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  )}
+                  {/* Line 2: Alt Pinyins (if any, wraps max 2 lines) - always reserve space */}
+                  <div className="flex flex-wrap items-start content-start gap-1 mb-1.5 h-[2.75rem] overflow-hidden">
+                    {allPinyins.length > 1 && allPinyins.slice(1).map((py, idx) => {
+                      const pinyinWithNumbers = convertToneMarksToNumbers(py);
+                      return (
+                        <button
+                          key={idx}
+                          onClick={() => playPinyinAudio(pinyinWithNumbers)}
+                          className="px-1.5 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                        >
+                          {py}
+                        </button>
+                      );
+                    })}
+                  </div>
 
                   {/* Spacer to push footer to bottom */}
                   <div className="flex-1"></div>
