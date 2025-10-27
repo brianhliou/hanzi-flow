@@ -31,3 +31,17 @@ yarn-error.log*
 *.swp
 *.swo
 *~
+
+# Environment variables (NEVER commit these)
+.env
+.env.local
+.env.*.local
+*.env
+
+# Credentials (NEVER commit these)
+credentials.json
+secrets.json
+*.key
+*.pem
+*.p12
+*.pfx
