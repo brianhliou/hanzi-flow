@@ -153,8 +153,17 @@ Analysis outputs are stored in `../../data/character_set/analysis/`:
 
 ## Analysis Scripts
 
-Located in `analysis/` subdirectory - not part of main pipeline:
+Located in `analysis/` subdirectory - not part of main pipeline. See `analysis/README.md` for details.
 
+### Pinyin Trie Analysis
+- `build_pinyin_trie.py` - Build character-level Trie of all pinyin syllables
+  - Normalizes to tone3 format (yì → yi4) to eliminate duplicates
+  - Output: 1,392 unique syllables, 1.6MB JSON
+  - Stores character metadata with Unihan and corpus frequencies
+- `validate_trie_vs_reference.py` - Validate Trie against reference syllables (85.9% overlap)
+- `check_duplicate_syllables.py` - Detect duplicate syllables in mixed formats
+
+### Visualizations
 - `analyze_coverage_curve.py` - Generate character coverage curve visualization
 - `analyze_vocabulary_growth.py` - Generate vocabulary growth by HSK level chart
 
