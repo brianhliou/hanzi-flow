@@ -45,8 +45,13 @@ import csv
 import json
 import argparse
 import shutil
+import sys
 from pathlib import Path
 from datetime import datetime
+
+# Add parent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils.pinyin_conversion import tone_marks_to_tone3, normalize_pinyin_for_comparison
 
 # File paths
 INPUT_CSV = '../../data/sentences/step4_with_hsk.csv'
@@ -113,42 +118,8 @@ def format_char_pinyin_pairs(pairs: list) -> str:
     return '|'.join(f"{char}:{pinyin}" for char, pinyin in pairs)
 
 
-def normalize_pinyin(pinyin: str) -> str:
-    """
-    Normalize pinyin for comparison (remove tone marks, keep tone numbers).
-
-    This matches the comparison script's normalization.
-    """
-    if not pinyin:
-        return ''
-
-    # Tone mark mappings
-    tone_map = {
-        # First tone
-        'ā': ('a', '1'), 'ē': ('e', '1'), 'ī': ('i', '1'), 'ō': ('o', '1'), 'ū': ('u', '1'), 'ǖ': ('v', '1'),
-        # Second tone
-        'á': ('a', '2'), 'é': ('e', '2'), 'í': ('i', '2'), 'ó': ('o', '2'), 'ú': ('u', '2'), 'ǘ': ('v', '2'),
-        # Third tone
-        'ǎ': ('a', '3'), 'ě': ('e', '3'), 'ǐ': ('i', '3'), 'ǒ': ('o', '3'), 'ǔ': ('u', '3'), 'ǚ': ('v', '3'),
-        # Fourth tone
-        'à': ('a', '4'), 'è': ('e', '4'), 'ì': ('i', '4'), 'ò': ('o', '4'), 'ù': ('u', '4'), 'ǜ': ('v', '4'),
-        # Neutral ü
-        'ü': ('v', ''),
-    }
-
-    result = []
-    tone_number = ''
-
-    for char in pinyin.lower():
-        if char in tone_map:
-            base, tone = tone_map[char]
-            result.append(base)
-            if tone:
-                tone_number = tone
-        else:
-            result.append(char)
-
-    return ''.join(result) + tone_number
+# Removed: normalize_pinyin() function
+# Now using shared utility: normalize_pinyin_for_comparison() from utils.pinyin_conversion
 
 
 def apply_changes(
@@ -223,8 +194,8 @@ def apply_changes(
             for i, (pair_char, pair_pinyin) in enumerate(pairs):
                 if pair_char == char and pair_pinyin == before_pinyin:
                     # Verify the change makes sense
-                    before_normalized = normalize_pinyin(before_pinyin)
-                    after_normalized = normalize_pinyin(after_pinyin)
+                    before_normalized = normalize_pinyin_for_comparison(before_pinyin)
+                    after_normalized = normalize_pinyin_for_comparison(after_pinyin)
 
                     if before_normalized == after_normalized:
                         # Just a tone mark difference, skip

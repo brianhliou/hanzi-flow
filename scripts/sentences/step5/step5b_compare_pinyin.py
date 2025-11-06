@@ -17,7 +17,13 @@ Usage:
 
 import json
 import re
+import sys
+from pathlib import Path
 from collections import defaultdict
+
+# Add grandparent directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+from utils.pinyin_conversion import tone_marks_to_tone3, normalize_pinyin_for_comparison
 
 # File paths
 ORIGINAL_FILE = '../../../app/public/data/sentences/sentences_with_translation.json'
@@ -25,62 +31,8 @@ OPENAI_FILE = '../../../data/sentences/step5/sentences_pinyin_openai.json'
 REPORT_FILE = '../../../data/sentences/step5/pinyin_comparison_report.json'
 
 
-def normalize_tone_marks_to_numbers(pinyin: str) -> str:
-    """
-    Convert tone marks to tone numbers.
-
-    Examples:
-        nǐ → ni3
-        hǎo → hao3
-        ma → ma (no tone)
-    """
-    # Tone mark mappings
-    tone_map = {
-        # First tone (ā)
-        'ā': ('a', '1'), 'ē': ('e', '1'), 'ī': ('i', '1'), 'ō': ('o', '1'), 'ū': ('u', '1'), 'ǖ': ('v', '1'),
-        # Second tone (á)
-        'á': ('a', '2'), 'é': ('e', '2'), 'í': ('i', '2'), 'ó': ('o', '2'), 'ú': ('u', '2'), 'ǘ': ('v', '2'),
-        # Third tone (ǎ)
-        'ǎ': ('a', '3'), 'ě': ('e', '3'), 'ǐ': ('i', '3'), 'ǒ': ('o', '3'), 'ǔ': ('u', '3'), 'ǚ': ('v', '3'),
-        # Fourth tone (à)
-        'à': ('a', '4'), 'è': ('e', '4'), 'ì': ('i', '4'), 'ò': ('o', '4'), 'ù': ('u', '4'), 'ǜ': ('v', '4'),
-        # Neutral ü
-        'ü': ('v', ''),
-    }
-
-    result = []
-    tone_number = ''
-
-    for char in pinyin.lower():
-        if char in tone_map:
-            base, tone = tone_map[char]
-            result.append(base)
-            if tone:
-                tone_number = tone
-        else:
-            result.append(char)
-
-    return ''.join(result) + tone_number
-
-
-def normalize_pinyin(pinyin: str) -> str:
-    """
-    Normalize pinyin for comparison.
-
-    - Converts tone marks to numbers
-    - Removes tone numbers for base comparison
-    - Handles null/empty
-    """
-    if not pinyin:
-        return ''
-
-    # Convert tone marks to numbers
-    with_numbers = normalize_tone_marks_to_numbers(pinyin)
-
-    # Remove tone numbers for base comparison
-    base = re.sub(r'[1-4]', '', with_numbers)
-
-    return base.lower().strip()
+# Removed: normalize_tone_marks_to_numbers() and normalize_pinyin() functions
+# Now using shared utilities from utils.pinyin_conversion
 
 
 def parse_openai_pinyin(pinyin_text: str, sentence: str) -> list:
@@ -280,13 +232,13 @@ def compare_sentence(original_chars: list, openai_chars: list) -> dict:
 
         # Convert OpenAI tone marks to tone numbers for comparison
         if openai_pinyin:
-            openai_pinyin_normalized = normalize_tone_marks_to_numbers(openai_pinyin)
+            openai_pinyin_normalized = tone_marks_to_tone3(openai_pinyin)
         else:
             openai_pinyin_normalized = ''
 
         # Normalize for comparison (remove tones)
-        original_base = normalize_pinyin(orig_pinyin)
-        openai_base = normalize_pinyin(openai_pinyin_normalized)
+        original_base = normalize_pinyin_for_comparison(orig_pinyin)
+        openai_base = normalize_pinyin_for_comparison(openai_pinyin_normalized)
 
         if original_base != openai_base:
             changes.append({

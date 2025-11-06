@@ -122,3 +122,81 @@ This is similar to the 谁 (shei2/shui2) issue - characters with context-depende
 - Search for other instances of 地 used as adverbial particle (look for pattern: adjective + 地 + verb)
 - Investigate other grammatical particles (的, 得, 了, 着, etc.)
 - Consider creating a comprehensive list of context-dependent pronunciation characters
+
+---
+
+## Data Pipeline Technical Debt
+
+### Audio pipeline uses Unihan instead of corpus data
+**Status:** Open - migration planned
+
+**Description:**
+The audio generation pipeline (`scripts/audio/enumerate_syllables_unihan.py`) currently generates syllable lists from the Unihan database instead of our actual corpus data. This means we may be generating audio for syllables that never appear in our sentence corpus, while the syllable enumeration format also lacks the dual-format storage used by the character pipeline.
+
+**Issues:**
+1. **Unihan source instead of corpus**: `enumerate_syllables_unihan.py` extracts syllables from Unihan_Readings.txt instead of step6_with_freq.csv
+   - Generates syllables that may never be used
+   - Ignores frequency data from actual corpus
+   - Requires tone mark conversion (Unihan uses tone marks)
+
+2. **Outdated validation script**: `validate_audio_coverage.py` assumes character CSV has only tone marks
+   - Comments say "CSV has tone marks: nǚ, zhèi, měi" (OUTDATED)
+   - Character CSV now has dual formats: `pinyins_tone3` AND `pinyins_display`
+   - Script does unnecessary conversion that could use tone3 directly
+
+3. **Missing dual-format in syllables_enumeration.json**: Output JSON only has tone3 format
+   - Doesn't include display format (tone marks) like character data
+   - Inconsistent with character pipeline dual-format approach
+
+**Impact:**
+- Potential audio generation for unused syllables (wasted TTS API calls)
+- Cannot prioritize audio generation by frequency
+- Unnecessary format conversions in validation
+- Inconsistent data formats across pipelines
+
+**Proposed solution:**
+Migrate audio pipeline to use step6_with_freq.csv as source of truth:
+
+1. **Rewrite `enumerate_syllables_unihan.py`** → `enumerate_syllables_corpus.py`
+   - Read from `data/character_set/step6_with_freq.csv`
+   - Parse `pinyins_tone3` column directly (no conversion needed)
+   - Filter to pinyins with frequency > 0 (corpus-driven)
+   - Use pinyin-level frequency data for prioritization
+
+2. **Update `syllables_enumeration.json` structure**:
+   ```json
+   {
+     "syllables": [
+       {
+         "pinyin_tone3": "yi1",
+         "pinyin_display": "yī",
+         "filename": "yi1",
+         "frequency": 8867,
+         "char_count": 3
+       }
+     ]
+   }
+   ```
+
+3. **Fix `validate_audio_coverage.py`**:
+   - Read from `pinyins_tone3` column directly
+   - Remove unnecessary tone mark conversion
+   - Update validation logic for dual-format data
+
+**Benefits:**
+- Corpus-driven: Only generate audio for syllables actually used
+- Frequency-aware: Prioritize common syllables
+- No format conversion: Use pinyins_tone3 directly
+- Consistent with character pipeline: Same data source and format
+
+**Related files:**
+- `scripts/audio/enumerate_syllables_unihan.py` - Current Unihan-based script
+- `scripts/audio/validate_audio_coverage.py` - Validation script (needs update)
+- `data/audio/syllables_enumeration.json` - Current output format
+- `data/character_set/step6_with_freq.csv` - Proposed new source
+
+**Related documentation:**
+- See `docs/migrations/pinyin-format-2025-11/` for character pipeline dual-format migration
+- Character pipeline successfully eliminated all format conversions
+
+**Priority:** Medium - Not blocking but would improve efficiency and consistency
