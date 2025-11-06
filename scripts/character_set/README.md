@@ -28,6 +28,7 @@ python3 build_step2_pinyin.py
 ```
 - Parses Unihan_Readings.txt for pinyin data
 - Uses kHanyuPinlu (with frequency), kHanyuPinyin, and kMandarin fields
+- **Filters corrupted Unihan entries**: numbers in pinyin, special diacritics, Chinese chars as pinyin
 - Format: `lè(283)|yuè(54)` for polyphonic characters with frequency data
 - Output: `../../data/build_artifacts/step2_pinyin.csv` adds column: `pinyins`
 
@@ -79,8 +80,8 @@ python3 build_step6_enrich_pypinyin.py
 python3 build_step7_freq.py
 ```
 - Counts character occurrences in the sentence corpus
-- Currently reads from: `../../app/public/data/sentences/sentences_with_translation.json` (79,333 sentences)
-  - **Note**: Temporary for convenience. Will be updated to read from cleaned `/data/sentences/` files later
+- Reads from: `../../data/sentences/step5_pinyin_refined.csv` (or `step4_with_hsk.csv` as fallback)
+- Parses `char_pinyin_pairs` column to extract characters
 - Adds frequency data showing how often each character appears in real-world usage
 - Statistics:
   - 4,973 characters appear in corpus (23.7% of total)
@@ -88,6 +89,7 @@ python3 build_step7_freq.py
   - Top character: 我 (31,658 occurrences)
 - Optionally generates distribution graphs (requires `matplotlib`)
 - Output: `../../data/character_set/step7_with_freq.csv` adds column: `freq`
+- Also generates (in `analysis/`): `frequency_distribution.png`
 - **Final dataset** with both HSK levels and frequency data
 
 ## Final Dataset
@@ -143,6 +145,27 @@ Intermediate CSVs are stored in `../../data/character_set/` for audit purposes:
 - `step5_hsk.csv` - With HSK levels
 - `step6_enriched.csv` - With enriched pypinyin alternatives
 - `step7_with_freq.csv` - **Final output** with character frequency data
+
+Analysis outputs are stored in `../../data/character_set/analysis/`:
+- `character_coverage_curve.png` - Coverage % vs characters learned
+- `frequency_distribution.png` - Character frequency distribution (Zipf's law)
+- `vocabulary_growth_by_hsk.png` - Cumulative character count by HSK level
+
+## Analysis Scripts
+
+Located in `analysis/` subdirectory - not part of main pipeline:
+
+- `analyze_coverage_curve.py` - Generate character coverage curve visualization
+- `analyze_vocabulary_growth.py` - Generate vocabulary growth by HSK level chart
+
+## Miscellaneous Scripts
+
+Located in `misc/` subdirectory (one-off fixes, not part of main pipeline):
+
+- `fix_pinyin_format.py` - Fix pinyin format inconsistency (tone numbers → tone marks)
+  - **Status**: May be obsolete - see TODO in script for verification
+  - **History**: Used once to fix mixed format issue in production data
+  - **Note**: Corruption filtering is now integrated into `build_step2_pinyin.py`
 
 ## Rebuilding
 

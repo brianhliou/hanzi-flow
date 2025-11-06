@@ -18,7 +18,7 @@ import matplotlib
 matplotlib.use('Agg')  # Non-interactive backend
 
 
-def load_character_data(csv_path='../../data/character_set/step7_with_freq.csv'):
+def load_character_data(csv_path='../../../data/character_set/step7_with_freq.csv'):
     """Load character frequency data (includes freq column)."""
     print(f"Loading character data from {csv_path}...")
 
@@ -78,7 +78,7 @@ def get_hsk_boundaries():
 
 
 def plot_coverage_curve(coverage_curve, hsk_boundaries, total_occurrences,
-                        output_file='../../data/character_set/character_coverage_curve.png'):
+                        output_file='../../../data/character_set/analysis/character_coverage_curve.png'):
     """Generate the coverage curve visualization."""
     print(f"\nGenerating coverage curve chart...")
 

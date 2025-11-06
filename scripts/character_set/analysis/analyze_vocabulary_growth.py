@@ -35,7 +35,7 @@ def get_official_hsk_counts():
 
 
 def plot_vocabulary_growth(growth_data,
-                          output_file='../../data/character_set/vocabulary_growth_by_hsk.png'):
+                          output_file='../../../data/character_set/analysis/vocabulary_growth_by_hsk.png'):
     """Generate vocabulary growth visualization."""
     print(f"\nGenerating vocabulary growth chart...")
 

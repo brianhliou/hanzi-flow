@@ -5,15 +5,15 @@ Step 7: Add character frequency data to the character dataset.
 Counts character occurrences in the sentence corpus and adds a 'freq' column.
 Also generates statistics and distribution graphs.
 
-Input: step6_enriched.csv (has hsk_level)
-Output: step7_with_freq.csv (has both hsk_level and freq)
+Input:
+- step6_enriched.csv (character dataset with hsk_level)
+- step5_pinyin_refined.csv or step4_with_hsk.csv (sentence corpus with char_pinyin_pairs)
 
-Note: Currently reads from production JSON for convenience.
-      Later will be updated to read from cleaned /data/sentences/ files.
+Output: step7_with_freq.csv (has both hsk_level and freq)
 """
 import csv
-import json
-import re
+import os
+from pathlib import Path
 from collections import Counter
 
 # Optional: matplotlib for distribution graphs (not required for CSV generation)
@@ -27,22 +27,69 @@ except ImportError:
     print("Note: matplotlib not available - will skip distribution graph generation")
 
 
-def extract_chinese_characters(text):
+def find_sentence_corpus():
     """
-    Extract only Chinese characters from text.
-    Filters out punctuation, numbers, Latin characters, etc.
+    Find the most recent sentence corpus CSV file.
+
+    Priority:
+    1. step5_pinyin_refined.csv (if exists)
+    2. step4_with_hsk.csv (fallback)
+
+    Returns:
+        Path to CSV file
     """
-    # Match CJK Unified Ideographs (our character set range)
-    chinese_chars = re.findall(r'[\u4e00-\u9fff]', text)
-    return chinese_chars
+    base_path = Path('../../data/sentences')
+
+    # Try step5 first (most refined)
+    step5_path = base_path / 'step5_pinyin_refined.csv'
+    if step5_path.exists():
+        return step5_path
+
+    # Fall back to step4
+    step4_path = base_path / 'step4_with_hsk.csv'
+    if step4_path.exists():
+        return step4_path
+
+    raise FileNotFoundError(
+        "Could not find sentence corpus CSV file. "
+        "Expected step5_pinyin_refined.csv or step4_with_hsk.csv in ../../data/sentences/"
+    )
 
 
-def parse_sentence_corpus(file_path='../../app/public/data/sentences/sentences_with_translation.json'):
+def parse_char_pinyin_pairs(pairs_str):
     """
-    Parse sentence corpus (JSON format) and count character frequency.
+    Parse char_pinyin_pairs column and extract characters.
 
-    Note: Currently reads from production JSON for convenience.
-          Later will be updated to read from /data/sentences/ after cleanup.
+    Format: "我:wo3|爱:ai4|你:ni3|。:"
+    Returns: list of characters (including punctuation with empty pinyin)
+    """
+    if not pairs_str or pairs_str.strip() == '':
+        return []
+
+    chars = []
+    for pair in pairs_str.split('|'):
+        if ':' not in pair:
+            continue
+        char = pair.split(':', 1)[0]
+        if char:
+            chars.append(char)
+
+    return chars
+
+
+def is_chinese_character(char):
+    """Check if character is in CJK Unified Ideographs range (our character set)."""
+    if not char or len(char) != 1:
+        return False
+    return 0x4E00 <= ord(char) <= 0x9FFF
+
+
+def parse_sentence_corpus():
+    """
+    Parse sentence corpus CSV and count character frequency.
+
+    Reads from step5_pinyin_refined.csv or step4_with_hsk.csv.
+    Uses char_pinyin_pairs column to extract characters.
 
     Returns:
         Counter mapping character -> frequency count
@@ -50,25 +97,25 @@ def parse_sentence_corpus(file_path='../../app/public/data/sentences/sentences_w
     char_counter = Counter()
     total_sentences = 0
 
-    print(f"Parsing {file_path}...")
+    corpus_path = find_sentence_corpus()
+    print(f"Parsing sentence corpus: {corpus_path}")
 
-    with open(file_path, 'r', encoding='utf-8') as f:
-        data = json.load(f)
+    with open(corpus_path, 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
 
-    sentences = data.get('sentences', [])
-    print(f"  Loaded {len(sentences):,} sentences from JSON")
+        for row in reader:
+            # Parse char_pinyin_pairs to get characters
+            char_pinyin = row.get('char_pinyin_pairs', '')
+            chars = parse_char_pinyin_pairs(char_pinyin)
 
-    for sentence_obj in sentences:
-        sentence = sentence_obj.get('sentence', '')
+            # Count only Chinese characters (filter out punctuation)
+            chinese_chars = [c for c in chars if is_chinese_character(c)]
+            char_counter.update(chinese_chars)
 
-        # Extract Chinese characters
-        chars = extract_chinese_characters(sentence)
-        char_counter.update(chars)
+            total_sentences += 1
 
-        total_sentences += 1
-
-        if total_sentences % 10000 == 0:
-            print(f"  Processed {total_sentences:,} sentences...")
+            if total_sentences % 10000 == 0:
+                print(f"  Processed {total_sentences:,} sentences...")
 
     print(f"\n✓ Processed {total_sentences:,} sentences")
     print(f"  Unique characters found: {len(char_counter):,}")
@@ -183,7 +230,7 @@ def generate_statistics(rows):
     return freqs
 
 
-def plot_frequency_distribution(rows, output_file='../../data/character_set/frequency_distribution.png'):
+def plot_frequency_distribution(rows, output_file='../../data/character_set/analysis/frequency_distribution.png'):
     """
     Generate distribution graphs.
     Creates two plots:

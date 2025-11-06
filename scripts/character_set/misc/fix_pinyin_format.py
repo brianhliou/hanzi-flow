@@ -2,11 +2,21 @@
 """
 Fix pinyin format inconsistency in chinese_characters.csv
 
-Problem: Mixed formats from build_step6 enrichment
+Problem: Mixed formats detected in production data
 - Existing: tone marks (zhòng, chóng)
-- Added: tone numbers (tong2)
+- Some entries: tone numbers (tong2)
 
 Solution: Convert all TONE3 format → TONE format (tone marks)
+
+TODO: Verify if this issue still exists in current pipeline
+- build_step6_enrich_pypinyin.py uses Style.TONE which should only output tone marks
+- This script may have been needed for an old pypinyin bug or old data
+- Before next pipeline run: verify step6 output format is consistent
+- If step6 now works correctly, this script can be deleted as obsolete
+- If issue persists, investigate and fix step6 to prevent mixed formats
+
+Status: Kept as utility script for manual cleanup if needed
+Last known use: Oct 2024 (after step6 was initially created)
 """
 
 import csv

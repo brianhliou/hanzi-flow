@@ -7,15 +7,50 @@ Data sources (in priority order):
 1. kHanyuPinlu - has pinyin with frequency counts
 2. kHanyuPinyin - has multiple readings
 3. kMandarin - single/primary reading
+
+Filters corrupted Unihan data:
+- Numbers mixed in pinyin (e.g., "lǔ 74609.020")
+- Special combining diacritics (e.g., "m̀", "ê̌")
+- Chinese characters in pinyin field
 """
 import csv
 import re
 from collections import defaultdict
 
 
+def is_corrupted_pinyin(pinyin):
+    """
+    Check if a pinyin string is corrupted from Unihan data.
+
+    Returns: (is_corrupted, reason)
+    """
+    if not pinyin:
+        return False, None
+
+    # Strip frequency data first for checking
+    pinyin_clean = re.sub(r'\(\d+\)', '', pinyin).strip()
+
+    # Check for numbers (after stripping frequency data)
+    if re.search(r'\d', pinyin_clean):
+        return True, 'has_numbers'
+
+    # Check for combining diacritical marks (U+0300-U+036F)
+    # These are special phonetic marks, not standard Mandarin pinyin
+    if re.search(r'[\u0300-\u036f]', pinyin_clean):
+        return True, 'has_special_marks'
+
+    # Check if first character is a CJK character (U+4E00-U+9FFF)
+    # This means the pinyin field contains a Chinese character instead of pronunciation
+    if pinyin_clean and ord(pinyin_clean[0]) >= 0x4E00:
+        return True, 'is_chinese_char'
+
+    return False, None
+
+
 def parse_unihan_readings(file_path='../../data/sources/Unihan_Readings.txt'):
     """
     Parse Unihan_Readings.txt for pinyin data.
+    Filters out corrupted entries from the Unihan database.
 
     Returns:
         Dict mapping codepoint -> {
@@ -24,6 +59,7 @@ def parse_unihan_readings(file_path='../../data/sources/Unihan_Readings.txt'):
         }
     """
     readings = {}
+    corruption_stats = {'has_numbers': 0, 'has_special_marks': 0, 'is_chinese_char': 0}
 
     # First pass: collect all reading fields for each codepoint
     temp_data = defaultdict(dict)
@@ -43,7 +79,7 @@ def parse_unihan_readings(file_path='../../data/sources/Unihan_Readings.txt'):
             if field in ['kMandarin', 'kHanyuPinyin', 'kHanyuPinlu']:
                 temp_data[codepoint][field] = value
 
-    # Second pass: extract pinyins and frequencies
+    # Second pass: extract pinyins and frequencies, filtering corrupted data
     for codepoint, fields in temp_data.items():
         pinyins = []
         freqs = []
@@ -55,8 +91,14 @@ def parse_unihan_readings(file_path='../../data/sources/Unihan_Readings.txt'):
             # Match pattern: pinyin(frequency)
             matches = re.findall(r'(\w+)\((\d+)\)', pinlu_value)
             if matches:
-                pinyins = [match[0] for match in matches]
-                freqs = [int(match[1]) for match in matches]
+                for match in matches:
+                    pinyin = match[0]
+                    is_corrupt, reason = is_corrupted_pinyin(pinyin)
+                    if not is_corrupt:
+                        pinyins.append(pinyin)
+                        freqs.append(int(match[1]))
+                    else:
+                        corruption_stats[reason] += 1
 
         # Priority 2: kHanyuPinyin (multiple readings, no frequency)
         elif 'kHanyuPinyin' in fields:
@@ -65,19 +107,39 @@ def parse_unihan_readings(file_path='../../data/sources/Unihan_Readings.txt'):
             # Extract part after colon
             if ':' in hanyu_value:
                 pinyin_part = hanyu_value.split(':')[1]
-                pinyins = pinyin_part.split(',')
+                raw_pinyins = pinyin_part.split(',')
+                for pinyin in raw_pinyins:
+                    is_corrupt, reason = is_corrupted_pinyin(pinyin)
+                    if not is_corrupt:
+                        pinyins.append(pinyin)
+                    else:
+                        corruption_stats[reason] += 1
 
         # Priority 3: kMandarin (single reading)
         elif 'kMandarin' in fields:
             # Format: "lè" or "lè yuè" (space-separated if multiple)
             mandarin_value = fields['kMandarin']
-            pinyins = mandarin_value.split()
+            raw_pinyins = mandarin_value.split()
+            for pinyin in raw_pinyins:
+                is_corrupt, reason = is_corrupted_pinyin(pinyin)
+                if not is_corrupt:
+                    pinyins.append(pinyin)
+                else:
+                    corruption_stats[reason] += 1
 
         if pinyins:
             readings[codepoint] = {
                 'pinyins': pinyins,
                 'freqs': freqs if freqs else []
             }
+
+    # Report corrupted data filtered
+    total_corrupted = sum(corruption_stats.values())
+    if total_corrupted > 0:
+        print(f"\n⚠️  Filtered {total_corrupted} corrupted pinyin entries from Unihan:")
+        print(f"   - With numbers: {corruption_stats['has_numbers']}")
+        print(f"   - With special marks: {corruption_stats['has_special_marks']}")
+        print(f"   - Chinese chars as pinyin: {corruption_stats['is_chinese_char']}")
 
     return readings
 
