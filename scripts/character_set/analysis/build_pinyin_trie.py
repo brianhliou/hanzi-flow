@@ -12,7 +12,24 @@ Output:
 - ../../data/character_set/analysis/pinyin_trie.json
 - Console statistics about syllable distribution
 
-Note: Now uses sentence corpus frequencies (from step6_with_freq.csv).
+Frequency Definitions:
+- pinyin_freq: How many times THIS CHARACTER was pronounced with THIS SPECIFIC PINYIN
+- corpus_freq: How many times THIS CHARACTER appears in total (across all pronunciations)
+
+For monophonic characters (91.8%), these are the same.
+For polyphonic characters (8.2%), corpus_freq is the sum of all pinyin_freq values.
+
+Example - 的 (total: 28,594):
+  de0:  pinyin_freq=28,524, corpus_freq=28,594 (particle - main usage)
+  di4:  pinyin_freq=58,     corpus_freq=28,594 (noun "target")
+  di1:  pinyin_freq=7,      corpus_freq=28,594 (rare)
+  di2:  pinyin_freq=5,      corpus_freq=28,594 (rare)
+  Sum: 28,524 + 58 + 7 + 5 = 28,594 ✓
+
+This design allows analysis of:
+- Total character usage (corpus_freq)
+- Pronunciation distribution (pinyin_freq per syllable)
+- Main vs alternative pronunciations
 """
 import csv
 import json
@@ -145,6 +162,10 @@ def build_trie(characters_data):
 
         # Add each normalized pinyin to collection
         for pinyin, pinyin_freq in pinyin_list:
+            # Skip pinyins not used in corpus (pinyin_freq = 0)
+            if pinyin_freq == 0:
+                continue
+
             # If character already exists for this syllable, keep the one with higher frequency
             if char in syllable_chars[pinyin]:
                 existing_pinyin, existing_corpus = syllable_chars[pinyin][char]

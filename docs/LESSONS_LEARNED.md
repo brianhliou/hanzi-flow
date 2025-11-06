@@ -664,6 +664,108 @@ We renamed old scripts to `.old` rather than deleting them:
 
 ---
 
+## 6. Trie Non-ASCII Bug: Filter at Source vs Normalize at Consumption
+
+**Date:** 2025-11-06
+
+**Problem:**
+While building the Pinyin Trie visualization, discovered a non-ASCII character 'ê' (U+00EA) appearing as a root-level node. This violated the design constraint that all Trie nodes should be ASCII-only (a-z, 0-9).
+
+**Investigation Process:**
+1. Generated Trie visualization (depth 2, depth 3)
+2. User noticed 'ê' node in visualization - didn't recognize it as standard pinyin
+3. Checked `pinyin_trie.json` - confirmed 'ê' in root's children
+4. Traced to characters: 欸 (freq 6) and 誒 (freq 1)
+5. Found pypinyin outputs `ê1`, `ê2`, `ê3`, `ê4` for interjection sounds (even in TONE3 style)
+6. Checked `step6_with_freq.csv` data:
+   ```csv
+   7481,欸,U+6B38,ai1(6)|ai3|ê1|ê2|ê3|ê4|xie4|ei2|ei3|ei4|ei1,...
+   15507,誒,U+8A92,ei2(1)|xi1|yi4|ê1|ê2|ê3|ei3|ê4|ei4|ei1,...
+   ```
+7. Key insight: These pronunciations had `pinyin_freq=0` (not used in corpus)
+
+**Initial Approach: Normalization**
+Added special-case normalization in `parse_pinyin_field()`:
+```python
+# Normalize pypinyin special case: ê → e (interjection sound)
+normalized = normalized.replace('ê', 'e')
+```
+
+This worked but introduced normalization logic for a problem that shouldn't exist.
+
+**Root Cause:**
+The `build_trie()` function was including ALL pinyins from the CSV, even those with `pinyin_freq=0` (not actually used in the sentence corpus). This meant:
+- Unused pypinyin alternative pronunciations were being included
+- The Trie contained 142 syllables that never appear in practice
+- Non-standard formats like 'ê' made it through
+
+**Better Solution: Filter at Source**
+User insight: "I thought build_pinyin_trie.py filters down to pinyins with pinyin_freq>0, so it shouldn't even be making it into the trie."
+
+Removed normalization logic and added filtering instead:
+```python
+# Add each normalized pinyin to collection
+for pinyin, pinyin_freq in pinyin_list:
+    # Skip pinyins not used in corpus (pinyin_freq = 0)
+    if pinyin_freq == 0:
+        continue
+    # ... rest of logic
+```
+
+**Results:**
+- **Syllables**: 1,303 → **1,161** (removed 142 unused syllables)
+- **Frequency coverage**: 100% (was 89.1% with unused syllables)
+- **All Trie nodes**: ASCII-only ✓
+- **'ê' bug**: Completely resolved ✓
+- **Code cleanliness**: No special-case normalization logic needed
+
+**Why Filtering > Normalization:**
+
+1. **More accurate** - Only includes pinyins actually found in corpus
+2. **Cleaner code** - No special-case handling for pypinyin quirks
+3. **Better aligned with design** - Trie represents real usage, not theoretical possibilities
+4. **Catches all similar issues** - Filters out ANY unused non-standard format, not just 'ê'
+5. **Correct abstraction layer** - Data quality issue solved in data layer, not presentation layer
+
+**Key Takeaways:**
+- ✅ **Filter at source, don't normalize at consumption** - Fix data problems where they originate
+- ✅ **Question the premise** - "Should this data be here?" before "How do I handle this data?"
+- ✅ **Use existing mechanisms** - We already had pinyin_freq for a reason (corpus usage)
+- ✅ **Prefer filtering > transformation** - Simpler logic, fewer edge cases
+- ✅ **Design constraints help catch bugs** - "ASCII-only" constraint revealed the issue via visualization
+- ⚠️ **pypinyin has edge cases** - Even TONE3 style can output non-ASCII for interjection sounds
+- ⚠️ **Frequency = 0 is a signal** - Indicates unused/alternative pronunciations from library
+
+**Related Files:**
+- `scripts/character_set/analysis/build_pinyin_trie.py` - Trie builder (added filtering)
+- `scripts/character_set/analysis/visualize_trie.py` - Visualization that revealed the bug
+- `data/character_set/step6_with_freq.csv` - Source data with pinyin frequencies
+- `data/character_set/analysis/pinyin_trie.json` - Output Trie (now clean)
+
+**Code Before (Normalization Approach):**
+```python
+# Normalize pypinyin special case: ê → e
+normalized = normalized.replace('ê', 'e')
+```
+
+**Code After (Filtering Approach):**
+```python
+for pinyin, pinyin_freq in pinyin_list:
+    # Skip pinyins not used in corpus (pinyin_freq = 0)
+    if pinyin_freq == 0:
+        continue
+```
+
+**Affected Characters:**
+```csv
+欸 (U+6B38): ê1|ê2|ê3|ê4 → filtered out (freq=0)
+誒 (U+8A92): ê1|ê2|ê3|ê4 → filtered out (freq=0)
+```
+
+Only 2 characters affected, only non-ASCII node found in entire Trie.
+
+---
+
 ## Template for Future Entries
 
 **Date:** YYYY-MM-DD

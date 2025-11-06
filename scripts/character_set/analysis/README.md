@@ -1,6 +1,6 @@
 # Character Set Analysis Scripts
 
-Analysis tools for the Chinese character dataset.
+Analysis tools for the Chinese character dataset, with focus on pinyin syllable analysis and visualization.
 
 ## Scripts
 
@@ -9,9 +9,21 @@ Analysis tools for the Chinese character dataset.
 **build_pinyin_trie.py** - Build character-level Trie of all pinyin syllables
 - Input: `../../../data/character_set/step6_with_freq.csv` (characters with corpus freq > 0)
 - Output: `../../../data/character_set/analysis/pinyin_trie.json`
-- **Key Feature**: Uses `pinyins_tone3` column directly (already in tone3 format)
+- **Key Feature**: Filters to `pinyin_freq > 0` (only syllables actually used in corpus)
 - Structure: Character-level nodes (y → i → 4), terminal nodes store character metadata
-- Statistics: **1,307 unique syllables** (down from 2,004 with old mixed formats), 5,002 characters
+- Statistics: **1,161 unique syllables** used in corpus, 5,002 characters, 5,221 char-syllable pairs
+
+**analyze_trie.py** - Comprehensive statistical analysis and visualization
+- Input: `pinyin_trie.json`
+- Outputs: 4 PNG charts + console report
+- Analyzes: tone distributions, syllable complexity, polyphonic characters, depth distribution
+- Generates: `PINYIN_TRIE_ANALYSIS.md` with key findings
+
+**visualize_trie.py** - Interactive SVG visualization of Trie structure
+- Input: `pinyin_trie.json`
+- Outputs: SVG visualizations (full tree + depth-limited overviews)
+- Features: Interactive tooltips, zoomable, shows syllable + character count
+- Usage: `--depth N` for overview, `--format svg|png`, `--compact` for spacing
 
 **compare_unihan_vs_pypinyin.py** - Verification script (used during migration)
 - Validates pypinyin coverage vs old Unihan+pypinyin approach
@@ -39,8 +51,21 @@ All outputs are stored in `../../../data/character_set/analysis/`:
 
 ### Data Files
 - `pinyin_trie.json` - Complete pinyin Trie (1.6MB, 51K lines)
+- `PINYIN_TRIE_ANALYSIS.md` - Comprehensive analysis summary with key findings
 
-### Visualizations
+### Trie Visualizations
+- `pinyin_trie_visualization.svg` - Full Trie (all 7 levels, interactive tooltips)
+- `pinyin_trie_visualization_depth1.svg` - Root + first level overview
+- `pinyin_trie_visualization_depth2.svg` - First 2 levels overview
+- `pinyin_trie_visualization_depth3.svg` - First 3 levels overview
+
+### Statistical Charts
+- `tone_distributions.png` - 3-panel tone comparison (by syllables, characters, frequency)
+- `depth_distribution.png` - Node count by depth (depths 1-7)
+- `polyphonic_characters.png` - Top 20 characters with most pronunciations
+- `syllable_complexity.png` - Character count distribution per syllable
+
+### Other Visualizations
 - `character_coverage_curve.png` - Coverage analysis
 - `frequency_distribution.png` - Character frequency distribution (Zipf's law)
 - `vocabulary_growth_by_hsk.png` - HSK vocabulary growth
@@ -119,24 +144,27 @@ The Trie uses **character-level nodes** in **normalized tone3 format**:
    - `corpus_freq`: total character frequency across all pronunciations
    - Example: 的 appears 28,594 times total, but `de` pronunciation = 28,524 times
 
-## Statistics (After Migration)
+## Statistics (Corpus-Driven Analysis)
 
 ### Syllable Distribution
-- **Total unique syllables**: 1,307 (down from 2,004 with mixed formats)
-- **Character count per syllable**: 1-59 (mean: 6.2, median: 4)
-- **Most polyphonic**: yi4 (59 chars), yu4 (53 chars), shi4 (46 chars)
+- **Total unique syllables**: 1,161 (only syllables with pinyin_freq > 0)
+- **Character count per syllable**: 1-37 (mean: 4.5, median: 3)
+- **Most polyphonic**: yi4 (37 chars), shi4 (32 chars), ji4 (30 chars)
+- **100% frequency coverage**: All included syllables are actively used in corpus
 
-### Tone Distribution
-- **Tone 1**: 322 syllables (24.6%)
-- **Tone 2**: 261 syllables (20.0%)
-- **Tone 3**: 319 syllables (24.4%)
-- **Tone 4**: 356 syllables (27.2%)
-- **Neutral**: 49 syllables (3.7%)
+### Tone Distribution (by unique syllables)
+- **Neutral**: 25 syllables (2.2%)
+- **Tone 1**: 296 syllables (25.5%)
+- **Tone 2**: 239 syllables (20.6%)
+- **Tone 3**: 283 syllables (24.4%)
+- **Tone 4**: 318 syllables (27.4%)
 
-### Frequency Coverage
-- **Syllables with pinyin freq > 0**: 1,161 (88.8%)
-- **Syllables with pinyin freq = 0**: 146 (11.2%)
-  - Characters that exist in corpus but this specific pronunciation not used
+### Character Distribution
+- **Total characters**: 5,002 (corpus frequency > 0)
+- **Character-syllable pairs**: 5,221 (accounting for polyphonic characters)
+- **Monophonic characters**: 91.8% (most characters have one pronunciation)
+- **Polyphonic characters**: 199 (3.8% of corpus characters)
+  - Most polyphonic: 著 (5 pronunciations), 的 (4), 和 (4), 一 (3)
 
 ## Top 20 Most Frequent Syllables
 
@@ -173,6 +201,27 @@ cd scripts/character_set/analysis
 python3 build_pinyin_trie.py
 ```
 
+### Run Statistical Analysis
+```bash
+# Generates 4 charts + PINYIN_TRIE_ANALYSIS.md
+python3 analyze_trie.py
+```
+
+### Generate Visualizations
+```bash
+# Full Trie visualization with interactive tooltips
+python3 visualize_trie.py
+
+# Depth-limited overviews (faster to load)
+python3 visualize_trie.py --depth 1
+python3 visualize_trie.py --depth 2
+python3 visualize_trie.py --depth 3
+
+# Options
+python3 visualize_trie.py --format png  # Output as PNG instead of SVG
+python3 visualize_trie.py --compact     # Tighter spacing for full tree
+```
+
 ### Verify migration (already complete)
 ```bash
 python3 compare_unihan_vs_pypinyin.py  # Verify pypinyin coverage
@@ -182,15 +231,30 @@ python3 validate_migration.py          # Verify dual-format storage
 ## Dependencies
 
 - Python 3.7+
-- Standard library only (json, csv, re, collections, pathlib)
+- Standard library: json, csv, re, collections, pathlib, argparse
+- **matplotlib** - Required for statistical chart generation (analyze_trie.py)
+  - Install: `pip install matplotlib`
+- **graphviz** - Required for Trie visualization (visualize_trie.py)
+  - Install Python package: `pip install graphviz`
+  - Install system package: `brew install graphviz` (macOS) or apt/yum on Linux
 - `pypinyin` - Required for migration verification scripts only (already installed)
-- Optional: matplotlib (for frequency distribution graphs in build_step6_freq.py)
 
 ## Future Enhancements
 
 Potential additions:
-- Interactive visualization of the Trie structure
+- **Interactive Trie Explorer** (planned for blog post) - See `docs/KNOWN_ISSUES.md`
+  - Character lookup: Type any Chinese character to see all pronunciations
+  - Reverse lookup: Type pinyin to see all matching characters
+  - Frequency visualization and pronunciation distribution
+  - Client-side web tool (no backend required)
 - Syllable similarity analysis (edit distance, phonetic neighbors)
 - Integration with audio files (data/audio/)
 - Syllable difficulty ranking for learners
 - Common confusion pairs analysis
+
+## Related Documentation
+
+- `data/character_set/analysis/PINYIN_TRIE_ANALYSIS.md` - Comprehensive analysis findings
+- `docs/KNOWN_ISSUES.md` - Roadmap items including Interactive Trie Explorer
+- `docs/LESSONS_LEARNED.md` - Design decisions and lessons from Trie development
+- `docs/migrations/pinyin-format-2025-11/` - Dual-format migration documentation

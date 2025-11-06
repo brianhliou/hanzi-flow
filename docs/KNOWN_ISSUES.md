@@ -200,3 +200,62 @@ Migrate audio pipeline to use step6_with_freq.csv as source of truth:
 - Character pipeline successfully eliminated all format conversions
 
 **Priority:** Medium - Not blocking but would improve efficiency and consistency
+
+---
+
+## Future Enhancements / Roadmap
+
+### Interactive Pinyin Trie Explorer (Blog Post Feature)
+**Status:** Planned
+
+**Description:**
+Create an interactive web-based lookup tool for the blog post about Pinyin Trie analysis. Users can type a Chinese character and instantly see all its pronunciations, frequencies, and usage statistics.
+
+**Proposed features:**
+- **Character lookup:** Type or paste any Chinese character
+- **Display results:**
+  - All pronunciations (with pinyin_freq and corpus_freq)
+  - Main vs alternative usage percentages
+  - Example sentences for each pronunciation
+  - Visual indicator showing pronunciation distribution
+- **Reverse lookup:** Type pinyin to see all matching characters
+- **Interactive:** Click on related characters to explore polyphonic relationships
+
+**Technical approach:**
+1. Export Trie data to JavaScript-friendly JSON format
+2. Create simple HTML/JavaScript interface (no build step needed for blog)
+3. Client-side search (no backend required)
+4. Embed in GitHub Pages blog post via iframe or inline
+
+**Example UI:**
+```
+Search: 的
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+的 (28,594 total occurrences)
+
+Pronunciations:
+  de0   ████████████████████ 28,524 (99.8%) - particle
+  di4   ▌                        58 (0.2%) - target
+  di1   ▌                         7 (<0.1%) - rare
+  di2   ▌                         5 (<0.1%) - rare
+
+Type: Polyphonic (4 pronunciations)
+Related: 地(de0), 得(de2, de0)
+```
+
+**Benefits:**
+- Makes blog post interactive and engaging
+- Demonstrates practical application of the analysis
+- Allows readers to explore their own characters of interest
+- No installation required - runs in browser
+
+**Files to create:**
+- `docs/blog/pinyin-trie/trie_explorer.html` - Standalone interactive tool
+- `docs/blog/pinyin-trie/trie_data.js` - Exported Trie data
+- `scripts/character_set/analysis/export_trie_for_web.py` - Export script
+
+**Priority:** Medium - Would enhance blog post but not essential for publishing
+
+**Related analysis:**
+- `data/character_set/analysis/PINYIN_TRIE_ANALYSIS.md` - Key findings for blog
+- `data/character_set/analysis/pinyin_trie.json` - Source data
