@@ -82,7 +82,7 @@ def print_statistics(script_counts, char_counts_by_script, total_sentences):
 
 
 def plot_script_distribution(script_counts, total_sentences,
-                            output_file='../../data/sentences/script_distribution.png'):
+                            output_file='../../../data/sentences/analysis/script_distribution.png'):
     """Generate script distribution visualization."""
     print(f"\nGenerating script distribution chart...")
 
@@ -159,7 +159,7 @@ def plot_script_distribution(script_counts, total_sentences,
 
 
 def save_statistics(script_counts, char_counts_by_script, total_sentences,
-                   output_json='../../data/sentences/script_statistics.json'):
+                   output_json='../../../data/sentences/analysis/script_statistics.json'):
     """Save statistics to JSON file."""
     stats = {
         'total_sentences': total_sentences,

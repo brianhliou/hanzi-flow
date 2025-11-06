@@ -67,7 +67,7 @@ def categorize_sentence(counts):
         return 'pure_chinese'
 
 
-def analyze_sentences(input_file='../../data/sentences/cmn_sentences_classified.csv'):
+def analyze_sentences(input_file='../../data/sentences/step1_classified.csv'):
     """
     Analyze all sentences and categorize them.
     """

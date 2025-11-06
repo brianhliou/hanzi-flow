@@ -71,7 +71,7 @@ def analyze_overall_lengths(sentences):
 
 
 def plot_overall_distribution(lengths, stats,
-                              output_file='../../data/sentences/overall_sentence_length_distribution.png'):
+                              output_file='../../../data/sentences/analysis/overall_sentence_length_distribution.png'):
     """Generate overall sentence length distribution histogram."""
     print(f"\nGenerating overall distribution chart...")
 

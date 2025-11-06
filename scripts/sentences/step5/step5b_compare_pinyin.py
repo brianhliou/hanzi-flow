@@ -5,14 +5,14 @@ Compare original sentence pinyin vs OpenAI-improved pinyin.
 Generates a report showing what changed, statistics, and examples.
 
 Input:
-    - ../../app/public/data/sentences/sentences_with_translation.json (original)
-    - ../../data/sentences/sentences_pinyin_openai.json (OpenAI output)
+    - ../../../app/public/data/sentences/sentences_with_translation.json (original)
+    - ../../../data/sentences/step5/sentences_pinyin_openai.json (OpenAI output)
 
 Output:
-    - ../../data/sentences/pinyin_comparison_report.json (diff report)
+    - ../../../data/sentences/step5/pinyin_comparison_report.json (diff report)
 
 Usage:
-    python3 compare_pinyin_changes.py
+    python3 step5b_compare_pinyin.py
 """
 
 import json
@@ -20,9 +20,9 @@ import re
 from collections import defaultdict
 
 # File paths
-ORIGINAL_FILE = '../../app/public/data/sentences/sentences_with_translation.json'
-OPENAI_FILE = '../../data/sentences/sentences_pinyin_openai.json'
-REPORT_FILE = '../../data/sentences/pinyin_comparison_report.json'
+ORIGINAL_FILE = '../../../app/public/data/sentences/sentences_with_translation.json'
+OPENAI_FILE = '../../../data/sentences/step5/sentences_pinyin_openai.json'
+REPORT_FILE = '../../../data/sentences/step5/pinyin_comparison_report.json'
 
 
 def normalize_tone_marks_to_numbers(pinyin: str) -> str:

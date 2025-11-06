@@ -3,11 +3,11 @@
 Classify sentences by HSK level based on maximum character HSK level.
 
 Input:
-- cmn_sentences_with_char_pinyin_and_translation.csv
+- step3_with_translation.csv
 - step6_enriched.csv (with hsk_level column)
 
 Output:
-- cmn_sentences_with_char_pinyin_and_translation_and_hsk.csv (adds sentence_hsk_level column)
+- step4_with_hsk.csv (adds sentence_hsk_level column)
 - hsk_distribution.png (bar chart)
 - hsk_statistics.json (distribution stats)
 """
@@ -128,8 +128,8 @@ def classify_sentence_hsk(char_pinyin_pairs, char_hsk_map):
     return max(hsk_levels, key=hsk_sort_key)
 
 
-def classify_sentences(input_csv='../../data/sentences/cmn_sentences_with_char_pinyin_and_translation.csv',
-                       output_csv='../../data/sentences/cmn_sentences_with_char_pinyin_and_translation_and_hsk.csv',
+def classify_sentences(input_csv='../../data/sentences/step3_with_translation.csv',
+                       output_csv='../../data/sentences/step4_with_hsk.csv',
                        char_csv='../../data/character_set/step6_enriched.csv'):
     """
     Classify all sentences by HSK level.
@@ -185,8 +185,8 @@ def classify_sentences(input_csv='../../data/sentences/cmn_sentences_with_char_p
 
 
 def generate_statistics(sentences,
-                       output_json='../../data/sentences/hsk_statistics.json',
-                       output_chart='../../data/sentences/hsk_distribution.png'):
+                       output_json='../../data/sentences/analysis/hsk_statistics.json',
+                       output_chart='../../data/sentences/analysis/hsk_distribution.png'):
     """
     Generate distribution statistics and visualizations.
 

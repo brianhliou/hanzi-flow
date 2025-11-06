@@ -57,7 +57,7 @@ def analyze_corpus(csv_path: str):
 
 def main():
     # Path to sentence dataset
-    csv_path = Path(__file__).parent.parent / 'data' / 'sentences' / 'cmn_sentences_with_char_pinyin.csv'
+    csv_path = Path(__file__).parent.parent.parent / 'data' / 'sentences' / 'step2_with_pinyin.csv'
 
     if not csv_path.exists():
         print(f"Error: File not found: {csv_path}")
@@ -78,7 +78,7 @@ def main():
     print("="*50)
 
     # Optionally write to JSON
-    output_path = Path(__file__).parent.parent / 'data' / 'sentences' / 'corpus_stats.json'
+    output_path = Path(__file__).parent.parent.parent / 'data' / 'sentences' / 'analysis' / 'corpus_stats.json'
     from datetime import datetime
     stats['generatedAt'] = datetime.now().isoformat()
 

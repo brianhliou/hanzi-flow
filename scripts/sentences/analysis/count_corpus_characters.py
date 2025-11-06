@@ -9,7 +9,7 @@ from pathlib import Path
 def main():
     # Load all characters that appear in sentences
     sentence_chars = set()
-    csv_path = Path('../../data/sentences/cmn_sentences_with_char_pinyin_and_translation_and_hsk.csv')
+    csv_path = Path('../../data/sentences/step4_with_hsk.csv')
 
     with open(csv_path, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)

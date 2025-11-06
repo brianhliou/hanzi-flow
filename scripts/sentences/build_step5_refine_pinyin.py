@@ -49,11 +49,11 @@ from pathlib import Path
 from datetime import datetime
 
 # File paths
-INPUT_CSV = '../../data/sentences/cmn_sentences_with_char_pinyin_and_translation_and_hsk.csv'
-COMPARISON_REPORT = '../../data/sentences/pinyin_comparison_report.json'
-OUTPUT_CSV = '../../data/sentences/cmn_sentences_with_char_pinyin_and_translation_and_hsk_UPDATED.csv'
-BACKUP_CSV = '../../data/sentences/cmn_sentences_with_char_pinyin_and_translation_and_hsk_BACKUP.csv'
-CHANGE_LOG = '../../data/sentences/pinyin_changes_applied.log'
+INPUT_CSV = '../../data/sentences/step4_with_hsk.csv'
+COMPARISON_REPORT = '../../data/sentences/step5/pinyin_comparison_report.json'
+OUTPUT_CSV = '../../data/sentences/step5_pinyin_refined.csv'
+BACKUP_CSV = None  # Disabled - use git for version control instead
+CHANGE_LOG = '../../data/sentences/step5/pinyin_changes_applied.log'
 
 # Verified characters - these are the ONLY ones we'll update
 VERIFIED_CHARS = {
@@ -305,11 +305,9 @@ def main():
         csv_rows = list(reader)
     print(f"  ✓ Loaded {len(csv_rows)} rows")
 
-    # Create backup (if not dry run)
+    # Backup disabled - use git for version control
     if not args.dry_run:
-        print(f"\n[3/5] Creating backup...")
-        shutil.copy2(INPUT_CSV, BACKUP_CSV)
-        print(f"  ✓ Backup created: {BACKUP_CSV}")
+        print(f"\n[3/5] Backup disabled (use git for version control)")
     else:
         print(f"\n[3/5] Skipping backup (dry run mode)")
 
@@ -347,7 +345,6 @@ def main():
         print(f"\n✓ Changes applied successfully!")
         print(f"\nFiles created:")
         print(f"  - Modified CSV:   {OUTPUT_CSV}")
-        print(f"  - Backup:         {BACKUP_CSV}")
         print(f"  - Change log:     {CHANGE_LOG}")
         print(f"\nNext steps:")
         print(f"  1. Review change log: {CHANGE_LOG}")

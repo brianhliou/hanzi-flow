@@ -9,7 +9,7 @@ from pathlib import Path
 def main():
     # Load the non-HSK characters from our analysis
     non_hsk_chars = set()
-    non_hsk_csv = Path('../../data/sentences/non_hsk_characters.csv')
+    non_hsk_csv = Path('../../../data/sentences/analysis/non_hsk_characters.csv')
 
     with open(non_hsk_csv, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)

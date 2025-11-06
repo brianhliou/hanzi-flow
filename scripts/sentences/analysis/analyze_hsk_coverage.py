@@ -119,7 +119,7 @@ def analyze_corpus():
 
     # Load sentences
     print("\n[2/5] Loading sentence corpus...")
-    input_file = '../../data/sentences/cmn_sentences_with_char_pinyin_and_translation_and_hsk.csv'
+    input_file = '../../data/sentences/step4_with_hsk.csv'
 
     with open(input_file, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
@@ -228,7 +228,7 @@ def analyze_corpus():
     print("\n[5/5] Saving detailed outputs...")
 
     # Save non-HSK character frequency
-    output_dir = Path('../../data/sentences')
+    output_dir = Path('../../../data/sentences/analysis')
 
     with open(output_dir / 'non_hsk_characters.csv', 'w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)

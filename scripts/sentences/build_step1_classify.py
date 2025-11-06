@@ -104,8 +104,8 @@ def classify_sentence(sentence, char_script_map):
 
 
 def classify_tatoeba_sentences(char_script_map,
-                               input_file='../../data/sentences/cmn_sentences.tsv',
-                               output_file='../../data/sentences/cmn_sentences_classified.csv'):
+                               input_file='../../data/sentences/step0_raw.tsv',
+                               output_file='../../data/sentences/step1_classified.csv'):
     """
     Parse Tatoeba sentences and classify each one.
     """

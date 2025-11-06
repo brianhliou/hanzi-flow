@@ -98,7 +98,7 @@ def calculate_unique_chars(converted_sentences):
     return len(unique_chars)
 
 
-def convert_to_json(input_file='../../data/sentences/cmn_sentences_with_char_pinyin_and_translation_and_hsk_UPDATED.csv',
+def convert_to_json(input_file='../../data/sentences/step5_pinyin_refined.csv',
                    output_file='../../app/public/data/sentences/sentences_with_translation.json',
                    limit=None):
     """

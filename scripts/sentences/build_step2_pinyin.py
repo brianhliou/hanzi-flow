@@ -137,8 +137,8 @@ def format_char_pinyin_pairs(pairs):
     return '|'.join([f"{char}:{py}" for char, py in pairs])
 
 
-def process_sentences(input_file='../../data/sentences/cmn_sentences_classified.csv',
-                     output_file='../../data/sentences/cmn_sentences_with_char_pinyin.csv'):
+def process_sentences(input_file='../../data/sentences/step1_classified.csv',
+                     output_file='../../data/sentences/step2_with_pinyin.csv'):
     """
     Add character-to-pinyin mappings to all sentences.
     """

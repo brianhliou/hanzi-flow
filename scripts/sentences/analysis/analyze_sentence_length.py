@@ -69,7 +69,7 @@ def analyze_sentence_lengths(sentences):
 
 
 def plot_sentence_length_distribution(lengths_by_hsk, stats,
-                                      output_file='../../data/sentences/sentence_length_distribution.png'):
+                                      output_file='../../../data/sentences/analysis/sentence_length_distribution.png'):
     """Generate sentence length distribution visualization using violin plots."""
     print(f"\nGenerating sentence length distribution chart...")
 

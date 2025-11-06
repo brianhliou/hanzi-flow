@@ -11,21 +11,21 @@ Strategy:
 3. Incremental saves with checkpointing (resume on failure)
 4. Start with small sample, then scale up
 
-Input: ../../app/public/data/sentences/sentences_with_translation.json
-Output: ../../data/sentences/sentences_pinyin_openai.json
+Input: ../../../app/public/data/sentences/sentences_with_translation.json
+Output: ../../../data/sentences/step5/sentences_pinyin_openai.json
 
 Cost estimate: ~80k sentences, batched × $0.0001 = ~$8-10
 Time estimate: ~4-5 hours (with 2s rate limit delay)
 
 Usage:
     # Test with 10 sentences
-    python3 improve_pinyin_with_openai.py --limit 10
+    python3 step5a_generate_openai_pinyin.py --limit 10
 
     # Test with 100 sentences
-    python3 improve_pinyin_with_openai.py --limit 100
+    python3 step5a_generate_openai_pinyin.py --limit 100
 
     # Full run (all sentences)
-    python3 improve_pinyin_with_openai.py
+    python3 step5a_generate_openai_pinyin.py
 """
 
 import json
@@ -38,8 +38,8 @@ from openai import OpenAI, APIError, APIConnectionError, RateLimitError, APITime
 # No filtering - process all sentences for comprehensive improvement
 
 # File paths
-INPUT_FILE = '../../app/public/data/sentences/sentences_with_translation.json'
-OUTPUT_DIR = '../../data/sentences'
+INPUT_FILE = '../../../app/public/data/sentences/sentences_with_translation.json'
+OUTPUT_DIR = '../../../data/sentences/step5'
 OUTPUT_FILE = os.path.join(OUTPUT_DIR, 'sentences_pinyin_openai.json')
 PARTIAL_FILE = OUTPUT_FILE + '.jsonl'  # JSON Lines for incremental saves
 CHECKPOINT_FILE = OUTPUT_FILE + '.checkpoint'
