@@ -15,15 +15,17 @@ Analysis tools for the Chinese character dataset, with focus on pinyin syllable 
 
 **analyze_trie.py** - Comprehensive statistical analysis and visualization
 - Input: `pinyin_trie.json`
-- Outputs: 4 PNG charts + console report
-- Analyzes: tone distributions, syllable complexity, polyphonic characters, depth distribution
+- Outputs: 5 PNG charts + console report
+- Analyzes: tone distributions, syllable complexity, polyphonic characters, depth distribution, syllable×tone matrix
 - Generates: `PINYIN_TRIE_ANALYSIS.md` with key findings
+- **New**: Syllable×tone heatmap shows 401 base syllables across 5 tones with character counts
 
 **visualize_trie.py** - Interactive SVG visualization of Trie structure
 - Input: `pinyin_trie.json`
-- Outputs: SVG visualizations (full tree + depth-limited overviews)
+- Outputs: SVG visualizations (full tree + depth-limited overviews + focused branches)
 - Features: Interactive tooltips, zoomable, shows syllable + character count
-- Usage: `--depth N` for overview, `--format svg|png`, `--compact` for spacing
+- Usage: `--depth N` for overview, `--branch LETTER` for focused branch, `--format svg|png`, `--compact` for spacing
+- **New**: `--branch h` generates focused visualization of single branch with full depth
 
 **compare_unihan_vs_pypinyin.py** - Verification script (used during migration)
 - Validates pypinyin coverage vs old Unihan+pypinyin approach
@@ -58,12 +60,14 @@ All outputs are stored in `../../../data/character_set/analysis/`:
 - `pinyin_trie_visualization_depth1.svg` - Root + first level overview
 - `pinyin_trie_visualization_depth2.svg` - First 2 levels overview
 - `pinyin_trie_visualization_depth3.svg` - First 3 levels overview
+- `pinyin_trie_visualization_h_branch.svg` - H-branch focused view (full depth with placeholders)
 
 ### Statistical Charts
 - `tone_distributions.png` - 3-panel tone comparison (by syllables, characters, frequency)
 - `depth_distribution.png` - Node count by depth (depths 1-7)
 - `polyphonic_characters.png` - Top 20 characters with most pronunciations
 - `syllable_complexity.png` - Character count distribution per syllable
+- `syllable_tone_matrix.png` - Heatmap of 401 base syllables × 5 tones with character counts
 
 ### Other Visualizations
 - `character_coverage_curve.png` - Coverage analysis
@@ -148,6 +152,7 @@ The Trie uses **character-level nodes** in **normalized tone3 format**:
 
 ### Syllable Distribution
 - **Total unique syllables**: 1,161 (only syllables with pinyin_freq > 0)
+- **Base syllables (without tone)**: 401 unique base forms across 5 tones
 - **Character count per syllable**: 1-37 (mean: 4.5, median: 3)
 - **Most polyphonic**: yi4 (37 chars), shi4 (32 chars), ji4 (30 chars)
 - **100% frequency coverage**: All included syllables are actively used in corpus
@@ -203,7 +208,7 @@ python3 build_pinyin_trie.py
 
 ### Run Statistical Analysis
 ```bash
-# Generates 4 charts + PINYIN_TRIE_ANALYSIS.md
+# Generates 5 charts + PINYIN_TRIE_ANALYSIS.md
 python3 analyze_trie.py
 ```
 
@@ -216,6 +221,9 @@ python3 visualize_trie.py
 python3 visualize_trie.py --depth 1
 python3 visualize_trie.py --depth 2
 python3 visualize_trie.py --depth 3
+
+# Focused branch visualization (full depth, single branch)
+python3 visualize_trie.py --branch h
 
 # Options
 python3 visualize_trie.py --format png  # Output as PNG instead of SVG

@@ -290,6 +290,65 @@ def plot_syllable_complexity(complexity, output_dir):
     print(f"✓ Saved syllable complexity chart to {output_path}")
 
 
+def plot_syllable_tone_heatmap(matrix_data, output_dir):
+    """
+    Create heatmap of base syllables × tones showing character count.
+    """
+    import numpy as np
+    matplotlib.use('Agg')
+
+    matrix = matrix_data['matrix']
+    base_syllables = matrix_data['base_syllables']
+    tones = matrix_data['tones']
+
+    # Create 2D array for heatmap
+    # Rows = base syllables, Columns = tones
+    data = np.zeros((len(base_syllables), len(tones)))
+
+    for i, base in enumerate(base_syllables):
+        for j, tone in enumerate(tones):
+            data[i, j] = matrix[base][tone]
+
+    # Create figure
+    fig, ax = plt.subplots(figsize=(8, max(12, len(base_syllables) * 0.15)))
+
+    # Create heatmap
+    im = ax.imshow(data, cmap='YlOrRd', aspect='auto')
+
+    # Set ticks and labels
+    ax.set_xticks(range(len(tones)))
+    ax.set_xticklabels(['Neutral (0)', 'Tone 1', 'Tone 2', 'Tone 3', 'Tone 4'], fontsize=10)
+    ax.set_yticks(range(len(base_syllables)))
+    ax.set_yticks(range(len(base_syllables)))
+    ax.set_yticklabels(base_syllables, fontsize=7)
+
+    # Add colorbar
+    cbar = plt.colorbar(im, ax=ax)
+    cbar.set_label('Number of Characters', rotation=270, labelpad=20, fontsize=11)
+
+    # Add cell values
+    for i in range(len(base_syllables)):
+        for j in range(len(tones)):
+            value = int(data[i, j])
+            if value > 0:
+                # Determine text color based on cell brightness
+                text_color = 'white' if value > data.max() * 0.6 else 'black'
+                ax.text(j, i, str(value), ha='center', va='center',
+                       color=text_color, fontsize=7, fontweight='bold')
+
+    ax.set_title(f'Syllable × Tone Matrix\n({len(base_syllables)} base syllables across 5 tones)',
+                 fontsize=14, fontweight='bold', pad=20)
+    ax.set_xlabel('Tone', fontsize=11, fontweight='bold')
+    ax.set_ylabel('Base Syllable (without tone)', fontsize=11, fontweight='bold')
+
+    plt.tight_layout()
+    output_path = output_dir / 'syllable_tone_matrix.png'
+    plt.savefig(output_path, dpi=150, bbox_inches='tight')
+    plt.close()
+
+    print(f"✓ Saved syllable×tone heatmap to {output_path}")
+
+
 def analyze_common_syllables(syllables):
     """
     Find most and least common syllables by frequency.
@@ -373,6 +432,40 @@ def analyze_syllable_complexity(syllables):
         'max': max(all_counts),
         'mean': sum(all_counts) / len(all_counts),
         'median': sorted(all_counts)[len(all_counts) // 2]
+    }
+
+
+def analyze_syllable_tone_matrix(syllables):
+    """
+    Create a matrix of base syllables (without tone) × tones.
+
+    Returns: dict with:
+        - matrix: dict {base_syllable: {tone: char_count}}
+        - base_syllables: sorted list of base syllables
+        - tones: list of tones [0, 1, 2, 3, 4]
+    """
+    # Pattern to extract tone number (last digit)
+    tone_pattern = re.compile(r'([0-4])$')
+
+    matrix = defaultdict(lambda: {0: 0, 1: 0, 2: 0, 3: 0, 4: 0})
+
+    for syllable, chars_data in syllables:
+        # Extract tone from syllable
+        match = tone_pattern.search(syllable)
+        if match:
+            tone = int(match.group(1))
+            base = syllable[:-1]  # Remove tone digit
+            char_count = len(chars_data)
+            matrix[base][tone] = char_count
+
+    # Sort base syllables alphabetically
+    base_syllables = sorted(matrix.keys())
+
+    return {
+        'matrix': matrix,
+        'base_syllables': base_syllables,
+        'tones': [0, 1, 2, 3, 4],
+        'total_bases': len(base_syllables)
     }
 
 
@@ -501,6 +594,11 @@ def main():
     complexity = analyze_syllable_complexity(syllables)
     print("✓ Syllable complexity calculated")
 
+    # Analyze syllable × tone matrix
+    print("\nAnalyzing syllable × tone matrix...")
+    matrix_data = analyze_syllable_tone_matrix(syllables)
+    print(f"✓ Found {matrix_data['total_bases']:,} base syllables across 5 tones")
+
     # Print summary statistics
     print_summary_statistics(syllables, depth_counts, distributions)
     print_common_syllables(most_common, least_common)
@@ -527,6 +625,7 @@ def main():
     plot_depth_distribution(depth_counts, output_dir)
     plot_polyphonic_characters(polyphonic, output_dir)
     plot_syllable_complexity(complexity, output_dir)
+    plot_syllable_tone_heatmap(matrix_data, output_dir)
 
     print("\n" + "=" * 70)
     print("✓ Analysis complete!")
@@ -536,6 +635,7 @@ def main():
     print(f"  - {output_dir / 'depth_distribution.png'}")
     print(f"  - {output_dir / 'polyphonic_characters.png'}")
     print(f"  - {output_dir / 'syllable_complexity.png'}")
+    print(f"  - {output_dir / 'syllable_tone_matrix.png'}")
 
 
 if __name__ == '__main__':

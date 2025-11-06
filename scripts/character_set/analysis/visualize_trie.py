@@ -274,6 +274,105 @@ def visualize_trie_subtree(trie_path, output_path, max_depth=3, format='svg'):
         return False
 
 
+def visualize_trie_branch(trie_path, output_path, focus_letter='h', format='svg'):
+    """
+    Create a visualization of a single branch of the Trie with full depth.
+    Shows placeholder nodes for other branches at root level.
+
+    Args:
+        trie_path: Path to pinyin_trie.json
+        output_path: Output path (without extension)
+        focus_letter: Letter to focus on (default: 'h')
+        format: Output format ('png' or 'svg')
+    """
+    print("=" * 70)
+    print(f"Pinyin Trie Branch Visualization ('{focus_letter}' branch, {format.upper()})")
+    print("=" * 70)
+
+    # Load Trie
+    print(f"\nLoading Trie from {trie_path}...")
+    with open(trie_path, 'r', encoding='utf-8') as f:
+        trie = json.load(f)
+
+    # Create directed graph
+    print(f"Creating focused graph for '{focus_letter}' branch...")
+    dot = graphviz.Digraph(
+        comment=f'Pinyin Trie - {focus_letter.upper()} Branch',
+        format=format
+    )
+
+    # Configure graph layout
+    dot.attr(rankdir='LR')  # Horizontal layout
+    dot.attr('node', shape='circle')
+    dot.attr('graph',
+             bgcolor='white',
+             pad='0.5',
+             nodesep='0.3',
+             ranksep='0.7')
+    dot.attr('node', width='0.4', fontsize='14')
+
+    if format == 'png':
+        dot.attr(dpi='150')
+
+    # Add root node
+    root_id = "node_root"
+    dot.node(root_id, "ROOT", tooltip="Root node")
+
+    # Add placeholder for letters before focus_letter
+    placeholder_before_id = "node_placeholder_before"
+    dot.node(placeholder_before_id, "...",
+             shape='plaintext',
+             fontsize='20',
+             tooltip="Other branches")
+    dot.edge(root_id, placeholder_before_id, style='dashed')
+
+    # Add the focused branch (recursively expand all children)
+    if focus_letter in trie.get('children', {}):
+        node_id_counter = [0]
+        focused_node = trie['children'][focus_letter]
+        add_trie_nodes(dot, focused_node, root_id, focus_letter, node_id_counter)
+    else:
+        print(f"Warning: Letter '{focus_letter}' not found in Trie")
+        return False
+
+    # Add placeholder for letters after focus_letter
+    placeholder_after_id = "node_placeholder_after"
+    dot.node(placeholder_after_id, "...",
+             shape='plaintext',
+             fontsize='20',
+             tooltip="Other branches")
+    dot.edge(root_id, placeholder_after_id, style='dashed')
+
+    # Save to file
+    print(f"\nRendering to {output_path}.{format}...")
+    print("  - Blue circles: Complete syllables (terminal nodes)")
+    print("  - White circles: Partial syllables (intermediate nodes)")
+    print("  - Dashed lines: Other branches not shown")
+
+    try:
+        dot.render(output_path, cleanup=True)
+        print(f"✓ Visualization saved to {output_path}.{format}")
+    except Exception as e:
+        print(f"Error rendering graph: {e}")
+        return False
+
+    # Print file size
+    output_file = Path(f"{output_path}.{format}")
+    if output_file.exists():
+        size_mb = output_file.stat().st_size / (1024 * 1024)
+        if size_mb < 1:
+            size_kb = output_file.stat().st_size / 1024
+            print(f"\nFile size: {size_kb:.1f} KB")
+        else:
+            print(f"\nFile size: {size_mb:.2f} MB")
+
+    print("\n" + "=" * 70)
+    print("✓ Branch visualization complete!")
+    print("=" * 70)
+
+    return True
+
+
 if __name__ == '__main__':
     import argparse
 
@@ -282,6 +381,11 @@ if __name__ == '__main__':
         '--depth',
         type=int,
         help='Only visualize first N levels (useful for overview)'
+    )
+    parser.add_argument(
+        '--branch',
+        type=str,
+        help='Focus on a single branch (e.g., --branch h)'
     )
     parser.add_argument(
         '--output',
@@ -304,7 +408,11 @@ if __name__ == '__main__':
 
     trie_path = '../../../data/character_set/analysis/pinyin_trie.json'
 
-    if args.depth:
+    if args.branch:
+        # Single branch visualization
+        output = args.output.replace('_visualization', f'_visualization_{args.branch}_branch')
+        visualize_trie_branch(trie_path, output, args.branch, format=args.format)
+    elif args.depth:
         # Partial visualization
         output = args.output.replace('_visualization', f'_visualization_depth{args.depth}')
         visualize_trie_subtree(trie_path, output, args.depth, format=args.format)
