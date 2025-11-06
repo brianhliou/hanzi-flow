@@ -1,0 +1,87 @@
+================================================================================
+PYPINYIN VS UNIHAN+ENRICHMENT VERIFICATION REPORT
+================================================================================
+
+SUMMARY
+--------------------------------------------------------------------------------
+Total characters analyzed: 20,992
+  - In corpus (freq > 0):   4,973
+  - Reference only (freq=0): 16,019
+
+Coverage Comparison (All Characters):
+  pypinyin matches current:     20,963 (99.9%)
+  pypinyin has MORE:            0 (0.0%)
+  pypinyin has LESS:            29 (0.1%)
+  pypinyin MISSING (no data):   0 (0.0%)
+
+✓ pypinyin coverage (ALL): 20,992 / 20,992 = 100.00%
+✓ pypinyin coverage (CORPUS): 4,973 / 4,973 = 100.00%
+
+Dual-Format Consistency:
+  Style.TONE3 vs Style.TONE mismatches: 0
+  ✓ Perfect consistency - all characters have same count/order
+
+
+================================================================================
+EXAMPLES: pypinyin has LESS pronunciations
+================================================================================
+
+儿:
+  Current:  ['er', 'r', 'ren']
+  pypinyin: ['er', 'ren']
+  Missing:  ['r']
+
+兒:
+  Current:  ['er', 'ni', 'r']
+  pypinyin: ['er', 'ni']
+  Missing:  ['r']
+
+剎:
+  Current:  ['cha', 'sha']
+  pypinyin: ['sha']
+  Missing:  ['cha']
+
+卤:
+  Current:  ['lu', 'lu .', 'xi']
+  pypinyin: ['lu', 'xi']
+  Missing:  ['lu .']
+
+吶:
+  Current:  ['na', 'ne']
+  pypinyin: ['na']
+  Missing:  ['ne']
+
+呒:
+  Current:  ['m', 'wu', 'ḿ']
+  pypinyin: ['m', 'wu']
+  Missing:  ['ḿ']
+
+呣:
+  Current:  ['m', 'mou', 'm̀', 'ḿ']
+  pypinyin: ['m', 'mou']
+  Missing:  ['m̀', 'ḿ']
+
+咩:
+  Current:  ['mie', 'mie .']
+  pypinyin: ['mie']
+  Missing:  ['mie .']
+
+咹:
+  Current:  ['an', 'e', 'n', 'ń']
+  pypinyin: ['an', 'e', 'n']
+  Missing:  ['ń']
+
+唔:
+  Current:  ['m', 'n', 'ng', 'wu', 'ńg', 'ḿ']
+  pypinyin: ['m', 'n', 'ng', 'wu']
+  Missing:  ['ńg', 'ḿ']
+
+================================================================================
+DECISION CHECKPOINT
+================================================================================
+✅ PASS: Corpus coverage 100.00% >= 99% (CRITICAL)
+✅ PASS: Total coverage 100.00% >= 95% (reference data)
+✅ PASS: Dual-format consistency 100%
+
+RECOMMENDATION: Proceed with migration (pypinyin-only)
+================================================================================

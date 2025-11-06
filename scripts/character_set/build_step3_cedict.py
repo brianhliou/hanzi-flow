@@ -62,8 +62,8 @@ def parse_cedict(file_path='../../data/sources/cedict_ts.u8'):
     return dict(char_data)
 
 
-def add_cedict_to_csv(input_csv='../../data/build_artifacts/step2_pinyin.csv',
-                      output_csv='../../data/build_artifacts/step3_cedict.csv'):
+def add_cedict_to_csv(input_csv='../../data/character_set/step2_pinyin.csv',
+                      output_csv='../../data/character_set/step3_cedict.csv'):
     """
     Add gloss_en and examples columns to the CSV.
     """
@@ -100,7 +100,7 @@ def add_cedict_to_csv(input_csv='../../data/build_artifacts/step2_pinyin.csv',
             missing_both += 1
 
     # Write output CSV
-    fieldnames = ['id', 'char', 'codepoint', 'pinyins', 'gloss_en', 'examples']
+    fieldnames = ['id', 'char', 'codepoint', 'pinyins_tone3', 'pinyins_display', 'gloss_en', 'examples']
 
     with open(output_csv, 'w', encoding='utf-8', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -127,7 +127,7 @@ def add_cedict_to_csv(input_csv='../../data/build_artifacts/step2_pinyin.csv',
                 break
 
 
-def validate_cedict_csv(csv_file='../../data/build_artifacts/step3_cedict.csv'):
+def validate_cedict_csv(csv_file='../../data/character_set/step3_cedict.csv'):
     """
     Validate and analyze the CEDICT-enriched CSV.
     """

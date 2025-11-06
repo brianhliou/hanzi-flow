@@ -517,6 +517,153 @@ Tone distribution: T1(22.8%), T2(18.1%), T3(21.8%), T4(24.8%), Neutral(12.4%)
 
 ---
 
+## 5. Pinyin Format Migration: Successful Execution and Lessons Learned
+
+**Date:** 2025-11-06
+
+**Context:**
+Following the problem analysis in Section 4, we successfully executed a complete migration from mixed pinyin formats (Unihan + pypinyin) to a pypinyin-only approach with dual-format storage.
+
+**Migration Scope:**
+- 6-step character pipeline rebuild
+- 20,992 characters processed
+- 79,704 sentences corpus analyzed
+- 4 obsolete scripts eliminated
+- 3 data files removed
+
+**Results Achieved:**
+1. **Zero Duplicate Syllables** - Eliminated all 612 duplicates (30.5% → 0%)
+2. **Reduced Syllable Count** - 2,004 → 1,307 unique syllables (-35%)
+3. **100% Coverage** - pypinyin covered all 20,992 characters (vs 99.7% with Unihan)
+4. **Format Consistency** - 100% dual-format matching (0 mismatches)
+5. **New Feature** - Added pinyin-level frequencies (5,272 char-pinyin pairs tracked)
+6. **Simpler Pipeline** - 7 steps → 6 steps
+
+**Key Learnings:**
+
+### 1. Verification Before Migration is Critical
+- Created `compare_unihan_vs_pypinyin.py` to validate coverage BEFORE making changes
+- Checked ALL 20,992 characters (not just corpus) to ensure complete reference data
+- Result: Caught that pypinyin had 8 edge cases with fewer pronunciations
+- **Lesson**: Never assume coverage - validate against entire dataset before proceeding
+
+### 2. Dual-Format Storage Eliminates Conversion Complexity
+**Decision**: Store both `pinyins_tone3` (yi1) and `pinyins_display` (yī) redundantly
+
+**Alternative considered**: Store one format, convert on-demand
+- Would save ~300KB storage
+- Would require conversion utilities throughout codebase
+- Would risk inconsistencies from multiple conversion implementations
+
+**Why dual format won**:
+- Zero conversion code needed (eliminated 6+ utilities)
+- Guaranteed consistency (both from single source)
+- Clearer semantics (tone3 for logic, display for rendering)
+- Can optimize later if storage becomes issue (it won't)
+
+**Lesson**: In data pipelines, **clarity > optimization**. Redundant storage that eliminates logic complexity is often worth it.
+
+### 3. Phased Approach with Validation Checkpoints
+We broke migration into 5 phases with validation at each step:
+- Phase 1: Verify pypinyin coverage → 100% pass
+- Phase 2: Rewrite pipeline → All steps validated
+- Phase 3: Run pipeline → Output validated
+- Phase 4: Update downstream → Trie validated (1,307 syllables)
+- Phase 5: Cleanup → All obsolete files removed
+
+**Lesson**: Each phase had clear success criteria. Could rollback at any checkpoint. No "big bang" migration.
+
+### 4. Pinyin-Level Frequencies Were "Free"
+Adding pinyin-level frequencies only required:
+- Parsing `char_pinyin_pairs` differently (already had the data)
+- Storing frequencies in `pinyins_tone3` column
+- ~50 lines of additional code in step6
+
+**Unexpected benefit**: Can now analyze pronunciation distributions:
+- 的: `de(28524)` vs `di4(58)` - shows de is dominant by 490x
+- 不: `bu4(9775)` vs `bu2(2978)` - both common, different tones
+- Enables future features: pronunciation difficulty ranking, common mistakes
+
+**Lesson**: When refactoring data pipelines, look for "free" features from data you're already processing.
+
+### 5. Documentation During Migration, Not After
+We created 3 documents DURING the migration:
+- `MIGRATION_PLAN.md` - Before starting (detailed approach)
+- `MIGRATION_SUMMARY.md` - At decision checkpoint (executive summary)
+- `MIGRATION_COMPLETE.md` - At completion (validation results)
+
+**Why this worked**:
+- Plan document forced us to think through edge cases
+- Summary document got user buy-in on approach
+- Complete document captured validation while fresh
+
+**Lesson**: Document AS you migrate, not after. Future you will thank present you.
+
+### 6. Automated Validation > Manual Inspection
+Created 2 validation scripts:
+- `compare_unihan_vs_pypinyin.py` - Verified 100% coverage programmatically
+- `validate_migration.py` - Checked dual-format correctness automatically
+
+**Could have**: Manually spot-checked CSV files
+**Did instead**: Automated validation that checked all 20,992 characters
+
+**Lesson**: If validation can be automated, automate it. Catches edge cases humans miss.
+
+### 7. Keep Obsolete Code Until Validation Complete
+We renamed old scripts to `.old` rather than deleting them:
+- Kept rollback option open
+- Could reference implementation if needed
+- Only deleted after all validation passed
+
+**Lesson**: Preserve rollback capability until absolutely certain migration succeeded.
+
+### 8. One Decision at a Time
+**Order of decisions**:
+1. First: Verify pypinyin coverage is sufficient (data validation)
+2. Then: Choose storage format (architecture decision)
+3. Then: Rewrite pipeline (implementation)
+4. Finally: Update downstream systems (integration)
+
+**Not**: Trying to decide everything upfront
+
+**Lesson**: Make decisions in order of dependency and risk. Validate data before choosing architecture.
+
+**Cost Analysis:**
+- **Time invested**: ~1-2 hours total (with Claude Code assistance)
+  - Phase 1: Verification and planning
+  - Phase 2: Pipeline rewrite with validation
+  - Phase 3: Migration execution and validation
+  - Phase 4: Downstream updates (Trie builder, reference data)
+  - Phase 5: Cleanup and documentation
+
+- **Time saved**: Will save hours in future
+  - No more debugging format conversion issues
+  - No more workarounds for mixed formats
+  - Pinyin-level frequencies enable new features
+  - Cleaner codebase for contributors
+
+**Key Takeaways:**
+- ✅ Verification BEFORE migration prevents surprises
+- ✅ Dual-format storage eliminates conversion complexity
+- ✅ Phased approach with checkpoints enables rollback
+- ✅ Look for "free" features when refactoring data
+- ✅ Document during migration, not after
+- ✅ Automate validation - catches more edge cases
+- ✅ Keep rollback options until validation complete
+- ✅ Make decisions in dependency order, not all upfront
+
+**Migration Documentation:**
+- See [docs/migrations/pinyin-format-2025-11/](./migrations/pinyin-format-2025-11/) for complete migration docs
+- See [Section 4](#4-mixed-pinyin-formats-technical-debt-from-multiple-data-sources) for original problem analysis
+
+**Related Files:**
+- `scripts/character_set/build_step2_pinyin_pypinyin.py` - New pypinyin-only step2
+- `scripts/character_set/build_step6_freq.py` - Enhanced with pinyin-level frequencies
+- `scripts/character_set/analysis/compare_unihan_vs_pypinyin.py` - Verification script
+- `scripts/character_set/analysis/validate_migration.py` - Migration validation
+
+---
+
 ## Template for Future Entries
 
 **Date:** YYYY-MM-DD

@@ -5,11 +5,12 @@ Scripts to build the Chinese character dataset from source data.
 ## Source Data
 
 Located in `../../data/sources/`:
-- `Unihan_Readings.txt` - Pinyin readings from Unicode Unihan database
 - `Unihan_Variants.txt` - Simplified/Traditional variant mappings
 - `cedict_ts.u8` - CC-CEDICT Chinese-English dictionary
 - `s2t.json`, `t2s.json` - OpenCC simplified/traditional mappings (not currently used)
 - `junda_char_freq.txt` - Jun Da character frequency list (for future use)
+
+**Note**: Pinyin data now comes exclusively from **pypinyin** library (not Unihan_Readings.txt)
 
 ## Build Pipeline
 
@@ -22,15 +23,19 @@ python3 build_step1_base.py
 - Generates 20,992 characters from CJK Unified Ideographs (U+4E00 to U+9FFF)
 - Output: `../../data/build_artifacts/step1_base.csv` with columns: `id`, `char`, `codepoint`
 
-### Step 2: Pinyin Readings
+### Step 2: Pinyin Readings (pypinyin-only)
 ```bash
-python3 build_step2_pinyin.py
+python3 build_step2_pinyin_pypinyin.py
 ```
-- Parses Unihan_Readings.txt for pinyin data
-- Uses kHanyuPinlu (with frequency), kHanyuPinyin, and kMandarin fields
-- **Filters corrupted Unihan entries**: numbers in pinyin, special diacritics, Chinese chars as pinyin
-- Format: `lè(283)|yuè(54)` for polyphonic characters with frequency data
-- Output: `../../data/build_artifacts/step2_pinyin.csv` adds column: `pinyins`
+- Uses **pypinyin** library as single source of truth for all pronunciations
+- Gets all heteronym pronunciations with `heteronym=True`
+- **Dual-format storage** (no conversion needed anywhere):
+  - `pinyins_tone3`: Canonical format with tone numbers (e.g., `yi1|yi4`) - used for matching/logic
+  - `pinyins_display`: Display format with tone marks (e.g., `yī|yì`) - used for rendering
+- Both formats guaranteed to have same count and order
+- 100% coverage (20,992/20,992 characters)
+- Frequencies added later in step6
+- Output: `../../data/character_set/step2_pinyin.csv` adds columns: `pinyins_tone3`, `pinyins_display`
 
 ### Step 3: Glosses and Examples
 ```bash
@@ -39,7 +44,8 @@ python3 build_step3_cedict.py
 - Parses CC-CEDICT for English glosses and example words
 - Single-character entries → glosses
 - Multi-character words → examples (up to 3 per character)
-- Output: `../../data/build_artifacts/step3_cedict.csv` adds columns: `gloss_en`, `examples`
+- Passes through both pinyin columns unchanged
+- Output: `../../data/character_set/step3_cedict.csv` adds columns: `gloss_en`, `examples`
 
 ### Step 4: Script Types and Variants
 ```bash
@@ -49,7 +55,8 @@ python3 build_step4_variants.py
 - Determines script_type: simplified, traditional, neutral, or ambiguous
 - Creates bidirectional variant links (e.g., 发 ↔ 發|髮)
 - Filters out self-referential variants
-- Output: `../../data/build_artifacts/step4_variants.csv` adds columns: `script_type`, `variants`
+- Passes through both pinyin columns unchanged
+- Output: `../../data/character_set/step4_variants.csv` adds columns: `script_type`, `variants`
 
 ### Step 5: HSK Level Classification
 ```bash
@@ -60,47 +67,40 @@ python3 build_step5_hsk.py
 - Assigns HSK levels to simplified characters from official lists
 - Propagates HSK levels to traditional variants via our variant mappings
 - Characters not in HSK 1-9 curriculum: assigned empty/null hsk_level
+- Uses dynamic fieldnames, so automatically passes through both pinyin columns
 - Output: `../../data/character_set/step5_hsk.csv` adds column: `hsk_level`
 
-### Step 6: Enrich with pypinyin Alternatives
+### Step 6: Character and Pinyin Frequency Data (FINAL STEP)
 ```bash
-python3 build_step6_enrich_pypinyin.py
+python3 build_step6_freq.py
 ```
-- Uses pypinyin library with `heteronym=True` to discover alternative pronunciations
-- Enriches existing Unihan pinyins with colloquial/alternative readings
-- Examples:
-  - 谁: Adds `shei2` (colloquial) to existing `shuí(1065)` (formal)
-  - 地: Adds `de` (particle) to existing `dì(4976)` (noun)
-  - 的: Adds `di1`, `di2`, `di4` to existing `de(7394)`
-- Preserves frequency data from Unihan while adding new alternatives without frequencies
-- Output: `../../data/character_set/step6_enriched.csv` (enriched pinyins column)
-
-### Step 7: Character Frequency Data
-```bash
-python3 build_step7_freq.py
-```
-- Counts character occurrences in the sentence corpus
+- Counts **both character-level and pinyin-level** frequencies from sentence corpus
 - Reads from: `../../data/sentences/step5_pinyin_refined.csv` (or `step4_with_hsk.csv` as fallback)
-- Parses `char_pinyin_pairs` column to extract characters
-- Adds frequency data showing how often each character appears in real-world usage
+- Parses `char_pinyin_pairs` column to extract characters and char-pinyin tuples
+- **Character-level frequency**: Total occurrences (stored in `freq` column)
+- **Pinyin-level frequency**: Each character-pinyin pair counted separately
+  - Adds frequency data to `pinyins_tone3`: `yi1(8867)|yi2(1825)|yi4(1299)`
+  - Keeps `pinyins_display` clean (no frequencies): `yī|yí|yì`
 - Statistics:
-  - 4,973 characters appear in corpus (23.7% of total)
-  - 771,493 total character occurrences counted
-  - Top character: 我 (31,658 occurrences)
+  - 5,002 characters appear in corpus (23.8% of total)
+  - 790,413 total character occurrences
+  - 5,272 unique char-pinyin pairs tracked
+  - Top character: 我 (wo3(32055)) - 32,055 occurrences
 - Optionally generates distribution graphs (requires `matplotlib`)
-- Output: `../../data/character_set/step7_with_freq.csv` adds column: `freq`
+- Output: `../../data/character_set/step6_with_freq.csv` adds column: `freq` and enriches `pinyins_tone3`
 - Also generates (in `analysis/`): `frequency_distribution.png`
-- **Final dataset** with both HSK levels and frequency data
+- **FINAL DATASET** with dual-format pinyins, HSK levels, and corpus-based frequencies
 
 ## Final Dataset
 
-**Latest Build Output**: `../../data/character_set/step7_with_freq.csv`
+**Latest Build Output**: `../../data/character_set/step6_with_freq.csv`
 
 This is the complete character dataset with all enrichment layers. All columns:
 - `id` - Sequential integer (1-20992)
 - `char` - The Chinese character
 - `codepoint` - Unicode identifier (e.g., U+4E00)
-- `pinyins` - Pipe-separated pinyin readings with optional frequency (e.g., `lè(283)|yuè(54)`)
+- `pinyins_tone3` - Canonical format with tone numbers AND frequencies (e.g., `yi1(8867)|yi4(1299)`)
+- `pinyins_display` - Display format with tone marks, NO frequencies (e.g., `yī|yì`)
 - `script_type` - Enum: simplified, traditional, neutral, or ambiguous
 - `variants` - Pipe-separated variant characters (e.g., `發|髮`)
 - `gloss_en` - Short English gloss from CC-CEDICT
@@ -108,14 +108,17 @@ This is the complete character dataset with all enrichment layers. All columns:
 - `hsk_level` - HSK level (1, 2, 3, 4, 5, 6, or "7-9") or empty for non-HSK characters
 - `freq` - Character frequency count in sentence corpus (0 if character doesn't appear)
 
+**Key Change**: Dual-format pinyin storage eliminates need for format conversion throughout the codebase.
+
 ## Coverage Statistics
 
-- **99.7%** have pinyin (20,924 / 20,992)
-- **22.8%** polyphonic (4,795 characters with multiple pronunciations)
+- **100%** have pinyin (20,992 / 20,992) - pypinyin provides complete coverage
+- **29.6%** polyphonic (6,206 characters with multiple pronunciations)
 - **67.4%** have English glosses (14,152 characters)
 - **41.1%** have example words (8,618 characters)
 - **34.6%** have variants (7,254 characters)
-- **20.0%** have HSK levels (4,192 characters in HSK 1-9 curriculum)
+- **20.0%** have HSK levels (4,193 characters in HSK 1-9 curriculum)
+- **23.8%** appear in corpus (5,002 characters with freq > 0)
 
 ## Script Type Distribution
 
@@ -138,54 +141,60 @@ This is the complete character dataset with all enrichment layers. All columns:
 ## Build Artifacts
 
 Intermediate CSVs are stored in `../../data/character_set/` for audit purposes:
-- `step1_base.csv` - Base character set
-- `step2_pinyin.csv` - With pinyin
+- `step1_base.csv` - Base character set (20,992 characters)
+- `step2_pinyin.csv` - With dual-format pinyins (pinyins_tone3 + pinyins_display)
 - `step3_cedict.csv` - With glosses and examples
 - `step4_variants.csv` - With script types and variants
 - `step5_hsk.csv` - With HSK levels
-- `step6_enriched.csv` - With enriched pypinyin alternatives
-- `step7_with_freq.csv` - **Final output** with character frequency data
+- `step6_with_freq.csv` - **FINAL OUTPUT** with character and pinyin-level frequencies
+
+**Obsolete files** (deleted, preserved in git history):
+- `build_step2_pinyin.py` - Old Unihan-based pinyin extraction
+- `build_step6_enrich_pypinyin.py` - Old enrichment step (merged into step2)
+- `build_step7_freq.py` - Old frequency step (renamed to step6 with enhancements)
+- `misc/fix_pinyin_format.py` - Format conversion workaround (no longer needed)
+- `step6_enriched.csv` - Old step6 data output
+- `step7_with_freq.csv` - Old step7 data output
 
 Analysis outputs are stored in `../../data/character_set/analysis/`:
-- `character_coverage_curve.png` - Coverage % vs characters learned
+- `pinyin_trie.json` - Character-level Trie (1,307 unique syllables, down from 2,004)
 - `frequency_distribution.png` - Character frequency distribution (Zipf's law)
-- `vocabulary_growth_by_hsk.png` - Cumulative character count by HSK level
+- `verification_report.txt` - pypinyin coverage validation results
 
 ## Analysis Scripts
 
-Located in `analysis/` subdirectory - not part of main pipeline. See `analysis/README.md` for details.
+Located in `analysis/` subdirectory - not part of main pipeline.
 
 ### Pinyin Trie Analysis
 - `build_pinyin_trie.py` - Build character-level Trie of all pinyin syllables
-  - Normalizes to tone3 format (yì → yi4) to eliminate duplicates
-  - Output: 1,392 unique syllables, 1.6MB JSON
-  - Stores character metadata with Unihan and corpus frequencies
-- `validate_trie_vs_reference.py` - Validate Trie against reference syllables (85.9% overlap)
-- `check_duplicate_syllables.py` - Detect duplicate syllables in mixed formats
-
-### Visualizations
-- `analyze_coverage_curve.py` - Generate character coverage curve visualization
-- `analyze_vocabulary_growth.py` - Generate vocabulary growth by HSK level chart
-
-## Miscellaneous Scripts
-
-Located in `misc/` subdirectory (one-off fixes, not part of main pipeline):
-
-- `fix_pinyin_format.py` - Fix pinyin format inconsistency (tone numbers → tone marks)
-  - **Status**: May be obsolete - see TODO in script for verification
-  - **History**: Used once to fix mixed format issue in production data
-  - **Note**: Corruption filtering is now integrated into `build_step2_pinyin.py`
+  - Uses `pinyins_tone3` column directly (already in tone3 format)
+  - **Output: 1,307 unique syllables** (down from 2,004 with old mixed-format system)
+  - Stores character metadata with pinyin-level and corpus frequencies
+  - **No normalization needed** - pypinyin provides consistent format
+- `compare_unihan_vs_pypinyin.py` - Verification script (used during migration)
+  - Validates pypinyin coverage: 100% (20,992/20,992 characters)
+  - Checks dual-format consistency: Perfect (0 mismatches)
+- `validate_migration.py` - Migration validation script
+  - Verifies dual-format storage correctness
+  - Ensures frequencies only in pinyins_tone3, not in pinyins_display
 
 ## Rebuilding
 
 If source data is updated:
-1. Re-run all steps in order (steps 1-7, each step reads from the previous step's output)
-2. Final output: `step7_with_freq.csv` contains the complete dataset
-3. To update production: Copy to `../../app/public/data/character_set/chinese_characters.csv` when ready
+1. Re-run all steps in order (steps 1-6, each step reads from the previous step's output)
+2. Final output: `step6_with_freq.csv` contains the complete dataset
+3. When ready for app integration: Copy to `../../app/public/data/character_set/chinese_characters.csv`
 
 **Dependencies**:
-- Step 6 requires `pypinyin`: `pip install pypinyin`
-- Step 7 optionally uses `matplotlib` for distribution graphs (not required for CSV generation)
+- Step 2 requires `pypinyin`: `pip install pypinyin`
+- Step 6 optionally uses `matplotlib` for distribution graphs (not required for CSV generation)
+
+**Key Improvements in New Pipeline**:
+- **100% pypinyin coverage** (vs. 99.7% with old Unihan-based approach)
+- **Zero duplicate syllables** (was 612 duplicates / 30.5% with mixed formats)
+- **Pinyin-level frequencies** - each pronunciation tracked separately
+- **No format conversion needed** - dual-format storage eliminates conversion utilities
+- **Simpler pipeline** - 6 steps instead of 7, fewer workarounds
 
 ## HSK Data Source
 

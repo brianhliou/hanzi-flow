@@ -7,21 +7,21 @@ Analysis tools for the Chinese character dataset.
 ### Core Analysis
 
 **build_pinyin_trie.py** - Build character-level Trie of all pinyin syllables
-- Input: `../../../data/character_set/step7_with_freq.csv` (characters with corpus freq > 0)
+- Input: `../../../data/character_set/step6_with_freq.csv` (characters with corpus freq > 0)
 - Output: `../../../data/character_set/analysis/pinyin_trie.json`
-- **Key Feature**: Normalizes all pinyin to tone3 format (e.g., `yì → yi4`) to avoid duplicates
+- **Key Feature**: Uses `pinyins_tone3` column directly (already in tone3 format)
 - Structure: Character-level nodes (y → i → 4), terminal nodes store character metadata
-- Statistics: 1,392 unique syllables, 4,973 characters, ~7,600 character-syllable mappings
+- Statistics: **1,307 unique syllables** (down from 2,004 with old mixed formats), 5,002 characters
 
-**validate_trie_vs_reference.py** - Validate Trie against reference syllables
-- Compares against: `../../../data/audio/syllables_enumeration.json`
-- Results: 85.9% overlap (1,373 / 1,598 syllables)
-- Identifies extra syllables (19) and missing syllables (225)
+**compare_unihan_vs_pypinyin.py** - Verification script (used during migration)
+- Validates pypinyin coverage vs old Unihan+pypinyin approach
+- Results: 100% coverage (20,992/20,992 characters)
+- Checks dual-format consistency: Perfect (0 mismatches)
 
-**check_duplicate_syllables.py** - Detect duplicate syllables in mixed formats
-- Used to discover the tone mark vs tone number duplication issue
-- Before normalization: 612 duplicates (69.8% of mappings affected)
-- After normalization: 0 duplicates ✓
+**validate_migration.py** - Migration validation script
+- Verifies dual-format storage correctness
+- Ensures frequencies only in pinyins_tone3, not in pinyins_display
+- Validates format count matching between tone3 and display columns
 
 ### Visualization
 
@@ -62,17 +62,17 @@ The Trie uses **character-level nodes** in **normalized tone3 format**:
               "characters": [
                 {
                   "char": "一",
-                  "unihan_freq": 32747,
-                  "corpus_freq": 11652
+                  "pinyin_freq": 8867,
+                  "corpus_freq": 11991
                 },
                 {
                   "char": "医",
-                  "unihan_freq": 460,
+                  "pinyin_freq": 238,
                   "corpus_freq": 251
                 }
               ],
-              "count": 11,
-              "total_freq": 34667
+              "count": 15,
+              "total_freq": 9884
             }
           }
         }
@@ -93,74 +93,77 @@ The Trie uses **character-level nodes** in **normalized tone3 format**:
 - `is_end`: true
 - `characters`: array of character objects with:
   - `char`: the Chinese character
-  - `unihan_freq`: frequency from Unihan (data/sources)
-  - `corpus_freq`: frequency in sentence corpus
+  - `pinyin_freq`: frequency of this specific char-pinyin pair in corpus
+  - `corpus_freq`: total character frequency in corpus (all pronunciations)
 - `count`: number of unique characters for this syllable
-- `total_freq`: sum of Unihan frequencies
+- `total_freq`: sum of pinyin frequencies
 
 ### Key Design Decisions
 
 1. **Character-level nodes** (not syllable-level)
    - Each letter is a separate node
-   - Tone-marked vowels like ā, é treated as single Unicode characters
-   - BUT normalized to tone3 format (a1, e2) to avoid duplicates
+   - All pinyin in tone3 format (tone numbers at end): yi4, zhong1, de0
 
-2. **Tone3 normalization** (tone numbers at end)
-   - Converts `yì → yi4`, `zhōng → zhong1`, `de → de0`
-   - Eliminates duplicates from mixed Unihan (tone marks) and pypinyin (tone numbers)
-   - Before: 2,004 syllables (612 duplicates, 69.8% affected)
-   - After: 1,392 syllables (0 duplicates) ✓
+2. **No normalization needed** (pypinyin provides consistent format)
+   - Uses `pinyins_tone3` column directly from step6_with_freq.csv
+   - Old mixed formats (Unihan tone marks + pypinyin tone numbers) eliminated
+   - **Result**: 1,307 unique syllables (down from 2,004 with old system)
+   - Zero duplicate syllables (was 612 duplicates / 30.5%)
 
 3. **Metadata at terminal nodes only**
    - Character list, count, and frequency aggregation
    - Intermediate nodes only store routing information
 
-4. **Frequency disambiguation**
-   - `unihan_freq`: from Unihan database (data/sources)
-   - `corpus_freq`: actual occurrences in sentence corpus
-   - Note: Unihan freq may be 0 for characters added by pypinyin enrichment
+4. **Dual frequency tracking**
+   - `pinyin_freq`: frequency of this specific char-pinyin pair (from corpus)
+   - `corpus_freq`: total character frequency across all pronunciations
+   - Example: 的 appears 28,594 times total, but `de` pronunciation = 28,524 times
 
-## Statistics
+## Statistics (After Migration)
 
 ### Syllable Distribution
-- **Total unique syllables**: 1,392
-- **Character count per syllable**: 1-52 (mean: 5.5, median: 4)
-- **Most polyphonic**: yi4 (52 chars), yu4 (47 chars), shi4 (44 chars)
+- **Total unique syllables**: 1,307 (down from 2,004 with mixed formats)
+- **Character count per syllable**: 1-59 (mean: 6.2, median: 4)
+- **Most polyphonic**: yi4 (59 chars), yu4 (53 chars), shi4 (46 chars)
 
 ### Tone Distribution
-- **Tone 1**: 318 syllables (22.8%)
-- **Tone 2**: 252 syllables (18.1%)
-- **Tone 3**: 304 syllables (21.8%)
-- **Tone 4**: 345 syllables (24.8%)
-- **Neutral**: 173 syllables (12.4%)
+- **Tone 1**: 322 syllables (24.6%)
+- **Tone 2**: 261 syllables (20.0%)
+- **Tone 3**: 319 syllables (24.4%)
+- **Tone 4**: 356 syllables (27.2%)
+- **Neutral**: 49 syllables (3.7%)
 
 ### Frequency Coverage
-- **Syllables with Unihan freq > 0**: 1,214 (87.2%)
-- **Syllables with Unihan freq = 0**: 178 (12.8%)
-  - These are from pypinyin enrichment without Unihan data
-
-### Validation vs Reference
-- **Reference**: 1,598 syllables (from syllables_enumeration.json)
-- **Overlap**: 1,373 (85.9% coverage)
-- **Extra in Trie**: 19 (edge cases: lüe4, m2, n4, ng2, ng4)
-- **Missing from Trie**: 225 (valid Mandarin, but not in our corpus)
+- **Syllables with pinyin freq > 0**: 1,161 (88.8%)
+- **Syllables with pinyin freq = 0**: 146 (11.2%)
+  - Characters that exist in corpus but this specific pronunciation not used
 
 ## Top 20 Most Frequent Syllables
 
-(By Unihan frequency)
+(By pinyin frequency from corpus)
 
 | Rank | Syllable | Characters | Total Freq |
 |------|----------|------------|------------|
-| 1    | de0      | 4          | 88,086     |
-| 2    | shi4     | 44         | 38,624     |
-| 3    | yi1      | 11         | 34,667     |
-| 4    | zhe4     | 4          | 33,428     |
-| 5    | le0      | 1          | 30,101     |
-| 6    | men0     | 4          | 29,940     |
-| 7    | lai2     | 4          | 29,098     |
-| 8    | bu4      | 12         | 27,989     |
-| 9    | shi2     | 16         | 25,204     |
-| 10   | ge4      | 6          | 25,192     |
+| 1    | wo3      | 1          | 32,055     |
+| 2    | de0      | 4          | 29,973     |
+| 3    | ta1      | 8          | 20,827     |
+| 4    | shi4     | 46         | 20,510     |
+| 5    | le0      | 1          | 17,783     |
+| 6    | ni3      | 10         | 14,845     |
+| 7    | zai4     | 5          | 11,636     |
+| 8    | bu4      | 12         | 10,841     |
+| 9    | you3     | 3          | 10,413     |
+| 10   | yi1      | 15         | 9,884      |
+| 11   | zhe4     | 5          | 9,320      |
+| 12   | men0     | 2          | 8,751      |
+| 13   | dao4     | 11         | 6,980      |
+| 14   | ren2     | 5          | 6,765      |
+| 15   | ge4      | 6          | 6,711      |
+| 16   | shi2     | 17         | 6,124      |
+| 17   | mu3      | 7          | 5,834      |
+| 18   | yao4     | 13         | 5,749      |
+| 19   | me0      | 5          | 5,587      |
+| 20   | hen3     | 4          | 5,403      |
 
 ## Usage
 
@@ -170,21 +173,18 @@ cd scripts/character_set/analysis
 python3 build_pinyin_trie.py
 ```
 
-### Validate against reference
+### Verify migration (already complete)
 ```bash
-python3 validate_trie_vs_reference.py
-```
-
-### Check for duplicates
-```bash
-python3 check_duplicate_syllables.py
+python3 compare_unihan_vs_pypinyin.py  # Verify pypinyin coverage
+python3 validate_migration.py          # Verify dual-format storage
 ```
 
 ## Dependencies
 
 - Python 3.7+
 - Standard library only (json, csv, re, collections, pathlib)
-- Optional: matplotlib (for frequency distribution graphs in build_step7_freq.py)
+- `pypinyin` - Required for migration verification scripts only (already installed)
+- Optional: matplotlib (for frequency distribution graphs in build_step6_freq.py)
 
 ## Future Enhancements
 

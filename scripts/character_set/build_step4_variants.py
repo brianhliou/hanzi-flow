@@ -128,8 +128,8 @@ def determine_script_type_and_variants(char, variant_data):
     return script_type, variant_chars
 
 
-def add_variants_to_csv(input_csv='../../data/build_artifacts/step3_cedict.csv',
-                        output_csv='../../data/build_artifacts/step4_variants.csv'):
+def add_variants_to_csv(input_csv='../../data/character_set/step3_cedict.csv',
+                        output_csv='../../data/character_set/step4_variants.csv'):
     """
     Add script_type and variants columns to the CSV.
     """
@@ -163,8 +163,8 @@ def add_variants_to_csv(input_csv='../../data/build_artifacts/step3_cedict.csv',
                 max_variants = len(variant_chars)
 
     # Write output CSV
-    fieldnames = ['id', 'char', 'codepoint', 'pinyins', 'script_type',
-                  'variants', 'gloss_en', 'examples']
+    fieldnames = ['id', 'char', 'codepoint', 'pinyins_tone3', 'pinyins_display',
+                  'script_type', 'variants', 'gloss_en', 'examples']
 
     with open(output_csv, 'w', encoding='utf-8', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -200,7 +200,7 @@ def add_variants_to_csv(input_csv='../../data/build_artifacts/step3_cedict.csv',
                 break
 
 
-def validate_variants_csv(csv_file='../../data/build_artifacts/step4_variants.csv'):
+def validate_variants_csv(csv_file='../../data/character_set/step4_variants.csv'):
     """
     Validate and analyze the variants CSV.
     """

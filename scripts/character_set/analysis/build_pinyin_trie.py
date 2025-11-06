@@ -2,19 +2,17 @@
 """
 Build a character-level Trie of all Chinese pinyin syllables from the corpus.
 
-Each node represents ONE letter in normalized tone3 format (tone numbers).
+Each node represents ONE letter in tone3 format (tone numbers).
 Terminal nodes store metadata about characters that produce that pinyin.
 
-IMPORTANT: Normalizes all pinyin to tone3 format (e.g., yì -> yi4) to avoid duplicates.
-
 Input:
-- ../../data/character_set/step7_with_freq.csv (characters with freq > 0)
+- ../../data/character_set/step6_with_freq.csv (uses pinyins_tone3 column)
 
 Output:
 - ../../data/character_set/analysis/pinyin_trie.json
 - Console statistics about syllable distribution
 
-Note: Pinyin frequencies are from Unihan (data/sources), not sentence corpus frequency.
+Note: Now uses sentence corpus frequencies (from step6_with_freq.csv).
 """
 import csv
 import json
@@ -116,9 +114,9 @@ def build_trie(characters_data):
     {
       "children": {letter: node},
       "is_end": bool,
-      "characters": [{"char": str, "unihan_freq": int, "corpus_freq": int}, ...],  # Only at terminal nodes
+      "characters": [{"char": str, "pinyin_freq": int, "corpus_freq": int}, ...],  # Only at terminal nodes
       "count": int,  # Only at terminal nodes (number of unique characters)
-      "total_freq": int  # Only at terminal nodes (sum of Unihan frequencies)
+      "total_freq": int  # Only at terminal nodes (sum of pinyin frequencies)
     }
 
     Args:
@@ -129,32 +127,32 @@ def build_trie(characters_data):
     """
     root = {"children": {}, "is_end": False}
 
-    # syllable (normalized) -> {char: (unihan_freq, corpus_freq)}
+    # syllable (normalized) -> {char: (pinyin_freq, corpus_freq)}
     # Use dict to deduplicate characters per syllable
     syllable_chars = defaultdict(dict)
 
     for row in characters_data:
         char = row['char']
-        pinyins_str = row.get('pinyins', '')
+        pinyins_str = row.get('pinyins_tone3', '')  # Use tone3 column
         corpus_freq = int(row.get('freq', 0))
 
         # Skip characters not in corpus
         if corpus_freq == 0:
             continue
 
-        # Parse pinyin field (already normalized to tone3)
+        # Parse pinyin field (already in tone3 format with frequencies)
         pinyin_list = parse_pinyin_field(pinyins_str)
 
         # Add each normalized pinyin to collection
-        for pinyin, unihan_freq in pinyin_list:
+        for pinyin, pinyin_freq in pinyin_list:
             # If character already exists for this syllable, keep the one with higher frequency
             if char in syllable_chars[pinyin]:
-                existing_unihan, existing_corpus = syllable_chars[pinyin][char]
-                # Keep the entry with higher Unihan frequency
-                if unihan_freq > existing_unihan:
-                    syllable_chars[pinyin][char] = (unihan_freq, corpus_freq)
+                existing_pinyin, existing_corpus = syllable_chars[pinyin][char]
+                # Keep the entry with higher pinyin frequency
+                if pinyin_freq > existing_pinyin:
+                    syllable_chars[pinyin][char] = (pinyin_freq, corpus_freq)
             else:
-                syllable_chars[pinyin][char] = (unihan_freq, corpus_freq)
+                syllable_chars[pinyin][char] = (pinyin_freq, corpus_freq)
 
     # Now build the trie from collected syllables
     for pinyin, chars_dict in syllable_chars.items():
@@ -162,10 +160,10 @@ def build_trie(characters_data):
         chars_list = [
             {
                 'char': char,
-                'unihan_freq': unihan_freq,
+                'pinyin_freq': pinyin_freq,
                 'corpus_freq': corpus_freq
             }
-            for char, (unihan_freq, corpus_freq) in chars_dict.items()
+            for char, (pinyin_freq, corpus_freq) in chars_dict.items()
         ]
 
         # Walk character by character through normalized pinyin
@@ -179,7 +177,7 @@ def build_trie(characters_data):
         node["is_end"] = True
         node["characters"] = chars_list
         node["count"] = len(chars_list)
-        node["total_freq"] = sum(c['unihan_freq'] for c in chars_list)
+        node["total_freq"] = sum(c['pinyin_freq'] for c in chars_list)
 
     return root
 
@@ -210,7 +208,7 @@ def generate_statistics(trie):
     Generate statistics about the Trie.
     """
     print(f"\n{'='*70}")
-    print("PINYIN TRIE STATISTICS (Normalized to Tone3 Format)")
+    print("PINYIN TRIE STATISTICS (Tone3 Format)")
     print(f"{'='*70}\n")
 
     # Collect all syllables
@@ -232,7 +230,7 @@ def generate_statistics(trie):
     non_zero_freqs = [f for f in freqs if f > 0]
     zero_freq_count = len(freqs) - len(non_zero_freqs)
 
-    print(f"\nFrequency data (from Unihan):")
+    print(f"\nFrequency data (from sentence corpus):")
     print(f"  Syllables with frequency > 0: {len(non_zero_freqs):,} ({len(non_zero_freqs)/len(syllables)*100:.1f}%)")
     print(f"  Syllables with frequency = 0: {zero_freq_count:,} ({zero_freq_count/len(syllables)*100:.1f}%)")
 
@@ -242,7 +240,7 @@ def generate_statistics(trie):
         print(f"  Mean frequency (non-zero): {sum(non_zero_freqs)/len(non_zero_freqs):.1f}")
 
     # Top 20 most frequent syllables
-    print(f"\nTop 20 most frequent syllables (by Unihan frequency):")
+    print(f"\nTop 20 most frequent syllables (by pinyin frequency):")
     for i, (syllable, char_count, total_freq) in enumerate(syllables[:20], 1):
         print(f"  {i:2d}. {syllable:8s} - {char_count:2d} chars, total freq: {total_freq:,}")
 
@@ -294,7 +292,7 @@ def save_trie_json(trie, output_path):
     print(f"✓ Saved Trie to {output_path}")
 
 
-def load_character_data(csv_path='../../../data/character_set/step7_with_freq.csv'):
+def load_character_data(csv_path='../../../data/character_set/step6_with_freq.csv'):
     """
     Load character data from CSV.
     Returns only characters with corpus frequency > 0.
@@ -316,9 +314,9 @@ def load_character_data(csv_path='../../../data/character_set/step7_with_freq.cs
 
 if __name__ == '__main__':
     print("=" * 70)
-    print("Build Pinyin Trie (Normalized to Tone3 Format)")
+    print("Build Pinyin Trie (Tone3 Format)")
     print("=" * 70)
-    print("\nNote: All pinyin normalized to tone3 (e.g., yì->yi4) to avoid duplicates")
+    print("\nNote: Uses pinyins_tone3 column (already in tone3 format with frequencies)")
 
     # Load character data
     characters = load_character_data()
