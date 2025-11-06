@@ -319,8 +319,10 @@ def plot_syllable_tone_heatmap(matrix_data, output_dir):
     ax.set_xticks(range(len(tones)))
     ax.set_xticklabels(['Neutral (0)', 'Tone 1', 'Tone 2', 'Tone 3', 'Tone 4'], fontsize=10)
     ax.set_yticks(range(len(base_syllables)))
-    ax.set_yticks(range(len(base_syllables)))
     ax.set_yticklabels(base_syllables, fontsize=7)
+
+    # Add x-axis labels at top as well (for long vertical scrolling)
+    ax.tick_params(top=True, labeltop=True, bottom=True, labelbottom=True)
 
     # Add colorbar
     cbar = plt.colorbar(im, ax=ax)
