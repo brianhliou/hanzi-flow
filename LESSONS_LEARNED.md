@@ -329,6 +329,194 @@ Settings page (with scrollbar):
 
 ---
 
+## 4. Mixed Pinyin Formats: Technical Debt from Multiple Data Sources
+
+**Date:** 2025-11-06
+
+**Problem:**
+During development of the Pinyin Trie analysis (character-level Trie of all Chinese pinyin syllables), we discovered a critical data consistency issue causing massive duplication:
+- **2,004 "unique" syllables** stored in dataset
+- **612 were duplicates** (30.5% duplication rate)
+- **69.8% of character-syllable mappings affected**
+- Example: `yì` (39 chars) and `yi4` (13 chars) stored separately = same syllable, different format
+
+**Investigation Process:**
+1. Built Pinyin Trie from character_set CSV (step7_with_freq.csv)
+2. Found unexpectedly high syllable count (2,004 vs expected ~1,400)
+3. Noticed both tone marks (`yì`, `zhōng`) and tone3 (`yi4`, `zhong1`) in data
+4. Created `check_duplicate_syllables.py` to analyze: Found 612 duplicates
+5. Traced back to data pipeline - discovered multiple sources with different formats:
+   - **Step 2 (Unihan)**: Outputs tone marks → `lè(283)|yuè(54)`
+   - **Step 6 (pypinyin)**: Outputs tone3 → `zheng1|mo4|fou1`
+6. Searched codebase for conversion utilities - found 6+ places with duplicate logic:
+   - `app/lib/pinyin.ts` (TypeScript app)
+   - `scripts/audio/enumerate_syllables_unihan.py`
+   - `scripts/character_set/misc/fix_pinyin_format.py`
+   - Plus 3+ analysis scripts we just wrote
+7. Realized `fix_pinyin_format.py` was created as a workaround for this exact issue
+
+**Root Cause:**
+**No normalization at data ingestion layer.**
+
+```
+Step 2: Unihan → tone marks → Store mixed formats → Every consumer must normalize
+Step 6: pypinyin → tone3    →
+```
+
+Three compounding factors:
+1. **Multiple pinyin sources** (Unihan + pypinyin) with different output formats
+2. **No validation** for format consistency between pipeline steps
+3. **No shared conversion utility** - each developer wrote their own when needed
+
+**Examples of Mixed Data:**
+From `step6_enriched.csv`:
+```csv
+id,char,pinyins
+2,丁,dīng(16)|zheng1           ← Unihan (tone mark) + pypinyin (tone3)
+9,万,wàn(1335)|mo4              ← Mixed formats
+15,不,bù(23305)|bu(555)|fou1|fu1  ← Three different formats!
+74,么,me(8053)|ma|mo2|yao1      ← Mix of neutral + tone3
+```
+
+**Workarounds Created (Technical Debt):**
+1. **`fix_pinyin_format.py`** (235 lines) - Band-aid script created Oct 2024
+2. **Normalization in every consumer** - Trie builder, validators, analysis scripts (40+ lines each)
+3. **Deduplication everywhere** - Every script handles this independently
+
+**Solution (Planned):**
+**Phase 1: Create Foundation**
+- Create `scripts/utils/pinyin_converter.py` - canonical Python conversion utility
+- Verify `app/lib/pinyin.ts` matches Python logic (already exists, bi-directional)
+
+**Phase 2: Fix Data Pipeline**
+- Update step2 to normalize Unihan → tone3 immediately after parsing
+- Consider: Eliminate Unihan for pinyin entirely, use only pypinyin as single source
+  - Would merge step2 + step6 into single pypinyin-based step
+  - pypinyin can output both formats: `Style.TONE3` and `Style.TONE`
+  - Store canonical tone3, generate tone marks for display on demand
+- Add format validation between pipeline steps
+
+**Phase 3: Rebuild Data**
+- Run complete pipeline (steps 1-7)
+- Validate: Check format consistency, syllable counts, character counts
+- Update production data with verification
+
+**Phase 4: Cleanup**
+- Delete `fix_pinyin_format.py` (no longer needed)
+- Remove normalization from consumers (Trie builder, etc.)
+- Update reference data (`syllables_enumeration.json`) to include both formats pre-computed
+
+**Key Takeaways:**
+- ⚠️ **Normalize at ingestion, not at consumption** - Fix data problems at the source
+- **Single source of truth for conversions** - One utility used everywhere, not 6+ implementations
+- **Validate data format between pipeline steps** - Catch inconsistencies early
+- **Audit dependencies before integration** - Check output format before adding new data source
+- **Document format decisions explicitly** - "All pinyins stored in tone3 format"
+- **One-way doors require verification** - Test before deleting/overwriting data
+- **Consider single-source architecture** - pypinyin alone vs Unihan + pypinyin
+  - pypinyin has comprehensive pinyin data (including alternatives)
+  - Can output any format needed
+  - Simpler pipeline with one source
+
+**Cost Analysis:**
+- Time spent on workarounds: ~7 hours (fix script, normalizers, debugging, docs)
+- Time to fix properly: ~4 hours (utility + pipeline updates + testing)
+- **Ongoing cost**: Maintenance burden, confusion for new developers, fragile code
+
+**ROI**: Would have saved 3 hours initially + eliminated ongoing maintenance burden
+
+**pypinyin Format Options:**
+```python
+from pypinyin import pinyin, Style
+
+# Available styles:
+Style.TONE3      # → "ni3hao3" (tone numbers - our target)
+Style.TONE       # → "nǐhǎo" (tone marks)
+Style.TONE2      # → "ni3ha03" (tone numbers with 0 for neutral)
+Style.NORMAL     # → "nihao" (no tones)
+Style.INITIALS   # → "nh" (consonants only)
+Style.FINALS     # → "iao" (vowels only)
+```
+
+**Why Use pypinyin as Single Source:**
+1. **Comprehensive coverage** - Knows both formal and colloquial pronunciations
+2. **Context awareness** - Can detect different usages (though not perfect)
+3. **Heteronym support** - `heteronym=True` gives all valid pronunciations
+4. **Format flexibility** - Can output any format we need
+5. **Well maintained** - Active library with good docs
+6. **Already integrated** - We use it in step6, just expand usage
+
+**Alternative: Keep Both Sources but Normalize Immediately:**
+```python
+# In step2 (Unihan):
+def parse_unihan_readings():
+    # ... existing parsing ...
+    normalized_pinyin = convert_to_tone3(unihan_pinyin)  # ← Add normalization
+    return normalized_pinyin
+
+# In step6 (pypinyin):
+result = pinyin(char, style=Style.TONE3, heteronym=True)  # ← Use TONE3 directly
+```
+
+**Recommended Approach: Simplify to pypinyin Only**
+
+**Benefits:**
+- ✅ One source = one format = no conversion needed
+- ✅ Simpler pipeline (merge step2 + step6)
+- ✅ No format inconsistencies possible
+- ✅ pypinyin knows all the pinyins Unihan knows (+ more)
+- ✅ Future-proof - library actively maintained
+
+**Tradeoffs:**
+- ⚠️ Lose Unihan frequency data (but we already supplement with corpus frequency anyway)
+- ⚠️ pypinyin might have slight differences vs Unihan for obscure characters
+- ⚠️ Need to verify pypinyin coverage is sufficient (likely >99%)
+
+**Related Files:**
+- `scripts/character_set/build_step2_pinyin.py` - Unihan ingestion (currently uses tone marks)
+- `scripts/character_set/build_step6_enrich_pypinyin.py` - pypinyin enrichment (currently uses Style.TONE)
+- `scripts/character_set/misc/fix_pinyin_format.py` - Workaround script (to be eliminated)
+- `scripts/character_set/analysis/build_pinyin_trie.py` - Where we discovered the issue
+- `scripts/character_set/analysis/check_duplicate_syllables.py` - Diagnostic tool
+- `app/lib/pinyin.ts` - App conversion logic (bidirectional, working well)
+- `scripts/audio/enumerate_syllables_unihan.py` - Audio pipeline conversion
+- `data/character_set/step6_enriched.csv` - Current data with mixed formats
+- `data/character_set/analysis/pinyin_trie.json` - Now normalized (1,392 syllables)
+
+**Impact Metrics:**
+
+Before normalization:
+```
+Total syllables: 2,004
+Duplicates: 612 (30.5%)
+Affected mappings: 69.8%
+Format mix: 58% tone marks + 33% tone3 + 9% neutral
+```
+
+After normalization (Trie):
+```
+Total syllables: 1,392
+Duplicates: 0
+Format: 100% tone3 (yi4, zhong1, de0)
+Tone distribution: T1(22.8%), T2(18.1%), T3(21.8%), T4(24.8%), Neutral(12.4%)
+```
+
+**Migration Checklist (When We Execute):**
+- [ ] Create `scripts/utils/pinyin_converter.py` with tests
+- [ ] Decide: pypinyin-only OR keep both sources with normalization
+- [ ] Update pipeline scripts (step2, step6, or merge them)
+- [ ] Add format validation after each step
+- [ ] Run full pipeline on test data
+- [ ] Compare output: syllable counts, character counts, examples
+- [ ] Review 50-100 random character pinyins manually
+- [ ] Update production data (with git history as backup)
+- [ ] Delete workaround scripts (`fix_pinyin_format.py`)
+- [ ] Remove normalization from consumers (Trie builder, etc.)
+- [ ] Update all documentation
+- [ ] Test app display - ensure tone marks render correctly
+
+---
+
 ## Template for Future Entries
 
 **Date:** YYYY-MM-DD
