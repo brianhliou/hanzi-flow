@@ -21,14 +21,14 @@ import matplotlib.pyplot as plt
 
 def load_hsk_characters():
     """
-    Load all HSK characters from chinese_characters.csv.
+    Load all HSK characters from step6_enriched.csv.
     This includes both Simplified and Traditional characters with HSK mappings.
 
     Returns:
         dict: {character: hsk_level}
     """
     hsk_chars = {}
-    char_csv = Path('../../data/chinese_characters.csv')
+    char_csv = Path('../../data/character_set/step6_enriched.csv')
 
     with open(char_csv, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)

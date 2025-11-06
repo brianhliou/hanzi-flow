@@ -73,15 +73,28 @@ python3 build_step6_enrich_pypinyin.py
   - 的: Adds `di1`, `di2`, `di4` to existing `de(7394)`
 - Preserves frequency data from Unihan while adding new alternatives without frequencies
 - Output: `../../data/character_set/step6_enriched.csv` (enriched pinyins column)
-- **Final step**: Copy to `../../data/character_set/chinese_characters.csv` and `../../app/public/data/character_set/chinese_characters.csv`
+
+### Step 7: Character Frequency Data
+```bash
+python3 build_step7_freq.py
+```
+- Counts character occurrences in the sentence corpus
+- Currently reads from: `../../app/public/data/sentences/sentences_with_translation.json` (79,333 sentences)
+  - **Note**: Temporary for convenience. Will be updated to read from cleaned `/data/sentences/` files later
+- Adds frequency data showing how often each character appears in real-world usage
+- Statistics:
+  - 4,973 characters appear in corpus (23.7% of total)
+  - 771,493 total character occurrences counted
+  - Top character: 我 (31,658 occurrences)
+- Optionally generates distribution graphs (requires `matplotlib`)
+- Output: `../../data/character_set/step7_with_freq.csv` adds column: `freq`
+- **Final dataset** with both HSK levels and frequency data
 
 ## Final Dataset
 
-**Source of Truth**: `../../data/chinese_characters.csv`
+**Latest Build Output**: `../../data/character_set/step7_with_freq.csv`
 
-This is the production dataset for the app. All columns from step5:
-
-Copy of `step5_hsk.csv` with all columns:
+This is the complete character dataset with all enrichment layers. All columns:
 - `id` - Sequential integer (1-20992)
 - `char` - The Chinese character
 - `codepoint` - Unicode identifier (e.g., U+4E00)
@@ -91,6 +104,7 @@ Copy of `step5_hsk.csv` with all columns:
 - `gloss_en` - Short English gloss from CC-CEDICT
 - `examples` - Pipe-separated example words (up to 3)
 - `hsk_level` - HSK level (1, 2, 3, 4, 5, 6, or "7-9") or empty for non-HSK characters
+- `freq` - Character frequency count in sentence corpus (0 if character doesn't appear)
 
 ## Coverage Statistics
 
@@ -127,20 +141,19 @@ Intermediate CSVs are stored in `../../data/character_set/` for audit purposes:
 - `step3_cedict.csv` - With glosses and examples
 - `step4_variants.csv` - With script types and variants
 - `step5_hsk.csv` - With HSK levels
-- `step6_enriched.csv` - **Final output** with enriched pypinyin alternatives
+- `step6_enriched.csv` - With enriched pypinyin alternatives
+- `step7_with_freq.csv` - **Final output** with character frequency data
 
 ## Rebuilding
 
 If source data is updated:
-1. Re-run all steps in order (each step reads from the previous step's output)
-2. Copy final `step6_enriched.csv` to:
-   - `../../data/character_set/chinese_characters.csv` (main dataset)
-   - `../../app/public/data/character_set/chinese_characters.csv` (production/frontend)
+1. Re-run all steps in order (steps 1-7, each step reads from the previous step's output)
+2. Final output: `step7_with_freq.csv` contains the complete dataset
+3. To update production: Copy to `../../app/public/data/character_set/chinese_characters.csv` when ready
 
-**Note**: Step 6 requires the `pypinyin` library:
-```bash
-pip install pypinyin
-```
+**Dependencies**:
+- Step 6 requires `pypinyin`: `pip install pypinyin`
+- Step 7 optionally uses `matplotlib` for distribution graphs (not required for CSV generation)
 
 ## HSK Data Source
 

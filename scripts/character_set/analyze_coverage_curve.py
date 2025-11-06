@@ -7,7 +7,7 @@ of corpus text covered. Demonstrates the power law of Chinese character
 frequency - learning the most common 1000 characters provides ~90% coverage.
 
 Inputs:
-- chinese_characters.csv (with freq column)
+- step7_with_freq.csv (with freq column)
 
 Outputs:
 - character_coverage_curve.png
@@ -18,7 +18,7 @@ import matplotlib
 matplotlib.use('Agg')  # Non-interactive backend
 
 
-def load_character_data(csv_path='../../data/chinese_characters_with_freq.csv'):
+def load_character_data(csv_path='../../data/character_set/step7_with_freq.csv'):
     """Load character frequency data (includes freq column)."""
     print(f"Loading character data from {csv_path}...")
 

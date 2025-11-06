@@ -4,7 +4,7 @@ Classify sentences by HSK level based on maximum character HSK level.
 
 Input:
 - cmn_sentences_with_char_pinyin_and_translation.csv
-- chinese_characters.csv (with hsk_level column)
+- step6_enriched.csv (with hsk_level column)
 
 Output:
 - cmn_sentences_with_char_pinyin_and_translation_and_hsk.csv (adds sentence_hsk_level column)
@@ -42,12 +42,12 @@ def hsk_sort_key(level_str):
     return int(level_str)
 
 
-def load_char_hsk_mapping(csv_path='../../data/chinese_characters.csv'):
+def load_char_hsk_mapping(csv_path='../../data/character_set/step6_enriched.csv'):
     """
     Load character → HSK level mapping from character dataset.
 
     Args:
-        csv_path: Path to chinese_characters.csv
+        csv_path: Path to step6_enriched.csv
 
     Returns:
         Dict mapping character → hsk_level (string or empty string)
@@ -130,7 +130,7 @@ def classify_sentence_hsk(char_pinyin_pairs, char_hsk_map):
 
 def classify_sentences(input_csv='../../data/sentences/cmn_sentences_with_char_pinyin_and_translation.csv',
                        output_csv='../../data/sentences/cmn_sentences_with_char_pinyin_and_translation_and_hsk.csv',
-                       char_csv='../../data/chinese_characters.csv'):
+                       char_csv='../../data/character_set/step6_enriched.csv'):
     """
     Classify all sentences by HSK level.
 

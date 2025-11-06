@@ -1,14 +1,30 @@
 #!/usr/bin/env python3
 """
-Analyze character frequency from Tatoeba sentences and add to dataset.
+Step 7: Add character frequency data to the character dataset.
+
+Counts character occurrences in the sentence corpus and adds a 'freq' column.
 Also generates statistics and distribution graphs.
+
+Input: step6_enriched.csv (has hsk_level)
+Output: step7_with_freq.csv (has both hsk_level and freq)
+
+Note: Currently reads from production JSON for convenience.
+      Later will be updated to read from cleaned /data/sentences/ files.
 """
 import csv
+import json
 import re
 from collections import Counter
-import matplotlib.pyplot as plt
-import matplotlib
-matplotlib.use('Agg')  # Non-interactive backend
+
+# Optional: matplotlib for distribution graphs (not required for CSV generation)
+try:
+    import matplotlib
+    matplotlib.use('Agg')  # Non-interactive backend
+    import matplotlib.pyplot as plt
+    MATPLOTLIB_AVAILABLE = True
+except ImportError:
+    MATPLOTLIB_AVAILABLE = False
+    print("Note: matplotlib not available - will skip distribution graph generation")
 
 
 def extract_chinese_characters(text):
@@ -21,9 +37,12 @@ def extract_chinese_characters(text):
     return chinese_chars
 
 
-def parse_tatoeba_sentences(file_path='../../data/sentences/cmn_sentences.tsv'):
+def parse_sentence_corpus(file_path='../../app/public/data/sentences/sentences_with_translation.json'):
     """
-    Parse Tatoeba sentences and count character frequency.
+    Parse sentence corpus (JSON format) and count character frequency.
+
+    Note: Currently reads from production JSON for convenience.
+          Later will be updated to read from /data/sentences/ after cleanup.
 
     Returns:
         Counter mapping character -> frequency count
@@ -34,21 +53,22 @@ def parse_tatoeba_sentences(file_path='../../data/sentences/cmn_sentences.tsv'):
     print(f"Parsing {file_path}...")
 
     with open(file_path, 'r', encoding='utf-8') as f:
-        for line in f:
-            parts = line.strip().split('\t')
-            if len(parts) < 3:
-                continue
+        data = json.load(f)
 
-            sentence = parts[2]  # Third column is the sentence
+    sentences = data.get('sentences', [])
+    print(f"  Loaded {len(sentences):,} sentences from JSON")
 
-            # Extract Chinese characters
-            chars = extract_chinese_characters(sentence)
-            char_counter.update(chars)
+    for sentence_obj in sentences:
+        sentence = sentence_obj.get('sentence', '')
 
-            total_sentences += 1
+        # Extract Chinese characters
+        chars = extract_chinese_characters(sentence)
+        char_counter.update(chars)
 
-            if total_sentences % 10000 == 0:
-                print(f"  Processed {total_sentences:,} sentences...")
+        total_sentences += 1
+
+        if total_sentences % 10000 == 0:
+            print(f"  Processed {total_sentences:,} sentences...")
 
     print(f"\n✓ Processed {total_sentences:,} sentences")
     print(f"  Unique characters found: {len(char_counter):,}")
@@ -58,10 +78,12 @@ def parse_tatoeba_sentences(file_path='../../data/sentences/cmn_sentences.tsv'):
 
 
 def add_frequency_to_csv(char_counter,
-                         input_csv='../../data/chinese_characters.csv',
-                         output_csv='../../data/chinese_characters_with_freq.csv'):
+                         input_csv='../../data/character_set/step6_enriched.csv',
+                         output_csv='../../data/character_set/step7_with_freq.csv'):
     """
     Add frequency column to the character dataset.
+
+    Takes step6_enriched.csv (has hsk_level) and adds freq column.
     """
     print(f"\nReading {input_csv}...")
 
@@ -234,16 +256,30 @@ def plot_frequency_distribution(rows, output_file='../../data/character_set/freq
 
 
 if __name__ == '__main__':
-    # Step 1: Count character frequency from Tatoeba
-    char_counter = parse_tatoeba_sentences()
+    print("=" * 70)
+    print("Step 7: Add character frequency data")
+    print("=" * 70)
 
-    # Step 2: Add frequency to CSV
+    # Step 1: Count character frequency from sentence corpus
+    char_counter = parse_sentence_corpus()
+
+    # Step 2: Add frequency to CSV (input: step6, output: step7)
     rows = add_frequency_to_csv(char_counter)
 
     # Step 3: Generate statistics
     generate_statistics(rows)
 
-    # Step 4: Plot distribution
-    plot_frequency_distribution(rows)
+    # Step 4: Plot distribution (optional - requires matplotlib)
+    if MATPLOTLIB_AVAILABLE:
+        plot_frequency_distribution(rows)
+    else:
+        print("\n⚠️  Skipping distribution graph (matplotlib not installed)")
+        print("   To generate graphs: pip install matplotlib")
 
-    print("\n✓ Analysis complete!")
+    print("\n" + "=" * 70)
+    print("✓ Step 7 complete!")
+    print("=" * 70)
+    print("\nNext steps:")
+    print("  1. Review step7_with_freq.csv")
+    print("  2. Check frequency_distribution.png")
+    print("  3. When ready, copy to production if needed")

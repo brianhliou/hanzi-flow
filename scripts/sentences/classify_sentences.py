@@ -8,7 +8,7 @@ import re
 from collections import Counter, defaultdict
 
 
-def load_character_classifications(csv_file='../../data/character_set/chinese_characters.csv'):
+def load_character_classifications(csv_file='../../data/character_set/step6_enriched.csv'):
     """
     Load character -> script_type mapping from the dataset.
 
