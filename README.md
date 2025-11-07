@@ -273,9 +273,3 @@ MIT License - see [LICENSE](LICENSE) for details.
 - [MDBG](https://www.mdbg.net/) for CC-CEDICT dictionary
 - [elkmovie](https://github.com/elkmovie) for HSK 3.0 character lists
 - All contributors to open Chinese language learning resources
-
----
-
-**Made with ❤️ by [Brian Liou](https://brianhliou.github.io/)**
-
-*Local-first, privacy-first, learning-first.*
