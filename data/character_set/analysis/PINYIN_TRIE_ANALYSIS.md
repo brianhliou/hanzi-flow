@@ -106,19 +106,22 @@ This analysis examines 1,161 unique pinyin syllables actually used in a corpus o
 
 ---
 
-## Syllable Depth Distribution
+## Syllable Completion by Depth
 
-| Depth | Nodes | Description |
-|-------|-------|-------------|
-| 1 | 23 | Initial consonants (b, c, d, ..., z) |
-| 2 | 108 | Two-letter combinations |
-| 3 | 460 | Three-letter combinations |
-| 4 | 609 | **Peak** - most syllables complete here |
-| 5 | 367 | Longer syllables |
-| 6 | 73 | Even longer (chang, chuan, etc.) |
-| 7 | 8 | Longest syllables (chuang, shuang, zhuang) |
+**Note:** This measures where complete syllables END (terminal nodes only), not all nodes in the tree.
 
-**Peak at depth 4:** Most syllables are 4-5 letters long (e.g., `tian1`, `wang2`, `hao3`).
+| Depth | Complete Syllables | Percentage | Description |
+|-------|-------------------|------------|-------------|
+| 2 | 10 | 0.9% | Very short syllables (e, r, a, etc.) |
+| 3 | 249 | 21.4% | Three-letter syllables (ban, hao, etc.) |
+| 4 | 482 | 41.5% | **Peak** - Most syllables complete here |
+| 5 | 342 | 29.5% | Longer syllables (tian, wang, etc.) |
+| 6 | 70 | 6.0% | Even longer (chang, chuan, etc.) |
+| 7 | 8 | 0.7% | Longest syllables (chuang, shuang, zhuang) |
+
+**Total:** 1,161 complete syllables
+
+**Peak at depth 4:** 41.5% of all syllables complete at depth 4 (3 letters + tone). Examples: `ban1`, `mao2`, `hao3`, `zhu4`.
 
 **Longest syllables (depth 7, all -uang):**
 - chuang1, chuang2, chuang3, chuang4
@@ -188,10 +191,11 @@ This analysis examines 1,161 unique pinyin syllables actually used in a corpus o
 ## Visualizations Generated
 
 1. **tone_distributions.png** - 3-panel comparison of tone distributions
-2. **depth_distribution.png** - Node count by syllable depth
+2. **depth_distribution.png** - Syllable completion by depth (terminal nodes only)
 3. **polyphonic_characters.png** - Top 20 characters with most pronunciations
 4. **syllable_complexity.png** - Character count distribution per syllable
-5. **pinyin_trie_visualization.svg** - Interactive full Trie structure
+5. **syllable_tone_matrix.png** - Heatmap of 401 base syllables × 5 tones
+6. **pinyin_trie_visualization.svg** - Interactive full Trie structure
 
 ---
 

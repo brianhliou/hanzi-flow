@@ -16,8 +16,8 @@ Analysis tools for the Chinese character dataset, with focus on pinyin syllable 
 **analyze_trie.py** - Comprehensive statistical analysis and visualization
 - Input: `pinyin_trie.json`
 - Outputs: 5 PNG charts + console report
-- Analyzes: tone distributions, syllable complexity, polyphonic characters, depth distribution, syllable×tone matrix
-- Generates: `PINYIN_TRIE_ANALYSIS.md` with key findings
+- Analyzes: tone distributions, syllable complexity, polyphonic characters, syllable completion by depth, syllable×tone matrix
+- **New**: Depth distribution now counts terminal nodes only (where syllables complete)
 - **New**: Syllable×tone heatmap shows 401 base syllables across 5 tones with character counts
 
 **visualize_trie.py** - Interactive SVG visualization of Trie structure
@@ -64,7 +64,7 @@ All outputs are stored in `../../../data/character_set/analysis/`:
 
 ### Statistical Charts
 - `tone_distributions.png` - 3-panel tone comparison (by syllables, characters, frequency)
-- `depth_distribution.png` - Node count by depth (depths 1-7)
+- `depth_distribution.png` - Syllable completion by depth (terminal nodes only, depths 2-7)
 - `polyphonic_characters.png` - Top 20 characters with most pronunciations
 - `syllable_complexity.png` - Character count distribution per syllable
 - `syllable_tone_matrix.png` - Heatmap of 401 base syllables × 5 tones with character counts
@@ -208,7 +208,7 @@ python3 build_pinyin_trie.py
 
 ### Run Statistical Analysis
 ```bash
-# Generates 5 charts + PINYIN_TRIE_ANALYSIS.md
+# Generates 5 charts + console report + updates PINYIN_TRIE_ANALYSIS.md
 python3 analyze_trie.py
 ```
 

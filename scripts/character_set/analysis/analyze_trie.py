@@ -40,21 +40,26 @@ def collect_all_syllables(node, prefix=""):
 
 def analyze_depth_distribution(trie):
     """
-    Analyze node distribution by depth.
+    Analyze terminal node (complete syllables) distribution by depth.
 
-    Returns: dict {depth: node_count}
+    Returns: dict {depth: terminal_node_count}
     """
-    def count_by_depth(node, depth=0):
-        counts = {depth: 1}
+    def count_terminals_by_depth(node, depth=0):
+        counts = {}
 
+        # Only count if this is a terminal node (complete syllable)
+        if node.get('is_end'):
+            counts[depth] = 1
+
+        # Recurse to children
         for child in node.get('children', {}).values():
-            child_counts = count_by_depth(child, depth + 1)
+            child_counts = count_terminals_by_depth(child, depth + 1)
             for d, count in child_counts.items():
                 counts[d] = counts.get(d, 0) + count
 
         return counts
 
-    return count_by_depth(trie)
+    return count_terminals_by_depth(trie)
 
 
 def extract_tone(syllable):
@@ -171,7 +176,7 @@ def plot_tone_distributions(distributions, output_dir):
 
 def plot_depth_distribution(depth_counts, output_dir):
     """
-    Create bar chart for node distribution by depth.
+    Create bar chart for terminal node (complete syllables) distribution by depth.
     """
     matplotlib.use('Agg')
 
@@ -189,9 +194,9 @@ def plot_depth_distribution(depth_counts, output_dir):
                f'{count:,}',
                ha='center', va='bottom', fontsize=10, fontweight='bold')
 
-    ax.set_title('Trie Node Distribution by Depth', fontsize=14, fontweight='bold')
+    ax.set_title('Syllable Completion by Depth\n(complete syllables at each depth level)', fontsize=14, fontweight='bold')
     ax.set_xlabel('Depth (letters from root)', fontsize=11)
-    ax.set_ylabel('Node Count', fontsize=11)
+    ax.set_ylabel('Number of Complete Syllables', fontsize=11)
     ax.set_xticks(depths)
     ax.grid(axis='y', alpha=0.3, linestyle='--')
     ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, p: f'{int(x):,}'))
@@ -524,11 +529,11 @@ def print_summary_statistics(syllables, depth_counts, distributions):
 
     # Depth distribution
     print(f"\n" + "-" * 70)
-    print("Node Distribution by Depth:")
+    print("Complete Syllables by Depth:")
     print("-" * 70)
     for depth in sorted(depth_counts.keys()):
         count = depth_counts[depth]
-        print(f"  Depth {depth}: {count:4,} nodes")
+        print(f"  Depth {depth}: {count:4,} complete syllables")
 
 
 def print_common_syllables(most_common, least_common):
