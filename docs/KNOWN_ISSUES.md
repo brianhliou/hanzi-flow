@@ -61,67 +61,47 @@ Accepted as-is. This is a common tradeoff in Next.js applications using client-s
 
 ## Data Quality
 
-### Incorrect pinyin for 谁 character
-**Status:** Open - needs investigation
+### ~~Incorrect pinyin for 谁 character~~ [RESOLVED]
+**Status:** ✅ Resolved (Oct 2025)
 
 **Description:**
-The character 谁 (who) is listed with pinyin `shui2` in all 428 occurrences in the sentence data. However, the standard modern Mandarin pronunciation is `shei2`, not `shui2`. While `shui2` is an alternate/literary pronunciation, `shei2` is what's used in spoken language and should be the primary accepted answer.
+The character 谁/誰 (who) was incorrectly listed with formal pinyin `shuí` instead of colloquial `shei2` which is used in modern spoken Mandarin.
 
-**Impact:**
-- Users familiar with the standard pronunciation `shei2` will get marked wrong
-- This is particularly frustrating because `shei2` is the correct modern spoken form
-- Affects 428 sentences in the corpus
+**Solution:**
+Fixed via OpenAI-powered context-aware pinyin refinement in sentence pipeline step 5. Applied 726 corrections for 谁/誰 across the corpus, changing formal `shuí` to colloquial `shei2` where appropriate.
 
-**Possible solutions:**
-1. **Update source data**: Change all instances from `shui2` to `shei2`
-2. **Accept both pronunciations**: Modify scoring logic to accept both `shei2` and `shui2` as correct
-3. **Character-specific exceptions**: Create a mapping of characters with multiple valid pronunciations
+**Technical details:**
+- See `scripts/sentences/step5/README.md` for pinyin refinement workflow
+- See `LESSONS_LEARNED.md` Section 2 for complete analysis
+- Output: `data/sentences/step5_pinyin_refined.csv`
 
-**Data source:**
-The pinyin data likely comes from the original Tatoeba dataset or character mapping file. Need to investigate:
-- `/data/sentences/cmn_sentences_with_char_pinyin.csv` (if exists)
-- Character mapping generation scripts in `/scripts/sentences/`
+**Note:** While the workflow is complex (requires OpenAI API processing), the corrections have been applied to production data and are included in the repository.
 
-**Next steps:**
-- Verify the source of the pinyin data
-- Determine if there are other characters with similar alternate pronunciation issues
-- Decide on preferred solution (update data vs. accept multiple pronunciations)
-
-### Incorrect pinyin for 地 when used as adverbial particle
-**Status:** Open - needs investigation
+### ~~Incorrect pinyin for 地 when used as adverbial particle~~ [RESOLVED]
+**Status:** ✅ Resolved (Oct 2025)
 
 **Description:**
 The character 地 has multiple pronunciations depending on context:
 - `di4` when meaning "earth/ground/land" (noun)
-- `de` (neutral tone) when used as an adverbial particle (similar to how 的 works)
+- `de` (neutral tone) when used as an adverbial particle (adjective + 地 + verb pattern)
 
-In sentence 27131: "后来我意识到北京人比较慢地散步。", the character 地 is used adverbially (慢地 = slowly), so it should be pronounced `de`, not `di4`. However, our data has it as `di4`.
+Previously, pypinyin + jieba often assigned `di4` even when used as a particle, which is grammatically incorrect.
 
-**Impact:**
-- Users who correctly identify the grammatical function and pronounce it as `de` will be marked wrong
-- This is a common grammar pattern in Chinese (adjective + 地 + verb)
-- Unknown how many sentences are affected
+**Solution:**
+Fixed via OpenAI-powered context-aware pinyin refinement in sentence pipeline step 5. Applied 805 corrections for 地, properly distinguishing between noun usage (`di4`) and particle usage (`de`).
 
-**Related issue:**
-This is similar to the 谁 (shei2/shui2) issue - characters with context-dependent pronunciations.
+**Other polyphonic characters also fixed:**
+- 著/着 (696 corrections): Aspect marker `zhe` vs verb `zhuo2`/`zhao2`
+- 覺/觉 (139 corrections): Sleep `jiao4` vs feel `jue2`
+- 長/长 (349 corrections): Long `chang2` vs grow `zhang3`
+- 樂 (155 corrections): Music `yue4` vs happy `le4`
 
-**Other characters with similar issues:**
-- 的 (de/di2/di4) - usually `de` but can be `di2` in 的确, `di4` in 目的
-- 得 (de/de2/dei3) - grammar particle `de`, verb `de2` (obtain), modal `dei3` (must)
-- 了 (le/liao3) - aspect marker `le`, verb `liao3` (finish/understand)
-- 着 (zhe/zhao2/zhuo2/zhuó) - aspect marker `zhe`, other meanings have different tones
-- 为 (wei2/wei4) - depends on meaning and context
+**Technical details:**
+- See `scripts/sentences/step5/README.md` for pinyin refinement workflow
+- See `LESSONS_LEARNED.md` Section 2 for complete analysis
+- Total applied: 2,870 character-level pinyin improvements across 2,720 sentences
 
-**Possible solutions:**
-1. **Manual review**: Find all instances where 地/的/得 are used as particles and correct to neutral tone
-2. **Grammar-aware pinyin**: Use NLP to detect grammatical function and assign correct pronunciation
-3. **Accept multiple**: Add exceptions to accept both pronunciations for these characters
-4. **Update source data**: If the source (Tatoeba) has errors, this affects all derived data
-
-**Next steps:**
-- Search for other instances of 地 used as adverbial particle (look for pattern: adjective + 地 + verb)
-- Investigate other grammatical particles (的, 得, 了, 着, etc.)
-- Consider creating a comprehensive list of context-dependent pronunciation characters
+**Note:** While the workflow is complex (requires OpenAI API processing), the corrections have been applied to production data and are included in the repository.
 
 ---
 

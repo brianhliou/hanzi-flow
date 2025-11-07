@@ -4,6 +4,33 @@ This document captures important debugging insights and technical lessons learne
 
 ---
 
+## Template for New Entries
+
+**Date:** YYYY-MM-DD
+
+**Problem:**
+[Brief description of the issue]
+
+**Investigation Process:**
+[How you debugged it, what you tried]
+
+**Root Cause:**
+[What actually caused the problem]
+
+**Solution:**
+[How you fixed it]
+
+**Key Takeaways:**
+[Bullet points of lessons learned]
+
+**Related Files:**
+[Files that were modified or are relevant]
+
+**Code Before/After:**
+[Optional code snippets showing the change]
+
+---
+
 ## 1. CSS `transition-all` Can Cause Unexpected Layout Animations
 
 **Date:** 2025-10-21
@@ -763,30 +790,3 @@ for pinyin, pinyin_freq in pinyin_list:
 ```
 
 Only 2 characters affected, only non-ASCII node found in entire Trie.
-
----
-
-## Template for Future Entries
-
-**Date:** YYYY-MM-DD
-
-**Problem:**
-[Brief description of the issue]
-
-**Investigation Process:**
-[How you debugged it, what you tried]
-
-**Root Cause:**
-[What actually caused the problem]
-
-**Solution:**
-[How you fixed it]
-
-**Key Takeaways:**
-[Bullet points of lessons learned]
-
-**Related Files:**
-[Files that were modified or are relevant]
-
-**Code Before/After:**
-[Optional code snippets showing the change]
