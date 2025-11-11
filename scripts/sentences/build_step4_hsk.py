@@ -2,9 +2,14 @@
 """
 Classify sentences by HSK level based on maximum character HSK level.
 
+NEW LOGIC:
+- Traditional sentences are NOT classified (no HSK level assigned)
+- Simplified/neutral sentences are classified based ONLY on simplified + neutral characters
+- Traditional characters are completely ignored in HSK calculation
+
 Input:
-- step3_with_translation.csv
-- step6_enriched.csv (with hsk_level column)
+- step3_with_translation.csv (with script_type column)
+- step6_enriched.csv (with hsk_level and script_type columns)
 
 Output:
 - step4_with_hsk.csv (adds sentence_hsk_level column)
@@ -42,26 +47,31 @@ def hsk_sort_key(level_str):
     return int(level_str)
 
 
-def load_char_hsk_mapping(csv_path='../../data/character_set/step6_enriched.csv'):
+def load_char_hsk_mapping(csv_path='../../data/character_set/v0/step5_hsk.csv'):
     """
-    Load character → HSK level mapping from character dataset.
+    Load character → HSK level and script_type mappings from character dataset.
 
     Args:
         csv_path: Path to step6_enriched.csv
 
     Returns:
-        Dict mapping character → hsk_level (string or empty string)
+        Tuple of (hsk_map, script_type_map)
+        - hsk_map: Dict mapping character → hsk_level (string or empty string)
+        - script_type_map: Dict mapping character → script_type (simplified/traditional/neutral)
     """
     char_hsk_map = {}
+    char_script_map = {}
 
-    print(f"Loading character HSK mapping from {csv_path}...")
+    print(f"Loading character HSK and script type mappings from {csv_path}...")
 
     with open(csv_path, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             char = row['char']
             hsk_level = row.get('hsk_level', '')
+            script_type = row.get('script_type', '')
             char_hsk_map[char] = hsk_level
+            char_script_map[char] = script_type
 
     # Count how many have HSK levels
     total_chars = len(char_hsk_map)
@@ -70,23 +80,33 @@ def load_char_hsk_mapping(csv_path='../../data/character_set/step6_enriched.csv'
     print(f"✓ Loaded {total_chars:,} characters")
     print(f"  Characters with HSK levels: {chars_with_hsk:,} ({chars_with_hsk/total_chars*100:.1f}%)")
 
-    return char_hsk_map
+    return char_hsk_map, char_script_map
 
 
-def classify_sentence_hsk(char_pinyin_pairs, char_hsk_map):
+def classify_sentence_hsk(sentence_script_type, char_pinyin_pairs, char_hsk_map, char_script_map):
     """
     Calculate sentence HSK level from char:pinyin pairs.
 
-    NEW LOGIC: If sentence contains ANY non-HSK Chinese characters,
-    classify as "beyond-hsk". Otherwise use maximum HSK level.
+    NEW LOGIC:
+    1. If sentence script_type is "traditional" → return empty (no HSK classification)
+    2. For simplified/neutral sentences, ONLY check simplified + neutral characters:
+       - If any simplified/neutral char lacks HSK → "beyond-hsk"
+       - Otherwise → max HSK level of simplified/neutral chars
+       - Traditional characters are completely ignored in calculation
 
     Args:
+        sentence_script_type: Script type of the sentence (simplified/traditional/neutral)
         char_pinyin_pairs: Pipe-separated pairs like "我:wo3|爱:ai4|你:ni3"
         char_hsk_map: Dict mapping character → hsk_level
+        char_script_map: Dict mapping character → script_type
 
     Returns:
-        HSK level string ("1"-"6", "7-9", "beyond-hsk", or "" for no Chinese chars)
+        HSK level string ("1"-"6", "7-9", "beyond-hsk", or "" for traditional/no Chinese chars)
     """
+    # Traditional sentences don't get HSK classification
+    if sentence_script_type == 'traditional':
+        return ""
+
     if not char_pinyin_pairs:
         return ""
 
@@ -106,21 +126,28 @@ def classify_sentence_hsk(char_pinyin_pairs, char_hsk_map):
         if not pinyin or pinyin.strip() == '':
             continue
 
-        # Look up HSK level
+        # Get character script type
+        char_script_type = char_script_map.get(char, '')
+
+        # IGNORE traditional characters completely
+        if char_script_type == 'traditional':
+            continue
+
+        # Only process simplified + neutral characters
         hsk_level = char_hsk_map.get(char, '')
 
         if hsk_level:
             # Has HSK level
             hsk_levels.append(hsk_level)
         else:
-            # Chinese character without HSK level
+            # Simplified/neutral character without HSK level
             has_non_hsk = True
 
-    # If contains any non-HSK character, classify as beyond-hsk
+    # If contains any non-HSK simplified/neutral character, classify as beyond-hsk
     if has_non_hsk:
         return "beyond-hsk"
 
-    # No Chinese characters at all
+    # No simplified/neutral Chinese characters at all
     if len(hsk_levels) == 0:
         return ""
 
@@ -130,9 +157,12 @@ def classify_sentence_hsk(char_pinyin_pairs, char_hsk_map):
 
 def classify_sentences(input_csv='../../data/sentences/step3_with_translation.csv',
                        output_csv='../../data/sentences/step4_with_hsk.csv',
-                       char_csv='../../data/character_set/step6_enriched.csv'):
+                       char_csv='../../data/character_set/v0/step5_hsk.csv'):
     """
     Classify all sentences by HSK level.
+
+    Traditional sentences are NOT classified (empty HSK level).
+    Simplified/neutral sentences are classified based ONLY on simplified + neutral chars.
 
     Args:
         input_csv: Input sentence CSV path
@@ -143,8 +173,8 @@ def classify_sentences(input_csv='../../data/sentences/step3_with_translation.cs
     print("SENTENCE HSK CLASSIFICATION")
     print(f"{'='*60}\n")
 
-    # Step 1: Load character HSK mapping
-    char_hsk_map = load_char_hsk_mapping(char_csv)
+    # Step 1: Load character HSK and script type mappings
+    char_hsk_map, char_script_map = load_char_hsk_mapping(char_csv)
 
     # Step 2: Load sentences
     print(f"\nLoading sentences from {input_csv}...")
@@ -157,16 +187,32 @@ def classify_sentences(input_csv='../../data/sentences/step3_with_translation.cs
 
     # Step 3: Classify each sentence
     print("\nClassifying sentences by HSK level...")
+    print("Note: Traditional sentences are NOT classified")
+    print("Note: Only simplified + neutral characters are considered for HSK calculation")
+
+    traditional_skipped = 0
 
     for i, sentence in enumerate(sentences, 1):
+        sentence_script_type = sentence.get('script_type', '')
         char_pinyin_pairs = sentence.get('char_pinyin_pairs', '')
-        sentence_hsk_level = classify_sentence_hsk(char_pinyin_pairs, char_hsk_map)
+
+        sentence_hsk_level = classify_sentence_hsk(
+            sentence_script_type,
+            char_pinyin_pairs,
+            char_hsk_map,
+            char_script_map
+        )
+
         sentence['sentence_hsk_level'] = sentence_hsk_level
+
+        if sentence_script_type == 'traditional':
+            traditional_skipped += 1
 
         if i % 10000 == 0:
             print(f"  Classified {i:,} sentences...")
 
     print(f"✓ Classified all {len(sentences):,} sentences")
+    print(f"  Traditional sentences skipped: {traditional_skipped:,}")
 
     # Step 4: Write output CSV
     print(f"\nWriting output to {output_csv}...")

@@ -17,6 +17,18 @@ interface HskLevelProgress {
   seenPercentage: number;
 }
 
+interface ScriptTypeBreakdown {
+  simplified: number;
+  traditional: number;
+  neutral: number;
+}
+
+interface ScriptTypeTotals {
+  simplified: number;
+  traditional: number;
+  neutral: number;
+}
+
 interface UserStatsData {
   // Character stats
   totalCharactersLearned: number;
@@ -24,6 +36,8 @@ interface UserStatsData {
   charactersLearning: number;
   charactersNew: number;
   totalCharsInCorpus: number;
+  scriptTypeBreakdown: ScriptTypeBreakdown;
+  scriptTypeTotals: ScriptTypeTotals;
 
   // HSK progress
   hskProgress: HskLevelProgress[];
@@ -41,8 +55,8 @@ interface UserStatsData {
   newWords: WordMastery[];
 }
 
-// Reverse lookup: char_id -> {character, pinyin, allPinyins, hskLevel}
-let idToCharMap: Map<number, { char: string; pinyin: string; allPinyins: string[]; hskLevel?: string }> | null = null;
+// Reverse lookup: char_id -> {character, pinyin, allPinyins, hskLevel, scriptType}
+let idToCharMap: Map<number, { char: string; pinyin: string; allPinyins: string[]; hskLevel?: string; scriptType?: string }> | null = null;
 
 // Simple CSV parser that handles quoted fields
 function parseCSVLine(line: string): string[] {
@@ -69,7 +83,7 @@ function parseCSVLine(line: string): string[] {
   return fields;
 }
 
-async function loadIdToCharMap(): Promise<Map<number, { char: string; pinyin: string; altPinyins?: string; hskLevel?: string }>> {
+async function loadIdToCharMap(): Promise<Map<number, { char: string; pinyin: string; allPinyins: string[]; hskLevel?: string; scriptType?: string }>> {
   if (idToCharMap) return idToCharMap;
 
   const response = await fetch('/data/character_set/chinese_characters.csv');
@@ -82,21 +96,39 @@ async function loadIdToCharMap(): Promise<Map<number, { char: string; pinyin: st
 
   idToCharMap = new Map();
 
-  // Skip header line
+  // Parse header to build column index mapping
+  const headerLine = lines[0]?.trim();
+  if (!headerLine) {
+    throw new Error('CSV file is empty or has no header');
+  }
+
+  const headers = parseCSVLine(headerLine);
+  const colIndex: Record<string, number> = {};
+  headers.forEach((name, idx) => {
+    colIndex[name] = idx;
+  });
+
+  // Validate required columns exist
+  const requiredCols = ['id', 'char', 'pinyins'];
+  for (const col of requiredCols) {
+    if (colIndex[col] === undefined) {
+      throw new Error(`Missing required column: ${col}`);
+    }
+  }
+
+  // Parse data rows
   for (let i = 1; i < lines.length; i++) {
     const line = lines[i].trim();
     if (!line) continue;
 
-    // Parse CSV line: id,char,codepoint,pinyins,script_type,variants,gloss_en,examples,hsk_level
-    // Use a simple CSV parser that handles quoted fields
     const fields = parseCSVLine(line);
+    if (fields.length < headers.length) continue;
 
-    if (fields.length < 9) continue;
-
-    const id = parseInt(fields[0], 10);
-    const char = fields[1];
-    const pinyinsRaw = fields[3];
-    const hskLevel = fields[8] || undefined;
+    const id = parseInt(fields[colIndex['id']], 10);
+    const char = fields[colIndex['char']];
+    const pinyinsRaw = fields[colIndex['pinyins']];
+    const scriptType = colIndex['script_type'] !== undefined ? fields[colIndex['script_type']] || undefined : undefined;
+    const hskLevel = colIndex['hsk_level'] !== undefined ? fields[colIndex['hsk_level']] || undefined : undefined;
 
     // Extract all pinyins (remove frequency counts)
     // Format: "yī(32747)" or "le(30101)|liǎo(654)"
@@ -108,7 +140,7 @@ async function loadIdToCharMap(): Promise<Map<number, { char: string; pinyin: st
     const pinyin = pinyinVariants[0] || '?';
     const allPinyins = pinyinVariants;
 
-    idToCharMap.set(id, { char, pinyin, allPinyins, hskLevel });
+    idToCharMap.set(id, { char, pinyin, allPinyins, hskLevel, scriptType });
   }
 
   console.log(`Loaded ${idToCharMap.size} characters into map`);
@@ -116,7 +148,7 @@ async function loadIdToCharMap(): Promise<Map<number, { char: string; pinyin: st
   return idToCharMap;
 }
 
-function getCharFromId(charId: number): { char: string; pinyin: string; allPinyins: string[]; hskLevel?: string } {
+function getCharFromId(charId: number): { char: string; pinyin: string; allPinyins: string[]; hskLevel?: string; scriptType?: string } {
   const result = idToCharMap?.get(charId);
   if (!result) {
     console.warn(`Character ID ${charId} not found in CSV`);
@@ -233,12 +265,52 @@ export default function UserStats() {
           },
         ];
 
+        // Script type breakdown (learned characters)
+        const scriptTypeBreakdown: ScriptTypeBreakdown = {
+          simplified: 0,
+          traditional: 0,
+          neutral: 0,
+        };
+
+        for (const word of words) {
+          const charData = getCharFromId(word.char_id);
+          if (charData.scriptType === 'simplified') {
+            scriptTypeBreakdown.simplified++;
+          } else if (charData.scriptType === 'traditional') {
+            scriptTypeBreakdown.traditional++;
+          } else if (charData.scriptType === 'neutral') {
+            scriptTypeBreakdown.neutral++;
+          }
+        }
+
+        // Script type totals (all characters in corpus)
+        const scriptTypeTotals: ScriptTypeTotals = {
+          simplified: 0,
+          traditional: 0,
+          neutral: 0,
+        };
+
+        // Count all characters in the corpus by script type
+        if (idToCharMap) {
+          for (const charData of idToCharMap.values()) {
+            if (charData.scriptType === 'simplified') {
+              scriptTypeTotals.simplified++;
+            } else if (charData.scriptType === 'traditional') {
+              scriptTypeTotals.traditional++;
+            } else if (charData.scriptType === 'neutral') {
+              scriptTypeTotals.neutral++;
+            }
+          }
+        }
+
         setStats({
           totalCharactersLearned: words.length,
           charactersMastered: masteredWords.length,
           charactersLearning: learningWords.length,
           charactersNew: newWords.length,
           totalCharsInCorpus: metadata.totalCharsInCorpus,
+          scriptTypeBreakdown,
+          scriptTypeTotals,
           hskProgress,
           sentencesPracticedUnique: uniqueSentences,
           sentencesMastered: masteredSentences,
@@ -278,17 +350,27 @@ export default function UserStats() {
       {/* Character Progress */}
       <section>
         <h2 className="text-xl font-semibold mb-3">Character Progress</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           <StatCard
-            label="Characters Learned"
-            value={stats.totalCharactersLearned}
-            suffix={`/ ${stats.totalCharsInCorpus}`}
-            description={`${((stats.totalCharactersLearned / stats.totalCharsInCorpus) * 100).toFixed(1)}% of corpus`}
+            label="Simplified"
+            value={stats.scriptTypeBreakdown.simplified}
+            suffix={`/ ${stats.scriptTypeTotals.simplified}`}
+            description={`${stats.scriptTypeTotals.simplified > 0 ? ((stats.scriptTypeBreakdown.simplified / stats.scriptTypeTotals.simplified) * 100).toFixed(1) : 0}% of corpus`}
+            color="blue"
           />
           <StatCard
-            label="Overall Accuracy"
-            value={`${(stats.overallAccuracy * 100).toFixed(1)}%`}
-            description="Across all attempts"
+            label="Traditional"
+            value={stats.scriptTypeBreakdown.traditional}
+            suffix={`/ ${stats.scriptTypeTotals.traditional}`}
+            description={`${stats.scriptTypeTotals.traditional > 0 ? ((stats.scriptTypeBreakdown.traditional / stats.scriptTypeTotals.traditional) * 100).toFixed(1) : 0}% of corpus`}
+            color="green"
+          />
+          <StatCard
+            label="Neutral"
+            value={stats.scriptTypeBreakdown.neutral}
+            suffix={`/ ${stats.scriptTypeTotals.neutral}`}
+            description={`${stats.scriptTypeTotals.neutral > 0 ? ((stats.scriptTypeBreakdown.neutral / stats.scriptTypeTotals.neutral) * 100).toFixed(1) : 0}% of corpus`}
+            color="gray"
           />
         </div>
       </section>
@@ -589,7 +671,7 @@ function MasteryBreakdownTabs({ masteredWords, learningWords, newWords, isDev }:
         ) : (
           <div className="flex flex-wrap gap-3 justify-start">
             {activeTabData.words.map((word) => {
-              const { char, pinyin, allPinyins, hskLevel } = getCharFromId(word.char_id);
+              const { char, pinyin, allPinyins, hskLevel, scriptType } = getCharFromId(word.char_id);
 
               return (
                 <div
@@ -629,7 +711,13 @@ function MasteryBreakdownTabs({ masteredWords, learningWords, newWords, isDev }:
                   {/* Footer: Score and HSK (pinned to bottom) */}
                   <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500">
                     <span>{word.s.toFixed(2)}</span>
-                    <span>{hskLevel ? `HSK ${hskLevel}` : 'Beyond HSK'}</span>
+                    <span>
+                      {hskLevel
+                        ? `HSK ${hskLevel}`
+                        : scriptType === 'traditional'
+                          ? 'Traditional'
+                          : 'Beyond HSK'}
+                    </span>
                   </div>
                 </div>
               );

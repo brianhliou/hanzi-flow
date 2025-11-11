@@ -3,10 +3,15 @@
 Step 4: Add script type classification to SOT character dataset (IDEMPOTENT)
 
 Adds 'script_type' column classifying characters as:
-- simplified: Has traditional variant (this is the simplified form)
-- traditional: Has simplified variant (this is the traditional form)
-- neutral: Has no variants (used in both scripts or neither)
-- ambiguous: Has both variants (rare merger cases)
+- simplified: Has traditional variant only (this is the simplified form)
+- traditional: Has simplified variant only (this is the traditional form)
+- neutral: Has no variants, OR has both variants (rare merger cases)
+
+Note: Characters with both simplified and traditional variants (0.44% of dataset,
+432 chars) are treated as neutral for simplicity. These represent edge cases in
+the Unihan data where characters have complex variant relationships in both
+directions (e.g., 万, 个, 乐). Since these don't fit cleanly into a single
+script category, they're treated as neutral/shared.
 
 Uses Unihan kSimplifiedVariant and kTraditionalVariant fields.
 
@@ -62,20 +67,21 @@ def classify_script_type(codepoint, simplified_variants, traditional_variants):
     Classify a character's script type based on its variants.
 
     Logic:
-    - Has simplified variant → traditional (this char is traditional form)
-    - Has traditional variant → simplified (this char is simplified form)
-    - Has both → ambiguous (rare merger case)
+    - Has simplified variant only → traditional (this char is traditional form)
+    - Has traditional variant only → simplified (this char is simplified form)
+    - Has both → neutral (rare merger case, treat as shared)
     - Has neither → neutral (shared between scripts)
 
     Returns:
-        str: 'simplified', 'traditional', 'neutral', or 'ambiguous'
+        str: 'simplified', 'traditional', or 'neutral'
     """
     has_simplified = codepoint in simplified_variants
     has_traditional = codepoint in traditional_variants
 
     if has_simplified and has_traditional:
         # Rare case: character has both variants (merger)
-        return 'ambiguous'
+        # Treat as neutral since it doesn't fit cleanly into one category
+        return 'neutral'
     elif has_simplified:
         # This character has a simplified variant, so it's the traditional form
         return 'traditional'
@@ -128,7 +134,6 @@ def add_script_types(csv_file='../../../data/character_set/v1/sot_characters_v1.
     simplified_count = 0
     traditional_count = 0
     neutral_count = 0
-    ambiguous_count = 0
     updated_count = 0
 
     for i, row in enumerate(rows, 1):
@@ -150,8 +155,6 @@ def add_script_types(csv_file='../../../data/character_set/v1/sot_characters_v1.
             traditional_count += 1
         elif script_type == 'neutral':
             neutral_count += 1
-        elif script_type == 'ambiguous':
-            ambiguous_count += 1
 
         if i % 10000 == 0:
             print(f"  Processed {i:,} / {len(rows):,} characters...")
@@ -184,7 +187,6 @@ def add_script_types(csv_file='../../../data/character_set/v1/sot_characters_v1.
     print(f"Simplified:                    {simplified_count:,} ({simplified_count/len(rows)*100:.1f}%)")
     print(f"Traditional:                   {traditional_count:,} ({traditional_count/len(rows)*100:.1f}%)")
     print(f"Neutral:                       {neutral_count:,} ({neutral_count/len(rows)*100:.1f}%)")
-    print(f"Ambiguous:                     {ambiguous_count:,} ({ambiguous_count/len(rows)*100:.1f}%)")
 
     if has_script_type:
         print(f"\nUpdated values:                {updated_count:,} characters")
@@ -195,7 +197,7 @@ def add_script_types(csv_file='../../../data/character_set/v1/sot_characters_v1.
     print("=" * 80)
 
     # Examples of each type
-    for script_type in ['simplified', 'traditional', 'neutral', 'ambiguous']:
+    for script_type in ['simplified', 'traditional', 'neutral']:
         examples = [row for row in rows if row.get('script_type') == script_type]
         if examples:
             print(f"\n{script_type.upper()} (first 10):")

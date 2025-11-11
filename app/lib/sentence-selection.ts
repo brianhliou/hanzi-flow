@@ -21,7 +21,7 @@ import { getCharId } from './characters';
 
 const INITIAL_S = 0.3;  // From mastery.ts
 
-type ScriptFilter = 'simplified' | 'traditional' | 'mixed';
+type ScriptFilter = 'simplified' | 'traditional';
 
 // ============================================================================
 // HELPER FUNCTIONS
@@ -229,9 +229,8 @@ export async function getEligibleSentences(
       return s.script_type === 'simplified' || s.script_type === 'neutral';
     } else if (scriptFilter === 'traditional') {
       return s.script_type === 'traditional' || s.script_type === 'neutral';
-    } else {  // mixed
-      return true;
     }
+    return false;
   });
 
   // Fallback: if no sentences match script filter, use all non-ambiguous
@@ -240,26 +239,30 @@ export async function getEligibleSentences(
     filtered = allSentences.filter(s => s.script_type !== 'ambiguous');
   }
 
-  // Step 1.5: Filter by HSK level
-  const allowedHskLevels = parseHskFilter(hskFilter);
-  const hskFiltered = filtered.filter(s => {
-    // If sentence has no HSK level, exclude it (we decided to ignore unclassified sentences)
-    if (!s.hskLevel) return false;
+  // Step 1.5: Filter by HSK level (ONLY for Simplified script)
+  // Traditional sentences have no HSK classification, so skip HSK filtering
+  if (scriptFilter === 'simplified') {
+    const allowedHskLevels = parseHskFilter(hskFilter);
+    const hskFiltered = filtered.filter(s => {
+      // If sentence has no HSK level, exclude it
+      if (!s.hskLevel) return false;
 
-    // Check if sentence's HSK level is in the allowed set
-    return allowedHskLevels.includes(s.hskLevel);
-  });
-
-  // Use HSK filtered results (or fall back to script-filtered if HSK filtering removed everything)
-  if (hskFiltered.length === 0) {
-    nssWarn('No sentences for HSK filter, using script-filtered sentences', {
-      hsk_filter: hskFilter,
-      script_filtered_count: filtered.length
+      // Check if sentence's HSK level is in the allowed set
+      return allowedHskLevels.includes(s.hskLevel);
     });
-    filtered = filtered;  // Keep script-filtered sentences as fallback
-  } else {
-    filtered = hskFiltered;
+
+    // Use HSK filtered results (or fall back to script-filtered if HSK filtering removed everything)
+    if (hskFiltered.length === 0) {
+      nssWarn('No sentences for HSK filter, using script-filtered sentences', {
+        hsk_filter: hskFilter,
+        script_filtered_count: filtered.length
+      });
+      // Keep script-filtered sentences as fallback
+    } else {
+      filtered = hskFiltered;
+    }
   }
+  // For Traditional script: skip HSK filtering entirely (traditional sentences have no HSK levels)
 
   // Step 2: Filter by cooldown and mastery skip
   const eligible: Sentence[] = [];

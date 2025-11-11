@@ -11,7 +11,7 @@ import { recordSentenceAttempt, recordSentenceProgress } from '@/lib/mastery';
 import { getNextSentence } from '@/lib/sentence-selection';
 import Navigation from '@/components/Navigation';
 
-type ScriptFilter = 'simplified' | 'traditional' | 'mixed';
+type ScriptFilter = 'simplified' | 'traditional';
 
 const SCRIPT_PREFERENCE_KEY = 'hanzi-flow-script-preference';
 const HSK_PREFERENCE_KEY = 'hanzi-flow-hsk-preference';
@@ -445,7 +445,7 @@ export default function PracticePage() {
             {/* Script Preference Section */}
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-3">Chinese Script</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <button
                   onClick={() => setSelectedScript('simplified')}
                   className={`p-5 rounded-lg border-2 transition-all text-center ${
@@ -468,18 +468,6 @@ export default function PracticePage() {
                 >
                   <div className="text-5xl mb-3">繁體</div>
                   <div className="font-semibold text-lg">Traditional</div>
-                </button>
-
-                <button
-                  onClick={() => setSelectedScript('mixed')}
-                  className={`p-5 rounded-lg border-2 transition-all text-center ${
-                    selectedScript === 'mixed'
-                      ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20'
-                      : 'border-gray-200 dark:border-gray-700 hover:border-blue-600 dark:hover:border-blue-600'
-                  }`}
-                >
-                  <div className="text-4xl mb-3 whitespace-nowrap">简体 + 繁體</div>
-                  <div className="font-semibold text-lg">Mixed</div>
                 </button>
               </div>
             </div>
@@ -556,26 +544,30 @@ export default function PracticePage() {
       {/* Header with Preferences and Score */}
       <div className="bg-gray-50 dark:bg-gray-800 px-8 py-3 border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-4xl mx-auto grid grid-cols-3 items-center">
-          {/* Left: Script and HSK Level */}
+          {/* Left: Script and HSK Level (HSK only shown for Simplified) */}
           <div className="text-sm text-gray-600 dark:text-gray-400 text-left">
             {scriptFilter && (
               <span className="capitalize">{scriptFilter}</span>
             )}
-            {scriptFilter && hskFilter && <span className="mx-2">•</span>}
-            {hskFilter && (
+            {scriptFilter === 'simplified' && hskFilter && <span className="mx-2">•</span>}
+            {scriptFilter === 'simplified' && hskFilter && (
               <span>{hskFilter === '1-beyond' ? 'All Levels' : `HSK ${hskFilter}`}</span>
             )}
           </div>
 
-          {/* Center: Current Sentence HSK Level (+ ID in dev) */}
+          {/* Center: Current Sentence HSK Level (+ ID in dev) - Only shown for Simplified */}
           <div className="text-sm text-gray-600 dark:text-gray-400 text-center">
-            {currentSentence && (
+            {currentSentence && scriptFilter === 'simplified' && currentSentence.hskLevel && (
               <>
                 {currentSentence.hskLevel === 'beyond-hsk' ? 'Beyond HSK' : `HSK ${currentSentence.hskLevel}`}
                 {process.env.NODE_ENV === 'development' && (
                   <span className="ml-2 text-gray-500">#{currentSentence.id}</span>
                 )}
               </>
+            )}
+            {/* In dev mode, show ID even for Traditional or sentences without HSK */}
+            {currentSentence && (scriptFilter === 'traditional' || !currentSentence.hskLevel) && process.env.NODE_ENV === 'development' && (
+              <span className="text-gray-500">#{currentSentence.id}</span>
             )}
           </div>
 

@@ -2,13 +2,14 @@
 """
 Step 5: Add HSK level classification to character dataset
 - Downloads HSK 3.0 character lists (levels 1-9) to data/sources/
-- Assigns HSK levels to simplified characters
-- Propagates HSK levels to traditional variants via our variant mappings
+- Assigns HSK levels ONLY to characters directly in the official lists
+- Does NOT propagate HSK levels to traditional variants
 - Characters not in HSK 1-9: assigned null/empty hsk_level
 
 Data Source: elkmovie/hsk30 (https://github.com/elkmovie/hsk30)
 - More accurate than krmanik (fixes OCR errors: 入/人, 抛/拋)
 - All 3,000 characters (300 per level 1-6, 1,200 for 7-9)
+- Official HSK 3.0 lists contain simplified + neutral characters only
 """
 import csv
 import urllib.request
@@ -20,8 +21,8 @@ from collections import defaultdict
 # HSK 3.0 data source (elkmovie/hsk30 repo - more accurate than krmanik)
 HSK_CHARLIST_URL = "https://raw.githubusercontent.com/elkmovie/hsk30/main/charlist.txt"
 
-# Where to save downloaded files
-HSK_SOURCE_DIR = '../../data/sources/elkmovie_hsk30'
+# Where to save downloaded files (use canonical data/sources location)
+HSK_SOURCE_DIR = '../../../data/sources/elkmovie_hsk30'
 
 
 def download_hsk_files():
@@ -152,7 +153,7 @@ def parse_hsk_files(local_files):
     return hsk_map
 
 
-def build_variant_map(input_csv='../../data/character_set/step4_variants.csv'):
+def build_variant_map(input_csv='../../../data/character_set/v0/step4_variants.csv'):
     """
     Build bidirectional variant mapping from our character dataset.
 
@@ -186,10 +187,12 @@ def build_variant_map(input_csv='../../data/character_set/step4_variants.csv'):
     return variant_map
 
 
-def add_hsk_levels(input_csv='../../data/character_set/step4_variants.csv',
-                   output_csv='../../data/character_set/step5_hsk.csv'):
+def add_hsk_levels(input_csv='../../../data/character_set/v0/step4_variants.csv',
+                   output_csv='../../../data/character_set/v0/step5_hsk.csv'):
     """
     Add HSK level column to character dataset.
+    Only assigns HSK levels to characters directly in the official HSK 3.0 lists.
+    Does NOT propagate to traditional variants.
     """
     # Step 1: Download HSK character lists to data/sources/
     local_files = download_hsk_files()
@@ -197,10 +200,7 @@ def add_hsk_levels(input_csv='../../data/character_set/step4_variants.csv',
     # Step 2: Parse HSK files
     hsk_map = parse_hsk_files(local_files)
 
-    # Step 3: Build variant mappings from our dataset
-    variant_map = build_variant_map(input_csv)
-
-    # Step 4: Read input CSV
+    # Step 3: Read input CSV (skipping variant map building since we don't propagate)
     print(f"\nReading {input_csv}...")
     with open(input_csv, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
@@ -210,10 +210,9 @@ def add_hsk_levels(input_csv='../../data/character_set/step4_variants.csv',
 
     # Step 5: Assign HSK levels
     print("\nAssigning HSK levels...")
+    print("Note: Only assigning to characters directly in HSK 3.0 lists (no variant propagation)")
 
     direct_assignments = 0
-    variant_propagations = 0
-    conflicts = []
 
     for row in rows:
         char = row['char']
@@ -224,36 +223,16 @@ def add_hsk_levels(input_csv='../../data/character_set/step4_variants.csv',
             hsk_level = hsk_map[char]
             direct_assignments += 1
 
-        # Check if any variant is in HSK list
-        elif char in variant_map:
-            for variant in variant_map[char]:
-                if variant in hsk_map:
-                    variant_hsk = hsk_map[variant]
-
-                    if hsk_level is None:
-                        hsk_level = variant_hsk
-                        variant_propagations += 1
-                    elif hsk_level != variant_hsk:
-                        # Multiple variants with different HSK levels
-                        # Keep the minimum (most basic)
-                        old_level = hsk_level
-                        hsk_level = min(hsk_level, variant_hsk)
-                        conflicts.append((char, old_level, variant_hsk, hsk_level))
+        # Note: We intentionally do NOT propagate HSK levels to traditional variants
+        # The official HSK 3.0 lists contain simplified + neutral characters only
+        # Traditional variants should not inherit HSK levels
 
         # Assign to row (convert to string, empty string if null, for CSV compatibility)
         # Note: hsk_level can be int (1-6) or string ("7-9")
         row['hsk_level'] = str(hsk_level) if hsk_level is not None else ''
 
     print(f"✓ Direct HSK assignments: {direct_assignments}")
-    print(f"✓ Variant propagations: {variant_propagations}")
-    print(f"✓ Characters without HSK level: {len(rows) - direct_assignments - variant_propagations}")
-
-    if conflicts:
-        print(f"\n⚠ Found {len(conflicts)} characters with conflicting variant HSK levels:")
-        for char, old, new, final in conflicts[:10]:
-            print(f"  {char}: HSK {old} vs HSK {new} → using HSK {final}")
-        if len(conflicts) > 10:
-            print(f"  ... and {len(conflicts) - 10} more")
+    print(f"✓ Characters without HSK level: {len(rows) - direct_assignments}")
 
     # Step 6: Write output CSV
     fieldnames = list(rows[0].keys())  # All existing columns + hsk_level

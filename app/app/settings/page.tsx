@@ -5,7 +5,7 @@ import { resetDatabase } from '@/lib/db';
 import Navigation from '@/components/Navigation';
 import type { HskFilter } from '@/lib/types';
 
-type ScriptType = 'simplified' | 'traditional' | 'mixed';
+type ScriptType = 'simplified' | 'traditional';
 
 const SCRIPT_PREFERENCE_KEY = 'hanzi-flow-script-preference';
 const HSK_PREFERENCE_KEY = 'hanzi-flow-hsk-preference';
@@ -90,7 +90,7 @@ export default function SettingsPage() {
             </div>
 
             {!isHydrated ? (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Hydration placeholder - show neutral non-interactive cards */}
                 <div className="p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 text-center opacity-50">
                   <div className="text-5xl mb-3">简体</div>
@@ -100,13 +100,9 @@ export default function SettingsPage() {
                   <div className="text-5xl mb-3">繁體</div>
                   <div className="font-semibold text-lg">Traditional</div>
                 </div>
-                <div className="p-6 rounded-lg border-2 border-gray-200 dark:border-gray-700 text-center opacity-50">
-                  <div className="text-4xl mb-3 whitespace-nowrap">简体 + 繁體</div>
-                  <div className="font-semibold text-lg">Mixed</div>
-                </div>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {/* Simplified */}
                 <button
                   onClick={() => handleScriptChange('simplified')}
@@ -132,21 +128,6 @@ export default function SettingsPage() {
                   <div className="text-5xl mb-3">繁體</div>
                   <div className="font-semibold text-lg">Traditional</div>
                 </button>
-
-                {/* Mixed */}
-                <button
-                  onClick={() => handleScriptChange('mixed')}
-                  className={`p-6 rounded-lg border-2 transition-all text-center ${
-                    selectedScript === 'mixed'
-                      ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20'
-                      : 'border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
-                  }`}
-                >
-                  <div className="text-4xl mb-3 whitespace-nowrap">
-                    简体 + 繁體
-                  </div>
-                  <div className="font-semibold text-lg">Mixed</div>
-                </button>
               </div>
             )}
           </section>
@@ -154,9 +135,11 @@ export default function SettingsPage() {
           {/* HSK Level Preference */}
           <section className="space-y-4">
             <div>
-              <h2 className="text-xl font-semibold mb-1">Max HSK Level</h2>
+              <h2 className="text-xl font-semibold mb-1">Max HSK Level (Simplified Only)</h2>
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Includes all levels up to and including the selected level
+                {selectedScript === 'traditional'
+                  ? 'HSK filtering is only available for Simplified script'
+                  : 'Includes all levels up to and including the selected level (applies to Simplified script only)'}
               </p>
             </div>
 
@@ -170,7 +153,7 @@ export default function SettingsPage() {
                 ))}
               </div>
             ) : (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div className={`grid grid-cols-2 md:grid-cols-4 gap-3 ${selectedScript === 'traditional' ? 'opacity-50 pointer-events-none' : ''}`}>
                 {[
                   { value: '1' as HskFilter, label: 'HSK 1', subtitle: '300 chars' },
                   { value: '1-2' as HskFilter, label: 'HSK 2', subtitle: '300 chars (600 total)' },
@@ -184,6 +167,7 @@ export default function SettingsPage() {
                   <button
                     key={option.value}
                     onClick={() => handleHskChange(option.value)}
+                    disabled={selectedScript === 'traditional'}
                     className={`p-4 rounded-lg border-2 transition-all text-center ${
                       selectedHsk === option.value
                         ? 'border-blue-600 bg-blue-50 dark:bg-blue-900/20'

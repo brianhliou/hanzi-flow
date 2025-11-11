@@ -35,26 +35,44 @@ export async function loadCharacterMapping(): Promise<Map<string, number>> {
   charToIdMap = new Map();
   charToPinyinsMap = new Map();
 
-  // Skip header line
+  // Parse header to build column index mapping
+  const headerLine = lines[0]?.trim();
+  if (!headerLine) {
+    throw new Error('CSV file is empty or has no header');
+  }
+
+  const headers = parseCSVLine(headerLine);
+  const colIndex: Record<string, number> = {};
+  headers.forEach((name, idx) => {
+    colIndex[name] = idx;
+  });
+
+  // Validate required columns exist
+  const requiredCols = ['id', 'char', 'pinyins'];
+  for (const col of requiredCols) {
+    if (colIndex[col] === undefined) {
+      throw new Error(`Missing required column: ${col}`);
+    }
+  }
+
+  // Parse data rows
   for (let i = 1; i < lines.length; i++) {
     const line = lines[i].trim();
     if (!line) continue;
 
-    // Parse CSV line: id,char,codepoint,pinyins,...
-    // Use proper CSV parsing to handle quoted fields
     const fields = parseCSVLine(line);
-    if (fields.length >= 4) {
-      const id = parseInt(fields[0], 10);
-      const char = fields[1];
-      const pinyinsStr = fields[3]; // pinyins column
+    if (fields.length < headers.length) continue;
 
-      charToIdMap.set(char, id);
+    const id = parseInt(fields[colIndex['id']], 10);
+    const char = fields[colIndex['char']];
+    const pinyinsStr = fields[colIndex['pinyins']];
 
-      // Parse pinyins: "lè(283)|yuè(54)|le4|yue4" → ["lè(283)", "yuè(54)", "le4", "yue4"]
-      if (pinyinsStr && pinyinsStr.trim()) {
-        const pinyinsList = pinyinsStr.split('|').map(p => p.trim()).filter(p => p);
-        charToPinyinsMap.set(char, pinyinsList);
-      }
+    charToIdMap.set(char, id);
+
+    // Parse pinyins: "lè(283)|yuè(54)|le4|yue4" → ["lè(283)", "yuè(54)", "le4", "yue4"]
+    if (pinyinsStr && pinyinsStr.trim()) {
+      const pinyinsList = pinyinsStr.split('|').map(p => p.trim()).filter(p => p);
+      charToPinyinsMap.set(char, pinyinsList);
     }
   }
 
