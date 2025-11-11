@@ -1,0 +1,444 @@
+================================================================================
+SYLLABLES GAINED IN V1 (NOT PRESENT IN V0)
+================================================================================
+
+Total gained: 387 syllables
+v0 syllables: 1,161
+v1 syllables: 1,548
+Expansion: 1.33x
+
+================================================================================
+ALL GAINED SYLLABLES (alphabetically sorted)
+================================================================================
+
+  a3      , a4      , an2     , ang3    , ao1     , bai0    , ban0    , beng0   , bian0   , biang2  
+  biang4  , biao4   , bie4    , bin0    , bin3    , bong4   , ca3     , ca4     , cang3   , cang4   
+  cei4    , cen1    , cen2    , ceng1   , cha3    , chai3   , chai4   , chang0  , chao4   , che2    
+  chen0   , chen1   , chen3   , cheng3  , chi0    , chong4  , chu0    , chua1   , chua3   , chua4   
+  chuai2  , chuai3  , chui3   , chui4   , cong3   , cong4   , cou1    , cou2    , cou3    , cu2     
+  cu3     , cuan2   , cui0    , cui3    , cun3    , cuo2    , cuo3    , dai0    , dang0   , dao2    
+  de1     , dei1    , den4    , dia3    , dian2   , die3    , die4    , din4    , dui3    , duo0    
+  e0      , ei1     , ei3     , ei4     , en3     , eng1    , fa0     , fang0   , fiao4   , fou1    
+  fou2    , fu0     , ga2     , ga3     , gen3    , gen4    , gong0   , gu0     , gu2     , gua2    
+  guang0  , guo0    , ha2     , ha3     , ha4     , hai0    , han0    , hang1   , hang3   , hang4   
+  hao1    , he3     , hen1    , hm0     , hng0    , hou1    , hu0     , huai0   , huang0  , hui0    
+  hun3    , huo1    , jian0   , jiao0   , jie0    , jing0   , jiong1  , jiong4  , jiu0    , jiu2    
+  ju0     , jue1    , jue3    , jue4    , jun3    , kai4    , kang3   , kao1    , ke0     , kei1    
+  ken1    , ken4    , keng3   , kou1    , ku2     , kuai3   , kuang3  , kun0    , la2     , lai3    
+  lang0   , le1     , len4    , leng1   , li0     , liang0  , liao1   , lie0    , lie1    , lie2    
+  lin1    , lin3    , ling0   , ling1   , lo0     , long1   , lou0    , lou1    , lu0     , luan2   
+  lun1    , lun3    , luo0    , lve3    , m1      , m2      , m4      , man1    , mang1   , mang4   
+  me1     , meng0   , meng1   , mie0    , mie1    , mie2    , min0    , ming0   , miu3    , mo0     
+  mou1    , mou4    , n0      , n3      , n4      , na0     , na1     , nai2    , nan1    , nan3    
+  nang0   , nang1   , nang3   , nang4   , nao1    , ne2     , ne4     , nei2    , neng3   , neng4   
+  ng0     , ng2     , ng3     , ng4     , nia1    , nian1   , niang3  , niao0   , nie2    , nie3    
+  nin0    , nin3    , ning3   , niu4    , nong3   , nou2    , nou3    , nou4    , nuan2   , nuan4   
+  nun2    , nun4    , nuo3    , nv2     , nv4     , o0      , o3      , o4      , ou0     , ou2     
+  ou4     , pa3     , pai3    , pan3    , pang3   , pei3    , pen3    , pen4    , pian3   , pie4    
+  ping3   , ping4   , po0     , pou2    , pou3    , pou4    , pu0     , qi0     , qia2    , qia3    
+  qian0   , qiang4  , qin4    , qing0   , qiong1  , qiong4  , qiu4    , qu0     , quan0   , que2    
+  qun1    , qun3    , ran4    , rang1   , re2     , reng4   , rong0   , rong1   , rong4   , rou3    
+  ru0     , rua2    , ruan2   , ruan4   , rui2    , run2    , run3    , ruo2    , sa0     , sai3    
+  san0    , se1     , sen3    , seng4   , sha0    , shai3   , shan2   , shou0   , shou2   , shua4   
+  shuan4  , shuang4 , shui0   , shuo2   , si0     , si2     , song2   , su3     , suan3   , sun4    
+  suo2    , suo4    , ta0     , ta2     , tai0    , tai3    , te0     , tei1    , teng1   , teng4   
+  tian4   , tiao0   , tie2    , tie4    , ting4   , tou3    , tu0     , tuan3   , tuan4   , tui2    
+  wai0    , wei0    , wen0    , weng3   , wong4   , wu0     , xia3    , xian0   , xiao0   , xin0    
+  xin2    , xin3    , xing0   , xiong3  , xiong4  , xiu2    , xu0     , yang0   , ye0     , yin0    
+  yo0     , yong2   , you0    , yu0     , yue2    , yue3    , yun0    , za4     , zan0    , zan1    
+  zang3   , ze0     , ze4     , zen0    , zen1    , zen4    , zeng3   , zha0    , zhan2   , zhang0  
+  zhao0   , zhei4   , zhen2   , zhi0    , zhuai3  , zhuai4  , zhuang3 , zhui3   , zhun4   , zhuo0   
+  zhuo4   , zi2     , zong0   , zou1    , zu4     , zuan3   , zui0    , zui1    , zui2    , zun2    
+  zun3    , zun4    , zuo1    , ê1      , ê2      , ê3      , ê4      
+
+================================================================================
+DETAILED BREAKDOWN WITH CHARACTER EXAMPLES
+================================================================================
+
+a3         -    3 chars: 呵 啊 阿
+a4         -    3 chars: 呵 啊 阿
+an2        -    9 chars: 䜙 儑 啽 犴 玵 雸 𡪁 𡽜 𣵱
+ang3       -    4 chars: 䇦 䭺 𦫫 𨋕
+ao1        -   22 chars: 㕭 㩠 䆟 䫜 凹 坳 柪 梎 棍 泑 ... (+12 more)
+bai0       -    1 chars: 㗑
+ban0       -    1 chars: 螁
+beng0      -    1 chars: 揼
+bian0      -    3 chars: 炞 边 邊
+biang2     -    3 chars: 𰻝 𰻞 𱿗
+biang4     -    1 chars: 𲁓
+biao4      -   14 chars: 㧼 䞄 俵 摽 標 脿 蔈 鰾 鳔 𠬪 ... (+4 more)
+bie4       -    5 chars: 㢼 䌘 别 彆 𢆣
+bin0       -    1 chars: 氞
+bin3       -    1 chars: 䐔
+bong4      -    1 chars: 𱿅
+ca3        -    2 chars: 礤 礸
+ca4        -    7 chars: 䟃 䵽 囃 磣 遪 𥗭 𥩝
+cang3      -    1 chars: 蒼
+cang4      -    4 chars: 䅮 䢢 賶 𱮷
+cei4       -    1 chars: 𤭢
+cen1       -    5 chars: 参 參 嵾 穇 篸
+cen2       -   21 chars: 㞤 㞥 䅾 䤁 䨙 䫈 䲋 岑 梣 汵 ... (+11 more)
+ceng1      -    3 chars: 噌 曽 𡃆
+cha3       -   11 chars: 䂳 叉 土 衩 蹅 鑔 镲 𡌚 𥑥 𥫢 ... (+1 more)
+chai3      -    2 chars: 䜺 茝
+chai4      -   21 chars: 㦅 㳗 䘍 囆 差 瘥 蔕 虿 蠆 袃 ... (+11 more)
+chang0     -    1 chars: 蟐
+chao4      -   21 chars: 䮓 仦 仯 吵 巢 抄 晁 縐 耖 觘 ... (+11 more)
+che2       -    2 chars: 𧙝 𱰗
+chen0      -    2 chars: 伧 傖
+chen1      -   37 chars: 㥲 㲀 䀼 䏹 䐜 䑣 䠳 侲 嗔 抻 ... (+27 more)
+chen3      -   20 chars: 䫈 䫖 堪 墋 夦 湛 眈 硶 碜 磣 ... (+10 more)
+cheng3     -   15 chars: 侱 呈 庱 徎 悜 睈 裎 踜 逞 騁 ... (+5 more)
+chi0       -    1 chars: 麶
+chong4     -   18 chars: 㧤 㮔 僮 冲 揰 衝 蹱 銃 铳 𠑙 ... (+8 more)
+chu0       -    2 chars: 榋 橻
+chua1      -    7 chars: 㔍 䊬 䵵 撮 欻 歘 𤁫
+chua3      -    4 chars: 𠹐 𠻦 𣛕 𣹶
+chua4      -    2 chars: 䔴 䫄
+chuai2     -    4 chars: 㪓 腄 膗 𢶀
+chuai3     -    5 chars: 㪜 揣 𣛹 𣲂 𧍒
+chui3      -    2 chars: 㷃 䞼
+chui4      -    6 chars: 䕓 吹 惙 𣟈 𥙋 𥞃
+cong3      -    1 chars: 𧝮
+cong4      -    6 chars: 憁 藂 謥 𥣙 𥮨 𧩪
+cou1       -    2 chars: 楱 𢈾
+cou2       -    1 chars: 𧡣
+cou3       -    3 chars: 㔌 趣 趨
+cu2        -    7 chars: 䓚 䢐 䣯 且 徂 殂 𦯣
+cu3        -    3 chars: 皻 蔖 𤛏
+cuan2      -   15 chars: 㠝 㭫 僔 巑 攒 攢 櫕 欑 灒 穳 ... (+5 more)
+cui0       -    1 chars: 乼
+cui3       -   18 chars: 㵏 䊫 䧽 洒 漼 熣 璀 皠 繀 趡 ... (+8 more)
+cun3       -    4 chars: 刌 寸 忖 蹲
+cuo2       -   32 chars: 㟇 㭫 㽨 㿷 䐤 䑘 䠡 䣜 䰈 䴾 ... (+22 more)
+cuo3       -    5 chars: 䂳 搓 脞 醝 𧪘
+dai0       -    1 chars: 鮘
+dang0      -    1 chars: 當
+dao2       -    2 chars: 叨 捯
+de1        -    1 chars: 嘚
+dei1       -    1 chars: 嘚
+den4       -    3 chars: 㩐 扥 扽
+dia3       -    1 chars: 嗲
+dian2      -    1 chars: 䟍
+die3       -    2 chars: 哆 𡖐
+die4       -    5 chars: 哋 昳 眰 𠅗 𠆙
+din4       -    1 chars: 𨈖
+dui3       -    7 chars: 㨃 啍 謉 頧 𠡒 𡑈 𦞱
+duo0       -    1 chars: 𦕰
+e0         -    1 chars: 呃
+ei1        -    2 chars: 欸 誒
+ei3        -    2 chars: 欸 誒
+ei4        -    2 chars: 欸 誒
+en3        -    4 chars: 䅰 峎 𡵖 𡷐
+eng1       -    1 chars: 鞥
+fa0        -    1 chars: 𠲎
+fang0      -    1 chars: 堏
+fiao4      -    1 chars: 覅
+fou1       -    2 chars: 不 𤊻
+fou2       -    4 chars: 垺 紑 裦 𧉈
+fu0        -    1 chars: 酜
+ga2        -   10 chars: 嘎 噶 尜 軋 轧 釓 錷 钆 𡼛 𲈖
+ga3        -    4 chars: 嘎 尕 玍 𠁥
+gen3       -    5 chars: 䫀 艮 𩑡 𩒝 𩓓
+gen4       -   12 chars: 㫔 㮓 亘 亙 揯 搄 痕 艮 茛 𠄣 ... (+2 more)
+gong0      -    1 chars: 慐
+gu0        -    1 chars: 咕
+gu2        -    6 chars: 䜼 䮩 骨 鶻 𦎰 𧳸
+gua2       -    1 chars: 𪇜
+guang0     -    1 chars: 欟
+guo0       -    1 chars: 過
+ha2        -    4 chars: 虾 蛤 蝦 𡄟
+ha3        -    3 chars: 哈 奤 獬
+ha4        -    2 chars: 吓 哈
+hai0       -    1 chars: 嚡
+han0       -    2 chars: 兯 爳
+hang1      -   13 chars: 㬻 㰠 䂫 䦭 夯 忼 炕 𠡊 𤵻 𩠾 ... (+3 more)
+hang3      -    2 chars: 狠 狼
+hang4      -   16 chars: 䟘 䣈 吭 巷 忼 桁 沆 笐 行 酐 ... (+6 more)
+hao1       -   15 chars: 嚆 茠 蒿 薅 薧 鎒 𡽝 𢻇 𣭖 𣭹 ... (+5 more)
+he3        -    1 chars: 㪋
+hen1       -    1 chars: 噷
+hm0        -    1 chars: 噷
+hng0       -    1 chars: 哼
+hou1       -    6 chars: 呴 齁 𠯜 𩙡 𪅺 𪖙
+hu0        -    1 chars: 𩾇
+huai0      -    2 chars: 划 劃
+huang0     -    1 chars: 慌
+hui0       -    2 chars: 懳 𣌭
+hun3       -    4 chars: 惛 𦃕 𩽼 𪑕
+huo1       -   19 chars: 㺢 䦝 剨 劐 吙 呵 嚄 搉 攉 火 ... (+9 more)
+jian0      -    1 chars: 橺
+jiao0      -    2 chars: 櫵 鵤
+jie0       -    4 chars: 价 假 價 家
+jing0      -    1 chars: 燝
+jiong1     -   27 chars: 冂 冋 冏 坰 坷 垧 埛 扃 扄 泂 ... (+17 more)
+jiong4     -    1 chars: 䅃
+jiu0       -    2 chars: 蹴 𣐤
+jiu2       -    1 chars: 㺵
+ju0        -    1 chars: 爠
+jue1       -   13 chars: 嗟 噘 屩 撅 撧 繑 蹻 鞽 𢱺 𢴭 ... (+3 more)
+jue3       -    3 chars: 䞵 䟾 蹶
+jue4       -    5 chars: 倔 撅 誳 𣨢 𥈾
+jun3       -    1 chars: 𢉦
+kai4       -   33 chars: 㪡 䡷 䫦 劾 勓 喝 喫 嘅 幆 忾 ... (+23 more)
+kang3      -    7 chars: 䡉 伉 奋 骯 𠻞 𡻚 𣔛
+kao1       -    6 chars: 䯌 尻 嵪 訄 髛 𩩾
+ke0        -    1 chars: 喀
+kei1       -    3 chars: 刻 剋 尅
+ken1       -    1 chars: 𩎤
+ken4       -    7 chars: 㸧 垠 掯 珢 硍 裉 褃
+keng3      -    4 chars: 䡰 忐 硻 𡞚
+kou1       -   21 chars: 䁱 刳 剾 嫗 彀 彄 抠 挎 摳 毆 ... (+11 more)
+ku2        -    1 chars: 𦛏
+kuai3      -   10 chars: 㧟 䓒 擓 蒯 𠣲 𡚅 𣫉 𦳋 𩦱 𲄗
+kuang3     -    5 chars: 儣 壙 夼 懭 爌
+kun0       -    1 chars: 尡
+la2        -   10 chars: 剌 喇 嚹 拉 揦 旯 砬 磖 𡉆 𤰚
+lai3       -    5 chars: 㚓 䂾 𢅭 𧵭 𨦂
+lang0      -    1 chars: 唥
+le1        -    3 chars: 嘞 肋 𡃖
+len4       -    1 chars: 啉
+leng1      -    2 chars: 㘄 棱
+li0        -    3 chars: 哩 瓈 里
+liang0     -    1 chars: 煷
+liao1      -    2 chars: 撩 蹽
+lie0       -    1 chars: 咧
+lie1       -    3 chars: 倈 咧 𦾳
+lie2       -    2 chars: 咧 𧞪
+lin1       -    1 chars: 拎
+lin3       -   31 chars: 㐭 㨆 䕲 亃 伈 僯 凛 凜 嶙 廩 ... (+21 more)
+ling0      -    1 chars: 瀮
+ling1      -    1 chars: 拎
+lo0        -    2 chars: 咯 囖
+long1      -    1 chars: 隆
+lou0       -    3 chars: 喽 嘍 𡀔
+lou1       -    4 chars: 䁖 搂 摟 瞜
+lu0        -    1 chars: 氇
+luan2      -   53 chars: 㝈 㡩 㱍 䏈 䖂 䜌 圝 圞 奱 娈 ... (+43 more)
+lun1       -    2 chars: 抡 掄
+lun3       -   10 chars: 埨 淪 睔 碖 稐 耣 蜦 𤲕 𦓾 𫭢
+luo0       -    3 chars: 啰 囉 羅
+lve3       -    1 chars: 掠
+m1         -    1 chars: 嘸
+m2         -    4 chars: 呒 呣 唔 嘸
+m4         -    1 chars: 呣
+man1       -    3 chars: 嫚 顢 颟
+mang1      -    4 chars: 牤 𡘪 𤛘 𩛲
+mang4      -    5 chars: 㤶 吂 𠮵 𥁃 𥭚
+me1        -    1 chars: 嚒
+meng0      -    1 chars: 掹
+meng1      -    3 chars: 擝 矇 蒙
+mie0       -    1 chars: 咩
+mie1       -    8 chars: 乜 吀 咩 咪 哶 孭 羋 𠺗
+mie2       -    1 chars: 𥄲
+min0       -    2 chars: 厸 垊
+ming0      -    1 chars: 掵
+miu3       -    1 chars: 𨱯
+mo0        -    1 chars: 怽
+mou1       -    1 chars: 哞
+mou4       -    2 chars: 𥆆 𦺒
+n0         -    1 chars: 唵
+n3         -    2 chars: 㕶 嗯
+n4         -    3 chars: 哏 嗯 𠮾
+na0        -    2 chars: 呐 哪
+na1        -    2 chars: 南 那
+nai2       -   14 chars: 㜨 㾍 䍲 䘅 䯮 孻 掜 搱 摨 熋 ... (+4 more)
+nan1       -    2 chars: 囝 囡
+nan3       -   25 chars: 㫱 䈒 䊖 䣸 䩅 喃 嫨 戁 揇 湳 ... (+15 more)
+nang0      -    1 chars: 囔
+nang1      -    3 chars: 囊 囔 蘘
+nang3      -   12 chars: 㶞 搑 擃 攮 曩 瀼 灢 饢 馕 𣰶 ... (+2 more)
+nang4      -   12 chars: 㚂 儾 鬞 齉 𠶬 𡿝 𢖧 𦈃 𧅺 𧟘 ... (+2 more)
+nao1       -    1 chars: 孬
+ne2        -    2 chars: 哪 那
+ne4        -   15 chars: 㕯 䅞 䎪 䭆 呐 抐 疒 疔 眲 訥 ... (+5 more)
+nei2       -    5 chars: 𠑚 𠑛 𡣢 𢅼 𨡌
+neng3      -    3 chars: 螚 𠹌 𨶙
+neng4      -    1 chars: 㲌
+ng0        -    1 chars: 唵
+ng2        -    3 chars: 哽 唔 嗯
+ng3        -    2 chars: 㕶 嗯
+ng4        -    2 chars: 嗯 𠮾
+nia1       -    1 chars: 㖸
+nian1      -    4 chars: 拈 捻 蔫 𥺴
+niang3     -    1 chars: 𪓃
+niao0      -    1 chars: 𱛆
+nie2       -    5 chars: 㡪 苶 𢫻 𦡃 𪌿
+nie3       -    2 chars: 鉨 𠈊
+nin0       -    1 chars: 脌
+nin3       -    1 chars: 拰
+ning3      -    9 chars: 䗿 拧 擰 橣 矃 鑏 𥳥 𦡲 𩕳
+niu4       -    7 chars: 䋴 抝 拗 蚴 𩙷 𩚖 𩜷
+nong3      -    3 chars: 䁸 䵜 繷
+nou2       -   14 chars: 㝹 䨲 羺 譨 𠲴 𢉕 𣻖 𤟦 𥀫 𧂦 ... (+4 more)
+nou3       -    6 chars: 㜌 㳶 啂 𡝦 𡨻 𡭾
+nou4       -   15 chars: 䅶 䘫 䰭 嬬 搙 擩 槈 檽 獳 耨 ... (+5 more)
+nuan2      -    3 chars: 奻 渜 濡
+nuan4      -    2 chars: 餪 𪋐
+nun2       -    1 chars: 黁
+nun4       -    1 chars: 媆
+nuo3       -   11 chars: 㛂 㡅 媠 橠 袲 袳 𡖔 𣃽 𣆚 𩈺 ... (+1 more)
+nv2        -    1 chars: 𦓕
+nv4        -   20 chars: 㵖 䏔 䖡 䘐 䚼 䶊 女 恧 朒 沑 ... (+10 more)
+o0         -    1 chars: 喔
+o3         -    1 chars: 嚄
+o4         -    2 chars: 哦 喔
+ou0        -    2 chars: 嘔 𡂿
+ou2        -    3 chars: 齵 𦂕 𪙃
+ou4        -   18 chars: 㭝 䌂 呕 嘔 怄 慪 握 沤 渥 漚 ... (+8 more)
+pa3        -    1 chars: 𥩙
+pai3       -    3 chars: 廹 排 迫
+pan3       -    4 chars: 坢 盻 闆 𧺾
+pang3      -    6 chars: 䒍 嗙 耪 膀 覫 髈
+pei3       -    3 chars: 俖 琣 𣍺
+pen3       -    2 chars: 呠 翸
+pen4       -    7 chars: 吩 喯 喷 噴 湓 𠺔 𩸂
+pian3      -    5 chars: 覑 諞 谝 貵 𡎚
+pie4       -    2 chars: 嫳 𤮕
+ping3      -    1 chars: 頩
+ping4      -    4 chars: 䀻 聘 𠗥 𡊞
+po0        -    1 chars: 桲
+pou2       -   19 chars: 㧵 㩠 䎧 䯽 垺 抔 抙 捊 掊 涪 ... (+9 more)
+pou3       -   16 chars: 㕻 㰴 䯽 䳝 咅 哣 培 堷 婄 抱 ... (+6 more)
+pou4       -    1 chars: 踣
+pu0        -    2 chars: 巬 巭
+qi0        -    3 chars: 簯 緕 缼
+qia2       -    3 chars: 䠍 拤 𡘧
+qia3       -    7 chars: 䶗 價 卡 峠 跒 酠 鞐
+qian0      -    3 chars: 籖 鎆 鏲
+qiang4     -   19 chars: 䵁 呛 唴 嗆 戗 戧 搶 摪 炝 熗 ... (+9 more)
+qin4       -   35 chars: 㓎 㞬 㤈 䈜 儭 吢 吣 唚 寴 抋 ... (+25 more)
+qing0      -    1 chars: 硘
+qiong1     -    7 chars: 穹 芎 跫 銎 鞠 𥑎 𨉫
+qiong4     -    2 chars: 𢮍 𣶆
+qiu4       -    7 chars: 䟬 䠗 愀 踆 𧼭 𨕦 𪖛
+qu0        -    2 chars: 戌 迲
+quan0      -    1 chars: 椦
+que2       -    1 chars: 瘸
+qun1       -   16 chars: 㟒 囷 夋 峮 歏 箘 踆 輑 逡 遁 ... (+6 more)
+qun3       -    2 chars: 蹲 𦃢
+ran4       -    3 chars: 𡜉 𥣹 𥣺
+rang1      -    1 chars: 嚷
+re2        -    2 chars: 捼 若
+reng4      -    3 chars: 扔 艿 芿
+rong0      -    1 chars: 穃
+rong1      -    1 chars: 茸
+rong4      -    2 chars: 縙 𠌚
+rou3       -    8 chars: 楺 煣 葇 蹂 輮 韖 𡗑 𢔟
+ru0        -    1 chars: 嶿
+rua2       -    1 chars: 挼
+ruan2      -   11 chars: 㧫 䙇 堧 壖 撋 擩 𢱾 𣽈 𣽳 𤲬 ... (+1 more)
+ruan4      -    4 chars: 緛 𨨰 𨪳 𨬔
+rui2       -   16 chars: 㧫 㮃 䅑 䬐 婑 撋 桵 甤 綏 緌 ... (+6 more)
+run2       -    4 chars: 撋 瞤 𥆧 𩀋
+run3       -    1 chars: 𠷀
+ruo2       -    3 chars: 挼 捼 撋
+sa0        -    1 chars: 𠮿
+sai3       -    3 chars: 㗷 㘔 䈢
+san0       -    3 chars: 壭 橵 𠮿
+se1        -    1 chars: 閪
+sen3       -    2 chars: 洒 𩕌
+seng4      -    1 chars: 𡬙
+sha0       -    1 chars: 繌
+shai3      -    5 chars: 摋 繺 色 𢄌 𧜁
+shan2      -    1 chars: 𧨾
+shou0      -    1 chars: 扌
+shou2      -    1 chars: 熟
+shua4      -    3 chars: 刷 唆 誜
+shuan4     -   16 chars: 䧠 專 栓 槫 汕 涮 腨 踹 𡭐 𢮛 ... (+6 more)
+shuang4    -    4 chars: 㦼 淙 灀 𥲚
+shui0      -    2 chars: 氵 閖
+shuo2      -    1 chars: 杓
+si0        -    2 chars: 厕 廁
+si2        -    2 chars: 𦔌 𧬊
+song2      -    4 chars: 㞞 鬆 𩩺 𪨊
+su3        -    1 chars: 𣷶
+suan3      -    4 chars: 㔯 匴 篹 𠥘
+sun4       -    2 chars: 摌 潠
+suo2       -    1 chars: 𩡾
+suo4       -   12 chars: 䐝 䵀 些 娑 歲 溹 蜶 逤 𠗼 𠘺 ... (+2 more)
+ta0        -    3 chars: 侤 咜 遢
+ta2        -    2 chars: 蹹 𨓬
+tai0       -    1 chars: 粏
+tai3       -    5 chars: 㘆 呔 奤 騃 𤗿
+te0        -    1 chars: 脦
+tei1       -    1 chars: 忒
+teng1      -    9 chars: 䮴 熥 膯 鼟 𢚺 𤃶 𤳘 𦡪 𪔶
+teng4      -    1 chars: 霯
+tian4      -   22 chars: 㐁 㮇 㶺 䑙 掭 添 琠 瑱 睼 瞋 ... (+12 more)
+tiao0      -    2 chars: 挑 螩
+tie2       -    1 chars: 䩞
+tie4       -   11 chars: 䑜 䴴 䵿 呫 帖 飻 餮 𤝓 𦧢 𦧤 ... (+1 more)
+ting4      -    7 chars: 忊 梃 汀 濎 𢬫 𥆑 𦕢
+tou3       -   19 chars: 㪗 㰯 㳆 㼥 䚵 䱏 妵 敨 斢 紏 ... (+9 more)
+tu0        -    1 chars: 汢
+tuan3      -    8 chars: 䜝 䵯 墥 畽 疃 痪 𢣎 𤱝
+tuan4      -    6 chars: 彖 湪 税 褖 貒 𧳩
+tui2       -   49 chars: 㢂 㢈 㢑 㾯 㾽 㿗 䀃 䅪 䫋 僓 ... (+39 more)
+wai0       -    1 chars: 𠰻
+wei0       -    1 chars: 煀
+wen0       -    1 chars: 呚
+weng3      -   24 chars: 㘢 㜲 㹙 䐥 勜 嗡 塕 奣 嵡 攚 ... (+14 more)
+wong4      -    2 chars: 𥥈 𥦷
+wu0        -    1 chars: 錻
+xia3       -    3 chars: 閕 閜 𠽫
+xian0      -    1 chars: 鑦
+xiao0      -    1 chars: 恷
+xin0       -    1 chars: 忄
+xin2       -   15 chars: 㚯 㜦 寻 尋 撢 枔 橝 礥 襑 鐔 ... (+5 more)
+xin3       -    2 chars: 伈 𨓇
+xing0      -    2 chars: 哘 裄
+xiong3     -    2 chars: 昫 焽
+xiong4     -   24 chars: 䠗 夐 宪 敻 焸 詗 诇 𠓙 𡨳 𡪰 ... (+14 more)
+xiu2       -    1 chars: 苬
+xu0        -    1 chars: 蓿
+yang0      -    1 chars: 羪
+ye0        -    1 chars: 亪
+yin0       -    1 chars: 粌
+yo0        -    3 chars: 哟 喲 嚛
+yong2      -   18 chars: 㝘 䗤 喁 嵱 庸 揘 遇 顒 颙 鰫 ... (+8 more)
+you0       -    1 chars: 蒏
+yu0        -    1 chars: 澚
+yue2       -    1 chars: 块
+yue3       -    3 chars: 哕 噦 𢯵
+yun0       -    2 chars: 抣 繧
+za4        -    1 chars: 喒
+zan0       -    3 chars: 偺 咱 喒
+zan1       -   15 chars: 䍼 䐶 兂 撍 篸 簪 簮 糌 臢 鐕 ... (+5 more)
+zang3      -    4 chars: 駔 驡 驵 髒
+ze0        -    1 chars: 伬
+ze4        -   26 chars: 㳁 䟄 仄 侧 側 夨 崱 庂 廁 捑 ... (+16 more)
+zen0       -    1 chars: 囎
+zen1       -    2 chars: 㻸 撍
+zen4       -    5 chars: 䫈 僭 譖 譛 谮
+zeng3      -    2 chars: 㽪 鬷
+zha0       -    2 chars: 喳 馇
+zhan2      -    1 chars: 讝
+zhang0     -    1 chars: 鏱
+zhao0      -    1 chars: 罀
+zhei4      -    2 chars: 这 這
+zhen2      -    1 chars: 𠵧
+zhi0       -    1 chars: 徔
+zhuai3     -    4 chars: 跩 轉 转 𱖕
+zhuai4     -    5 chars: 尵 拽 睉 顡 𢶀
+zhuang3    -    2 chars: 奘 𢙳
+zhui3      -    3 chars: 沝 𡯑 𩬳
+zhun4      -    7 chars: 旽 甽 稕 綧 訰 飩 𥚠
+zhuo0      -    1 chars: 窧
+zhuo4      -    3 chars: 㧳 䞵 𤓦
+zi2        -    2 chars: 䁒 蓻
+zong0      -    1 chars: 潈
+zou1       -   35 chars: 㻓 䅳 偢 掫 棷 棸 箃 緅 芻 菆 ... (+25 more)
+zu4        -    6 chars: 伹 駔 𦵬 𧇈 𧇿 𩲲
+zuan3      -   18 chars: 㸇 䂎 䉵 䌣 䰖 篹 籑 籫 繤 纂 ... (+8 more)
+zui0       -    1 chars: 穝
+zui1       -   23 chars: 㭰 䓱 䘒 䮔 厜 嗺 堆 嫢 朘 樶 ... (+13 more)
+zui2       -    1 chars: 𦆈
+zun2       -    1 chars: 蹲
+zun3       -    7 chars: 䔿 僔 噂 撙 譐 𠟃 𦢐
+zun4       -   14 chars: 拵 捘 捽 栫 瀳 袸 銌 鱒 𠱜 𥊭 ... (+4 more)
+zuo1       -    7 chars: 㛗 㵶 作 嘬 𠹠 𣩈 𩛠
+ê1         -    2 chars: 欸 誒
+ê2         -    2 chars: 欸 誒
+ê3         -    2 chars: 欸 誒
+ê4         -    2 chars: 欸 誒

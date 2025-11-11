@@ -1,0 +1,9306 @@
+{
+  "metadata": {
+    "total_syllables": 1548,
+    "source": "v1 Pinyin Trie (SOT character set, 97k chars)",
+    "trie_source": "data/character_set/v1/analysis/pinyin_trie.json",
+    "format": "tone3 (tone numbers 0-4)",
+    "special_cases": 4,
+    "tone_distribution": {
+      "neutral": 130,
+      "tone1": 353,
+      "tone2": 300,
+      "tone3": 370,
+      "tone4": 395
+    }
+  },
+  "syllables": [
+    {
+      "base": "a",
+      "base_proper": "a",
+      "tone": 0,
+      "pinyin_tone3": "a0"
+    },
+    {
+      "base": "a",
+      "base_proper": "a",
+      "tone": 1,
+      "pinyin_tone3": "a1"
+    },
+    {
+      "base": "a",
+      "base_proper": "a",
+      "tone": 2,
+      "pinyin_tone3": "a2"
+    },
+    {
+      "base": "a",
+      "base_proper": "a",
+      "tone": 3,
+      "pinyin_tone3": "a3"
+    },
+    {
+      "base": "a",
+      "base_proper": "a",
+      "tone": 4,
+      "pinyin_tone3": "a4"
+    },
+    {
+      "base": "ai",
+      "base_proper": "ai",
+      "tone": 1,
+      "pinyin_tone3": "ai1"
+    },
+    {
+      "base": "ai",
+      "base_proper": "ai",
+      "tone": 2,
+      "pinyin_tone3": "ai2"
+    },
+    {
+      "base": "ai",
+      "base_proper": "ai",
+      "tone": 3,
+      "pinyin_tone3": "ai3"
+    },
+    {
+      "base": "ai",
+      "base_proper": "ai",
+      "tone": 4,
+      "pinyin_tone3": "ai4"
+    },
+    {
+      "base": "an",
+      "base_proper": "an",
+      "tone": 1,
+      "pinyin_tone3": "an1"
+    },
+    {
+      "base": "an",
+      "base_proper": "an",
+      "tone": 2,
+      "pinyin_tone3": "an2"
+    },
+    {
+      "base": "an",
+      "base_proper": "an",
+      "tone": 3,
+      "pinyin_tone3": "an3"
+    },
+    {
+      "base": "an",
+      "base_proper": "an",
+      "tone": 4,
+      "pinyin_tone3": "an4"
+    },
+    {
+      "base": "ang",
+      "base_proper": "ang",
+      "tone": 1,
+      "pinyin_tone3": "ang1"
+    },
+    {
+      "base": "ang",
+      "base_proper": "ang",
+      "tone": 2,
+      "pinyin_tone3": "ang2"
+    },
+    {
+      "base": "ang",
+      "base_proper": "ang",
+      "tone": 3,
+      "pinyin_tone3": "ang3"
+    },
+    {
+      "base": "ang",
+      "base_proper": "ang",
+      "tone": 4,
+      "pinyin_tone3": "ang4"
+    },
+    {
+      "base": "ao",
+      "base_proper": "ao",
+      "tone": 1,
+      "pinyin_tone3": "ao1"
+    },
+    {
+      "base": "ao",
+      "base_proper": "ao",
+      "tone": 2,
+      "pinyin_tone3": "ao2"
+    },
+    {
+      "base": "ao",
+      "base_proper": "ao",
+      "tone": 3,
+      "pinyin_tone3": "ao3"
+    },
+    {
+      "base": "ao",
+      "base_proper": "ao",
+      "tone": 4,
+      "pinyin_tone3": "ao4"
+    },
+    {
+      "base": "ba",
+      "base_proper": "ba",
+      "tone": 0,
+      "pinyin_tone3": "ba0"
+    },
+    {
+      "base": "ba",
+      "base_proper": "ba",
+      "tone": 1,
+      "pinyin_tone3": "ba1"
+    },
+    {
+      "base": "ba",
+      "base_proper": "ba",
+      "tone": 2,
+      "pinyin_tone3": "ba2"
+    },
+    {
+      "base": "ba",
+      "base_proper": "ba",
+      "tone": 3,
+      "pinyin_tone3": "ba3"
+    },
+    {
+      "base": "ba",
+      "base_proper": "ba",
+      "tone": 4,
+      "pinyin_tone3": "ba4"
+    },
+    {
+      "base": "bai",
+      "base_proper": "bai",
+      "tone": 0,
+      "pinyin_tone3": "bai0"
+    },
+    {
+      "base": "bai",
+      "base_proper": "bai",
+      "tone": 1,
+      "pinyin_tone3": "bai1"
+    },
+    {
+      "base": "bai",
+      "base_proper": "bai",
+      "tone": 2,
+      "pinyin_tone3": "bai2"
+    },
+    {
+      "base": "bai",
+      "base_proper": "bai",
+      "tone": 3,
+      "pinyin_tone3": "bai3"
+    },
+    {
+      "base": "bai",
+      "base_proper": "bai",
+      "tone": 4,
+      "pinyin_tone3": "bai4"
+    },
+    {
+      "base": "ban",
+      "base_proper": "ban",
+      "tone": 0,
+      "pinyin_tone3": "ban0"
+    },
+    {
+      "base": "ban",
+      "base_proper": "ban",
+      "tone": 1,
+      "pinyin_tone3": "ban1"
+    },
+    {
+      "base": "ban",
+      "base_proper": "ban",
+      "tone": 3,
+      "pinyin_tone3": "ban3"
+    },
+    {
+      "base": "ban",
+      "base_proper": "ban",
+      "tone": 4,
+      "pinyin_tone3": "ban4"
+    },
+    {
+      "base": "bang",
+      "base_proper": "bang",
+      "tone": 1,
+      "pinyin_tone3": "bang1"
+    },
+    {
+      "base": "bang",
+      "base_proper": "bang",
+      "tone": 3,
+      "pinyin_tone3": "bang3"
+    },
+    {
+      "base": "bang",
+      "base_proper": "bang",
+      "tone": 4,
+      "pinyin_tone3": "bang4"
+    },
+    {
+      "base": "bao",
+      "base_proper": "bao",
+      "tone": 1,
+      "pinyin_tone3": "bao1"
+    },
+    {
+      "base": "bao",
+      "base_proper": "bao",
+      "tone": 2,
+      "pinyin_tone3": "bao2"
+    },
+    {
+      "base": "bao",
+      "base_proper": "bao",
+      "tone": 3,
+      "pinyin_tone3": "bao3"
+    },
+    {
+      "base": "bao",
+      "base_proper": "bao",
+      "tone": 4,
+      "pinyin_tone3": "bao4"
+    },
+    {
+      "base": "bei",
+      "base_proper": "bei",
+      "tone": 0,
+      "pinyin_tone3": "bei0"
+    },
+    {
+      "base": "bei",
+      "base_proper": "bei",
+      "tone": 1,
+      "pinyin_tone3": "bei1"
+    },
+    {
+      "base": "bei",
+      "base_proper": "bei",
+      "tone": 3,
+      "pinyin_tone3": "bei3"
+    },
+    {
+      "base": "bei",
+      "base_proper": "bei",
+      "tone": 4,
+      "pinyin_tone3": "bei4"
+    },
+    {
+      "base": "ben",
+      "base_proper": "ben",
+      "tone": 1,
+      "pinyin_tone3": "ben1"
+    },
+    {
+      "base": "ben",
+      "base_proper": "ben",
+      "tone": 3,
+      "pinyin_tone3": "ben3"
+    },
+    {
+      "base": "ben",
+      "base_proper": "ben",
+      "tone": 4,
+      "pinyin_tone3": "ben4"
+    },
+    {
+      "base": "beng",
+      "base_proper": "beng",
+      "tone": 0,
+      "pinyin_tone3": "beng0"
+    },
+    {
+      "base": "beng",
+      "base_proper": "beng",
+      "tone": 1,
+      "pinyin_tone3": "beng1"
+    },
+    {
+      "base": "beng",
+      "base_proper": "beng",
+      "tone": 2,
+      "pinyin_tone3": "beng2"
+    },
+    {
+      "base": "beng",
+      "base_proper": "beng",
+      "tone": 3,
+      "pinyin_tone3": "beng3"
+    },
+    {
+      "base": "beng",
+      "base_proper": "beng",
+      "tone": 4,
+      "pinyin_tone3": "beng4"
+    },
+    {
+      "base": "bi",
+      "base_proper": "bi",
+      "tone": 1,
+      "pinyin_tone3": "bi1"
+    },
+    {
+      "base": "bi",
+      "base_proper": "bi",
+      "tone": 2,
+      "pinyin_tone3": "bi2"
+    },
+    {
+      "base": "bi",
+      "base_proper": "bi",
+      "tone": 3,
+      "pinyin_tone3": "bi3"
+    },
+    {
+      "base": "bi",
+      "base_proper": "bi",
+      "tone": 4,
+      "pinyin_tone3": "bi4"
+    },
+    {
+      "base": "bian",
+      "base_proper": "bian",
+      "tone": 0,
+      "pinyin_tone3": "bian0"
+    },
+    {
+      "base": "bian",
+      "base_proper": "bian",
+      "tone": 1,
+      "pinyin_tone3": "bian1"
+    },
+    {
+      "base": "bian",
+      "base_proper": "bian",
+      "tone": 3,
+      "pinyin_tone3": "bian3"
+    },
+    {
+      "base": "bian",
+      "base_proper": "bian",
+      "tone": 4,
+      "pinyin_tone3": "bian4"
+    },
+    {
+      "base": "biang",
+      "base_proper": "biang",
+      "tone": 2,
+      "pinyin_tone3": "biang2"
+    },
+    {
+      "base": "biang",
+      "base_proper": "biang",
+      "tone": 4,
+      "pinyin_tone3": "biang4"
+    },
+    {
+      "base": "biao",
+      "base_proper": "biao",
+      "tone": 1,
+      "pinyin_tone3": "biao1"
+    },
+    {
+      "base": "biao",
+      "base_proper": "biao",
+      "tone": 3,
+      "pinyin_tone3": "biao3"
+    },
+    {
+      "base": "biao",
+      "base_proper": "biao",
+      "tone": 4,
+      "pinyin_tone3": "biao4"
+    },
+    {
+      "base": "bie",
+      "base_proper": "bie",
+      "tone": 1,
+      "pinyin_tone3": "bie1"
+    },
+    {
+      "base": "bie",
+      "base_proper": "bie",
+      "tone": 2,
+      "pinyin_tone3": "bie2"
+    },
+    {
+      "base": "bie",
+      "base_proper": "bie",
+      "tone": 3,
+      "pinyin_tone3": "bie3"
+    },
+    {
+      "base": "bie",
+      "base_proper": "bie",
+      "tone": 4,
+      "pinyin_tone3": "bie4"
+    },
+    {
+      "base": "bin",
+      "base_proper": "bin",
+      "tone": 0,
+      "pinyin_tone3": "bin0"
+    },
+    {
+      "base": "bin",
+      "base_proper": "bin",
+      "tone": 1,
+      "pinyin_tone3": "bin1"
+    },
+    {
+      "base": "bin",
+      "base_proper": "bin",
+      "tone": 3,
+      "pinyin_tone3": "bin3"
+    },
+    {
+      "base": "bin",
+      "base_proper": "bin",
+      "tone": 4,
+      "pinyin_tone3": "bin4"
+    },
+    {
+      "base": "bing",
+      "base_proper": "bing",
+      "tone": 1,
+      "pinyin_tone3": "bing1"
+    },
+    {
+      "base": "bing",
+      "base_proper": "bing",
+      "tone": 3,
+      "pinyin_tone3": "bing3"
+    },
+    {
+      "base": "bing",
+      "base_proper": "bing",
+      "tone": 4,
+      "pinyin_tone3": "bing4"
+    },
+    {
+      "base": "bo",
+      "base_proper": "bo",
+      "tone": 0,
+      "pinyin_tone3": "bo0"
+    },
+    {
+      "base": "bo",
+      "base_proper": "bo",
+      "tone": 1,
+      "pinyin_tone3": "bo1"
+    },
+    {
+      "base": "bo",
+      "base_proper": "bo",
+      "tone": 2,
+      "pinyin_tone3": "bo2"
+    },
+    {
+      "base": "bo",
+      "base_proper": "bo",
+      "tone": 3,
+      "pinyin_tone3": "bo3"
+    },
+    {
+      "base": "bo",
+      "base_proper": "bo",
+      "tone": 4,
+      "pinyin_tone3": "bo4"
+    },
+    {
+      "base": "bong",
+      "base_proper": "bong",
+      "tone": 4,
+      "pinyin_tone3": "bong4"
+    },
+    {
+      "base": "bu",
+      "base_proper": "bu",
+      "tone": 1,
+      "pinyin_tone3": "bu1"
+    },
+    {
+      "base": "bu",
+      "base_proper": "bu",
+      "tone": 2,
+      "pinyin_tone3": "bu2"
+    },
+    {
+      "base": "bu",
+      "base_proper": "bu",
+      "tone": 3,
+      "pinyin_tone3": "bu3"
+    },
+    {
+      "base": "bu",
+      "base_proper": "bu",
+      "tone": 4,
+      "pinyin_tone3": "bu4"
+    },
+    {
+      "base": "ca",
+      "base_proper": "ca",
+      "tone": 1,
+      "pinyin_tone3": "ca1"
+    },
+    {
+      "base": "ca",
+      "base_proper": "ca",
+      "tone": 3,
+      "pinyin_tone3": "ca3"
+    },
+    {
+      "base": "ca",
+      "base_proper": "ca",
+      "tone": 4,
+      "pinyin_tone3": "ca4"
+    },
+    {
+      "base": "cai",
+      "base_proper": "cai",
+      "tone": 1,
+      "pinyin_tone3": "cai1"
+    },
+    {
+      "base": "cai",
+      "base_proper": "cai",
+      "tone": 2,
+      "pinyin_tone3": "cai2"
+    },
+    {
+      "base": "cai",
+      "base_proper": "cai",
+      "tone": 3,
+      "pinyin_tone3": "cai3"
+    },
+    {
+      "base": "cai",
+      "base_proper": "cai",
+      "tone": 4,
+      "pinyin_tone3": "cai4"
+    },
+    {
+      "base": "can",
+      "base_proper": "can",
+      "tone": 1,
+      "pinyin_tone3": "can1"
+    },
+    {
+      "base": "can",
+      "base_proper": "can",
+      "tone": 2,
+      "pinyin_tone3": "can2"
+    },
+    {
+      "base": "can",
+      "base_proper": "can",
+      "tone": 3,
+      "pinyin_tone3": "can3"
+    },
+    {
+      "base": "can",
+      "base_proper": "can",
+      "tone": 4,
+      "pinyin_tone3": "can4"
+    },
+    {
+      "base": "cang",
+      "base_proper": "cang",
+      "tone": 1,
+      "pinyin_tone3": "cang1"
+    },
+    {
+      "base": "cang",
+      "base_proper": "cang",
+      "tone": 2,
+      "pinyin_tone3": "cang2"
+    },
+    {
+      "base": "cang",
+      "base_proper": "cang",
+      "tone": 3,
+      "pinyin_tone3": "cang3"
+    },
+    {
+      "base": "cang",
+      "base_proper": "cang",
+      "tone": 4,
+      "pinyin_tone3": "cang4"
+    },
+    {
+      "base": "cao",
+      "base_proper": "cao",
+      "tone": 1,
+      "pinyin_tone3": "cao1"
+    },
+    {
+      "base": "cao",
+      "base_proper": "cao",
+      "tone": 2,
+      "pinyin_tone3": "cao2"
+    },
+    {
+      "base": "cao",
+      "base_proper": "cao",
+      "tone": 3,
+      "pinyin_tone3": "cao3"
+    },
+    {
+      "base": "cao",
+      "base_proper": "cao",
+      "tone": 4,
+      "pinyin_tone3": "cao4"
+    },
+    {
+      "base": "ce",
+      "base_proper": "ce",
+      "tone": 4,
+      "pinyin_tone3": "ce4"
+    },
+    {
+      "base": "cei",
+      "base_proper": "cei",
+      "tone": 4,
+      "pinyin_tone3": "cei4"
+    },
+    {
+      "base": "cen",
+      "base_proper": "cen",
+      "tone": 1,
+      "pinyin_tone3": "cen1"
+    },
+    {
+      "base": "cen",
+      "base_proper": "cen",
+      "tone": 2,
+      "pinyin_tone3": "cen2"
+    },
+    {
+      "base": "ceng",
+      "base_proper": "ceng",
+      "tone": 1,
+      "pinyin_tone3": "ceng1"
+    },
+    {
+      "base": "ceng",
+      "base_proper": "ceng",
+      "tone": 2,
+      "pinyin_tone3": "ceng2"
+    },
+    {
+      "base": "ceng",
+      "base_proper": "ceng",
+      "tone": 4,
+      "pinyin_tone3": "ceng4"
+    },
+    {
+      "base": "cha",
+      "base_proper": "cha",
+      "tone": 1,
+      "pinyin_tone3": "cha1"
+    },
+    {
+      "base": "cha",
+      "base_proper": "cha",
+      "tone": 2,
+      "pinyin_tone3": "cha2"
+    },
+    {
+      "base": "cha",
+      "base_proper": "cha",
+      "tone": 3,
+      "pinyin_tone3": "cha3"
+    },
+    {
+      "base": "cha",
+      "base_proper": "cha",
+      "tone": 4,
+      "pinyin_tone3": "cha4"
+    },
+    {
+      "base": "chai",
+      "base_proper": "chai",
+      "tone": 1,
+      "pinyin_tone3": "chai1"
+    },
+    {
+      "base": "chai",
+      "base_proper": "chai",
+      "tone": 2,
+      "pinyin_tone3": "chai2"
+    },
+    {
+      "base": "chai",
+      "base_proper": "chai",
+      "tone": 3,
+      "pinyin_tone3": "chai3"
+    },
+    {
+      "base": "chai",
+      "base_proper": "chai",
+      "tone": 4,
+      "pinyin_tone3": "chai4"
+    },
+    {
+      "base": "chan",
+      "base_proper": "chan",
+      "tone": 1,
+      "pinyin_tone3": "chan1"
+    },
+    {
+      "base": "chan",
+      "base_proper": "chan",
+      "tone": 2,
+      "pinyin_tone3": "chan2"
+    },
+    {
+      "base": "chan",
+      "base_proper": "chan",
+      "tone": 3,
+      "pinyin_tone3": "chan3"
+    },
+    {
+      "base": "chan",
+      "base_proper": "chan",
+      "tone": 4,
+      "pinyin_tone3": "chan4"
+    },
+    {
+      "base": "chang",
+      "base_proper": "chang",
+      "tone": 0,
+      "pinyin_tone3": "chang0"
+    },
+    {
+      "base": "chang",
+      "base_proper": "chang",
+      "tone": 1,
+      "pinyin_tone3": "chang1"
+    },
+    {
+      "base": "chang",
+      "base_proper": "chang",
+      "tone": 2,
+      "pinyin_tone3": "chang2"
+    },
+    {
+      "base": "chang",
+      "base_proper": "chang",
+      "tone": 3,
+      "pinyin_tone3": "chang3"
+    },
+    {
+      "base": "chang",
+      "base_proper": "chang",
+      "tone": 4,
+      "pinyin_tone3": "chang4"
+    },
+    {
+      "base": "chao",
+      "base_proper": "chao",
+      "tone": 1,
+      "pinyin_tone3": "chao1"
+    },
+    {
+      "base": "chao",
+      "base_proper": "chao",
+      "tone": 2,
+      "pinyin_tone3": "chao2"
+    },
+    {
+      "base": "chao",
+      "base_proper": "chao",
+      "tone": 3,
+      "pinyin_tone3": "chao3"
+    },
+    {
+      "base": "chao",
+      "base_proper": "chao",
+      "tone": 4,
+      "pinyin_tone3": "chao4"
+    },
+    {
+      "base": "che",
+      "base_proper": "che",
+      "tone": 1,
+      "pinyin_tone3": "che1"
+    },
+    {
+      "base": "che",
+      "base_proper": "che",
+      "tone": 2,
+      "pinyin_tone3": "che2"
+    },
+    {
+      "base": "che",
+      "base_proper": "che",
+      "tone": 3,
+      "pinyin_tone3": "che3"
+    },
+    {
+      "base": "che",
+      "base_proper": "che",
+      "tone": 4,
+      "pinyin_tone3": "che4"
+    },
+    {
+      "base": "chen",
+      "base_proper": "chen",
+      "tone": 0,
+      "pinyin_tone3": "chen0"
+    },
+    {
+      "base": "chen",
+      "base_proper": "chen",
+      "tone": 1,
+      "pinyin_tone3": "chen1"
+    },
+    {
+      "base": "chen",
+      "base_proper": "chen",
+      "tone": 2,
+      "pinyin_tone3": "chen2"
+    },
+    {
+      "base": "chen",
+      "base_proper": "chen",
+      "tone": 3,
+      "pinyin_tone3": "chen3"
+    },
+    {
+      "base": "chen",
+      "base_proper": "chen",
+      "tone": 4,
+      "pinyin_tone3": "chen4"
+    },
+    {
+      "base": "cheng",
+      "base_proper": "cheng",
+      "tone": 1,
+      "pinyin_tone3": "cheng1"
+    },
+    {
+      "base": "cheng",
+      "base_proper": "cheng",
+      "tone": 2,
+      "pinyin_tone3": "cheng2"
+    },
+    {
+      "base": "cheng",
+      "base_proper": "cheng",
+      "tone": 3,
+      "pinyin_tone3": "cheng3"
+    },
+    {
+      "base": "cheng",
+      "base_proper": "cheng",
+      "tone": 4,
+      "pinyin_tone3": "cheng4"
+    },
+    {
+      "base": "chi",
+      "base_proper": "chi",
+      "tone": 0,
+      "pinyin_tone3": "chi0"
+    },
+    {
+      "base": "chi",
+      "base_proper": "chi",
+      "tone": 1,
+      "pinyin_tone3": "chi1"
+    },
+    {
+      "base": "chi",
+      "base_proper": "chi",
+      "tone": 2,
+      "pinyin_tone3": "chi2"
+    },
+    {
+      "base": "chi",
+      "base_proper": "chi",
+      "tone": 3,
+      "pinyin_tone3": "chi3"
+    },
+    {
+      "base": "chi",
+      "base_proper": "chi",
+      "tone": 4,
+      "pinyin_tone3": "chi4"
+    },
+    {
+      "base": "chong",
+      "base_proper": "chong",
+      "tone": 1,
+      "pinyin_tone3": "chong1"
+    },
+    {
+      "base": "chong",
+      "base_proper": "chong",
+      "tone": 2,
+      "pinyin_tone3": "chong2"
+    },
+    {
+      "base": "chong",
+      "base_proper": "chong",
+      "tone": 3,
+      "pinyin_tone3": "chong3"
+    },
+    {
+      "base": "chong",
+      "base_proper": "chong",
+      "tone": 4,
+      "pinyin_tone3": "chong4"
+    },
+    {
+      "base": "chou",
+      "base_proper": "chou",
+      "tone": 1,
+      "pinyin_tone3": "chou1"
+    },
+    {
+      "base": "chou",
+      "base_proper": "chou",
+      "tone": 2,
+      "pinyin_tone3": "chou2"
+    },
+    {
+      "base": "chou",
+      "base_proper": "chou",
+      "tone": 3,
+      "pinyin_tone3": "chou3"
+    },
+    {
+      "base": "chou",
+      "base_proper": "chou",
+      "tone": 4,
+      "pinyin_tone3": "chou4"
+    },
+    {
+      "base": "chu",
+      "base_proper": "chu",
+      "tone": 0,
+      "pinyin_tone3": "chu0"
+    },
+    {
+      "base": "chu",
+      "base_proper": "chu",
+      "tone": 1,
+      "pinyin_tone3": "chu1"
+    },
+    {
+      "base": "chu",
+      "base_proper": "chu",
+      "tone": 2,
+      "pinyin_tone3": "chu2"
+    },
+    {
+      "base": "chu",
+      "base_proper": "chu",
+      "tone": 3,
+      "pinyin_tone3": "chu3"
+    },
+    {
+      "base": "chu",
+      "base_proper": "chu",
+      "tone": 4,
+      "pinyin_tone3": "chu4"
+    },
+    {
+      "base": "chua",
+      "base_proper": "chua",
+      "tone": 1,
+      "pinyin_tone3": "chua1"
+    },
+    {
+      "base": "chua",
+      "base_proper": "chua",
+      "tone": 3,
+      "pinyin_tone3": "chua3"
+    },
+    {
+      "base": "chua",
+      "base_proper": "chua",
+      "tone": 4,
+      "pinyin_tone3": "chua4"
+    },
+    {
+      "base": "chuai",
+      "base_proper": "chuai",
+      "tone": 1,
+      "pinyin_tone3": "chuai1"
+    },
+    {
+      "base": "chuai",
+      "base_proper": "chuai",
+      "tone": 2,
+      "pinyin_tone3": "chuai2"
+    },
+    {
+      "base": "chuai",
+      "base_proper": "chuai",
+      "tone": 3,
+      "pinyin_tone3": "chuai3"
+    },
+    {
+      "base": "chuai",
+      "base_proper": "chuai",
+      "tone": 4,
+      "pinyin_tone3": "chuai4"
+    },
+    {
+      "base": "chuan",
+      "base_proper": "chuan",
+      "tone": 1,
+      "pinyin_tone3": "chuan1"
+    },
+    {
+      "base": "chuan",
+      "base_proper": "chuan",
+      "tone": 2,
+      "pinyin_tone3": "chuan2"
+    },
+    {
+      "base": "chuan",
+      "base_proper": "chuan",
+      "tone": 3,
+      "pinyin_tone3": "chuan3"
+    },
+    {
+      "base": "chuan",
+      "base_proper": "chuan",
+      "tone": 4,
+      "pinyin_tone3": "chuan4"
+    },
+    {
+      "base": "chuang",
+      "base_proper": "chuang",
+      "tone": 1,
+      "pinyin_tone3": "chuang1"
+    },
+    {
+      "base": "chuang",
+      "base_proper": "chuang",
+      "tone": 2,
+      "pinyin_tone3": "chuang2"
+    },
+    {
+      "base": "chuang",
+      "base_proper": "chuang",
+      "tone": 3,
+      "pinyin_tone3": "chuang3"
+    },
+    {
+      "base": "chuang",
+      "base_proper": "chuang",
+      "tone": 4,
+      "pinyin_tone3": "chuang4"
+    },
+    {
+      "base": "chui",
+      "base_proper": "chui",
+      "tone": 1,
+      "pinyin_tone3": "chui1"
+    },
+    {
+      "base": "chui",
+      "base_proper": "chui",
+      "tone": 2,
+      "pinyin_tone3": "chui2"
+    },
+    {
+      "base": "chui",
+      "base_proper": "chui",
+      "tone": 3,
+      "pinyin_tone3": "chui3"
+    },
+    {
+      "base": "chui",
+      "base_proper": "chui",
+      "tone": 4,
+      "pinyin_tone3": "chui4"
+    },
+    {
+      "base": "chun",
+      "base_proper": "chun",
+      "tone": 1,
+      "pinyin_tone3": "chun1"
+    },
+    {
+      "base": "chun",
+      "base_proper": "chun",
+      "tone": 2,
+      "pinyin_tone3": "chun2"
+    },
+    {
+      "base": "chun",
+      "base_proper": "chun",
+      "tone": 3,
+      "pinyin_tone3": "chun3"
+    },
+    {
+      "base": "chuo",
+      "base_proper": "chuo",
+      "tone": 1,
+      "pinyin_tone3": "chuo1"
+    },
+    {
+      "base": "chuo",
+      "base_proper": "chuo",
+      "tone": 4,
+      "pinyin_tone3": "chuo4"
+    },
+    {
+      "base": "ci",
+      "base_proper": "ci",
+      "tone": 1,
+      "pinyin_tone3": "ci1"
+    },
+    {
+      "base": "ci",
+      "base_proper": "ci",
+      "tone": 2,
+      "pinyin_tone3": "ci2"
+    },
+    {
+      "base": "ci",
+      "base_proper": "ci",
+      "tone": 3,
+      "pinyin_tone3": "ci3"
+    },
+    {
+      "base": "ci",
+      "base_proper": "ci",
+      "tone": 4,
+      "pinyin_tone3": "ci4"
+    },
+    {
+      "base": "cong",
+      "base_proper": "cong",
+      "tone": 1,
+      "pinyin_tone3": "cong1"
+    },
+    {
+      "base": "cong",
+      "base_proper": "cong",
+      "tone": 2,
+      "pinyin_tone3": "cong2"
+    },
+    {
+      "base": "cong",
+      "base_proper": "cong",
+      "tone": 3,
+      "pinyin_tone3": "cong3"
+    },
+    {
+      "base": "cong",
+      "base_proper": "cong",
+      "tone": 4,
+      "pinyin_tone3": "cong4"
+    },
+    {
+      "base": "cou",
+      "base_proper": "cou",
+      "tone": 1,
+      "pinyin_tone3": "cou1"
+    },
+    {
+      "base": "cou",
+      "base_proper": "cou",
+      "tone": 2,
+      "pinyin_tone3": "cou2"
+    },
+    {
+      "base": "cou",
+      "base_proper": "cou",
+      "tone": 3,
+      "pinyin_tone3": "cou3"
+    },
+    {
+      "base": "cou",
+      "base_proper": "cou",
+      "tone": 4,
+      "pinyin_tone3": "cou4"
+    },
+    {
+      "base": "cu",
+      "base_proper": "cu",
+      "tone": 1,
+      "pinyin_tone3": "cu1"
+    },
+    {
+      "base": "cu",
+      "base_proper": "cu",
+      "tone": 2,
+      "pinyin_tone3": "cu2"
+    },
+    {
+      "base": "cu",
+      "base_proper": "cu",
+      "tone": 3,
+      "pinyin_tone3": "cu3"
+    },
+    {
+      "base": "cu",
+      "base_proper": "cu",
+      "tone": 4,
+      "pinyin_tone3": "cu4"
+    },
+    {
+      "base": "cuan",
+      "base_proper": "cuan",
+      "tone": 1,
+      "pinyin_tone3": "cuan1"
+    },
+    {
+      "base": "cuan",
+      "base_proper": "cuan",
+      "tone": 2,
+      "pinyin_tone3": "cuan2"
+    },
+    {
+      "base": "cuan",
+      "base_proper": "cuan",
+      "tone": 4,
+      "pinyin_tone3": "cuan4"
+    },
+    {
+      "base": "cui",
+      "base_proper": "cui",
+      "tone": 0,
+      "pinyin_tone3": "cui0"
+    },
+    {
+      "base": "cui",
+      "base_proper": "cui",
+      "tone": 1,
+      "pinyin_tone3": "cui1"
+    },
+    {
+      "base": "cui",
+      "base_proper": "cui",
+      "tone": 3,
+      "pinyin_tone3": "cui3"
+    },
+    {
+      "base": "cui",
+      "base_proper": "cui",
+      "tone": 4,
+      "pinyin_tone3": "cui4"
+    },
+    {
+      "base": "cun",
+      "base_proper": "cun",
+      "tone": 1,
+      "pinyin_tone3": "cun1"
+    },
+    {
+      "base": "cun",
+      "base_proper": "cun",
+      "tone": 2,
+      "pinyin_tone3": "cun2"
+    },
+    {
+      "base": "cun",
+      "base_proper": "cun",
+      "tone": 3,
+      "pinyin_tone3": "cun3"
+    },
+    {
+      "base": "cun",
+      "base_proper": "cun",
+      "tone": 4,
+      "pinyin_tone3": "cun4"
+    },
+    {
+      "base": "cuo",
+      "base_proper": "cuo",
+      "tone": 1,
+      "pinyin_tone3": "cuo1"
+    },
+    {
+      "base": "cuo",
+      "base_proper": "cuo",
+      "tone": 2,
+      "pinyin_tone3": "cuo2"
+    },
+    {
+      "base": "cuo",
+      "base_proper": "cuo",
+      "tone": 3,
+      "pinyin_tone3": "cuo3"
+    },
+    {
+      "base": "cuo",
+      "base_proper": "cuo",
+      "tone": 4,
+      "pinyin_tone3": "cuo4"
+    },
+    {
+      "base": "da",
+      "base_proper": "da",
+      "tone": 0,
+      "pinyin_tone3": "da0"
+    },
+    {
+      "base": "da",
+      "base_proper": "da",
+      "tone": 1,
+      "pinyin_tone3": "da1"
+    },
+    {
+      "base": "da",
+      "base_proper": "da",
+      "tone": 2,
+      "pinyin_tone3": "da2"
+    },
+    {
+      "base": "da",
+      "base_proper": "da",
+      "tone": 3,
+      "pinyin_tone3": "da3"
+    },
+    {
+      "base": "da",
+      "base_proper": "da",
+      "tone": 4,
+      "pinyin_tone3": "da4"
+    },
+    {
+      "base": "dai",
+      "base_proper": "dai",
+      "tone": 0,
+      "pinyin_tone3": "dai0"
+    },
+    {
+      "base": "dai",
+      "base_proper": "dai",
+      "tone": 1,
+      "pinyin_tone3": "dai1"
+    },
+    {
+      "base": "dai",
+      "base_proper": "dai",
+      "tone": 3,
+      "pinyin_tone3": "dai3"
+    },
+    {
+      "base": "dai",
+      "base_proper": "dai",
+      "tone": 4,
+      "pinyin_tone3": "dai4"
+    },
+    {
+      "base": "dan",
+      "base_proper": "dan",
+      "tone": 1,
+      "pinyin_tone3": "dan1"
+    },
+    {
+      "base": "dan",
+      "base_proper": "dan",
+      "tone": 3,
+      "pinyin_tone3": "dan3"
+    },
+    {
+      "base": "dan",
+      "base_proper": "dan",
+      "tone": 4,
+      "pinyin_tone3": "dan4"
+    },
+    {
+      "base": "dang",
+      "base_proper": "dang",
+      "tone": 0,
+      "pinyin_tone3": "dang0"
+    },
+    {
+      "base": "dang",
+      "base_proper": "dang",
+      "tone": 1,
+      "pinyin_tone3": "dang1"
+    },
+    {
+      "base": "dang",
+      "base_proper": "dang",
+      "tone": 3,
+      "pinyin_tone3": "dang3"
+    },
+    {
+      "base": "dang",
+      "base_proper": "dang",
+      "tone": 4,
+      "pinyin_tone3": "dang4"
+    },
+    {
+      "base": "dao",
+      "base_proper": "dao",
+      "tone": 1,
+      "pinyin_tone3": "dao1"
+    },
+    {
+      "base": "dao",
+      "base_proper": "dao",
+      "tone": 2,
+      "pinyin_tone3": "dao2"
+    },
+    {
+      "base": "dao",
+      "base_proper": "dao",
+      "tone": 3,
+      "pinyin_tone3": "dao3"
+    },
+    {
+      "base": "dao",
+      "base_proper": "dao",
+      "tone": 4,
+      "pinyin_tone3": "dao4"
+    },
+    {
+      "base": "de",
+      "base_proper": "de",
+      "tone": 0,
+      "pinyin_tone3": "de0"
+    },
+    {
+      "base": "de",
+      "base_proper": "de",
+      "tone": 1,
+      "pinyin_tone3": "de1"
+    },
+    {
+      "base": "de",
+      "base_proper": "de",
+      "tone": 2,
+      "pinyin_tone3": "de2"
+    },
+    {
+      "base": "dei",
+      "base_proper": "dei",
+      "tone": 1,
+      "pinyin_tone3": "dei1"
+    },
+    {
+      "base": "dei",
+      "base_proper": "dei",
+      "tone": 3,
+      "pinyin_tone3": "dei3"
+    },
+    {
+      "base": "den",
+      "base_proper": "den",
+      "tone": 4,
+      "pinyin_tone3": "den4"
+    },
+    {
+      "base": "deng",
+      "base_proper": "deng",
+      "tone": 1,
+      "pinyin_tone3": "deng1"
+    },
+    {
+      "base": "deng",
+      "base_proper": "deng",
+      "tone": 3,
+      "pinyin_tone3": "deng3"
+    },
+    {
+      "base": "deng",
+      "base_proper": "deng",
+      "tone": 4,
+      "pinyin_tone3": "deng4"
+    },
+    {
+      "base": "di",
+      "base_proper": "di",
+      "tone": 1,
+      "pinyin_tone3": "di1"
+    },
+    {
+      "base": "di",
+      "base_proper": "di",
+      "tone": 2,
+      "pinyin_tone3": "di2"
+    },
+    {
+      "base": "di",
+      "base_proper": "di",
+      "tone": 3,
+      "pinyin_tone3": "di3"
+    },
+    {
+      "base": "di",
+      "base_proper": "di",
+      "tone": 4,
+      "pinyin_tone3": "di4"
+    },
+    {
+      "base": "dia",
+      "base_proper": "dia",
+      "tone": 3,
+      "pinyin_tone3": "dia3"
+    },
+    {
+      "base": "dian",
+      "base_proper": "dian",
+      "tone": 1,
+      "pinyin_tone3": "dian1"
+    },
+    {
+      "base": "dian",
+      "base_proper": "dian",
+      "tone": 2,
+      "pinyin_tone3": "dian2"
+    },
+    {
+      "base": "dian",
+      "base_proper": "dian",
+      "tone": 3,
+      "pinyin_tone3": "dian3"
+    },
+    {
+      "base": "dian",
+      "base_proper": "dian",
+      "tone": 4,
+      "pinyin_tone3": "dian4"
+    },
+    {
+      "base": "diao",
+      "base_proper": "diao",
+      "tone": 1,
+      "pinyin_tone3": "diao1"
+    },
+    {
+      "base": "diao",
+      "base_proper": "diao",
+      "tone": 3,
+      "pinyin_tone3": "diao3"
+    },
+    {
+      "base": "diao",
+      "base_proper": "diao",
+      "tone": 4,
+      "pinyin_tone3": "diao4"
+    },
+    {
+      "base": "die",
+      "base_proper": "die",
+      "tone": 1,
+      "pinyin_tone3": "die1"
+    },
+    {
+      "base": "die",
+      "base_proper": "die",
+      "tone": 2,
+      "pinyin_tone3": "die2"
+    },
+    {
+      "base": "die",
+      "base_proper": "die",
+      "tone": 3,
+      "pinyin_tone3": "die3"
+    },
+    {
+      "base": "die",
+      "base_proper": "die",
+      "tone": 4,
+      "pinyin_tone3": "die4"
+    },
+    {
+      "base": "din",
+      "base_proper": "din",
+      "tone": 4,
+      "pinyin_tone3": "din4"
+    },
+    {
+      "base": "ding",
+      "base_proper": "ding",
+      "tone": 1,
+      "pinyin_tone3": "ding1"
+    },
+    {
+      "base": "ding",
+      "base_proper": "ding",
+      "tone": 3,
+      "pinyin_tone3": "ding3"
+    },
+    {
+      "base": "ding",
+      "base_proper": "ding",
+      "tone": 4,
+      "pinyin_tone3": "ding4"
+    },
+    {
+      "base": "diu",
+      "base_proper": "diu",
+      "tone": 1,
+      "pinyin_tone3": "diu1"
+    },
+    {
+      "base": "dong",
+      "base_proper": "dong",
+      "tone": 1,
+      "pinyin_tone3": "dong1"
+    },
+    {
+      "base": "dong",
+      "base_proper": "dong",
+      "tone": 3,
+      "pinyin_tone3": "dong3"
+    },
+    {
+      "base": "dong",
+      "base_proper": "dong",
+      "tone": 4,
+      "pinyin_tone3": "dong4"
+    },
+    {
+      "base": "dou",
+      "base_proper": "dou",
+      "tone": 1,
+      "pinyin_tone3": "dou1"
+    },
+    {
+      "base": "dou",
+      "base_proper": "dou",
+      "tone": 3,
+      "pinyin_tone3": "dou3"
+    },
+    {
+      "base": "dou",
+      "base_proper": "dou",
+      "tone": 4,
+      "pinyin_tone3": "dou4"
+    },
+    {
+      "base": "du",
+      "base_proper": "du",
+      "tone": 1,
+      "pinyin_tone3": "du1"
+    },
+    {
+      "base": "du",
+      "base_proper": "du",
+      "tone": 2,
+      "pinyin_tone3": "du2"
+    },
+    {
+      "base": "du",
+      "base_proper": "du",
+      "tone": 3,
+      "pinyin_tone3": "du3"
+    },
+    {
+      "base": "du",
+      "base_proper": "du",
+      "tone": 4,
+      "pinyin_tone3": "du4"
+    },
+    {
+      "base": "duan",
+      "base_proper": "duan",
+      "tone": 1,
+      "pinyin_tone3": "duan1"
+    },
+    {
+      "base": "duan",
+      "base_proper": "duan",
+      "tone": 3,
+      "pinyin_tone3": "duan3"
+    },
+    {
+      "base": "duan",
+      "base_proper": "duan",
+      "tone": 4,
+      "pinyin_tone3": "duan4"
+    },
+    {
+      "base": "dui",
+      "base_proper": "dui",
+      "tone": 1,
+      "pinyin_tone3": "dui1"
+    },
+    {
+      "base": "dui",
+      "base_proper": "dui",
+      "tone": 3,
+      "pinyin_tone3": "dui3"
+    },
+    {
+      "base": "dui",
+      "base_proper": "dui",
+      "tone": 4,
+      "pinyin_tone3": "dui4"
+    },
+    {
+      "base": "dun",
+      "base_proper": "dun",
+      "tone": 1,
+      "pinyin_tone3": "dun1"
+    },
+    {
+      "base": "dun",
+      "base_proper": "dun",
+      "tone": 3,
+      "pinyin_tone3": "dun3"
+    },
+    {
+      "base": "dun",
+      "base_proper": "dun",
+      "tone": 4,
+      "pinyin_tone3": "dun4"
+    },
+    {
+      "base": "duo",
+      "base_proper": "duo",
+      "tone": 0,
+      "pinyin_tone3": "duo0"
+    },
+    {
+      "base": "duo",
+      "base_proper": "duo",
+      "tone": 1,
+      "pinyin_tone3": "duo1"
+    },
+    {
+      "base": "duo",
+      "base_proper": "duo",
+      "tone": 2,
+      "pinyin_tone3": "duo2"
+    },
+    {
+      "base": "duo",
+      "base_proper": "duo",
+      "tone": 3,
+      "pinyin_tone3": "duo3"
+    },
+    {
+      "base": "duo",
+      "base_proper": "duo",
+      "tone": 4,
+      "pinyin_tone3": "duo4"
+    },
+    {
+      "base": "e",
+      "base_proper": "e",
+      "tone": 0,
+      "pinyin_tone3": "e0"
+    },
+    {
+      "base": "e",
+      "base_proper": "e",
+      "tone": 1,
+      "pinyin_tone3": "e1"
+    },
+    {
+      "base": "e",
+      "base_proper": "e",
+      "tone": 2,
+      "pinyin_tone3": "e2"
+    },
+    {
+      "base": "e",
+      "base_proper": "e",
+      "tone": 3,
+      "pinyin_tone3": "e3"
+    },
+    {
+      "base": "e",
+      "base_proper": "e",
+      "tone": 4,
+      "pinyin_tone3": "e4"
+    },
+    {
+      "base": "ei",
+      "base_proper": "ei",
+      "tone": 1,
+      "pinyin_tone3": "ei1"
+    },
+    {
+      "base": "ei",
+      "base_proper": "ei",
+      "tone": 2,
+      "pinyin_tone3": "ei2"
+    },
+    {
+      "base": "ei",
+      "base_proper": "ei",
+      "tone": 3,
+      "pinyin_tone3": "ei3"
+    },
+    {
+      "base": "ei",
+      "base_proper": "ei",
+      "tone": 4,
+      "pinyin_tone3": "ei4"
+    },
+    {
+      "base": "en",
+      "base_proper": "en",
+      "tone": 1,
+      "pinyin_tone3": "en1"
+    },
+    {
+      "base": "en",
+      "base_proper": "en",
+      "tone": 3,
+      "pinyin_tone3": "en3"
+    },
+    {
+      "base": "en",
+      "base_proper": "en",
+      "tone": 4,
+      "pinyin_tone3": "en4"
+    },
+    {
+      "base": "eng",
+      "base_proper": "eng",
+      "tone": 1,
+      "pinyin_tone3": "eng1"
+    },
+    {
+      "base": "er",
+      "base_proper": "er",
+      "tone": 0,
+      "pinyin_tone3": "er0"
+    },
+    {
+      "base": "er",
+      "base_proper": "er",
+      "tone": 2,
+      "pinyin_tone3": "er2"
+    },
+    {
+      "base": "er",
+      "base_proper": "er",
+      "tone": 3,
+      "pinyin_tone3": "er3"
+    },
+    {
+      "base": "er",
+      "base_proper": "er",
+      "tone": 4,
+      "pinyin_tone3": "er4"
+    },
+    {
+      "base": "fa",
+      "base_proper": "fa",
+      "tone": 0,
+      "pinyin_tone3": "fa0"
+    },
+    {
+      "base": "fa",
+      "base_proper": "fa",
+      "tone": 1,
+      "pinyin_tone3": "fa1"
+    },
+    {
+      "base": "fa",
+      "base_proper": "fa",
+      "tone": 2,
+      "pinyin_tone3": "fa2"
+    },
+    {
+      "base": "fa",
+      "base_proper": "fa",
+      "tone": 3,
+      "pinyin_tone3": "fa3"
+    },
+    {
+      "base": "fa",
+      "base_proper": "fa",
+      "tone": 4,
+      "pinyin_tone3": "fa4"
+    },
+    {
+      "base": "fan",
+      "base_proper": "fan",
+      "tone": 1,
+      "pinyin_tone3": "fan1"
+    },
+    {
+      "base": "fan",
+      "base_proper": "fan",
+      "tone": 2,
+      "pinyin_tone3": "fan2"
+    },
+    {
+      "base": "fan",
+      "base_proper": "fan",
+      "tone": 3,
+      "pinyin_tone3": "fan3"
+    },
+    {
+      "base": "fan",
+      "base_proper": "fan",
+      "tone": 4,
+      "pinyin_tone3": "fan4"
+    },
+    {
+      "base": "fang",
+      "base_proper": "fang",
+      "tone": 0,
+      "pinyin_tone3": "fang0"
+    },
+    {
+      "base": "fang",
+      "base_proper": "fang",
+      "tone": 1,
+      "pinyin_tone3": "fang1"
+    },
+    {
+      "base": "fang",
+      "base_proper": "fang",
+      "tone": 2,
+      "pinyin_tone3": "fang2"
+    },
+    {
+      "base": "fang",
+      "base_proper": "fang",
+      "tone": 3,
+      "pinyin_tone3": "fang3"
+    },
+    {
+      "base": "fang",
+      "base_proper": "fang",
+      "tone": 4,
+      "pinyin_tone3": "fang4"
+    },
+    {
+      "base": "fei",
+      "base_proper": "fei",
+      "tone": 1,
+      "pinyin_tone3": "fei1"
+    },
+    {
+      "base": "fei",
+      "base_proper": "fei",
+      "tone": 2,
+      "pinyin_tone3": "fei2"
+    },
+    {
+      "base": "fei",
+      "base_proper": "fei",
+      "tone": 3,
+      "pinyin_tone3": "fei3"
+    },
+    {
+      "base": "fei",
+      "base_proper": "fei",
+      "tone": 4,
+      "pinyin_tone3": "fei4"
+    },
+    {
+      "base": "fen",
+      "base_proper": "fen",
+      "tone": 1,
+      "pinyin_tone3": "fen1"
+    },
+    {
+      "base": "fen",
+      "base_proper": "fen",
+      "tone": 2,
+      "pinyin_tone3": "fen2"
+    },
+    {
+      "base": "fen",
+      "base_proper": "fen",
+      "tone": 3,
+      "pinyin_tone3": "fen3"
+    },
+    {
+      "base": "fen",
+      "base_proper": "fen",
+      "tone": 4,
+      "pinyin_tone3": "fen4"
+    },
+    {
+      "base": "feng",
+      "base_proper": "feng",
+      "tone": 1,
+      "pinyin_tone3": "feng1"
+    },
+    {
+      "base": "feng",
+      "base_proper": "feng",
+      "tone": 2,
+      "pinyin_tone3": "feng2"
+    },
+    {
+      "base": "feng",
+      "base_proper": "feng",
+      "tone": 3,
+      "pinyin_tone3": "feng3"
+    },
+    {
+      "base": "feng",
+      "base_proper": "feng",
+      "tone": 4,
+      "pinyin_tone3": "feng4"
+    },
+    {
+      "base": "fiao",
+      "base_proper": "fiao",
+      "tone": 4,
+      "pinyin_tone3": "fiao4"
+    },
+    {
+      "base": "fo",
+      "base_proper": "fo",
+      "tone": 2,
+      "pinyin_tone3": "fo2"
+    },
+    {
+      "base": "fou",
+      "base_proper": "fou",
+      "tone": 1,
+      "pinyin_tone3": "fou1"
+    },
+    {
+      "base": "fou",
+      "base_proper": "fou",
+      "tone": 2,
+      "pinyin_tone3": "fou2"
+    },
+    {
+      "base": "fou",
+      "base_proper": "fou",
+      "tone": 3,
+      "pinyin_tone3": "fou3"
+    },
+    {
+      "base": "fu",
+      "base_proper": "fu",
+      "tone": 0,
+      "pinyin_tone3": "fu0"
+    },
+    {
+      "base": "fu",
+      "base_proper": "fu",
+      "tone": 1,
+      "pinyin_tone3": "fu1"
+    },
+    {
+      "base": "fu",
+      "base_proper": "fu",
+      "tone": 2,
+      "pinyin_tone3": "fu2"
+    },
+    {
+      "base": "fu",
+      "base_proper": "fu",
+      "tone": 3,
+      "pinyin_tone3": "fu3"
+    },
+    {
+      "base": "fu",
+      "base_proper": "fu",
+      "tone": 4,
+      "pinyin_tone3": "fu4"
+    },
+    {
+      "base": "ga",
+      "base_proper": "ga",
+      "tone": 1,
+      "pinyin_tone3": "ga1"
+    },
+    {
+      "base": "ga",
+      "base_proper": "ga",
+      "tone": 2,
+      "pinyin_tone3": "ga2"
+    },
+    {
+      "base": "ga",
+      "base_proper": "ga",
+      "tone": 3,
+      "pinyin_tone3": "ga3"
+    },
+    {
+      "base": "ga",
+      "base_proper": "ga",
+      "tone": 4,
+      "pinyin_tone3": "ga4"
+    },
+    {
+      "base": "gai",
+      "base_proper": "gai",
+      "tone": 1,
+      "pinyin_tone3": "gai1"
+    },
+    {
+      "base": "gai",
+      "base_proper": "gai",
+      "tone": 3,
+      "pinyin_tone3": "gai3"
+    },
+    {
+      "base": "gai",
+      "base_proper": "gai",
+      "tone": 4,
+      "pinyin_tone3": "gai4"
+    },
+    {
+      "base": "gan",
+      "base_proper": "gan",
+      "tone": 1,
+      "pinyin_tone3": "gan1"
+    },
+    {
+      "base": "gan",
+      "base_proper": "gan",
+      "tone": 3,
+      "pinyin_tone3": "gan3"
+    },
+    {
+      "base": "gan",
+      "base_proper": "gan",
+      "tone": 4,
+      "pinyin_tone3": "gan4"
+    },
+    {
+      "base": "gang",
+      "base_proper": "gang",
+      "tone": 1,
+      "pinyin_tone3": "gang1"
+    },
+    {
+      "base": "gang",
+      "base_proper": "gang",
+      "tone": 3,
+      "pinyin_tone3": "gang3"
+    },
+    {
+      "base": "gang",
+      "base_proper": "gang",
+      "tone": 4,
+      "pinyin_tone3": "gang4"
+    },
+    {
+      "base": "gao",
+      "base_proper": "gao",
+      "tone": 1,
+      "pinyin_tone3": "gao1"
+    },
+    {
+      "base": "gao",
+      "base_proper": "gao",
+      "tone": 3,
+      "pinyin_tone3": "gao3"
+    },
+    {
+      "base": "gao",
+      "base_proper": "gao",
+      "tone": 4,
+      "pinyin_tone3": "gao4"
+    },
+    {
+      "base": "ge",
+      "base_proper": "ge",
+      "tone": 1,
+      "pinyin_tone3": "ge1"
+    },
+    {
+      "base": "ge",
+      "base_proper": "ge",
+      "tone": 2,
+      "pinyin_tone3": "ge2"
+    },
+    {
+      "base": "ge",
+      "base_proper": "ge",
+      "tone": 3,
+      "pinyin_tone3": "ge3"
+    },
+    {
+      "base": "ge",
+      "base_proper": "ge",
+      "tone": 4,
+      "pinyin_tone3": "ge4"
+    },
+    {
+      "base": "gei",
+      "base_proper": "gei",
+      "tone": 3,
+      "pinyin_tone3": "gei3"
+    },
+    {
+      "base": "gen",
+      "base_proper": "gen",
+      "tone": 1,
+      "pinyin_tone3": "gen1"
+    },
+    {
+      "base": "gen",
+      "base_proper": "gen",
+      "tone": 2,
+      "pinyin_tone3": "gen2"
+    },
+    {
+      "base": "gen",
+      "base_proper": "gen",
+      "tone": 3,
+      "pinyin_tone3": "gen3"
+    },
+    {
+      "base": "gen",
+      "base_proper": "gen",
+      "tone": 4,
+      "pinyin_tone3": "gen4"
+    },
+    {
+      "base": "geng",
+      "base_proper": "geng",
+      "tone": 1,
+      "pinyin_tone3": "geng1"
+    },
+    {
+      "base": "geng",
+      "base_proper": "geng",
+      "tone": 3,
+      "pinyin_tone3": "geng3"
+    },
+    {
+      "base": "geng",
+      "base_proper": "geng",
+      "tone": 4,
+      "pinyin_tone3": "geng4"
+    },
+    {
+      "base": "gong",
+      "base_proper": "gong",
+      "tone": 0,
+      "pinyin_tone3": "gong0"
+    },
+    {
+      "base": "gong",
+      "base_proper": "gong",
+      "tone": 1,
+      "pinyin_tone3": "gong1"
+    },
+    {
+      "base": "gong",
+      "base_proper": "gong",
+      "tone": 3,
+      "pinyin_tone3": "gong3"
+    },
+    {
+      "base": "gong",
+      "base_proper": "gong",
+      "tone": 4,
+      "pinyin_tone3": "gong4"
+    },
+    {
+      "base": "gou",
+      "base_proper": "gou",
+      "tone": 1,
+      "pinyin_tone3": "gou1"
+    },
+    {
+      "base": "gou",
+      "base_proper": "gou",
+      "tone": 3,
+      "pinyin_tone3": "gou3"
+    },
+    {
+      "base": "gou",
+      "base_proper": "gou",
+      "tone": 4,
+      "pinyin_tone3": "gou4"
+    },
+    {
+      "base": "gu",
+      "base_proper": "gu",
+      "tone": 0,
+      "pinyin_tone3": "gu0"
+    },
+    {
+      "base": "gu",
+      "base_proper": "gu",
+      "tone": 1,
+      "pinyin_tone3": "gu1"
+    },
+    {
+      "base": "gu",
+      "base_proper": "gu",
+      "tone": 2,
+      "pinyin_tone3": "gu2"
+    },
+    {
+      "base": "gu",
+      "base_proper": "gu",
+      "tone": 3,
+      "pinyin_tone3": "gu3"
+    },
+    {
+      "base": "gu",
+      "base_proper": "gu",
+      "tone": 4,
+      "pinyin_tone3": "gu4"
+    },
+    {
+      "base": "gua",
+      "base_proper": "gua",
+      "tone": 1,
+      "pinyin_tone3": "gua1"
+    },
+    {
+      "base": "gua",
+      "base_proper": "gua",
+      "tone": 2,
+      "pinyin_tone3": "gua2"
+    },
+    {
+      "base": "gua",
+      "base_proper": "gua",
+      "tone": 3,
+      "pinyin_tone3": "gua3"
+    },
+    {
+      "base": "gua",
+      "base_proper": "gua",
+      "tone": 4,
+      "pinyin_tone3": "gua4"
+    },
+    {
+      "base": "guai",
+      "base_proper": "guai",
+      "tone": 1,
+      "pinyin_tone3": "guai1"
+    },
+    {
+      "base": "guai",
+      "base_proper": "guai",
+      "tone": 3,
+      "pinyin_tone3": "guai3"
+    },
+    {
+      "base": "guai",
+      "base_proper": "guai",
+      "tone": 4,
+      "pinyin_tone3": "guai4"
+    },
+    {
+      "base": "guan",
+      "base_proper": "guan",
+      "tone": 1,
+      "pinyin_tone3": "guan1"
+    },
+    {
+      "base": "guan",
+      "base_proper": "guan",
+      "tone": 3,
+      "pinyin_tone3": "guan3"
+    },
+    {
+      "base": "guan",
+      "base_proper": "guan",
+      "tone": 4,
+      "pinyin_tone3": "guan4"
+    },
+    {
+      "base": "guang",
+      "base_proper": "guang",
+      "tone": 0,
+      "pinyin_tone3": "guang0"
+    },
+    {
+      "base": "guang",
+      "base_proper": "guang",
+      "tone": 1,
+      "pinyin_tone3": "guang1"
+    },
+    {
+      "base": "guang",
+      "base_proper": "guang",
+      "tone": 3,
+      "pinyin_tone3": "guang3"
+    },
+    {
+      "base": "guang",
+      "base_proper": "guang",
+      "tone": 4,
+      "pinyin_tone3": "guang4"
+    },
+    {
+      "base": "gui",
+      "base_proper": "gui",
+      "tone": 1,
+      "pinyin_tone3": "gui1"
+    },
+    {
+      "base": "gui",
+      "base_proper": "gui",
+      "tone": 3,
+      "pinyin_tone3": "gui3"
+    },
+    {
+      "base": "gui",
+      "base_proper": "gui",
+      "tone": 4,
+      "pinyin_tone3": "gui4"
+    },
+    {
+      "base": "gun",
+      "base_proper": "gun",
+      "tone": 3,
+      "pinyin_tone3": "gun3"
+    },
+    {
+      "base": "gun",
+      "base_proper": "gun",
+      "tone": 4,
+      "pinyin_tone3": "gun4"
+    },
+    {
+      "base": "guo",
+      "base_proper": "guo",
+      "tone": 0,
+      "pinyin_tone3": "guo0"
+    },
+    {
+      "base": "guo",
+      "base_proper": "guo",
+      "tone": 1,
+      "pinyin_tone3": "guo1"
+    },
+    {
+      "base": "guo",
+      "base_proper": "guo",
+      "tone": 2,
+      "pinyin_tone3": "guo2"
+    },
+    {
+      "base": "guo",
+      "base_proper": "guo",
+      "tone": 3,
+      "pinyin_tone3": "guo3"
+    },
+    {
+      "base": "guo",
+      "base_proper": "guo",
+      "tone": 4,
+      "pinyin_tone3": "guo4"
+    },
+    {
+      "base": "ha",
+      "base_proper": "ha",
+      "tone": 1,
+      "pinyin_tone3": "ha1"
+    },
+    {
+      "base": "ha",
+      "base_proper": "ha",
+      "tone": 2,
+      "pinyin_tone3": "ha2"
+    },
+    {
+      "base": "ha",
+      "base_proper": "ha",
+      "tone": 3,
+      "pinyin_tone3": "ha3"
+    },
+    {
+      "base": "ha",
+      "base_proper": "ha",
+      "tone": 4,
+      "pinyin_tone3": "ha4"
+    },
+    {
+      "base": "hai",
+      "base_proper": "hai",
+      "tone": 0,
+      "pinyin_tone3": "hai0"
+    },
+    {
+      "base": "hai",
+      "base_proper": "hai",
+      "tone": 1,
+      "pinyin_tone3": "hai1"
+    },
+    {
+      "base": "hai",
+      "base_proper": "hai",
+      "tone": 2,
+      "pinyin_tone3": "hai2"
+    },
+    {
+      "base": "hai",
+      "base_proper": "hai",
+      "tone": 3,
+      "pinyin_tone3": "hai3"
+    },
+    {
+      "base": "hai",
+      "base_proper": "hai",
+      "tone": 4,
+      "pinyin_tone3": "hai4"
+    },
+    {
+      "base": "han",
+      "base_proper": "han",
+      "tone": 0,
+      "pinyin_tone3": "han0"
+    },
+    {
+      "base": "han",
+      "base_proper": "han",
+      "tone": 1,
+      "pinyin_tone3": "han1"
+    },
+    {
+      "base": "han",
+      "base_proper": "han",
+      "tone": 2,
+      "pinyin_tone3": "han2"
+    },
+    {
+      "base": "han",
+      "base_proper": "han",
+      "tone": 3,
+      "pinyin_tone3": "han3"
+    },
+    {
+      "base": "han",
+      "base_proper": "han",
+      "tone": 4,
+      "pinyin_tone3": "han4"
+    },
+    {
+      "base": "hang",
+      "base_proper": "hang",
+      "tone": 1,
+      "pinyin_tone3": "hang1"
+    },
+    {
+      "base": "hang",
+      "base_proper": "hang",
+      "tone": 2,
+      "pinyin_tone3": "hang2"
+    },
+    {
+      "base": "hang",
+      "base_proper": "hang",
+      "tone": 3,
+      "pinyin_tone3": "hang3"
+    },
+    {
+      "base": "hang",
+      "base_proper": "hang",
+      "tone": 4,
+      "pinyin_tone3": "hang4"
+    },
+    {
+      "base": "hao",
+      "base_proper": "hao",
+      "tone": 1,
+      "pinyin_tone3": "hao1"
+    },
+    {
+      "base": "hao",
+      "base_proper": "hao",
+      "tone": 2,
+      "pinyin_tone3": "hao2"
+    },
+    {
+      "base": "hao",
+      "base_proper": "hao",
+      "tone": 3,
+      "pinyin_tone3": "hao3"
+    },
+    {
+      "base": "hao",
+      "base_proper": "hao",
+      "tone": 4,
+      "pinyin_tone3": "hao4"
+    },
+    {
+      "base": "he",
+      "base_proper": "he",
+      "tone": 1,
+      "pinyin_tone3": "he1"
+    },
+    {
+      "base": "he",
+      "base_proper": "he",
+      "tone": 2,
+      "pinyin_tone3": "he2"
+    },
+    {
+      "base": "he",
+      "base_proper": "he",
+      "tone": 3,
+      "pinyin_tone3": "he3"
+    },
+    {
+      "base": "he",
+      "base_proper": "he",
+      "tone": 4,
+      "pinyin_tone3": "he4"
+    },
+    {
+      "base": "hei",
+      "base_proper": "hei",
+      "tone": 1,
+      "pinyin_tone3": "hei1"
+    },
+    {
+      "base": "hen",
+      "base_proper": "hen",
+      "tone": 1,
+      "pinyin_tone3": "hen1"
+    },
+    {
+      "base": "hen",
+      "base_proper": "hen",
+      "tone": 2,
+      "pinyin_tone3": "hen2"
+    },
+    {
+      "base": "hen",
+      "base_proper": "hen",
+      "tone": 3,
+      "pinyin_tone3": "hen3"
+    },
+    {
+      "base": "hen",
+      "base_proper": "hen",
+      "tone": 4,
+      "pinyin_tone3": "hen4"
+    },
+    {
+      "base": "heng",
+      "base_proper": "heng",
+      "tone": 1,
+      "pinyin_tone3": "heng1"
+    },
+    {
+      "base": "heng",
+      "base_proper": "heng",
+      "tone": 2,
+      "pinyin_tone3": "heng2"
+    },
+    {
+      "base": "heng",
+      "base_proper": "heng",
+      "tone": 4,
+      "pinyin_tone3": "heng4"
+    },
+    {
+      "base": "hm",
+      "base_proper": "hm",
+      "tone": 0,
+      "pinyin_tone3": "hm0"
+    },
+    {
+      "base": "hng",
+      "base_proper": "hng",
+      "tone": 0,
+      "pinyin_tone3": "hng0"
+    },
+    {
+      "base": "hong",
+      "base_proper": "hong",
+      "tone": 1,
+      "pinyin_tone3": "hong1"
+    },
+    {
+      "base": "hong",
+      "base_proper": "hong",
+      "tone": 2,
+      "pinyin_tone3": "hong2"
+    },
+    {
+      "base": "hong",
+      "base_proper": "hong",
+      "tone": 3,
+      "pinyin_tone3": "hong3"
+    },
+    {
+      "base": "hong",
+      "base_proper": "hong",
+      "tone": 4,
+      "pinyin_tone3": "hong4"
+    },
+    {
+      "base": "hou",
+      "base_proper": "hou",
+      "tone": 1,
+      "pinyin_tone3": "hou1"
+    },
+    {
+      "base": "hou",
+      "base_proper": "hou",
+      "tone": 2,
+      "pinyin_tone3": "hou2"
+    },
+    {
+      "base": "hou",
+      "base_proper": "hou",
+      "tone": 3,
+      "pinyin_tone3": "hou3"
+    },
+    {
+      "base": "hou",
+      "base_proper": "hou",
+      "tone": 4,
+      "pinyin_tone3": "hou4"
+    },
+    {
+      "base": "hu",
+      "base_proper": "hu",
+      "tone": 0,
+      "pinyin_tone3": "hu0"
+    },
+    {
+      "base": "hu",
+      "base_proper": "hu",
+      "tone": 1,
+      "pinyin_tone3": "hu1"
+    },
+    {
+      "base": "hu",
+      "base_proper": "hu",
+      "tone": 2,
+      "pinyin_tone3": "hu2"
+    },
+    {
+      "base": "hu",
+      "base_proper": "hu",
+      "tone": 3,
+      "pinyin_tone3": "hu3"
+    },
+    {
+      "base": "hu",
+      "base_proper": "hu",
+      "tone": 4,
+      "pinyin_tone3": "hu4"
+    },
+    {
+      "base": "hua",
+      "base_proper": "hua",
+      "tone": 1,
+      "pinyin_tone3": "hua1"
+    },
+    {
+      "base": "hua",
+      "base_proper": "hua",
+      "tone": 2,
+      "pinyin_tone3": "hua2"
+    },
+    {
+      "base": "hua",
+      "base_proper": "hua",
+      "tone": 4,
+      "pinyin_tone3": "hua4"
+    },
+    {
+      "base": "huai",
+      "base_proper": "huai",
+      "tone": 0,
+      "pinyin_tone3": "huai0"
+    },
+    {
+      "base": "huai",
+      "base_proper": "huai",
+      "tone": 2,
+      "pinyin_tone3": "huai2"
+    },
+    {
+      "base": "huai",
+      "base_proper": "huai",
+      "tone": 4,
+      "pinyin_tone3": "huai4"
+    },
+    {
+      "base": "huan",
+      "base_proper": "huan",
+      "tone": 1,
+      "pinyin_tone3": "huan1"
+    },
+    {
+      "base": "huan",
+      "base_proper": "huan",
+      "tone": 2,
+      "pinyin_tone3": "huan2"
+    },
+    {
+      "base": "huan",
+      "base_proper": "huan",
+      "tone": 3,
+      "pinyin_tone3": "huan3"
+    },
+    {
+      "base": "huan",
+      "base_proper": "huan",
+      "tone": 4,
+      "pinyin_tone3": "huan4"
+    },
+    {
+      "base": "huang",
+      "base_proper": "huang",
+      "tone": 0,
+      "pinyin_tone3": "huang0"
+    },
+    {
+      "base": "huang",
+      "base_proper": "huang",
+      "tone": 1,
+      "pinyin_tone3": "huang1"
+    },
+    {
+      "base": "huang",
+      "base_proper": "huang",
+      "tone": 2,
+      "pinyin_tone3": "huang2"
+    },
+    {
+      "base": "huang",
+      "base_proper": "huang",
+      "tone": 3,
+      "pinyin_tone3": "huang3"
+    },
+    {
+      "base": "huang",
+      "base_proper": "huang",
+      "tone": 4,
+      "pinyin_tone3": "huang4"
+    },
+    {
+      "base": "hui",
+      "base_proper": "hui",
+      "tone": 0,
+      "pinyin_tone3": "hui0"
+    },
+    {
+      "base": "hui",
+      "base_proper": "hui",
+      "tone": 1,
+      "pinyin_tone3": "hui1"
+    },
+    {
+      "base": "hui",
+      "base_proper": "hui",
+      "tone": 2,
+      "pinyin_tone3": "hui2"
+    },
+    {
+      "base": "hui",
+      "base_proper": "hui",
+      "tone": 3,
+      "pinyin_tone3": "hui3"
+    },
+    {
+      "base": "hui",
+      "base_proper": "hui",
+      "tone": 4,
+      "pinyin_tone3": "hui4"
+    },
+    {
+      "base": "hun",
+      "base_proper": "hun",
+      "tone": 1,
+      "pinyin_tone3": "hun1"
+    },
+    {
+      "base": "hun",
+      "base_proper": "hun",
+      "tone": 2,
+      "pinyin_tone3": "hun2"
+    },
+    {
+      "base": "hun",
+      "base_proper": "hun",
+      "tone": 3,
+      "pinyin_tone3": "hun3"
+    },
+    {
+      "base": "hun",
+      "base_proper": "hun",
+      "tone": 4,
+      "pinyin_tone3": "hun4"
+    },
+    {
+      "base": "huo",
+      "base_proper": "huo",
+      "tone": 0,
+      "pinyin_tone3": "huo0"
+    },
+    {
+      "base": "huo",
+      "base_proper": "huo",
+      "tone": 1,
+      "pinyin_tone3": "huo1"
+    },
+    {
+      "base": "huo",
+      "base_proper": "huo",
+      "tone": 2,
+      "pinyin_tone3": "huo2"
+    },
+    {
+      "base": "huo",
+      "base_proper": "huo",
+      "tone": 3,
+      "pinyin_tone3": "huo3"
+    },
+    {
+      "base": "huo",
+      "base_proper": "huo",
+      "tone": 4,
+      "pinyin_tone3": "huo4"
+    },
+    {
+      "base": "ji",
+      "base_proper": "ji",
+      "tone": 1,
+      "pinyin_tone3": "ji1"
+    },
+    {
+      "base": "ji",
+      "base_proper": "ji",
+      "tone": 2,
+      "pinyin_tone3": "ji2"
+    },
+    {
+      "base": "ji",
+      "base_proper": "ji",
+      "tone": 3,
+      "pinyin_tone3": "ji3"
+    },
+    {
+      "base": "ji",
+      "base_proper": "ji",
+      "tone": 4,
+      "pinyin_tone3": "ji4"
+    },
+    {
+      "base": "jia",
+      "base_proper": "jia",
+      "tone": 0,
+      "pinyin_tone3": "jia0"
+    },
+    {
+      "base": "jia",
+      "base_proper": "jia",
+      "tone": 1,
+      "pinyin_tone3": "jia1"
+    },
+    {
+      "base": "jia",
+      "base_proper": "jia",
+      "tone": 2,
+      "pinyin_tone3": "jia2"
+    },
+    {
+      "base": "jia",
+      "base_proper": "jia",
+      "tone": 3,
+      "pinyin_tone3": "jia3"
+    },
+    {
+      "base": "jia",
+      "base_proper": "jia",
+      "tone": 4,
+      "pinyin_tone3": "jia4"
+    },
+    {
+      "base": "jian",
+      "base_proper": "jian",
+      "tone": 0,
+      "pinyin_tone3": "jian0"
+    },
+    {
+      "base": "jian",
+      "base_proper": "jian",
+      "tone": 1,
+      "pinyin_tone3": "jian1"
+    },
+    {
+      "base": "jian",
+      "base_proper": "jian",
+      "tone": 3,
+      "pinyin_tone3": "jian3"
+    },
+    {
+      "base": "jian",
+      "base_proper": "jian",
+      "tone": 4,
+      "pinyin_tone3": "jian4"
+    },
+    {
+      "base": "jiang",
+      "base_proper": "jiang",
+      "tone": 1,
+      "pinyin_tone3": "jiang1"
+    },
+    {
+      "base": "jiang",
+      "base_proper": "jiang",
+      "tone": 3,
+      "pinyin_tone3": "jiang3"
+    },
+    {
+      "base": "jiang",
+      "base_proper": "jiang",
+      "tone": 4,
+      "pinyin_tone3": "jiang4"
+    },
+    {
+      "base": "jiao",
+      "base_proper": "jiao",
+      "tone": 0,
+      "pinyin_tone3": "jiao0"
+    },
+    {
+      "base": "jiao",
+      "base_proper": "jiao",
+      "tone": 1,
+      "pinyin_tone3": "jiao1"
+    },
+    {
+      "base": "jiao",
+      "base_proper": "jiao",
+      "tone": 2,
+      "pinyin_tone3": "jiao2"
+    },
+    {
+      "base": "jiao",
+      "base_proper": "jiao",
+      "tone": 3,
+      "pinyin_tone3": "jiao3"
+    },
+    {
+      "base": "jiao",
+      "base_proper": "jiao",
+      "tone": 4,
+      "pinyin_tone3": "jiao4"
+    },
+    {
+      "base": "jie",
+      "base_proper": "jie",
+      "tone": 0,
+      "pinyin_tone3": "jie0"
+    },
+    {
+      "base": "jie",
+      "base_proper": "jie",
+      "tone": 1,
+      "pinyin_tone3": "jie1"
+    },
+    {
+      "base": "jie",
+      "base_proper": "jie",
+      "tone": 2,
+      "pinyin_tone3": "jie2"
+    },
+    {
+      "base": "jie",
+      "base_proper": "jie",
+      "tone": 3,
+      "pinyin_tone3": "jie3"
+    },
+    {
+      "base": "jie",
+      "base_proper": "jie",
+      "tone": 4,
+      "pinyin_tone3": "jie4"
+    },
+    {
+      "base": "jin",
+      "base_proper": "jin",
+      "tone": 1,
+      "pinyin_tone3": "jin1"
+    },
+    {
+      "base": "jin",
+      "base_proper": "jin",
+      "tone": 3,
+      "pinyin_tone3": "jin3"
+    },
+    {
+      "base": "jin",
+      "base_proper": "jin",
+      "tone": 4,
+      "pinyin_tone3": "jin4"
+    },
+    {
+      "base": "jing",
+      "base_proper": "jing",
+      "tone": 0,
+      "pinyin_tone3": "jing0"
+    },
+    {
+      "base": "jing",
+      "base_proper": "jing",
+      "tone": 1,
+      "pinyin_tone3": "jing1"
+    },
+    {
+      "base": "jing",
+      "base_proper": "jing",
+      "tone": 3,
+      "pinyin_tone3": "jing3"
+    },
+    {
+      "base": "jing",
+      "base_proper": "jing",
+      "tone": 4,
+      "pinyin_tone3": "jing4"
+    },
+    {
+      "base": "jiong",
+      "base_proper": "jiong",
+      "tone": 1,
+      "pinyin_tone3": "jiong1"
+    },
+    {
+      "base": "jiong",
+      "base_proper": "jiong",
+      "tone": 3,
+      "pinyin_tone3": "jiong3"
+    },
+    {
+      "base": "jiong",
+      "base_proper": "jiong",
+      "tone": 4,
+      "pinyin_tone3": "jiong4"
+    },
+    {
+      "base": "jiu",
+      "base_proper": "jiu",
+      "tone": 0,
+      "pinyin_tone3": "jiu0"
+    },
+    {
+      "base": "jiu",
+      "base_proper": "jiu",
+      "tone": 1,
+      "pinyin_tone3": "jiu1"
+    },
+    {
+      "base": "jiu",
+      "base_proper": "jiu",
+      "tone": 2,
+      "pinyin_tone3": "jiu2"
+    },
+    {
+      "base": "jiu",
+      "base_proper": "jiu",
+      "tone": 3,
+      "pinyin_tone3": "jiu3"
+    },
+    {
+      "base": "jiu",
+      "base_proper": "jiu",
+      "tone": 4,
+      "pinyin_tone3": "jiu4"
+    },
+    {
+      "base": "ju",
+      "base_proper": "ju",
+      "tone": 0,
+      "pinyin_tone3": "ju0"
+    },
+    {
+      "base": "ju",
+      "base_proper": "ju",
+      "tone": 1,
+      "pinyin_tone3": "ju1"
+    },
+    {
+      "base": "ju",
+      "base_proper": "ju",
+      "tone": 2,
+      "pinyin_tone3": "ju2"
+    },
+    {
+      "base": "ju",
+      "base_proper": "ju",
+      "tone": 3,
+      "pinyin_tone3": "ju3"
+    },
+    {
+      "base": "ju",
+      "base_proper": "ju",
+      "tone": 4,
+      "pinyin_tone3": "ju4"
+    },
+    {
+      "base": "juan",
+      "base_proper": "juan",
+      "tone": 1,
+      "pinyin_tone3": "juan1"
+    },
+    {
+      "base": "juan",
+      "base_proper": "juan",
+      "tone": 3,
+      "pinyin_tone3": "juan3"
+    },
+    {
+      "base": "juan",
+      "base_proper": "juan",
+      "tone": 4,
+      "pinyin_tone3": "juan4"
+    },
+    {
+      "base": "jue",
+      "base_proper": "jue",
+      "tone": 1,
+      "pinyin_tone3": "jue1"
+    },
+    {
+      "base": "jue",
+      "base_proper": "jue",
+      "tone": 2,
+      "pinyin_tone3": "jue2"
+    },
+    {
+      "base": "jue",
+      "base_proper": "jue",
+      "tone": 3,
+      "pinyin_tone3": "jue3"
+    },
+    {
+      "base": "jue",
+      "base_proper": "jue",
+      "tone": 4,
+      "pinyin_tone3": "jue4"
+    },
+    {
+      "base": "jun",
+      "base_proper": "jun",
+      "tone": 1,
+      "pinyin_tone3": "jun1"
+    },
+    {
+      "base": "jun",
+      "base_proper": "jun",
+      "tone": 3,
+      "pinyin_tone3": "jun3"
+    },
+    {
+      "base": "jun",
+      "base_proper": "jun",
+      "tone": 4,
+      "pinyin_tone3": "jun4"
+    },
+    {
+      "base": "ka",
+      "base_proper": "ka",
+      "tone": 1,
+      "pinyin_tone3": "ka1"
+    },
+    {
+      "base": "ka",
+      "base_proper": "ka",
+      "tone": 3,
+      "pinyin_tone3": "ka3"
+    },
+    {
+      "base": "kai",
+      "base_proper": "kai",
+      "tone": 1,
+      "pinyin_tone3": "kai1"
+    },
+    {
+      "base": "kai",
+      "base_proper": "kai",
+      "tone": 3,
+      "pinyin_tone3": "kai3"
+    },
+    {
+      "base": "kai",
+      "base_proper": "kai",
+      "tone": 4,
+      "pinyin_tone3": "kai4"
+    },
+    {
+      "base": "kan",
+      "base_proper": "kan",
+      "tone": 1,
+      "pinyin_tone3": "kan1"
+    },
+    {
+      "base": "kan",
+      "base_proper": "kan",
+      "tone": 3,
+      "pinyin_tone3": "kan3"
+    },
+    {
+      "base": "kan",
+      "base_proper": "kan",
+      "tone": 4,
+      "pinyin_tone3": "kan4"
+    },
+    {
+      "base": "kang",
+      "base_proper": "kang",
+      "tone": 1,
+      "pinyin_tone3": "kang1"
+    },
+    {
+      "base": "kang",
+      "base_proper": "kang",
+      "tone": 2,
+      "pinyin_tone3": "kang2"
+    },
+    {
+      "base": "kang",
+      "base_proper": "kang",
+      "tone": 3,
+      "pinyin_tone3": "kang3"
+    },
+    {
+      "base": "kang",
+      "base_proper": "kang",
+      "tone": 4,
+      "pinyin_tone3": "kang4"
+    },
+    {
+      "base": "kao",
+      "base_proper": "kao",
+      "tone": 1,
+      "pinyin_tone3": "kao1"
+    },
+    {
+      "base": "kao",
+      "base_proper": "kao",
+      "tone": 3,
+      "pinyin_tone3": "kao3"
+    },
+    {
+      "base": "kao",
+      "base_proper": "kao",
+      "tone": 4,
+      "pinyin_tone3": "kao4"
+    },
+    {
+      "base": "ke",
+      "base_proper": "ke",
+      "tone": 0,
+      "pinyin_tone3": "ke0"
+    },
+    {
+      "base": "ke",
+      "base_proper": "ke",
+      "tone": 1,
+      "pinyin_tone3": "ke1"
+    },
+    {
+      "base": "ke",
+      "base_proper": "ke",
+      "tone": 2,
+      "pinyin_tone3": "ke2"
+    },
+    {
+      "base": "ke",
+      "base_proper": "ke",
+      "tone": 3,
+      "pinyin_tone3": "ke3"
+    },
+    {
+      "base": "ke",
+      "base_proper": "ke",
+      "tone": 4,
+      "pinyin_tone3": "ke4"
+    },
+    {
+      "base": "kei",
+      "base_proper": "kei",
+      "tone": 1,
+      "pinyin_tone3": "kei1"
+    },
+    {
+      "base": "ken",
+      "base_proper": "ken",
+      "tone": 1,
+      "pinyin_tone3": "ken1"
+    },
+    {
+      "base": "ken",
+      "base_proper": "ken",
+      "tone": 3,
+      "pinyin_tone3": "ken3"
+    },
+    {
+      "base": "ken",
+      "base_proper": "ken",
+      "tone": 4,
+      "pinyin_tone3": "ken4"
+    },
+    {
+      "base": "keng",
+      "base_proper": "keng",
+      "tone": 1,
+      "pinyin_tone3": "keng1"
+    },
+    {
+      "base": "keng",
+      "base_proper": "keng",
+      "tone": 3,
+      "pinyin_tone3": "keng3"
+    },
+    {
+      "base": "kong",
+      "base_proper": "kong",
+      "tone": 1,
+      "pinyin_tone3": "kong1"
+    },
+    {
+      "base": "kong",
+      "base_proper": "kong",
+      "tone": 3,
+      "pinyin_tone3": "kong3"
+    },
+    {
+      "base": "kong",
+      "base_proper": "kong",
+      "tone": 4,
+      "pinyin_tone3": "kong4"
+    },
+    {
+      "base": "kou",
+      "base_proper": "kou",
+      "tone": 1,
+      "pinyin_tone3": "kou1"
+    },
+    {
+      "base": "kou",
+      "base_proper": "kou",
+      "tone": 3,
+      "pinyin_tone3": "kou3"
+    },
+    {
+      "base": "kou",
+      "base_proper": "kou",
+      "tone": 4,
+      "pinyin_tone3": "kou4"
+    },
+    {
+      "base": "ku",
+      "base_proper": "ku",
+      "tone": 1,
+      "pinyin_tone3": "ku1"
+    },
+    {
+      "base": "ku",
+      "base_proper": "ku",
+      "tone": 2,
+      "pinyin_tone3": "ku2"
+    },
+    {
+      "base": "ku",
+      "base_proper": "ku",
+      "tone": 3,
+      "pinyin_tone3": "ku3"
+    },
+    {
+      "base": "ku",
+      "base_proper": "ku",
+      "tone": 4,
+      "pinyin_tone3": "ku4"
+    },
+    {
+      "base": "kua",
+      "base_proper": "kua",
+      "tone": 1,
+      "pinyin_tone3": "kua1"
+    },
+    {
+      "base": "kua",
+      "base_proper": "kua",
+      "tone": 3,
+      "pinyin_tone3": "kua3"
+    },
+    {
+      "base": "kua",
+      "base_proper": "kua",
+      "tone": 4,
+      "pinyin_tone3": "kua4"
+    },
+    {
+      "base": "kuai",
+      "base_proper": "kuai",
+      "tone": 3,
+      "pinyin_tone3": "kuai3"
+    },
+    {
+      "base": "kuai",
+      "base_proper": "kuai",
+      "tone": 4,
+      "pinyin_tone3": "kuai4"
+    },
+    {
+      "base": "kuan",
+      "base_proper": "kuan",
+      "tone": 1,
+      "pinyin_tone3": "kuan1"
+    },
+    {
+      "base": "kuan",
+      "base_proper": "kuan",
+      "tone": 3,
+      "pinyin_tone3": "kuan3"
+    },
+    {
+      "base": "kuang",
+      "base_proper": "kuang",
+      "tone": 1,
+      "pinyin_tone3": "kuang1"
+    },
+    {
+      "base": "kuang",
+      "base_proper": "kuang",
+      "tone": 2,
+      "pinyin_tone3": "kuang2"
+    },
+    {
+      "base": "kuang",
+      "base_proper": "kuang",
+      "tone": 3,
+      "pinyin_tone3": "kuang3"
+    },
+    {
+      "base": "kuang",
+      "base_proper": "kuang",
+      "tone": 4,
+      "pinyin_tone3": "kuang4"
+    },
+    {
+      "base": "kui",
+      "base_proper": "kui",
+      "tone": 1,
+      "pinyin_tone3": "kui1"
+    },
+    {
+      "base": "kui",
+      "base_proper": "kui",
+      "tone": 2,
+      "pinyin_tone3": "kui2"
+    },
+    {
+      "base": "kui",
+      "base_proper": "kui",
+      "tone": 3,
+      "pinyin_tone3": "kui3"
+    },
+    {
+      "base": "kui",
+      "base_proper": "kui",
+      "tone": 4,
+      "pinyin_tone3": "kui4"
+    },
+    {
+      "base": "kun",
+      "base_proper": "kun",
+      "tone": 0,
+      "pinyin_tone3": "kun0"
+    },
+    {
+      "base": "kun",
+      "base_proper": "kun",
+      "tone": 1,
+      "pinyin_tone3": "kun1"
+    },
+    {
+      "base": "kun",
+      "base_proper": "kun",
+      "tone": 3,
+      "pinyin_tone3": "kun3"
+    },
+    {
+      "base": "kun",
+      "base_proper": "kun",
+      "tone": 4,
+      "pinyin_tone3": "kun4"
+    },
+    {
+      "base": "kuo",
+      "base_proper": "kuo",
+      "tone": 4,
+      "pinyin_tone3": "kuo4"
+    },
+    {
+      "base": "la",
+      "base_proper": "la",
+      "tone": 0,
+      "pinyin_tone3": "la0"
+    },
+    {
+      "base": "la",
+      "base_proper": "la",
+      "tone": 1,
+      "pinyin_tone3": "la1"
+    },
+    {
+      "base": "la",
+      "base_proper": "la",
+      "tone": 2,
+      "pinyin_tone3": "la2"
+    },
+    {
+      "base": "la",
+      "base_proper": "la",
+      "tone": 3,
+      "pinyin_tone3": "la3"
+    },
+    {
+      "base": "la",
+      "base_proper": "la",
+      "tone": 4,
+      "pinyin_tone3": "la4"
+    },
+    {
+      "base": "lai",
+      "base_proper": "lai",
+      "tone": 2,
+      "pinyin_tone3": "lai2"
+    },
+    {
+      "base": "lai",
+      "base_proper": "lai",
+      "tone": 3,
+      "pinyin_tone3": "lai3"
+    },
+    {
+      "base": "lai",
+      "base_proper": "lai",
+      "tone": 4,
+      "pinyin_tone3": "lai4"
+    },
+    {
+      "base": "lan",
+      "base_proper": "lan",
+      "tone": 2,
+      "pinyin_tone3": "lan2"
+    },
+    {
+      "base": "lan",
+      "base_proper": "lan",
+      "tone": 3,
+      "pinyin_tone3": "lan3"
+    },
+    {
+      "base": "lan",
+      "base_proper": "lan",
+      "tone": 4,
+      "pinyin_tone3": "lan4"
+    },
+    {
+      "base": "lang",
+      "base_proper": "lang",
+      "tone": 0,
+      "pinyin_tone3": "lang0"
+    },
+    {
+      "base": "lang",
+      "base_proper": "lang",
+      "tone": 1,
+      "pinyin_tone3": "lang1"
+    },
+    {
+      "base": "lang",
+      "base_proper": "lang",
+      "tone": 2,
+      "pinyin_tone3": "lang2"
+    },
+    {
+      "base": "lang",
+      "base_proper": "lang",
+      "tone": 3,
+      "pinyin_tone3": "lang3"
+    },
+    {
+      "base": "lang",
+      "base_proper": "lang",
+      "tone": 4,
+      "pinyin_tone3": "lang4"
+    },
+    {
+      "base": "lao",
+      "base_proper": "lao",
+      "tone": 1,
+      "pinyin_tone3": "lao1"
+    },
+    {
+      "base": "lao",
+      "base_proper": "lao",
+      "tone": 2,
+      "pinyin_tone3": "lao2"
+    },
+    {
+      "base": "lao",
+      "base_proper": "lao",
+      "tone": 3,
+      "pinyin_tone3": "lao3"
+    },
+    {
+      "base": "lao",
+      "base_proper": "lao",
+      "tone": 4,
+      "pinyin_tone3": "lao4"
+    },
+    {
+      "base": "le",
+      "base_proper": "le",
+      "tone": 0,
+      "pinyin_tone3": "le0"
+    },
+    {
+      "base": "le",
+      "base_proper": "le",
+      "tone": 1,
+      "pinyin_tone3": "le1"
+    },
+    {
+      "base": "le",
+      "base_proper": "le",
+      "tone": 4,
+      "pinyin_tone3": "le4"
+    },
+    {
+      "base": "lei",
+      "base_proper": "lei",
+      "tone": 0,
+      "pinyin_tone3": "lei0"
+    },
+    {
+      "base": "lei",
+      "base_proper": "lei",
+      "tone": 1,
+      "pinyin_tone3": "lei1"
+    },
+    {
+      "base": "lei",
+      "base_proper": "lei",
+      "tone": 2,
+      "pinyin_tone3": "lei2"
+    },
+    {
+      "base": "lei",
+      "base_proper": "lei",
+      "tone": 3,
+      "pinyin_tone3": "lei3"
+    },
+    {
+      "base": "lei",
+      "base_proper": "lei",
+      "tone": 4,
+      "pinyin_tone3": "lei4"
+    },
+    {
+      "base": "len",
+      "base_proper": "len",
+      "tone": 4,
+      "pinyin_tone3": "len4"
+    },
+    {
+      "base": "leng",
+      "base_proper": "leng",
+      "tone": 1,
+      "pinyin_tone3": "leng1"
+    },
+    {
+      "base": "leng",
+      "base_proper": "leng",
+      "tone": 2,
+      "pinyin_tone3": "leng2"
+    },
+    {
+      "base": "leng",
+      "base_proper": "leng",
+      "tone": 3,
+      "pinyin_tone3": "leng3"
+    },
+    {
+      "base": "leng",
+      "base_proper": "leng",
+      "tone": 4,
+      "pinyin_tone3": "leng4"
+    },
+    {
+      "base": "li",
+      "base_proper": "li",
+      "tone": 0,
+      "pinyin_tone3": "li0"
+    },
+    {
+      "base": "li",
+      "base_proper": "li",
+      "tone": 1,
+      "pinyin_tone3": "li1"
+    },
+    {
+      "base": "li",
+      "base_proper": "li",
+      "tone": 2,
+      "pinyin_tone3": "li2"
+    },
+    {
+      "base": "li",
+      "base_proper": "li",
+      "tone": 3,
+      "pinyin_tone3": "li3"
+    },
+    {
+      "base": "li",
+      "base_proper": "li",
+      "tone": 4,
+      "pinyin_tone3": "li4"
+    },
+    {
+      "base": "lia",
+      "base_proper": "lia",
+      "tone": 3,
+      "pinyin_tone3": "lia3"
+    },
+    {
+      "base": "lian",
+      "base_proper": "lian",
+      "tone": 2,
+      "pinyin_tone3": "lian2"
+    },
+    {
+      "base": "lian",
+      "base_proper": "lian",
+      "tone": 3,
+      "pinyin_tone3": "lian3"
+    },
+    {
+      "base": "lian",
+      "base_proper": "lian",
+      "tone": 4,
+      "pinyin_tone3": "lian4"
+    },
+    {
+      "base": "liang",
+      "base_proper": "liang",
+      "tone": 0,
+      "pinyin_tone3": "liang0"
+    },
+    {
+      "base": "liang",
+      "base_proper": "liang",
+      "tone": 2,
+      "pinyin_tone3": "liang2"
+    },
+    {
+      "base": "liang",
+      "base_proper": "liang",
+      "tone": 3,
+      "pinyin_tone3": "liang3"
+    },
+    {
+      "base": "liang",
+      "base_proper": "liang",
+      "tone": 4,
+      "pinyin_tone3": "liang4"
+    },
+    {
+      "base": "liao",
+      "base_proper": "liao",
+      "tone": 1,
+      "pinyin_tone3": "liao1"
+    },
+    {
+      "base": "liao",
+      "base_proper": "liao",
+      "tone": 2,
+      "pinyin_tone3": "liao2"
+    },
+    {
+      "base": "liao",
+      "base_proper": "liao",
+      "tone": 3,
+      "pinyin_tone3": "liao3"
+    },
+    {
+      "base": "liao",
+      "base_proper": "liao",
+      "tone": 4,
+      "pinyin_tone3": "liao4"
+    },
+    {
+      "base": "lie",
+      "base_proper": "lie",
+      "tone": 0,
+      "pinyin_tone3": "lie0"
+    },
+    {
+      "base": "lie",
+      "base_proper": "lie",
+      "tone": 1,
+      "pinyin_tone3": "lie1"
+    },
+    {
+      "base": "lie",
+      "base_proper": "lie",
+      "tone": 2,
+      "pinyin_tone3": "lie2"
+    },
+    {
+      "base": "lie",
+      "base_proper": "lie",
+      "tone": 3,
+      "pinyin_tone3": "lie3"
+    },
+    {
+      "base": "lie",
+      "base_proper": "lie",
+      "tone": 4,
+      "pinyin_tone3": "lie4"
+    },
+    {
+      "base": "lin",
+      "base_proper": "lin",
+      "tone": 1,
+      "pinyin_tone3": "lin1"
+    },
+    {
+      "base": "lin",
+      "base_proper": "lin",
+      "tone": 2,
+      "pinyin_tone3": "lin2"
+    },
+    {
+      "base": "lin",
+      "base_proper": "lin",
+      "tone": 3,
+      "pinyin_tone3": "lin3"
+    },
+    {
+      "base": "lin",
+      "base_proper": "lin",
+      "tone": 4,
+      "pinyin_tone3": "lin4"
+    },
+    {
+      "base": "ling",
+      "base_proper": "ling",
+      "tone": 0,
+      "pinyin_tone3": "ling0"
+    },
+    {
+      "base": "ling",
+      "base_proper": "ling",
+      "tone": 1,
+      "pinyin_tone3": "ling1"
+    },
+    {
+      "base": "ling",
+      "base_proper": "ling",
+      "tone": 2,
+      "pinyin_tone3": "ling2"
+    },
+    {
+      "base": "ling",
+      "base_proper": "ling",
+      "tone": 3,
+      "pinyin_tone3": "ling3"
+    },
+    {
+      "base": "ling",
+      "base_proper": "ling",
+      "tone": 4,
+      "pinyin_tone3": "ling4"
+    },
+    {
+      "base": "liu",
+      "base_proper": "liu",
+      "tone": 1,
+      "pinyin_tone3": "liu1"
+    },
+    {
+      "base": "liu",
+      "base_proper": "liu",
+      "tone": 2,
+      "pinyin_tone3": "liu2"
+    },
+    {
+      "base": "liu",
+      "base_proper": "liu",
+      "tone": 3,
+      "pinyin_tone3": "liu3"
+    },
+    {
+      "base": "liu",
+      "base_proper": "liu",
+      "tone": 4,
+      "pinyin_tone3": "liu4"
+    },
+    {
+      "base": "lo",
+      "base_proper": "lo",
+      "tone": 0,
+      "pinyin_tone3": "lo0"
+    },
+    {
+      "base": "long",
+      "base_proper": "long",
+      "tone": 1,
+      "pinyin_tone3": "long1"
+    },
+    {
+      "base": "long",
+      "base_proper": "long",
+      "tone": 2,
+      "pinyin_tone3": "long2"
+    },
+    {
+      "base": "long",
+      "base_proper": "long",
+      "tone": 3,
+      "pinyin_tone3": "long3"
+    },
+    {
+      "base": "long",
+      "base_proper": "long",
+      "tone": 4,
+      "pinyin_tone3": "long4"
+    },
+    {
+      "base": "lou",
+      "base_proper": "lou",
+      "tone": 0,
+      "pinyin_tone3": "lou0"
+    },
+    {
+      "base": "lou",
+      "base_proper": "lou",
+      "tone": 1,
+      "pinyin_tone3": "lou1"
+    },
+    {
+      "base": "lou",
+      "base_proper": "lou",
+      "tone": 2,
+      "pinyin_tone3": "lou2"
+    },
+    {
+      "base": "lou",
+      "base_proper": "lou",
+      "tone": 3,
+      "pinyin_tone3": "lou3"
+    },
+    {
+      "base": "lou",
+      "base_proper": "lou",
+      "tone": 4,
+      "pinyin_tone3": "lou4"
+    },
+    {
+      "base": "lu",
+      "base_proper": "lu",
+      "tone": 0,
+      "pinyin_tone3": "lu0"
+    },
+    {
+      "base": "lu",
+      "base_proper": "lu",
+      "tone": 1,
+      "pinyin_tone3": "lu1"
+    },
+    {
+      "base": "lu",
+      "base_proper": "lu",
+      "tone": 2,
+      "pinyin_tone3": "lu2"
+    },
+    {
+      "base": "lu",
+      "base_proper": "lu",
+      "tone": 3,
+      "pinyin_tone3": "lu3"
+    },
+    {
+      "base": "lu",
+      "base_proper": "lu",
+      "tone": 4,
+      "pinyin_tone3": "lu4"
+    },
+    {
+      "base": "luan",
+      "base_proper": "luan",
+      "tone": 2,
+      "pinyin_tone3": "luan2"
+    },
+    {
+      "base": "luan",
+      "base_proper": "luan",
+      "tone": 3,
+      "pinyin_tone3": "luan3"
+    },
+    {
+      "base": "luan",
+      "base_proper": "luan",
+      "tone": 4,
+      "pinyin_tone3": "luan4"
+    },
+    {
+      "base": "lun",
+      "base_proper": "lun",
+      "tone": 1,
+      "pinyin_tone3": "lun1"
+    },
+    {
+      "base": "lun",
+      "base_proper": "lun",
+      "tone": 2,
+      "pinyin_tone3": "lun2"
+    },
+    {
+      "base": "lun",
+      "base_proper": "lun",
+      "tone": 3,
+      "pinyin_tone3": "lun3"
+    },
+    {
+      "base": "lun",
+      "base_proper": "lun",
+      "tone": 4,
+      "pinyin_tone3": "lun4"
+    },
+    {
+      "base": "luo",
+      "base_proper": "luo",
+      "tone": 0,
+      "pinyin_tone3": "luo0"
+    },
+    {
+      "base": "luo",
+      "base_proper": "luo",
+      "tone": 1,
+      "pinyin_tone3": "luo1"
+    },
+    {
+      "base": "luo",
+      "base_proper": "luo",
+      "tone": 2,
+      "pinyin_tone3": "luo2"
+    },
+    {
+      "base": "luo",
+      "base_proper": "luo",
+      "tone": 3,
+      "pinyin_tone3": "luo3"
+    },
+    {
+      "base": "luo",
+      "base_proper": "luo",
+      "tone": 4,
+      "pinyin_tone3": "luo4"
+    },
+    {
+      "base": "lv",
+      "base_proper": "lü",
+      "tone": 2,
+      "pinyin_tone3": "lv2"
+    },
+    {
+      "base": "lv",
+      "base_proper": "lü",
+      "tone": 3,
+      "pinyin_tone3": "lv3"
+    },
+    {
+      "base": "lv",
+      "base_proper": "lü",
+      "tone": 4,
+      "pinyin_tone3": "lv4"
+    },
+    {
+      "base": "lve",
+      "base_proper": "lüe",
+      "tone": 3,
+      "pinyin_tone3": "lve3"
+    },
+    {
+      "base": "lve",
+      "base_proper": "lüe",
+      "tone": 4,
+      "pinyin_tone3": "lve4"
+    },
+    {
+      "base": "m",
+      "base_proper": "m",
+      "tone": 1,
+      "pinyin_tone3": "m1"
+    },
+    {
+      "base": "m",
+      "base_proper": "m",
+      "tone": 2,
+      "pinyin_tone3": "m2"
+    },
+    {
+      "base": "m",
+      "base_proper": "m",
+      "tone": 4,
+      "pinyin_tone3": "m4"
+    },
+    {
+      "base": "ma",
+      "base_proper": "ma",
+      "tone": 0,
+      "pinyin_tone3": "ma0"
+    },
+    {
+      "base": "ma",
+      "base_proper": "ma",
+      "tone": 1,
+      "pinyin_tone3": "ma1"
+    },
+    {
+      "base": "ma",
+      "base_proper": "ma",
+      "tone": 2,
+      "pinyin_tone3": "ma2"
+    },
+    {
+      "base": "ma",
+      "base_proper": "ma",
+      "tone": 3,
+      "pinyin_tone3": "ma3"
+    },
+    {
+      "base": "ma",
+      "base_proper": "ma",
+      "tone": 4,
+      "pinyin_tone3": "ma4"
+    },
+    {
+      "base": "mai",
+      "base_proper": "mai",
+      "tone": 2,
+      "pinyin_tone3": "mai2"
+    },
+    {
+      "base": "mai",
+      "base_proper": "mai",
+      "tone": 3,
+      "pinyin_tone3": "mai3"
+    },
+    {
+      "base": "mai",
+      "base_proper": "mai",
+      "tone": 4,
+      "pinyin_tone3": "mai4"
+    },
+    {
+      "base": "man",
+      "base_proper": "man",
+      "tone": 1,
+      "pinyin_tone3": "man1"
+    },
+    {
+      "base": "man",
+      "base_proper": "man",
+      "tone": 2,
+      "pinyin_tone3": "man2"
+    },
+    {
+      "base": "man",
+      "base_proper": "man",
+      "tone": 3,
+      "pinyin_tone3": "man3"
+    },
+    {
+      "base": "man",
+      "base_proper": "man",
+      "tone": 4,
+      "pinyin_tone3": "man4"
+    },
+    {
+      "base": "mang",
+      "base_proper": "mang",
+      "tone": 1,
+      "pinyin_tone3": "mang1"
+    },
+    {
+      "base": "mang",
+      "base_proper": "mang",
+      "tone": 2,
+      "pinyin_tone3": "mang2"
+    },
+    {
+      "base": "mang",
+      "base_proper": "mang",
+      "tone": 3,
+      "pinyin_tone3": "mang3"
+    },
+    {
+      "base": "mang",
+      "base_proper": "mang",
+      "tone": 4,
+      "pinyin_tone3": "mang4"
+    },
+    {
+      "base": "mao",
+      "base_proper": "mao",
+      "tone": 1,
+      "pinyin_tone3": "mao1"
+    },
+    {
+      "base": "mao",
+      "base_proper": "mao",
+      "tone": 2,
+      "pinyin_tone3": "mao2"
+    },
+    {
+      "base": "mao",
+      "base_proper": "mao",
+      "tone": 3,
+      "pinyin_tone3": "mao3"
+    },
+    {
+      "base": "mao",
+      "base_proper": "mao",
+      "tone": 4,
+      "pinyin_tone3": "mao4"
+    },
+    {
+      "base": "me",
+      "base_proper": "me",
+      "tone": 0,
+      "pinyin_tone3": "me0"
+    },
+    {
+      "base": "me",
+      "base_proper": "me",
+      "tone": 1,
+      "pinyin_tone3": "me1"
+    },
+    {
+      "base": "mei",
+      "base_proper": "mei",
+      "tone": 2,
+      "pinyin_tone3": "mei2"
+    },
+    {
+      "base": "mei",
+      "base_proper": "mei",
+      "tone": 3,
+      "pinyin_tone3": "mei3"
+    },
+    {
+      "base": "mei",
+      "base_proper": "mei",
+      "tone": 4,
+      "pinyin_tone3": "mei4"
+    },
+    {
+      "base": "men",
+      "base_proper": "men",
+      "tone": 0,
+      "pinyin_tone3": "men0"
+    },
+    {
+      "base": "men",
+      "base_proper": "men",
+      "tone": 1,
+      "pinyin_tone3": "men1"
+    },
+    {
+      "base": "men",
+      "base_proper": "men",
+      "tone": 2,
+      "pinyin_tone3": "men2"
+    },
+    {
+      "base": "men",
+      "base_proper": "men",
+      "tone": 4,
+      "pinyin_tone3": "men4"
+    },
+    {
+      "base": "meng",
+      "base_proper": "meng",
+      "tone": 0,
+      "pinyin_tone3": "meng0"
+    },
+    {
+      "base": "meng",
+      "base_proper": "meng",
+      "tone": 1,
+      "pinyin_tone3": "meng1"
+    },
+    {
+      "base": "meng",
+      "base_proper": "meng",
+      "tone": 2,
+      "pinyin_tone3": "meng2"
+    },
+    {
+      "base": "meng",
+      "base_proper": "meng",
+      "tone": 3,
+      "pinyin_tone3": "meng3"
+    },
+    {
+      "base": "meng",
+      "base_proper": "meng",
+      "tone": 4,
+      "pinyin_tone3": "meng4"
+    },
+    {
+      "base": "mi",
+      "base_proper": "mi",
+      "tone": 1,
+      "pinyin_tone3": "mi1"
+    },
+    {
+      "base": "mi",
+      "base_proper": "mi",
+      "tone": 2,
+      "pinyin_tone3": "mi2"
+    },
+    {
+      "base": "mi",
+      "base_proper": "mi",
+      "tone": 3,
+      "pinyin_tone3": "mi3"
+    },
+    {
+      "base": "mi",
+      "base_proper": "mi",
+      "tone": 4,
+      "pinyin_tone3": "mi4"
+    },
+    {
+      "base": "mian",
+      "base_proper": "mian",
+      "tone": 2,
+      "pinyin_tone3": "mian2"
+    },
+    {
+      "base": "mian",
+      "base_proper": "mian",
+      "tone": 3,
+      "pinyin_tone3": "mian3"
+    },
+    {
+      "base": "mian",
+      "base_proper": "mian",
+      "tone": 4,
+      "pinyin_tone3": "mian4"
+    },
+    {
+      "base": "miao",
+      "base_proper": "miao",
+      "tone": 1,
+      "pinyin_tone3": "miao1"
+    },
+    {
+      "base": "miao",
+      "base_proper": "miao",
+      "tone": 2,
+      "pinyin_tone3": "miao2"
+    },
+    {
+      "base": "miao",
+      "base_proper": "miao",
+      "tone": 3,
+      "pinyin_tone3": "miao3"
+    },
+    {
+      "base": "miao",
+      "base_proper": "miao",
+      "tone": 4,
+      "pinyin_tone3": "miao4"
+    },
+    {
+      "base": "mie",
+      "base_proper": "mie",
+      "tone": 0,
+      "pinyin_tone3": "mie0"
+    },
+    {
+      "base": "mie",
+      "base_proper": "mie",
+      "tone": 1,
+      "pinyin_tone3": "mie1"
+    },
+    {
+      "base": "mie",
+      "base_proper": "mie",
+      "tone": 2,
+      "pinyin_tone3": "mie2"
+    },
+    {
+      "base": "mie",
+      "base_proper": "mie",
+      "tone": 4,
+      "pinyin_tone3": "mie4"
+    },
+    {
+      "base": "min",
+      "base_proper": "min",
+      "tone": 0,
+      "pinyin_tone3": "min0"
+    },
+    {
+      "base": "min",
+      "base_proper": "min",
+      "tone": 2,
+      "pinyin_tone3": "min2"
+    },
+    {
+      "base": "min",
+      "base_proper": "min",
+      "tone": 3,
+      "pinyin_tone3": "min3"
+    },
+    {
+      "base": "ming",
+      "base_proper": "ming",
+      "tone": 0,
+      "pinyin_tone3": "ming0"
+    },
+    {
+      "base": "ming",
+      "base_proper": "ming",
+      "tone": 2,
+      "pinyin_tone3": "ming2"
+    },
+    {
+      "base": "ming",
+      "base_proper": "ming",
+      "tone": 3,
+      "pinyin_tone3": "ming3"
+    },
+    {
+      "base": "ming",
+      "base_proper": "ming",
+      "tone": 4,
+      "pinyin_tone3": "ming4"
+    },
+    {
+      "base": "miu",
+      "base_proper": "miu",
+      "tone": 3,
+      "pinyin_tone3": "miu3"
+    },
+    {
+      "base": "miu",
+      "base_proper": "miu",
+      "tone": 4,
+      "pinyin_tone3": "miu4"
+    },
+    {
+      "base": "mo",
+      "base_proper": "mo",
+      "tone": 0,
+      "pinyin_tone3": "mo0"
+    },
+    {
+      "base": "mo",
+      "base_proper": "mo",
+      "tone": 1,
+      "pinyin_tone3": "mo1"
+    },
+    {
+      "base": "mo",
+      "base_proper": "mo",
+      "tone": 2,
+      "pinyin_tone3": "mo2"
+    },
+    {
+      "base": "mo",
+      "base_proper": "mo",
+      "tone": 3,
+      "pinyin_tone3": "mo3"
+    },
+    {
+      "base": "mo",
+      "base_proper": "mo",
+      "tone": 4,
+      "pinyin_tone3": "mo4"
+    },
+    {
+      "base": "mou",
+      "base_proper": "mou",
+      "tone": 1,
+      "pinyin_tone3": "mou1"
+    },
+    {
+      "base": "mou",
+      "base_proper": "mou",
+      "tone": 2,
+      "pinyin_tone3": "mou2"
+    },
+    {
+      "base": "mou",
+      "base_proper": "mou",
+      "tone": 3,
+      "pinyin_tone3": "mou3"
+    },
+    {
+      "base": "mou",
+      "base_proper": "mou",
+      "tone": 4,
+      "pinyin_tone3": "mou4"
+    },
+    {
+      "base": "mu",
+      "base_proper": "mu",
+      "tone": 2,
+      "pinyin_tone3": "mu2"
+    },
+    {
+      "base": "mu",
+      "base_proper": "mu",
+      "tone": 3,
+      "pinyin_tone3": "mu3"
+    },
+    {
+      "base": "mu",
+      "base_proper": "mu",
+      "tone": 4,
+      "pinyin_tone3": "mu4"
+    },
+    {
+      "base": "n",
+      "base_proper": "n",
+      "tone": 0,
+      "pinyin_tone3": "n0"
+    },
+    {
+      "base": "n",
+      "base_proper": "n",
+      "tone": 2,
+      "pinyin_tone3": "n2"
+    },
+    {
+      "base": "n",
+      "base_proper": "n",
+      "tone": 3,
+      "pinyin_tone3": "n3"
+    },
+    {
+      "base": "n",
+      "base_proper": "n",
+      "tone": 4,
+      "pinyin_tone3": "n4"
+    },
+    {
+      "base": "na",
+      "base_proper": "na",
+      "tone": 0,
+      "pinyin_tone3": "na0"
+    },
+    {
+      "base": "na",
+      "base_proper": "na",
+      "tone": 1,
+      "pinyin_tone3": "na1"
+    },
+    {
+      "base": "na",
+      "base_proper": "na",
+      "tone": 2,
+      "pinyin_tone3": "na2"
+    },
+    {
+      "base": "na",
+      "base_proper": "na",
+      "tone": 3,
+      "pinyin_tone3": "na3"
+    },
+    {
+      "base": "na",
+      "base_proper": "na",
+      "tone": 4,
+      "pinyin_tone3": "na4"
+    },
+    {
+      "base": "nai",
+      "base_proper": "nai",
+      "tone": 2,
+      "pinyin_tone3": "nai2"
+    },
+    {
+      "base": "nai",
+      "base_proper": "nai",
+      "tone": 3,
+      "pinyin_tone3": "nai3"
+    },
+    {
+      "base": "nai",
+      "base_proper": "nai",
+      "tone": 4,
+      "pinyin_tone3": "nai4"
+    },
+    {
+      "base": "nan",
+      "base_proper": "nan",
+      "tone": 1,
+      "pinyin_tone3": "nan1"
+    },
+    {
+      "base": "nan",
+      "base_proper": "nan",
+      "tone": 2,
+      "pinyin_tone3": "nan2"
+    },
+    {
+      "base": "nan",
+      "base_proper": "nan",
+      "tone": 3,
+      "pinyin_tone3": "nan3"
+    },
+    {
+      "base": "nan",
+      "base_proper": "nan",
+      "tone": 4,
+      "pinyin_tone3": "nan4"
+    },
+    {
+      "base": "nang",
+      "base_proper": "nang",
+      "tone": 0,
+      "pinyin_tone3": "nang0"
+    },
+    {
+      "base": "nang",
+      "base_proper": "nang",
+      "tone": 1,
+      "pinyin_tone3": "nang1"
+    },
+    {
+      "base": "nang",
+      "base_proper": "nang",
+      "tone": 2,
+      "pinyin_tone3": "nang2"
+    },
+    {
+      "base": "nang",
+      "base_proper": "nang",
+      "tone": 3,
+      "pinyin_tone3": "nang3"
+    },
+    {
+      "base": "nang",
+      "base_proper": "nang",
+      "tone": 4,
+      "pinyin_tone3": "nang4"
+    },
+    {
+      "base": "nao",
+      "base_proper": "nao",
+      "tone": 1,
+      "pinyin_tone3": "nao1"
+    },
+    {
+      "base": "nao",
+      "base_proper": "nao",
+      "tone": 2,
+      "pinyin_tone3": "nao2"
+    },
+    {
+      "base": "nao",
+      "base_proper": "nao",
+      "tone": 3,
+      "pinyin_tone3": "nao3"
+    },
+    {
+      "base": "nao",
+      "base_proper": "nao",
+      "tone": 4,
+      "pinyin_tone3": "nao4"
+    },
+    {
+      "base": "ne",
+      "base_proper": "ne",
+      "tone": 0,
+      "pinyin_tone3": "ne0"
+    },
+    {
+      "base": "ne",
+      "base_proper": "ne",
+      "tone": 2,
+      "pinyin_tone3": "ne2"
+    },
+    {
+      "base": "ne",
+      "base_proper": "ne",
+      "tone": 4,
+      "pinyin_tone3": "ne4"
+    },
+    {
+      "base": "nei",
+      "base_proper": "nei",
+      "tone": 2,
+      "pinyin_tone3": "nei2"
+    },
+    {
+      "base": "nei",
+      "base_proper": "nei",
+      "tone": 3,
+      "pinyin_tone3": "nei3"
+    },
+    {
+      "base": "nei",
+      "base_proper": "nei",
+      "tone": 4,
+      "pinyin_tone3": "nei4"
+    },
+    {
+      "base": "nen",
+      "base_proper": "nen",
+      "tone": 4,
+      "pinyin_tone3": "nen4"
+    },
+    {
+      "base": "neng",
+      "base_proper": "neng",
+      "tone": 2,
+      "pinyin_tone3": "neng2"
+    },
+    {
+      "base": "neng",
+      "base_proper": "neng",
+      "tone": 3,
+      "pinyin_tone3": "neng3"
+    },
+    {
+      "base": "neng",
+      "base_proper": "neng",
+      "tone": 4,
+      "pinyin_tone3": "neng4"
+    },
+    {
+      "base": "ng",
+      "base_proper": "ng",
+      "tone": 0,
+      "pinyin_tone3": "ng0"
+    },
+    {
+      "base": "ng",
+      "base_proper": "ng",
+      "tone": 2,
+      "pinyin_tone3": "ng2"
+    },
+    {
+      "base": "ng",
+      "base_proper": "ng",
+      "tone": 3,
+      "pinyin_tone3": "ng3"
+    },
+    {
+      "base": "ng",
+      "base_proper": "ng",
+      "tone": 4,
+      "pinyin_tone3": "ng4"
+    },
+    {
+      "base": "ni",
+      "base_proper": "ni",
+      "tone": 1,
+      "pinyin_tone3": "ni1"
+    },
+    {
+      "base": "ni",
+      "base_proper": "ni",
+      "tone": 2,
+      "pinyin_tone3": "ni2"
+    },
+    {
+      "base": "ni",
+      "base_proper": "ni",
+      "tone": 3,
+      "pinyin_tone3": "ni3"
+    },
+    {
+      "base": "ni",
+      "base_proper": "ni",
+      "tone": 4,
+      "pinyin_tone3": "ni4"
+    },
+    {
+      "base": "nia",
+      "base_proper": "nia",
+      "tone": 1,
+      "pinyin_tone3": "nia1"
+    },
+    {
+      "base": "nian",
+      "base_proper": "nian",
+      "tone": 1,
+      "pinyin_tone3": "nian1"
+    },
+    {
+      "base": "nian",
+      "base_proper": "nian",
+      "tone": 2,
+      "pinyin_tone3": "nian2"
+    },
+    {
+      "base": "nian",
+      "base_proper": "nian",
+      "tone": 3,
+      "pinyin_tone3": "nian3"
+    },
+    {
+      "base": "nian",
+      "base_proper": "nian",
+      "tone": 4,
+      "pinyin_tone3": "nian4"
+    },
+    {
+      "base": "niang",
+      "base_proper": "niang",
+      "tone": 2,
+      "pinyin_tone3": "niang2"
+    },
+    {
+      "base": "niang",
+      "base_proper": "niang",
+      "tone": 3,
+      "pinyin_tone3": "niang3"
+    },
+    {
+      "base": "niang",
+      "base_proper": "niang",
+      "tone": 4,
+      "pinyin_tone3": "niang4"
+    },
+    {
+      "base": "niao",
+      "base_proper": "niao",
+      "tone": 0,
+      "pinyin_tone3": "niao0"
+    },
+    {
+      "base": "niao",
+      "base_proper": "niao",
+      "tone": 3,
+      "pinyin_tone3": "niao3"
+    },
+    {
+      "base": "niao",
+      "base_proper": "niao",
+      "tone": 4,
+      "pinyin_tone3": "niao4"
+    },
+    {
+      "base": "nie",
+      "base_proper": "nie",
+      "tone": 1,
+      "pinyin_tone3": "nie1"
+    },
+    {
+      "base": "nie",
+      "base_proper": "nie",
+      "tone": 2,
+      "pinyin_tone3": "nie2"
+    },
+    {
+      "base": "nie",
+      "base_proper": "nie",
+      "tone": 3,
+      "pinyin_tone3": "nie3"
+    },
+    {
+      "base": "nie",
+      "base_proper": "nie",
+      "tone": 4,
+      "pinyin_tone3": "nie4"
+    },
+    {
+      "base": "nin",
+      "base_proper": "nin",
+      "tone": 0,
+      "pinyin_tone3": "nin0"
+    },
+    {
+      "base": "nin",
+      "base_proper": "nin",
+      "tone": 2,
+      "pinyin_tone3": "nin2"
+    },
+    {
+      "base": "nin",
+      "base_proper": "nin",
+      "tone": 3,
+      "pinyin_tone3": "nin3"
+    },
+    {
+      "base": "ning",
+      "base_proper": "ning",
+      "tone": 2,
+      "pinyin_tone3": "ning2"
+    },
+    {
+      "base": "ning",
+      "base_proper": "ning",
+      "tone": 3,
+      "pinyin_tone3": "ning3"
+    },
+    {
+      "base": "ning",
+      "base_proper": "ning",
+      "tone": 4,
+      "pinyin_tone3": "ning4"
+    },
+    {
+      "base": "niu",
+      "base_proper": "niu",
+      "tone": 1,
+      "pinyin_tone3": "niu1"
+    },
+    {
+      "base": "niu",
+      "base_proper": "niu",
+      "tone": 2,
+      "pinyin_tone3": "niu2"
+    },
+    {
+      "base": "niu",
+      "base_proper": "niu",
+      "tone": 3,
+      "pinyin_tone3": "niu3"
+    },
+    {
+      "base": "niu",
+      "base_proper": "niu",
+      "tone": 4,
+      "pinyin_tone3": "niu4"
+    },
+    {
+      "base": "nong",
+      "base_proper": "nong",
+      "tone": 2,
+      "pinyin_tone3": "nong2"
+    },
+    {
+      "base": "nong",
+      "base_proper": "nong",
+      "tone": 3,
+      "pinyin_tone3": "nong3"
+    },
+    {
+      "base": "nong",
+      "base_proper": "nong",
+      "tone": 4,
+      "pinyin_tone3": "nong4"
+    },
+    {
+      "base": "nou",
+      "base_proper": "nou",
+      "tone": 2,
+      "pinyin_tone3": "nou2"
+    },
+    {
+      "base": "nou",
+      "base_proper": "nou",
+      "tone": 3,
+      "pinyin_tone3": "nou3"
+    },
+    {
+      "base": "nou",
+      "base_proper": "nou",
+      "tone": 4,
+      "pinyin_tone3": "nou4"
+    },
+    {
+      "base": "nu",
+      "base_proper": "nu",
+      "tone": 2,
+      "pinyin_tone3": "nu2"
+    },
+    {
+      "base": "nu",
+      "base_proper": "nu",
+      "tone": 3,
+      "pinyin_tone3": "nu3"
+    },
+    {
+      "base": "nu",
+      "base_proper": "nu",
+      "tone": 4,
+      "pinyin_tone3": "nu4"
+    },
+    {
+      "base": "nuan",
+      "base_proper": "nuan",
+      "tone": 2,
+      "pinyin_tone3": "nuan2"
+    },
+    {
+      "base": "nuan",
+      "base_proper": "nuan",
+      "tone": 3,
+      "pinyin_tone3": "nuan3"
+    },
+    {
+      "base": "nuan",
+      "base_proper": "nuan",
+      "tone": 4,
+      "pinyin_tone3": "nuan4"
+    },
+    {
+      "base": "nun",
+      "base_proper": "nun",
+      "tone": 2,
+      "pinyin_tone3": "nun2"
+    },
+    {
+      "base": "nun",
+      "base_proper": "nun",
+      "tone": 4,
+      "pinyin_tone3": "nun4"
+    },
+    {
+      "base": "nuo",
+      "base_proper": "nuo",
+      "tone": 2,
+      "pinyin_tone3": "nuo2"
+    },
+    {
+      "base": "nuo",
+      "base_proper": "nuo",
+      "tone": 3,
+      "pinyin_tone3": "nuo3"
+    },
+    {
+      "base": "nuo",
+      "base_proper": "nuo",
+      "tone": 4,
+      "pinyin_tone3": "nuo4"
+    },
+    {
+      "base": "nv",
+      "base_proper": "nü",
+      "tone": 2,
+      "pinyin_tone3": "nv2"
+    },
+    {
+      "base": "nv",
+      "base_proper": "nü",
+      "tone": 3,
+      "pinyin_tone3": "nv3"
+    },
+    {
+      "base": "nv",
+      "base_proper": "nü",
+      "tone": 4,
+      "pinyin_tone3": "nv4"
+    },
+    {
+      "base": "nve",
+      "base_proper": "nüe",
+      "tone": 4,
+      "pinyin_tone3": "nve4"
+    },
+    {
+      "base": "o",
+      "base_proper": "o",
+      "tone": 0,
+      "pinyin_tone3": "o0"
+    },
+    {
+      "base": "o",
+      "base_proper": "o",
+      "tone": 1,
+      "pinyin_tone3": "o1"
+    },
+    {
+      "base": "o",
+      "base_proper": "o",
+      "tone": 2,
+      "pinyin_tone3": "o2"
+    },
+    {
+      "base": "o",
+      "base_proper": "o",
+      "tone": 3,
+      "pinyin_tone3": "o3"
+    },
+    {
+      "base": "o",
+      "base_proper": "o",
+      "tone": 4,
+      "pinyin_tone3": "o4"
+    },
+    {
+      "base": "ou",
+      "base_proper": "ou",
+      "tone": 0,
+      "pinyin_tone3": "ou0"
+    },
+    {
+      "base": "ou",
+      "base_proper": "ou",
+      "tone": 1,
+      "pinyin_tone3": "ou1"
+    },
+    {
+      "base": "ou",
+      "base_proper": "ou",
+      "tone": 2,
+      "pinyin_tone3": "ou2"
+    },
+    {
+      "base": "ou",
+      "base_proper": "ou",
+      "tone": 3,
+      "pinyin_tone3": "ou3"
+    },
+    {
+      "base": "ou",
+      "base_proper": "ou",
+      "tone": 4,
+      "pinyin_tone3": "ou4"
+    },
+    {
+      "base": "pa",
+      "base_proper": "pa",
+      "tone": 1,
+      "pinyin_tone3": "pa1"
+    },
+    {
+      "base": "pa",
+      "base_proper": "pa",
+      "tone": 2,
+      "pinyin_tone3": "pa2"
+    },
+    {
+      "base": "pa",
+      "base_proper": "pa",
+      "tone": 3,
+      "pinyin_tone3": "pa3"
+    },
+    {
+      "base": "pa",
+      "base_proper": "pa",
+      "tone": 4,
+      "pinyin_tone3": "pa4"
+    },
+    {
+      "base": "pai",
+      "base_proper": "pai",
+      "tone": 1,
+      "pinyin_tone3": "pai1"
+    },
+    {
+      "base": "pai",
+      "base_proper": "pai",
+      "tone": 2,
+      "pinyin_tone3": "pai2"
+    },
+    {
+      "base": "pai",
+      "base_proper": "pai",
+      "tone": 3,
+      "pinyin_tone3": "pai3"
+    },
+    {
+      "base": "pai",
+      "base_proper": "pai",
+      "tone": 4,
+      "pinyin_tone3": "pai4"
+    },
+    {
+      "base": "pan",
+      "base_proper": "pan",
+      "tone": 1,
+      "pinyin_tone3": "pan1"
+    },
+    {
+      "base": "pan",
+      "base_proper": "pan",
+      "tone": 2,
+      "pinyin_tone3": "pan2"
+    },
+    {
+      "base": "pan",
+      "base_proper": "pan",
+      "tone": 3,
+      "pinyin_tone3": "pan3"
+    },
+    {
+      "base": "pan",
+      "base_proper": "pan",
+      "tone": 4,
+      "pinyin_tone3": "pan4"
+    },
+    {
+      "base": "pang",
+      "base_proper": "pang",
+      "tone": 1,
+      "pinyin_tone3": "pang1"
+    },
+    {
+      "base": "pang",
+      "base_proper": "pang",
+      "tone": 2,
+      "pinyin_tone3": "pang2"
+    },
+    {
+      "base": "pang",
+      "base_proper": "pang",
+      "tone": 3,
+      "pinyin_tone3": "pang3"
+    },
+    {
+      "base": "pang",
+      "base_proper": "pang",
+      "tone": 4,
+      "pinyin_tone3": "pang4"
+    },
+    {
+      "base": "pao",
+      "base_proper": "pao",
+      "tone": 1,
+      "pinyin_tone3": "pao1"
+    },
+    {
+      "base": "pao",
+      "base_proper": "pao",
+      "tone": 2,
+      "pinyin_tone3": "pao2"
+    },
+    {
+      "base": "pao",
+      "base_proper": "pao",
+      "tone": 3,
+      "pinyin_tone3": "pao3"
+    },
+    {
+      "base": "pao",
+      "base_proper": "pao",
+      "tone": 4,
+      "pinyin_tone3": "pao4"
+    },
+    {
+      "base": "pei",
+      "base_proper": "pei",
+      "tone": 1,
+      "pinyin_tone3": "pei1"
+    },
+    {
+      "base": "pei",
+      "base_proper": "pei",
+      "tone": 2,
+      "pinyin_tone3": "pei2"
+    },
+    {
+      "base": "pei",
+      "base_proper": "pei",
+      "tone": 3,
+      "pinyin_tone3": "pei3"
+    },
+    {
+      "base": "pei",
+      "base_proper": "pei",
+      "tone": 4,
+      "pinyin_tone3": "pei4"
+    },
+    {
+      "base": "pen",
+      "base_proper": "pen",
+      "tone": 1,
+      "pinyin_tone3": "pen1"
+    },
+    {
+      "base": "pen",
+      "base_proper": "pen",
+      "tone": 2,
+      "pinyin_tone3": "pen2"
+    },
+    {
+      "base": "pen",
+      "base_proper": "pen",
+      "tone": 3,
+      "pinyin_tone3": "pen3"
+    },
+    {
+      "base": "pen",
+      "base_proper": "pen",
+      "tone": 4,
+      "pinyin_tone3": "pen4"
+    },
+    {
+      "base": "peng",
+      "base_proper": "peng",
+      "tone": 1,
+      "pinyin_tone3": "peng1"
+    },
+    {
+      "base": "peng",
+      "base_proper": "peng",
+      "tone": 2,
+      "pinyin_tone3": "peng2"
+    },
+    {
+      "base": "peng",
+      "base_proper": "peng",
+      "tone": 3,
+      "pinyin_tone3": "peng3"
+    },
+    {
+      "base": "peng",
+      "base_proper": "peng",
+      "tone": 4,
+      "pinyin_tone3": "peng4"
+    },
+    {
+      "base": "pi",
+      "base_proper": "pi",
+      "tone": 1,
+      "pinyin_tone3": "pi1"
+    },
+    {
+      "base": "pi",
+      "base_proper": "pi",
+      "tone": 2,
+      "pinyin_tone3": "pi2"
+    },
+    {
+      "base": "pi",
+      "base_proper": "pi",
+      "tone": 3,
+      "pinyin_tone3": "pi3"
+    },
+    {
+      "base": "pi",
+      "base_proper": "pi",
+      "tone": 4,
+      "pinyin_tone3": "pi4"
+    },
+    {
+      "base": "pian",
+      "base_proper": "pian",
+      "tone": 1,
+      "pinyin_tone3": "pian1"
+    },
+    {
+      "base": "pian",
+      "base_proper": "pian",
+      "tone": 2,
+      "pinyin_tone3": "pian2"
+    },
+    {
+      "base": "pian",
+      "base_proper": "pian",
+      "tone": 3,
+      "pinyin_tone3": "pian3"
+    },
+    {
+      "base": "pian",
+      "base_proper": "pian",
+      "tone": 4,
+      "pinyin_tone3": "pian4"
+    },
+    {
+      "base": "piao",
+      "base_proper": "piao",
+      "tone": 1,
+      "pinyin_tone3": "piao1"
+    },
+    {
+      "base": "piao",
+      "base_proper": "piao",
+      "tone": 2,
+      "pinyin_tone3": "piao2"
+    },
+    {
+      "base": "piao",
+      "base_proper": "piao",
+      "tone": 3,
+      "pinyin_tone3": "piao3"
+    },
+    {
+      "base": "piao",
+      "base_proper": "piao",
+      "tone": 4,
+      "pinyin_tone3": "piao4"
+    },
+    {
+      "base": "pie",
+      "base_proper": "pie",
+      "tone": 1,
+      "pinyin_tone3": "pie1"
+    },
+    {
+      "base": "pie",
+      "base_proper": "pie",
+      "tone": 3,
+      "pinyin_tone3": "pie3"
+    },
+    {
+      "base": "pie",
+      "base_proper": "pie",
+      "tone": 4,
+      "pinyin_tone3": "pie4"
+    },
+    {
+      "base": "pin",
+      "base_proper": "pin",
+      "tone": 1,
+      "pinyin_tone3": "pin1"
+    },
+    {
+      "base": "pin",
+      "base_proper": "pin",
+      "tone": 2,
+      "pinyin_tone3": "pin2"
+    },
+    {
+      "base": "pin",
+      "base_proper": "pin",
+      "tone": 3,
+      "pinyin_tone3": "pin3"
+    },
+    {
+      "base": "pin",
+      "base_proper": "pin",
+      "tone": 4,
+      "pinyin_tone3": "pin4"
+    },
+    {
+      "base": "ping",
+      "base_proper": "ping",
+      "tone": 1,
+      "pinyin_tone3": "ping1"
+    },
+    {
+      "base": "ping",
+      "base_proper": "ping",
+      "tone": 2,
+      "pinyin_tone3": "ping2"
+    },
+    {
+      "base": "ping",
+      "base_proper": "ping",
+      "tone": 3,
+      "pinyin_tone3": "ping3"
+    },
+    {
+      "base": "ping",
+      "base_proper": "ping",
+      "tone": 4,
+      "pinyin_tone3": "ping4"
+    },
+    {
+      "base": "po",
+      "base_proper": "po",
+      "tone": 0,
+      "pinyin_tone3": "po0"
+    },
+    {
+      "base": "po",
+      "base_proper": "po",
+      "tone": 1,
+      "pinyin_tone3": "po1"
+    },
+    {
+      "base": "po",
+      "base_proper": "po",
+      "tone": 2,
+      "pinyin_tone3": "po2"
+    },
+    {
+      "base": "po",
+      "base_proper": "po",
+      "tone": 3,
+      "pinyin_tone3": "po3"
+    },
+    {
+      "base": "po",
+      "base_proper": "po",
+      "tone": 4,
+      "pinyin_tone3": "po4"
+    },
+    {
+      "base": "pou",
+      "base_proper": "pou",
+      "tone": 1,
+      "pinyin_tone3": "pou1"
+    },
+    {
+      "base": "pou",
+      "base_proper": "pou",
+      "tone": 2,
+      "pinyin_tone3": "pou2"
+    },
+    {
+      "base": "pou",
+      "base_proper": "pou",
+      "tone": 3,
+      "pinyin_tone3": "pou3"
+    },
+    {
+      "base": "pou",
+      "base_proper": "pou",
+      "tone": 4,
+      "pinyin_tone3": "pou4"
+    },
+    {
+      "base": "pu",
+      "base_proper": "pu",
+      "tone": 0,
+      "pinyin_tone3": "pu0"
+    },
+    {
+      "base": "pu",
+      "base_proper": "pu",
+      "tone": 1,
+      "pinyin_tone3": "pu1"
+    },
+    {
+      "base": "pu",
+      "base_proper": "pu",
+      "tone": 2,
+      "pinyin_tone3": "pu2"
+    },
+    {
+      "base": "pu",
+      "base_proper": "pu",
+      "tone": 3,
+      "pinyin_tone3": "pu3"
+    },
+    {
+      "base": "pu",
+      "base_proper": "pu",
+      "tone": 4,
+      "pinyin_tone3": "pu4"
+    },
+    {
+      "base": "qi",
+      "base_proper": "qi",
+      "tone": 0,
+      "pinyin_tone3": "qi0"
+    },
+    {
+      "base": "qi",
+      "base_proper": "qi",
+      "tone": 1,
+      "pinyin_tone3": "qi1"
+    },
+    {
+      "base": "qi",
+      "base_proper": "qi",
+      "tone": 2,
+      "pinyin_tone3": "qi2"
+    },
+    {
+      "base": "qi",
+      "base_proper": "qi",
+      "tone": 3,
+      "pinyin_tone3": "qi3"
+    },
+    {
+      "base": "qi",
+      "base_proper": "qi",
+      "tone": 4,
+      "pinyin_tone3": "qi4"
+    },
+    {
+      "base": "qia",
+      "base_proper": "qia",
+      "tone": 1,
+      "pinyin_tone3": "qia1"
+    },
+    {
+      "base": "qia",
+      "base_proper": "qia",
+      "tone": 2,
+      "pinyin_tone3": "qia2"
+    },
+    {
+      "base": "qia",
+      "base_proper": "qia",
+      "tone": 3,
+      "pinyin_tone3": "qia3"
+    },
+    {
+      "base": "qia",
+      "base_proper": "qia",
+      "tone": 4,
+      "pinyin_tone3": "qia4"
+    },
+    {
+      "base": "qian",
+      "base_proper": "qian",
+      "tone": 0,
+      "pinyin_tone3": "qian0"
+    },
+    {
+      "base": "qian",
+      "base_proper": "qian",
+      "tone": 1,
+      "pinyin_tone3": "qian1"
+    },
+    {
+      "base": "qian",
+      "base_proper": "qian",
+      "tone": 2,
+      "pinyin_tone3": "qian2"
+    },
+    {
+      "base": "qian",
+      "base_proper": "qian",
+      "tone": 3,
+      "pinyin_tone3": "qian3"
+    },
+    {
+      "base": "qian",
+      "base_proper": "qian",
+      "tone": 4,
+      "pinyin_tone3": "qian4"
+    },
+    {
+      "base": "qiang",
+      "base_proper": "qiang",
+      "tone": 1,
+      "pinyin_tone3": "qiang1"
+    },
+    {
+      "base": "qiang",
+      "base_proper": "qiang",
+      "tone": 2,
+      "pinyin_tone3": "qiang2"
+    },
+    {
+      "base": "qiang",
+      "base_proper": "qiang",
+      "tone": 3,
+      "pinyin_tone3": "qiang3"
+    },
+    {
+      "base": "qiang",
+      "base_proper": "qiang",
+      "tone": 4,
+      "pinyin_tone3": "qiang4"
+    },
+    {
+      "base": "qiao",
+      "base_proper": "qiao",
+      "tone": 1,
+      "pinyin_tone3": "qiao1"
+    },
+    {
+      "base": "qiao",
+      "base_proper": "qiao",
+      "tone": 2,
+      "pinyin_tone3": "qiao2"
+    },
+    {
+      "base": "qiao",
+      "base_proper": "qiao",
+      "tone": 3,
+      "pinyin_tone3": "qiao3"
+    },
+    {
+      "base": "qiao",
+      "base_proper": "qiao",
+      "tone": 4,
+      "pinyin_tone3": "qiao4"
+    },
+    {
+      "base": "qie",
+      "base_proper": "qie",
+      "tone": 1,
+      "pinyin_tone3": "qie1"
+    },
+    {
+      "base": "qie",
+      "base_proper": "qie",
+      "tone": 2,
+      "pinyin_tone3": "qie2"
+    },
+    {
+      "base": "qie",
+      "base_proper": "qie",
+      "tone": 3,
+      "pinyin_tone3": "qie3"
+    },
+    {
+      "base": "qie",
+      "base_proper": "qie",
+      "tone": 4,
+      "pinyin_tone3": "qie4"
+    },
+    {
+      "base": "qin",
+      "base_proper": "qin",
+      "tone": 1,
+      "pinyin_tone3": "qin1"
+    },
+    {
+      "base": "qin",
+      "base_proper": "qin",
+      "tone": 2,
+      "pinyin_tone3": "qin2"
+    },
+    {
+      "base": "qin",
+      "base_proper": "qin",
+      "tone": 3,
+      "pinyin_tone3": "qin3"
+    },
+    {
+      "base": "qin",
+      "base_proper": "qin",
+      "tone": 4,
+      "pinyin_tone3": "qin4"
+    },
+    {
+      "base": "qing",
+      "base_proper": "qing",
+      "tone": 0,
+      "pinyin_tone3": "qing0"
+    },
+    {
+      "base": "qing",
+      "base_proper": "qing",
+      "tone": 1,
+      "pinyin_tone3": "qing1"
+    },
+    {
+      "base": "qing",
+      "base_proper": "qing",
+      "tone": 2,
+      "pinyin_tone3": "qing2"
+    },
+    {
+      "base": "qing",
+      "base_proper": "qing",
+      "tone": 3,
+      "pinyin_tone3": "qing3"
+    },
+    {
+      "base": "qing",
+      "base_proper": "qing",
+      "tone": 4,
+      "pinyin_tone3": "qing4"
+    },
+    {
+      "base": "qiong",
+      "base_proper": "qiong",
+      "tone": 1,
+      "pinyin_tone3": "qiong1"
+    },
+    {
+      "base": "qiong",
+      "base_proper": "qiong",
+      "tone": 2,
+      "pinyin_tone3": "qiong2"
+    },
+    {
+      "base": "qiong",
+      "base_proper": "qiong",
+      "tone": 4,
+      "pinyin_tone3": "qiong4"
+    },
+    {
+      "base": "qiu",
+      "base_proper": "qiu",
+      "tone": 1,
+      "pinyin_tone3": "qiu1"
+    },
+    {
+      "base": "qiu",
+      "base_proper": "qiu",
+      "tone": 2,
+      "pinyin_tone3": "qiu2"
+    },
+    {
+      "base": "qiu",
+      "base_proper": "qiu",
+      "tone": 3,
+      "pinyin_tone3": "qiu3"
+    },
+    {
+      "base": "qiu",
+      "base_proper": "qiu",
+      "tone": 4,
+      "pinyin_tone3": "qiu4"
+    },
+    {
+      "base": "qu",
+      "base_proper": "qu",
+      "tone": 0,
+      "pinyin_tone3": "qu0"
+    },
+    {
+      "base": "qu",
+      "base_proper": "qu",
+      "tone": 1,
+      "pinyin_tone3": "qu1"
+    },
+    {
+      "base": "qu",
+      "base_proper": "qu",
+      "tone": 2,
+      "pinyin_tone3": "qu2"
+    },
+    {
+      "base": "qu",
+      "base_proper": "qu",
+      "tone": 3,
+      "pinyin_tone3": "qu3"
+    },
+    {
+      "base": "qu",
+      "base_proper": "qu",
+      "tone": 4,
+      "pinyin_tone3": "qu4"
+    },
+    {
+      "base": "quan",
+      "base_proper": "quan",
+      "tone": 0,
+      "pinyin_tone3": "quan0"
+    },
+    {
+      "base": "quan",
+      "base_proper": "quan",
+      "tone": 1,
+      "pinyin_tone3": "quan1"
+    },
+    {
+      "base": "quan",
+      "base_proper": "quan",
+      "tone": 2,
+      "pinyin_tone3": "quan2"
+    },
+    {
+      "base": "quan",
+      "base_proper": "quan",
+      "tone": 3,
+      "pinyin_tone3": "quan3"
+    },
+    {
+      "base": "quan",
+      "base_proper": "quan",
+      "tone": 4,
+      "pinyin_tone3": "quan4"
+    },
+    {
+      "base": "que",
+      "base_proper": "que",
+      "tone": 1,
+      "pinyin_tone3": "que1"
+    },
+    {
+      "base": "que",
+      "base_proper": "que",
+      "tone": 2,
+      "pinyin_tone3": "que2"
+    },
+    {
+      "base": "que",
+      "base_proper": "que",
+      "tone": 4,
+      "pinyin_tone3": "que4"
+    },
+    {
+      "base": "qun",
+      "base_proper": "qun",
+      "tone": 1,
+      "pinyin_tone3": "qun1"
+    },
+    {
+      "base": "qun",
+      "base_proper": "qun",
+      "tone": 2,
+      "pinyin_tone3": "qun2"
+    },
+    {
+      "base": "qun",
+      "base_proper": "qun",
+      "tone": 3,
+      "pinyin_tone3": "qun3"
+    },
+    {
+      "base": "ran",
+      "base_proper": "ran",
+      "tone": 2,
+      "pinyin_tone3": "ran2"
+    },
+    {
+      "base": "ran",
+      "base_proper": "ran",
+      "tone": 3,
+      "pinyin_tone3": "ran3"
+    },
+    {
+      "base": "ran",
+      "base_proper": "ran",
+      "tone": 4,
+      "pinyin_tone3": "ran4"
+    },
+    {
+      "base": "rang",
+      "base_proper": "rang",
+      "tone": 1,
+      "pinyin_tone3": "rang1"
+    },
+    {
+      "base": "rang",
+      "base_proper": "rang",
+      "tone": 2,
+      "pinyin_tone3": "rang2"
+    },
+    {
+      "base": "rang",
+      "base_proper": "rang",
+      "tone": 3,
+      "pinyin_tone3": "rang3"
+    },
+    {
+      "base": "rang",
+      "base_proper": "rang",
+      "tone": 4,
+      "pinyin_tone3": "rang4"
+    },
+    {
+      "base": "rao",
+      "base_proper": "rao",
+      "tone": 2,
+      "pinyin_tone3": "rao2"
+    },
+    {
+      "base": "rao",
+      "base_proper": "rao",
+      "tone": 3,
+      "pinyin_tone3": "rao3"
+    },
+    {
+      "base": "rao",
+      "base_proper": "rao",
+      "tone": 4,
+      "pinyin_tone3": "rao4"
+    },
+    {
+      "base": "re",
+      "base_proper": "re",
+      "tone": 2,
+      "pinyin_tone3": "re2"
+    },
+    {
+      "base": "re",
+      "base_proper": "re",
+      "tone": 3,
+      "pinyin_tone3": "re3"
+    },
+    {
+      "base": "re",
+      "base_proper": "re",
+      "tone": 4,
+      "pinyin_tone3": "re4"
+    },
+    {
+      "base": "ren",
+      "base_proper": "ren",
+      "tone": 2,
+      "pinyin_tone3": "ren2"
+    },
+    {
+      "base": "ren",
+      "base_proper": "ren",
+      "tone": 3,
+      "pinyin_tone3": "ren3"
+    },
+    {
+      "base": "ren",
+      "base_proper": "ren",
+      "tone": 4,
+      "pinyin_tone3": "ren4"
+    },
+    {
+      "base": "reng",
+      "base_proper": "reng",
+      "tone": 1,
+      "pinyin_tone3": "reng1"
+    },
+    {
+      "base": "reng",
+      "base_proper": "reng",
+      "tone": 2,
+      "pinyin_tone3": "reng2"
+    },
+    {
+      "base": "reng",
+      "base_proper": "reng",
+      "tone": 4,
+      "pinyin_tone3": "reng4"
+    },
+    {
+      "base": "ri",
+      "base_proper": "ri",
+      "tone": 4,
+      "pinyin_tone3": "ri4"
+    },
+    {
+      "base": "rong",
+      "base_proper": "rong",
+      "tone": 0,
+      "pinyin_tone3": "rong0"
+    },
+    {
+      "base": "rong",
+      "base_proper": "rong",
+      "tone": 1,
+      "pinyin_tone3": "rong1"
+    },
+    {
+      "base": "rong",
+      "base_proper": "rong",
+      "tone": 2,
+      "pinyin_tone3": "rong2"
+    },
+    {
+      "base": "rong",
+      "base_proper": "rong",
+      "tone": 3,
+      "pinyin_tone3": "rong3"
+    },
+    {
+      "base": "rong",
+      "base_proper": "rong",
+      "tone": 4,
+      "pinyin_tone3": "rong4"
+    },
+    {
+      "base": "rou",
+      "base_proper": "rou",
+      "tone": 2,
+      "pinyin_tone3": "rou2"
+    },
+    {
+      "base": "rou",
+      "base_proper": "rou",
+      "tone": 3,
+      "pinyin_tone3": "rou3"
+    },
+    {
+      "base": "rou",
+      "base_proper": "rou",
+      "tone": 4,
+      "pinyin_tone3": "rou4"
+    },
+    {
+      "base": "ru",
+      "base_proper": "ru",
+      "tone": 0,
+      "pinyin_tone3": "ru0"
+    },
+    {
+      "base": "ru",
+      "base_proper": "ru",
+      "tone": 2,
+      "pinyin_tone3": "ru2"
+    },
+    {
+      "base": "ru",
+      "base_proper": "ru",
+      "tone": 3,
+      "pinyin_tone3": "ru3"
+    },
+    {
+      "base": "ru",
+      "base_proper": "ru",
+      "tone": 4,
+      "pinyin_tone3": "ru4"
+    },
+    {
+      "base": "rua",
+      "base_proper": "rua",
+      "tone": 2,
+      "pinyin_tone3": "rua2"
+    },
+    {
+      "base": "ruan",
+      "base_proper": "ruan",
+      "tone": 2,
+      "pinyin_tone3": "ruan2"
+    },
+    {
+      "base": "ruan",
+      "base_proper": "ruan",
+      "tone": 3,
+      "pinyin_tone3": "ruan3"
+    },
+    {
+      "base": "ruan",
+      "base_proper": "ruan",
+      "tone": 4,
+      "pinyin_tone3": "ruan4"
+    },
+    {
+      "base": "rui",
+      "base_proper": "rui",
+      "tone": 2,
+      "pinyin_tone3": "rui2"
+    },
+    {
+      "base": "rui",
+      "base_proper": "rui",
+      "tone": 3,
+      "pinyin_tone3": "rui3"
+    },
+    {
+      "base": "rui",
+      "base_proper": "rui",
+      "tone": 4,
+      "pinyin_tone3": "rui4"
+    },
+    {
+      "base": "run",
+      "base_proper": "run",
+      "tone": 2,
+      "pinyin_tone3": "run2"
+    },
+    {
+      "base": "run",
+      "base_proper": "run",
+      "tone": 3,
+      "pinyin_tone3": "run3"
+    },
+    {
+      "base": "run",
+      "base_proper": "run",
+      "tone": 4,
+      "pinyin_tone3": "run4"
+    },
+    {
+      "base": "ruo",
+      "base_proper": "ruo",
+      "tone": 2,
+      "pinyin_tone3": "ruo2"
+    },
+    {
+      "base": "ruo",
+      "base_proper": "ruo",
+      "tone": 4,
+      "pinyin_tone3": "ruo4"
+    },
+    {
+      "base": "sa",
+      "base_proper": "sa",
+      "tone": 0,
+      "pinyin_tone3": "sa0"
+    },
+    {
+      "base": "sa",
+      "base_proper": "sa",
+      "tone": 1,
+      "pinyin_tone3": "sa1"
+    },
+    {
+      "base": "sa",
+      "base_proper": "sa",
+      "tone": 3,
+      "pinyin_tone3": "sa3"
+    },
+    {
+      "base": "sa",
+      "base_proper": "sa",
+      "tone": 4,
+      "pinyin_tone3": "sa4"
+    },
+    {
+      "base": "sai",
+      "base_proper": "sai",
+      "tone": 1,
+      "pinyin_tone3": "sai1"
+    },
+    {
+      "base": "sai",
+      "base_proper": "sai",
+      "tone": 3,
+      "pinyin_tone3": "sai3"
+    },
+    {
+      "base": "sai",
+      "base_proper": "sai",
+      "tone": 4,
+      "pinyin_tone3": "sai4"
+    },
+    {
+      "base": "san",
+      "base_proper": "san",
+      "tone": 0,
+      "pinyin_tone3": "san0"
+    },
+    {
+      "base": "san",
+      "base_proper": "san",
+      "tone": 1,
+      "pinyin_tone3": "san1"
+    },
+    {
+      "base": "san",
+      "base_proper": "san",
+      "tone": 3,
+      "pinyin_tone3": "san3"
+    },
+    {
+      "base": "san",
+      "base_proper": "san",
+      "tone": 4,
+      "pinyin_tone3": "san4"
+    },
+    {
+      "base": "sang",
+      "base_proper": "sang",
+      "tone": 1,
+      "pinyin_tone3": "sang1"
+    },
+    {
+      "base": "sang",
+      "base_proper": "sang",
+      "tone": 3,
+      "pinyin_tone3": "sang3"
+    },
+    {
+      "base": "sang",
+      "base_proper": "sang",
+      "tone": 4,
+      "pinyin_tone3": "sang4"
+    },
+    {
+      "base": "sao",
+      "base_proper": "sao",
+      "tone": 1,
+      "pinyin_tone3": "sao1"
+    },
+    {
+      "base": "sao",
+      "base_proper": "sao",
+      "tone": 3,
+      "pinyin_tone3": "sao3"
+    },
+    {
+      "base": "sao",
+      "base_proper": "sao",
+      "tone": 4,
+      "pinyin_tone3": "sao4"
+    },
+    {
+      "base": "se",
+      "base_proper": "se",
+      "tone": 1,
+      "pinyin_tone3": "se1"
+    },
+    {
+      "base": "se",
+      "base_proper": "se",
+      "tone": 4,
+      "pinyin_tone3": "se4"
+    },
+    {
+      "base": "sen",
+      "base_proper": "sen",
+      "tone": 1,
+      "pinyin_tone3": "sen1"
+    },
+    {
+      "base": "sen",
+      "base_proper": "sen",
+      "tone": 3,
+      "pinyin_tone3": "sen3"
+    },
+    {
+      "base": "seng",
+      "base_proper": "seng",
+      "tone": 1,
+      "pinyin_tone3": "seng1"
+    },
+    {
+      "base": "seng",
+      "base_proper": "seng",
+      "tone": 4,
+      "pinyin_tone3": "seng4"
+    },
+    {
+      "base": "sha",
+      "base_proper": "sha",
+      "tone": 0,
+      "pinyin_tone3": "sha0"
+    },
+    {
+      "base": "sha",
+      "base_proper": "sha",
+      "tone": 1,
+      "pinyin_tone3": "sha1"
+    },
+    {
+      "base": "sha",
+      "base_proper": "sha",
+      "tone": 2,
+      "pinyin_tone3": "sha2"
+    },
+    {
+      "base": "sha",
+      "base_proper": "sha",
+      "tone": 3,
+      "pinyin_tone3": "sha3"
+    },
+    {
+      "base": "sha",
+      "base_proper": "sha",
+      "tone": 4,
+      "pinyin_tone3": "sha4"
+    },
+    {
+      "base": "shai",
+      "base_proper": "shai",
+      "tone": 1,
+      "pinyin_tone3": "shai1"
+    },
+    {
+      "base": "shai",
+      "base_proper": "shai",
+      "tone": 3,
+      "pinyin_tone3": "shai3"
+    },
+    {
+      "base": "shai",
+      "base_proper": "shai",
+      "tone": 4,
+      "pinyin_tone3": "shai4"
+    },
+    {
+      "base": "shan",
+      "base_proper": "shan",
+      "tone": 1,
+      "pinyin_tone3": "shan1"
+    },
+    {
+      "base": "shan",
+      "base_proper": "shan",
+      "tone": 2,
+      "pinyin_tone3": "shan2"
+    },
+    {
+      "base": "shan",
+      "base_proper": "shan",
+      "tone": 3,
+      "pinyin_tone3": "shan3"
+    },
+    {
+      "base": "shan",
+      "base_proper": "shan",
+      "tone": 4,
+      "pinyin_tone3": "shan4"
+    },
+    {
+      "base": "shang",
+      "base_proper": "shang",
+      "tone": 0,
+      "pinyin_tone3": "shang0"
+    },
+    {
+      "base": "shang",
+      "base_proper": "shang",
+      "tone": 1,
+      "pinyin_tone3": "shang1"
+    },
+    {
+      "base": "shang",
+      "base_proper": "shang",
+      "tone": 3,
+      "pinyin_tone3": "shang3"
+    },
+    {
+      "base": "shang",
+      "base_proper": "shang",
+      "tone": 4,
+      "pinyin_tone3": "shang4"
+    },
+    {
+      "base": "shao",
+      "base_proper": "shao",
+      "tone": 1,
+      "pinyin_tone3": "shao1"
+    },
+    {
+      "base": "shao",
+      "base_proper": "shao",
+      "tone": 2,
+      "pinyin_tone3": "shao2"
+    },
+    {
+      "base": "shao",
+      "base_proper": "shao",
+      "tone": 3,
+      "pinyin_tone3": "shao3"
+    },
+    {
+      "base": "shao",
+      "base_proper": "shao",
+      "tone": 4,
+      "pinyin_tone3": "shao4"
+    },
+    {
+      "base": "she",
+      "base_proper": "she",
+      "tone": 1,
+      "pinyin_tone3": "she1"
+    },
+    {
+      "base": "she",
+      "base_proper": "she",
+      "tone": 2,
+      "pinyin_tone3": "she2"
+    },
+    {
+      "base": "she",
+      "base_proper": "she",
+      "tone": 3,
+      "pinyin_tone3": "she3"
+    },
+    {
+      "base": "she",
+      "base_proper": "she",
+      "tone": 4,
+      "pinyin_tone3": "she4"
+    },
+    {
+      "base": "shei",
+      "base_proper": "shei",
+      "tone": 2,
+      "pinyin_tone3": "shei2"
+    },
+    {
+      "base": "shen",
+      "base_proper": "shen",
+      "tone": 1,
+      "pinyin_tone3": "shen1"
+    },
+    {
+      "base": "shen",
+      "base_proper": "shen",
+      "tone": 2,
+      "pinyin_tone3": "shen2"
+    },
+    {
+      "base": "shen",
+      "base_proper": "shen",
+      "tone": 3,
+      "pinyin_tone3": "shen3"
+    },
+    {
+      "base": "shen",
+      "base_proper": "shen",
+      "tone": 4,
+      "pinyin_tone3": "shen4"
+    },
+    {
+      "base": "sheng",
+      "base_proper": "sheng",
+      "tone": 1,
+      "pinyin_tone3": "sheng1"
+    },
+    {
+      "base": "sheng",
+      "base_proper": "sheng",
+      "tone": 2,
+      "pinyin_tone3": "sheng2"
+    },
+    {
+      "base": "sheng",
+      "base_proper": "sheng",
+      "tone": 3,
+      "pinyin_tone3": "sheng3"
+    },
+    {
+      "base": "sheng",
+      "base_proper": "sheng",
+      "tone": 4,
+      "pinyin_tone3": "sheng4"
+    },
+    {
+      "base": "shi",
+      "base_proper": "shi",
+      "tone": 0,
+      "pinyin_tone3": "shi0"
+    },
+    {
+      "base": "shi",
+      "base_proper": "shi",
+      "tone": 1,
+      "pinyin_tone3": "shi1"
+    },
+    {
+      "base": "shi",
+      "base_proper": "shi",
+      "tone": 2,
+      "pinyin_tone3": "shi2"
+    },
+    {
+      "base": "shi",
+      "base_proper": "shi",
+      "tone": 3,
+      "pinyin_tone3": "shi3"
+    },
+    {
+      "base": "shi",
+      "base_proper": "shi",
+      "tone": 4,
+      "pinyin_tone3": "shi4"
+    },
+    {
+      "base": "shou",
+      "base_proper": "shou",
+      "tone": 0,
+      "pinyin_tone3": "shou0"
+    },
+    {
+      "base": "shou",
+      "base_proper": "shou",
+      "tone": 1,
+      "pinyin_tone3": "shou1"
+    },
+    {
+      "base": "shou",
+      "base_proper": "shou",
+      "tone": 2,
+      "pinyin_tone3": "shou2"
+    },
+    {
+      "base": "shou",
+      "base_proper": "shou",
+      "tone": 3,
+      "pinyin_tone3": "shou3"
+    },
+    {
+      "base": "shou",
+      "base_proper": "shou",
+      "tone": 4,
+      "pinyin_tone3": "shou4"
+    },
+    {
+      "base": "shu",
+      "base_proper": "shu",
+      "tone": 1,
+      "pinyin_tone3": "shu1"
+    },
+    {
+      "base": "shu",
+      "base_proper": "shu",
+      "tone": 2,
+      "pinyin_tone3": "shu2"
+    },
+    {
+      "base": "shu",
+      "base_proper": "shu",
+      "tone": 3,
+      "pinyin_tone3": "shu3"
+    },
+    {
+      "base": "shu",
+      "base_proper": "shu",
+      "tone": 4,
+      "pinyin_tone3": "shu4"
+    },
+    {
+      "base": "shua",
+      "base_proper": "shua",
+      "tone": 1,
+      "pinyin_tone3": "shua1"
+    },
+    {
+      "base": "shua",
+      "base_proper": "shua",
+      "tone": 3,
+      "pinyin_tone3": "shua3"
+    },
+    {
+      "base": "shua",
+      "base_proper": "shua",
+      "tone": 4,
+      "pinyin_tone3": "shua4"
+    },
+    {
+      "base": "shuai",
+      "base_proper": "shuai",
+      "tone": 1,
+      "pinyin_tone3": "shuai1"
+    },
+    {
+      "base": "shuai",
+      "base_proper": "shuai",
+      "tone": 3,
+      "pinyin_tone3": "shuai3"
+    },
+    {
+      "base": "shuai",
+      "base_proper": "shuai",
+      "tone": 4,
+      "pinyin_tone3": "shuai4"
+    },
+    {
+      "base": "shuan",
+      "base_proper": "shuan",
+      "tone": 1,
+      "pinyin_tone3": "shuan1"
+    },
+    {
+      "base": "shuan",
+      "base_proper": "shuan",
+      "tone": 4,
+      "pinyin_tone3": "shuan4"
+    },
+    {
+      "base": "shuang",
+      "base_proper": "shuang",
+      "tone": 1,
+      "pinyin_tone3": "shuang1"
+    },
+    {
+      "base": "shuang",
+      "base_proper": "shuang",
+      "tone": 3,
+      "pinyin_tone3": "shuang3"
+    },
+    {
+      "base": "shuang",
+      "base_proper": "shuang",
+      "tone": 4,
+      "pinyin_tone3": "shuang4"
+    },
+    {
+      "base": "shui",
+      "base_proper": "shui",
+      "tone": 0,
+      "pinyin_tone3": "shui0"
+    },
+    {
+      "base": "shui",
+      "base_proper": "shui",
+      "tone": 2,
+      "pinyin_tone3": "shui2"
+    },
+    {
+      "base": "shui",
+      "base_proper": "shui",
+      "tone": 3,
+      "pinyin_tone3": "shui3"
+    },
+    {
+      "base": "shui",
+      "base_proper": "shui",
+      "tone": 4,
+      "pinyin_tone3": "shui4"
+    },
+    {
+      "base": "shun",
+      "base_proper": "shun",
+      "tone": 3,
+      "pinyin_tone3": "shun3"
+    },
+    {
+      "base": "shun",
+      "base_proper": "shun",
+      "tone": 4,
+      "pinyin_tone3": "shun4"
+    },
+    {
+      "base": "shuo",
+      "base_proper": "shuo",
+      "tone": 1,
+      "pinyin_tone3": "shuo1"
+    },
+    {
+      "base": "shuo",
+      "base_proper": "shuo",
+      "tone": 2,
+      "pinyin_tone3": "shuo2"
+    },
+    {
+      "base": "shuo",
+      "base_proper": "shuo",
+      "tone": 4,
+      "pinyin_tone3": "shuo4"
+    },
+    {
+      "base": "si",
+      "base_proper": "si",
+      "tone": 0,
+      "pinyin_tone3": "si0"
+    },
+    {
+      "base": "si",
+      "base_proper": "si",
+      "tone": 1,
+      "pinyin_tone3": "si1"
+    },
+    {
+      "base": "si",
+      "base_proper": "si",
+      "tone": 2,
+      "pinyin_tone3": "si2"
+    },
+    {
+      "base": "si",
+      "base_proper": "si",
+      "tone": 3,
+      "pinyin_tone3": "si3"
+    },
+    {
+      "base": "si",
+      "base_proper": "si",
+      "tone": 4,
+      "pinyin_tone3": "si4"
+    },
+    {
+      "base": "song",
+      "base_proper": "song",
+      "tone": 1,
+      "pinyin_tone3": "song1"
+    },
+    {
+      "base": "song",
+      "base_proper": "song",
+      "tone": 2,
+      "pinyin_tone3": "song2"
+    },
+    {
+      "base": "song",
+      "base_proper": "song",
+      "tone": 3,
+      "pinyin_tone3": "song3"
+    },
+    {
+      "base": "song",
+      "base_proper": "song",
+      "tone": 4,
+      "pinyin_tone3": "song4"
+    },
+    {
+      "base": "sou",
+      "base_proper": "sou",
+      "tone": 1,
+      "pinyin_tone3": "sou1"
+    },
+    {
+      "base": "sou",
+      "base_proper": "sou",
+      "tone": 3,
+      "pinyin_tone3": "sou3"
+    },
+    {
+      "base": "sou",
+      "base_proper": "sou",
+      "tone": 4,
+      "pinyin_tone3": "sou4"
+    },
+    {
+      "base": "su",
+      "base_proper": "su",
+      "tone": 1,
+      "pinyin_tone3": "su1"
+    },
+    {
+      "base": "su",
+      "base_proper": "su",
+      "tone": 2,
+      "pinyin_tone3": "su2"
+    },
+    {
+      "base": "su",
+      "base_proper": "su",
+      "tone": 3,
+      "pinyin_tone3": "su3"
+    },
+    {
+      "base": "su",
+      "base_proper": "su",
+      "tone": 4,
+      "pinyin_tone3": "su4"
+    },
+    {
+      "base": "suan",
+      "base_proper": "suan",
+      "tone": 1,
+      "pinyin_tone3": "suan1"
+    },
+    {
+      "base": "suan",
+      "base_proper": "suan",
+      "tone": 3,
+      "pinyin_tone3": "suan3"
+    },
+    {
+      "base": "suan",
+      "base_proper": "suan",
+      "tone": 4,
+      "pinyin_tone3": "suan4"
+    },
+    {
+      "base": "sui",
+      "base_proper": "sui",
+      "tone": 1,
+      "pinyin_tone3": "sui1"
+    },
+    {
+      "base": "sui",
+      "base_proper": "sui",
+      "tone": 2,
+      "pinyin_tone3": "sui2"
+    },
+    {
+      "base": "sui",
+      "base_proper": "sui",
+      "tone": 3,
+      "pinyin_tone3": "sui3"
+    },
+    {
+      "base": "sui",
+      "base_proper": "sui",
+      "tone": 4,
+      "pinyin_tone3": "sui4"
+    },
+    {
+      "base": "sun",
+      "base_proper": "sun",
+      "tone": 1,
+      "pinyin_tone3": "sun1"
+    },
+    {
+      "base": "sun",
+      "base_proper": "sun",
+      "tone": 3,
+      "pinyin_tone3": "sun3"
+    },
+    {
+      "base": "sun",
+      "base_proper": "sun",
+      "tone": 4,
+      "pinyin_tone3": "sun4"
+    },
+    {
+      "base": "suo",
+      "base_proper": "suo",
+      "tone": 0,
+      "pinyin_tone3": "suo0"
+    },
+    {
+      "base": "suo",
+      "base_proper": "suo",
+      "tone": 1,
+      "pinyin_tone3": "suo1"
+    },
+    {
+      "base": "suo",
+      "base_proper": "suo",
+      "tone": 2,
+      "pinyin_tone3": "suo2"
+    },
+    {
+      "base": "suo",
+      "base_proper": "suo",
+      "tone": 3,
+      "pinyin_tone3": "suo3"
+    },
+    {
+      "base": "suo",
+      "base_proper": "suo",
+      "tone": 4,
+      "pinyin_tone3": "suo4"
+    },
+    {
+      "base": "ta",
+      "base_proper": "ta",
+      "tone": 0,
+      "pinyin_tone3": "ta0"
+    },
+    {
+      "base": "ta",
+      "base_proper": "ta",
+      "tone": 1,
+      "pinyin_tone3": "ta1"
+    },
+    {
+      "base": "ta",
+      "base_proper": "ta",
+      "tone": 2,
+      "pinyin_tone3": "ta2"
+    },
+    {
+      "base": "ta",
+      "base_proper": "ta",
+      "tone": 3,
+      "pinyin_tone3": "ta3"
+    },
+    {
+      "base": "ta",
+      "base_proper": "ta",
+      "tone": 4,
+      "pinyin_tone3": "ta4"
+    },
+    {
+      "base": "tai",
+      "base_proper": "tai",
+      "tone": 0,
+      "pinyin_tone3": "tai0"
+    },
+    {
+      "base": "tai",
+      "base_proper": "tai",
+      "tone": 1,
+      "pinyin_tone3": "tai1"
+    },
+    {
+      "base": "tai",
+      "base_proper": "tai",
+      "tone": 2,
+      "pinyin_tone3": "tai2"
+    },
+    {
+      "base": "tai",
+      "base_proper": "tai",
+      "tone": 3,
+      "pinyin_tone3": "tai3"
+    },
+    {
+      "base": "tai",
+      "base_proper": "tai",
+      "tone": 4,
+      "pinyin_tone3": "tai4"
+    },
+    {
+      "base": "tan",
+      "base_proper": "tan",
+      "tone": 1,
+      "pinyin_tone3": "tan1"
+    },
+    {
+      "base": "tan",
+      "base_proper": "tan",
+      "tone": 2,
+      "pinyin_tone3": "tan2"
+    },
+    {
+      "base": "tan",
+      "base_proper": "tan",
+      "tone": 3,
+      "pinyin_tone3": "tan3"
+    },
+    {
+      "base": "tan",
+      "base_proper": "tan",
+      "tone": 4,
+      "pinyin_tone3": "tan4"
+    },
+    {
+      "base": "tang",
+      "base_proper": "tang",
+      "tone": 1,
+      "pinyin_tone3": "tang1"
+    },
+    {
+      "base": "tang",
+      "base_proper": "tang",
+      "tone": 2,
+      "pinyin_tone3": "tang2"
+    },
+    {
+      "base": "tang",
+      "base_proper": "tang",
+      "tone": 3,
+      "pinyin_tone3": "tang3"
+    },
+    {
+      "base": "tang",
+      "base_proper": "tang",
+      "tone": 4,
+      "pinyin_tone3": "tang4"
+    },
+    {
+      "base": "tao",
+      "base_proper": "tao",
+      "tone": 1,
+      "pinyin_tone3": "tao1"
+    },
+    {
+      "base": "tao",
+      "base_proper": "tao",
+      "tone": 2,
+      "pinyin_tone3": "tao2"
+    },
+    {
+      "base": "tao",
+      "base_proper": "tao",
+      "tone": 3,
+      "pinyin_tone3": "tao3"
+    },
+    {
+      "base": "tao",
+      "base_proper": "tao",
+      "tone": 4,
+      "pinyin_tone3": "tao4"
+    },
+    {
+      "base": "te",
+      "base_proper": "te",
+      "tone": 0,
+      "pinyin_tone3": "te0"
+    },
+    {
+      "base": "te",
+      "base_proper": "te",
+      "tone": 4,
+      "pinyin_tone3": "te4"
+    },
+    {
+      "base": "tei",
+      "base_proper": "tei",
+      "tone": 1,
+      "pinyin_tone3": "tei1"
+    },
+    {
+      "base": "teng",
+      "base_proper": "teng",
+      "tone": 1,
+      "pinyin_tone3": "teng1"
+    },
+    {
+      "base": "teng",
+      "base_proper": "teng",
+      "tone": 2,
+      "pinyin_tone3": "teng2"
+    },
+    {
+      "base": "teng",
+      "base_proper": "teng",
+      "tone": 4,
+      "pinyin_tone3": "teng4"
+    },
+    {
+      "base": "ti",
+      "base_proper": "ti",
+      "tone": 1,
+      "pinyin_tone3": "ti1"
+    },
+    {
+      "base": "ti",
+      "base_proper": "ti",
+      "tone": 2,
+      "pinyin_tone3": "ti2"
+    },
+    {
+      "base": "ti",
+      "base_proper": "ti",
+      "tone": 3,
+      "pinyin_tone3": "ti3"
+    },
+    {
+      "base": "ti",
+      "base_proper": "ti",
+      "tone": 4,
+      "pinyin_tone3": "ti4"
+    },
+    {
+      "base": "tian",
+      "base_proper": "tian",
+      "tone": 1,
+      "pinyin_tone3": "tian1"
+    },
+    {
+      "base": "tian",
+      "base_proper": "tian",
+      "tone": 2,
+      "pinyin_tone3": "tian2"
+    },
+    {
+      "base": "tian",
+      "base_proper": "tian",
+      "tone": 3,
+      "pinyin_tone3": "tian3"
+    },
+    {
+      "base": "tian",
+      "base_proper": "tian",
+      "tone": 4,
+      "pinyin_tone3": "tian4"
+    },
+    {
+      "base": "tiao",
+      "base_proper": "tiao",
+      "tone": 0,
+      "pinyin_tone3": "tiao0"
+    },
+    {
+      "base": "tiao",
+      "base_proper": "tiao",
+      "tone": 1,
+      "pinyin_tone3": "tiao1"
+    },
+    {
+      "base": "tiao",
+      "base_proper": "tiao",
+      "tone": 2,
+      "pinyin_tone3": "tiao2"
+    },
+    {
+      "base": "tiao",
+      "base_proper": "tiao",
+      "tone": 3,
+      "pinyin_tone3": "tiao3"
+    },
+    {
+      "base": "tiao",
+      "base_proper": "tiao",
+      "tone": 4,
+      "pinyin_tone3": "tiao4"
+    },
+    {
+      "base": "tie",
+      "base_proper": "tie",
+      "tone": 1,
+      "pinyin_tone3": "tie1"
+    },
+    {
+      "base": "tie",
+      "base_proper": "tie",
+      "tone": 2,
+      "pinyin_tone3": "tie2"
+    },
+    {
+      "base": "tie",
+      "base_proper": "tie",
+      "tone": 3,
+      "pinyin_tone3": "tie3"
+    },
+    {
+      "base": "tie",
+      "base_proper": "tie",
+      "tone": 4,
+      "pinyin_tone3": "tie4"
+    },
+    {
+      "base": "ting",
+      "base_proper": "ting",
+      "tone": 1,
+      "pinyin_tone3": "ting1"
+    },
+    {
+      "base": "ting",
+      "base_proper": "ting",
+      "tone": 2,
+      "pinyin_tone3": "ting2"
+    },
+    {
+      "base": "ting",
+      "base_proper": "ting",
+      "tone": 3,
+      "pinyin_tone3": "ting3"
+    },
+    {
+      "base": "ting",
+      "base_proper": "ting",
+      "tone": 4,
+      "pinyin_tone3": "ting4"
+    },
+    {
+      "base": "tong",
+      "base_proper": "tong",
+      "tone": 1,
+      "pinyin_tone3": "tong1"
+    },
+    {
+      "base": "tong",
+      "base_proper": "tong",
+      "tone": 2,
+      "pinyin_tone3": "tong2"
+    },
+    {
+      "base": "tong",
+      "base_proper": "tong",
+      "tone": 3,
+      "pinyin_tone3": "tong3"
+    },
+    {
+      "base": "tong",
+      "base_proper": "tong",
+      "tone": 4,
+      "pinyin_tone3": "tong4"
+    },
+    {
+      "base": "tou",
+      "base_proper": "tou",
+      "tone": 0,
+      "pinyin_tone3": "tou0"
+    },
+    {
+      "base": "tou",
+      "base_proper": "tou",
+      "tone": 1,
+      "pinyin_tone3": "tou1"
+    },
+    {
+      "base": "tou",
+      "base_proper": "tou",
+      "tone": 2,
+      "pinyin_tone3": "tou2"
+    },
+    {
+      "base": "tou",
+      "base_proper": "tou",
+      "tone": 3,
+      "pinyin_tone3": "tou3"
+    },
+    {
+      "base": "tou",
+      "base_proper": "tou",
+      "tone": 4,
+      "pinyin_tone3": "tou4"
+    },
+    {
+      "base": "tu",
+      "base_proper": "tu",
+      "tone": 0,
+      "pinyin_tone3": "tu0"
+    },
+    {
+      "base": "tu",
+      "base_proper": "tu",
+      "tone": 1,
+      "pinyin_tone3": "tu1"
+    },
+    {
+      "base": "tu",
+      "base_proper": "tu",
+      "tone": 2,
+      "pinyin_tone3": "tu2"
+    },
+    {
+      "base": "tu",
+      "base_proper": "tu",
+      "tone": 3,
+      "pinyin_tone3": "tu3"
+    },
+    {
+      "base": "tu",
+      "base_proper": "tu",
+      "tone": 4,
+      "pinyin_tone3": "tu4"
+    },
+    {
+      "base": "tuan",
+      "base_proper": "tuan",
+      "tone": 1,
+      "pinyin_tone3": "tuan1"
+    },
+    {
+      "base": "tuan",
+      "base_proper": "tuan",
+      "tone": 2,
+      "pinyin_tone3": "tuan2"
+    },
+    {
+      "base": "tuan",
+      "base_proper": "tuan",
+      "tone": 3,
+      "pinyin_tone3": "tuan3"
+    },
+    {
+      "base": "tuan",
+      "base_proper": "tuan",
+      "tone": 4,
+      "pinyin_tone3": "tuan4"
+    },
+    {
+      "base": "tui",
+      "base_proper": "tui",
+      "tone": 1,
+      "pinyin_tone3": "tui1"
+    },
+    {
+      "base": "tui",
+      "base_proper": "tui",
+      "tone": 2,
+      "pinyin_tone3": "tui2"
+    },
+    {
+      "base": "tui",
+      "base_proper": "tui",
+      "tone": 3,
+      "pinyin_tone3": "tui3"
+    },
+    {
+      "base": "tui",
+      "base_proper": "tui",
+      "tone": 4,
+      "pinyin_tone3": "tui4"
+    },
+    {
+      "base": "tun",
+      "base_proper": "tun",
+      "tone": 1,
+      "pinyin_tone3": "tun1"
+    },
+    {
+      "base": "tun",
+      "base_proper": "tun",
+      "tone": 2,
+      "pinyin_tone3": "tun2"
+    },
+    {
+      "base": "tun",
+      "base_proper": "tun",
+      "tone": 3,
+      "pinyin_tone3": "tun3"
+    },
+    {
+      "base": "tun",
+      "base_proper": "tun",
+      "tone": 4,
+      "pinyin_tone3": "tun4"
+    },
+    {
+      "base": "tuo",
+      "base_proper": "tuo",
+      "tone": 1,
+      "pinyin_tone3": "tuo1"
+    },
+    {
+      "base": "tuo",
+      "base_proper": "tuo",
+      "tone": 2,
+      "pinyin_tone3": "tuo2"
+    },
+    {
+      "base": "tuo",
+      "base_proper": "tuo",
+      "tone": 3,
+      "pinyin_tone3": "tuo3"
+    },
+    {
+      "base": "tuo",
+      "base_proper": "tuo",
+      "tone": 4,
+      "pinyin_tone3": "tuo4"
+    },
+    {
+      "base": "wa",
+      "base_proper": "wa",
+      "tone": 0,
+      "pinyin_tone3": "wa0"
+    },
+    {
+      "base": "wa",
+      "base_proper": "wa",
+      "tone": 1,
+      "pinyin_tone3": "wa1"
+    },
+    {
+      "base": "wa",
+      "base_proper": "wa",
+      "tone": 2,
+      "pinyin_tone3": "wa2"
+    },
+    {
+      "base": "wa",
+      "base_proper": "wa",
+      "tone": 3,
+      "pinyin_tone3": "wa3"
+    },
+    {
+      "base": "wa",
+      "base_proper": "wa",
+      "tone": 4,
+      "pinyin_tone3": "wa4"
+    },
+    {
+      "base": "wai",
+      "base_proper": "wai",
+      "tone": 0,
+      "pinyin_tone3": "wai0"
+    },
+    {
+      "base": "wai",
+      "base_proper": "wai",
+      "tone": 1,
+      "pinyin_tone3": "wai1"
+    },
+    {
+      "base": "wai",
+      "base_proper": "wai",
+      "tone": 3,
+      "pinyin_tone3": "wai3"
+    },
+    {
+      "base": "wai",
+      "base_proper": "wai",
+      "tone": 4,
+      "pinyin_tone3": "wai4"
+    },
+    {
+      "base": "wan",
+      "base_proper": "wan",
+      "tone": 1,
+      "pinyin_tone3": "wan1"
+    },
+    {
+      "base": "wan",
+      "base_proper": "wan",
+      "tone": 2,
+      "pinyin_tone3": "wan2"
+    },
+    {
+      "base": "wan",
+      "base_proper": "wan",
+      "tone": 3,
+      "pinyin_tone3": "wan3"
+    },
+    {
+      "base": "wan",
+      "base_proper": "wan",
+      "tone": 4,
+      "pinyin_tone3": "wan4"
+    },
+    {
+      "base": "wang",
+      "base_proper": "wang",
+      "tone": 1,
+      "pinyin_tone3": "wang1"
+    },
+    {
+      "base": "wang",
+      "base_proper": "wang",
+      "tone": 2,
+      "pinyin_tone3": "wang2"
+    },
+    {
+      "base": "wang",
+      "base_proper": "wang",
+      "tone": 3,
+      "pinyin_tone3": "wang3"
+    },
+    {
+      "base": "wang",
+      "base_proper": "wang",
+      "tone": 4,
+      "pinyin_tone3": "wang4"
+    },
+    {
+      "base": "wei",
+      "base_proper": "wei",
+      "tone": 0,
+      "pinyin_tone3": "wei0"
+    },
+    {
+      "base": "wei",
+      "base_proper": "wei",
+      "tone": 1,
+      "pinyin_tone3": "wei1"
+    },
+    {
+      "base": "wei",
+      "base_proper": "wei",
+      "tone": 2,
+      "pinyin_tone3": "wei2"
+    },
+    {
+      "base": "wei",
+      "base_proper": "wei",
+      "tone": 3,
+      "pinyin_tone3": "wei3"
+    },
+    {
+      "base": "wei",
+      "base_proper": "wei",
+      "tone": 4,
+      "pinyin_tone3": "wei4"
+    },
+    {
+      "base": "wen",
+      "base_proper": "wen",
+      "tone": 0,
+      "pinyin_tone3": "wen0"
+    },
+    {
+      "base": "wen",
+      "base_proper": "wen",
+      "tone": 1,
+      "pinyin_tone3": "wen1"
+    },
+    {
+      "base": "wen",
+      "base_proper": "wen",
+      "tone": 2,
+      "pinyin_tone3": "wen2"
+    },
+    {
+      "base": "wen",
+      "base_proper": "wen",
+      "tone": 3,
+      "pinyin_tone3": "wen3"
+    },
+    {
+      "base": "wen",
+      "base_proper": "wen",
+      "tone": 4,
+      "pinyin_tone3": "wen4"
+    },
+    {
+      "base": "weng",
+      "base_proper": "weng",
+      "tone": 1,
+      "pinyin_tone3": "weng1"
+    },
+    {
+      "base": "weng",
+      "base_proper": "weng",
+      "tone": 3,
+      "pinyin_tone3": "weng3"
+    },
+    {
+      "base": "weng",
+      "base_proper": "weng",
+      "tone": 4,
+      "pinyin_tone3": "weng4"
+    },
+    {
+      "base": "wo",
+      "base_proper": "wo",
+      "tone": 1,
+      "pinyin_tone3": "wo1"
+    },
+    {
+      "base": "wo",
+      "base_proper": "wo",
+      "tone": 3,
+      "pinyin_tone3": "wo3"
+    },
+    {
+      "base": "wo",
+      "base_proper": "wo",
+      "tone": 4,
+      "pinyin_tone3": "wo4"
+    },
+    {
+      "base": "wong",
+      "base_proper": "wong",
+      "tone": 4,
+      "pinyin_tone3": "wong4"
+    },
+    {
+      "base": "wu",
+      "base_proper": "wu",
+      "tone": 0,
+      "pinyin_tone3": "wu0"
+    },
+    {
+      "base": "wu",
+      "base_proper": "wu",
+      "tone": 1,
+      "pinyin_tone3": "wu1"
+    },
+    {
+      "base": "wu",
+      "base_proper": "wu",
+      "tone": 2,
+      "pinyin_tone3": "wu2"
+    },
+    {
+      "base": "wu",
+      "base_proper": "wu",
+      "tone": 3,
+      "pinyin_tone3": "wu3"
+    },
+    {
+      "base": "wu",
+      "base_proper": "wu",
+      "tone": 4,
+      "pinyin_tone3": "wu4"
+    },
+    {
+      "base": "xi",
+      "base_proper": "xi",
+      "tone": 1,
+      "pinyin_tone3": "xi1"
+    },
+    {
+      "base": "xi",
+      "base_proper": "xi",
+      "tone": 2,
+      "pinyin_tone3": "xi2"
+    },
+    {
+      "base": "xi",
+      "base_proper": "xi",
+      "tone": 3,
+      "pinyin_tone3": "xi3"
+    },
+    {
+      "base": "xi",
+      "base_proper": "xi",
+      "tone": 4,
+      "pinyin_tone3": "xi4"
+    },
+    {
+      "base": "xia",
+      "base_proper": "xia",
+      "tone": 1,
+      "pinyin_tone3": "xia1"
+    },
+    {
+      "base": "xia",
+      "base_proper": "xia",
+      "tone": 2,
+      "pinyin_tone3": "xia2"
+    },
+    {
+      "base": "xia",
+      "base_proper": "xia",
+      "tone": 3,
+      "pinyin_tone3": "xia3"
+    },
+    {
+      "base": "xia",
+      "base_proper": "xia",
+      "tone": 4,
+      "pinyin_tone3": "xia4"
+    },
+    {
+      "base": "xian",
+      "base_proper": "xian",
+      "tone": 0,
+      "pinyin_tone3": "xian0"
+    },
+    {
+      "base": "xian",
+      "base_proper": "xian",
+      "tone": 1,
+      "pinyin_tone3": "xian1"
+    },
+    {
+      "base": "xian",
+      "base_proper": "xian",
+      "tone": 2,
+      "pinyin_tone3": "xian2"
+    },
+    {
+      "base": "xian",
+      "base_proper": "xian",
+      "tone": 3,
+      "pinyin_tone3": "xian3"
+    },
+    {
+      "base": "xian",
+      "base_proper": "xian",
+      "tone": 4,
+      "pinyin_tone3": "xian4"
+    },
+    {
+      "base": "xiang",
+      "base_proper": "xiang",
+      "tone": 1,
+      "pinyin_tone3": "xiang1"
+    },
+    {
+      "base": "xiang",
+      "base_proper": "xiang",
+      "tone": 2,
+      "pinyin_tone3": "xiang2"
+    },
+    {
+      "base": "xiang",
+      "base_proper": "xiang",
+      "tone": 3,
+      "pinyin_tone3": "xiang3"
+    },
+    {
+      "base": "xiang",
+      "base_proper": "xiang",
+      "tone": 4,
+      "pinyin_tone3": "xiang4"
+    },
+    {
+      "base": "xiao",
+      "base_proper": "xiao",
+      "tone": 0,
+      "pinyin_tone3": "xiao0"
+    },
+    {
+      "base": "xiao",
+      "base_proper": "xiao",
+      "tone": 1,
+      "pinyin_tone3": "xiao1"
+    },
+    {
+      "base": "xiao",
+      "base_proper": "xiao",
+      "tone": 2,
+      "pinyin_tone3": "xiao2"
+    },
+    {
+      "base": "xiao",
+      "base_proper": "xiao",
+      "tone": 3,
+      "pinyin_tone3": "xiao3"
+    },
+    {
+      "base": "xiao",
+      "base_proper": "xiao",
+      "tone": 4,
+      "pinyin_tone3": "xiao4"
+    },
+    {
+      "base": "xie",
+      "base_proper": "xie",
+      "tone": 1,
+      "pinyin_tone3": "xie1"
+    },
+    {
+      "base": "xie",
+      "base_proper": "xie",
+      "tone": 2,
+      "pinyin_tone3": "xie2"
+    },
+    {
+      "base": "xie",
+      "base_proper": "xie",
+      "tone": 3,
+      "pinyin_tone3": "xie3"
+    },
+    {
+      "base": "xie",
+      "base_proper": "xie",
+      "tone": 4,
+      "pinyin_tone3": "xie4"
+    },
+    {
+      "base": "xin",
+      "base_proper": "xin",
+      "tone": 0,
+      "pinyin_tone3": "xin0"
+    },
+    {
+      "base": "xin",
+      "base_proper": "xin",
+      "tone": 1,
+      "pinyin_tone3": "xin1"
+    },
+    {
+      "base": "xin",
+      "base_proper": "xin",
+      "tone": 2,
+      "pinyin_tone3": "xin2"
+    },
+    {
+      "base": "xin",
+      "base_proper": "xin",
+      "tone": 3,
+      "pinyin_tone3": "xin3"
+    },
+    {
+      "base": "xin",
+      "base_proper": "xin",
+      "tone": 4,
+      "pinyin_tone3": "xin4"
+    },
+    {
+      "base": "xing",
+      "base_proper": "xing",
+      "tone": 0,
+      "pinyin_tone3": "xing0"
+    },
+    {
+      "base": "xing",
+      "base_proper": "xing",
+      "tone": 1,
+      "pinyin_tone3": "xing1"
+    },
+    {
+      "base": "xing",
+      "base_proper": "xing",
+      "tone": 2,
+      "pinyin_tone3": "xing2"
+    },
+    {
+      "base": "xing",
+      "base_proper": "xing",
+      "tone": 3,
+      "pinyin_tone3": "xing3"
+    },
+    {
+      "base": "xing",
+      "base_proper": "xing",
+      "tone": 4,
+      "pinyin_tone3": "xing4"
+    },
+    {
+      "base": "xiong",
+      "base_proper": "xiong",
+      "tone": 1,
+      "pinyin_tone3": "xiong1"
+    },
+    {
+      "base": "xiong",
+      "base_proper": "xiong",
+      "tone": 2,
+      "pinyin_tone3": "xiong2"
+    },
+    {
+      "base": "xiong",
+      "base_proper": "xiong",
+      "tone": 3,
+      "pinyin_tone3": "xiong3"
+    },
+    {
+      "base": "xiong",
+      "base_proper": "xiong",
+      "tone": 4,
+      "pinyin_tone3": "xiong4"
+    },
+    {
+      "base": "xiu",
+      "base_proper": "xiu",
+      "tone": 1,
+      "pinyin_tone3": "xiu1"
+    },
+    {
+      "base": "xiu",
+      "base_proper": "xiu",
+      "tone": 2,
+      "pinyin_tone3": "xiu2"
+    },
+    {
+      "base": "xiu",
+      "base_proper": "xiu",
+      "tone": 3,
+      "pinyin_tone3": "xiu3"
+    },
+    {
+      "base": "xiu",
+      "base_proper": "xiu",
+      "tone": 4,
+      "pinyin_tone3": "xiu4"
+    },
+    {
+      "base": "xu",
+      "base_proper": "xu",
+      "tone": 0,
+      "pinyin_tone3": "xu0"
+    },
+    {
+      "base": "xu",
+      "base_proper": "xu",
+      "tone": 1,
+      "pinyin_tone3": "xu1"
+    },
+    {
+      "base": "xu",
+      "base_proper": "xu",
+      "tone": 2,
+      "pinyin_tone3": "xu2"
+    },
+    {
+      "base": "xu",
+      "base_proper": "xu",
+      "tone": 3,
+      "pinyin_tone3": "xu3"
+    },
+    {
+      "base": "xu",
+      "base_proper": "xu",
+      "tone": 4,
+      "pinyin_tone3": "xu4"
+    },
+    {
+      "base": "xuan",
+      "base_proper": "xuan",
+      "tone": 1,
+      "pinyin_tone3": "xuan1"
+    },
+    {
+      "base": "xuan",
+      "base_proper": "xuan",
+      "tone": 2,
+      "pinyin_tone3": "xuan2"
+    },
+    {
+      "base": "xuan",
+      "base_proper": "xuan",
+      "tone": 3,
+      "pinyin_tone3": "xuan3"
+    },
+    {
+      "base": "xuan",
+      "base_proper": "xuan",
+      "tone": 4,
+      "pinyin_tone3": "xuan4"
+    },
+    {
+      "base": "xue",
+      "base_proper": "xue",
+      "tone": 1,
+      "pinyin_tone3": "xue1"
+    },
+    {
+      "base": "xue",
+      "base_proper": "xue",
+      "tone": 2,
+      "pinyin_tone3": "xue2"
+    },
+    {
+      "base": "xue",
+      "base_proper": "xue",
+      "tone": 3,
+      "pinyin_tone3": "xue3"
+    },
+    {
+      "base": "xue",
+      "base_proper": "xue",
+      "tone": 4,
+      "pinyin_tone3": "xue4"
+    },
+    {
+      "base": "xun",
+      "base_proper": "xun",
+      "tone": 1,
+      "pinyin_tone3": "xun1"
+    },
+    {
+      "base": "xun",
+      "base_proper": "xun",
+      "tone": 2,
+      "pinyin_tone3": "xun2"
+    },
+    {
+      "base": "xun",
+      "base_proper": "xun",
+      "tone": 4,
+      "pinyin_tone3": "xun4"
+    },
+    {
+      "base": "ya",
+      "base_proper": "ya",
+      "tone": 0,
+      "pinyin_tone3": "ya0"
+    },
+    {
+      "base": "ya",
+      "base_proper": "ya",
+      "tone": 1,
+      "pinyin_tone3": "ya1"
+    },
+    {
+      "base": "ya",
+      "base_proper": "ya",
+      "tone": 2,
+      "pinyin_tone3": "ya2"
+    },
+    {
+      "base": "ya",
+      "base_proper": "ya",
+      "tone": 3,
+      "pinyin_tone3": "ya3"
+    },
+    {
+      "base": "ya",
+      "base_proper": "ya",
+      "tone": 4,
+      "pinyin_tone3": "ya4"
+    },
+    {
+      "base": "yan",
+      "base_proper": "yan",
+      "tone": 1,
+      "pinyin_tone3": "yan1"
+    },
+    {
+      "base": "yan",
+      "base_proper": "yan",
+      "tone": 2,
+      "pinyin_tone3": "yan2"
+    },
+    {
+      "base": "yan",
+      "base_proper": "yan",
+      "tone": 3,
+      "pinyin_tone3": "yan3"
+    },
+    {
+      "base": "yan",
+      "base_proper": "yan",
+      "tone": 4,
+      "pinyin_tone3": "yan4"
+    },
+    {
+      "base": "yang",
+      "base_proper": "yang",
+      "tone": 0,
+      "pinyin_tone3": "yang0"
+    },
+    {
+      "base": "yang",
+      "base_proper": "yang",
+      "tone": 1,
+      "pinyin_tone3": "yang1"
+    },
+    {
+      "base": "yang",
+      "base_proper": "yang",
+      "tone": 2,
+      "pinyin_tone3": "yang2"
+    },
+    {
+      "base": "yang",
+      "base_proper": "yang",
+      "tone": 3,
+      "pinyin_tone3": "yang3"
+    },
+    {
+      "base": "yang",
+      "base_proper": "yang",
+      "tone": 4,
+      "pinyin_tone3": "yang4"
+    },
+    {
+      "base": "yao",
+      "base_proper": "yao",
+      "tone": 1,
+      "pinyin_tone3": "yao1"
+    },
+    {
+      "base": "yao",
+      "base_proper": "yao",
+      "tone": 2,
+      "pinyin_tone3": "yao2"
+    },
+    {
+      "base": "yao",
+      "base_proper": "yao",
+      "tone": 3,
+      "pinyin_tone3": "yao3"
+    },
+    {
+      "base": "yao",
+      "base_proper": "yao",
+      "tone": 4,
+      "pinyin_tone3": "yao4"
+    },
+    {
+      "base": "ye",
+      "base_proper": "ye",
+      "tone": 0,
+      "pinyin_tone3": "ye0"
+    },
+    {
+      "base": "ye",
+      "base_proper": "ye",
+      "tone": 1,
+      "pinyin_tone3": "ye1"
+    },
+    {
+      "base": "ye",
+      "base_proper": "ye",
+      "tone": 2,
+      "pinyin_tone3": "ye2"
+    },
+    {
+      "base": "ye",
+      "base_proper": "ye",
+      "tone": 3,
+      "pinyin_tone3": "ye3"
+    },
+    {
+      "base": "ye",
+      "base_proper": "ye",
+      "tone": 4,
+      "pinyin_tone3": "ye4"
+    },
+    {
+      "base": "yi",
+      "base_proper": "yi",
+      "tone": 1,
+      "pinyin_tone3": "yi1"
+    },
+    {
+      "base": "yi",
+      "base_proper": "yi",
+      "tone": 2,
+      "pinyin_tone3": "yi2"
+    },
+    {
+      "base": "yi",
+      "base_proper": "yi",
+      "tone": 3,
+      "pinyin_tone3": "yi3"
+    },
+    {
+      "base": "yi",
+      "base_proper": "yi",
+      "tone": 4,
+      "pinyin_tone3": "yi4"
+    },
+    {
+      "base": "yin",
+      "base_proper": "yin",
+      "tone": 0,
+      "pinyin_tone3": "yin0"
+    },
+    {
+      "base": "yin",
+      "base_proper": "yin",
+      "tone": 1,
+      "pinyin_tone3": "yin1"
+    },
+    {
+      "base": "yin",
+      "base_proper": "yin",
+      "tone": 2,
+      "pinyin_tone3": "yin2"
+    },
+    {
+      "base": "yin",
+      "base_proper": "yin",
+      "tone": 3,
+      "pinyin_tone3": "yin3"
+    },
+    {
+      "base": "yin",
+      "base_proper": "yin",
+      "tone": 4,
+      "pinyin_tone3": "yin4"
+    },
+    {
+      "base": "ying",
+      "base_proper": "ying",
+      "tone": 1,
+      "pinyin_tone3": "ying1"
+    },
+    {
+      "base": "ying",
+      "base_proper": "ying",
+      "tone": 2,
+      "pinyin_tone3": "ying2"
+    },
+    {
+      "base": "ying",
+      "base_proper": "ying",
+      "tone": 3,
+      "pinyin_tone3": "ying3"
+    },
+    {
+      "base": "ying",
+      "base_proper": "ying",
+      "tone": 4,
+      "pinyin_tone3": "ying4"
+    },
+    {
+      "base": "yo",
+      "base_proper": "yo",
+      "tone": 0,
+      "pinyin_tone3": "yo0"
+    },
+    {
+      "base": "yo",
+      "base_proper": "yo",
+      "tone": 1,
+      "pinyin_tone3": "yo1"
+    },
+    {
+      "base": "yong",
+      "base_proper": "yong",
+      "tone": 1,
+      "pinyin_tone3": "yong1"
+    },
+    {
+      "base": "yong",
+      "base_proper": "yong",
+      "tone": 2,
+      "pinyin_tone3": "yong2"
+    },
+    {
+      "base": "yong",
+      "base_proper": "yong",
+      "tone": 3,
+      "pinyin_tone3": "yong3"
+    },
+    {
+      "base": "yong",
+      "base_proper": "yong",
+      "tone": 4,
+      "pinyin_tone3": "yong4"
+    },
+    {
+      "base": "you",
+      "base_proper": "you",
+      "tone": 0,
+      "pinyin_tone3": "you0"
+    },
+    {
+      "base": "you",
+      "base_proper": "you",
+      "tone": 1,
+      "pinyin_tone3": "you1"
+    },
+    {
+      "base": "you",
+      "base_proper": "you",
+      "tone": 2,
+      "pinyin_tone3": "you2"
+    },
+    {
+      "base": "you",
+      "base_proper": "you",
+      "tone": 3,
+      "pinyin_tone3": "you3"
+    },
+    {
+      "base": "you",
+      "base_proper": "you",
+      "tone": 4,
+      "pinyin_tone3": "you4"
+    },
+    {
+      "base": "yu",
+      "base_proper": "yu",
+      "tone": 0,
+      "pinyin_tone3": "yu0"
+    },
+    {
+      "base": "yu",
+      "base_proper": "yu",
+      "tone": 1,
+      "pinyin_tone3": "yu1"
+    },
+    {
+      "base": "yu",
+      "base_proper": "yu",
+      "tone": 2,
+      "pinyin_tone3": "yu2"
+    },
+    {
+      "base": "yu",
+      "base_proper": "yu",
+      "tone": 3,
+      "pinyin_tone3": "yu3"
+    },
+    {
+      "base": "yu",
+      "base_proper": "yu",
+      "tone": 4,
+      "pinyin_tone3": "yu4"
+    },
+    {
+      "base": "yuan",
+      "base_proper": "yuan",
+      "tone": 1,
+      "pinyin_tone3": "yuan1"
+    },
+    {
+      "base": "yuan",
+      "base_proper": "yuan",
+      "tone": 2,
+      "pinyin_tone3": "yuan2"
+    },
+    {
+      "base": "yuan",
+      "base_proper": "yuan",
+      "tone": 3,
+      "pinyin_tone3": "yuan3"
+    },
+    {
+      "base": "yuan",
+      "base_proper": "yuan",
+      "tone": 4,
+      "pinyin_tone3": "yuan4"
+    },
+    {
+      "base": "yue",
+      "base_proper": "yue",
+      "tone": 1,
+      "pinyin_tone3": "yue1"
+    },
+    {
+      "base": "yue",
+      "base_proper": "yue",
+      "tone": 2,
+      "pinyin_tone3": "yue2"
+    },
+    {
+      "base": "yue",
+      "base_proper": "yue",
+      "tone": 3,
+      "pinyin_tone3": "yue3"
+    },
+    {
+      "base": "yue",
+      "base_proper": "yue",
+      "tone": 4,
+      "pinyin_tone3": "yue4"
+    },
+    {
+      "base": "yun",
+      "base_proper": "yun",
+      "tone": 0,
+      "pinyin_tone3": "yun0"
+    },
+    {
+      "base": "yun",
+      "base_proper": "yun",
+      "tone": 1,
+      "pinyin_tone3": "yun1"
+    },
+    {
+      "base": "yun",
+      "base_proper": "yun",
+      "tone": 2,
+      "pinyin_tone3": "yun2"
+    },
+    {
+      "base": "yun",
+      "base_proper": "yun",
+      "tone": 3,
+      "pinyin_tone3": "yun3"
+    },
+    {
+      "base": "yun",
+      "base_proper": "yun",
+      "tone": 4,
+      "pinyin_tone3": "yun4"
+    },
+    {
+      "base": "za",
+      "base_proper": "za",
+      "tone": 1,
+      "pinyin_tone3": "za1"
+    },
+    {
+      "base": "za",
+      "base_proper": "za",
+      "tone": 2,
+      "pinyin_tone3": "za2"
+    },
+    {
+      "base": "za",
+      "base_proper": "za",
+      "tone": 3,
+      "pinyin_tone3": "za3"
+    },
+    {
+      "base": "za",
+      "base_proper": "za",
+      "tone": 4,
+      "pinyin_tone3": "za4"
+    },
+    {
+      "base": "zai",
+      "base_proper": "zai",
+      "tone": 1,
+      "pinyin_tone3": "zai1"
+    },
+    {
+      "base": "zai",
+      "base_proper": "zai",
+      "tone": 3,
+      "pinyin_tone3": "zai3"
+    },
+    {
+      "base": "zai",
+      "base_proper": "zai",
+      "tone": 4,
+      "pinyin_tone3": "zai4"
+    },
+    {
+      "base": "zan",
+      "base_proper": "zan",
+      "tone": 0,
+      "pinyin_tone3": "zan0"
+    },
+    {
+      "base": "zan",
+      "base_proper": "zan",
+      "tone": 1,
+      "pinyin_tone3": "zan1"
+    },
+    {
+      "base": "zan",
+      "base_proper": "zan",
+      "tone": 2,
+      "pinyin_tone3": "zan2"
+    },
+    {
+      "base": "zan",
+      "base_proper": "zan",
+      "tone": 3,
+      "pinyin_tone3": "zan3"
+    },
+    {
+      "base": "zan",
+      "base_proper": "zan",
+      "tone": 4,
+      "pinyin_tone3": "zan4"
+    },
+    {
+      "base": "zang",
+      "base_proper": "zang",
+      "tone": 1,
+      "pinyin_tone3": "zang1"
+    },
+    {
+      "base": "zang",
+      "base_proper": "zang",
+      "tone": 3,
+      "pinyin_tone3": "zang3"
+    },
+    {
+      "base": "zang",
+      "base_proper": "zang",
+      "tone": 4,
+      "pinyin_tone3": "zang4"
+    },
+    {
+      "base": "zao",
+      "base_proper": "zao",
+      "tone": 1,
+      "pinyin_tone3": "zao1"
+    },
+    {
+      "base": "zao",
+      "base_proper": "zao",
+      "tone": 2,
+      "pinyin_tone3": "zao2"
+    },
+    {
+      "base": "zao",
+      "base_proper": "zao",
+      "tone": 3,
+      "pinyin_tone3": "zao3"
+    },
+    {
+      "base": "zao",
+      "base_proper": "zao",
+      "tone": 4,
+      "pinyin_tone3": "zao4"
+    },
+    {
+      "base": "ze",
+      "base_proper": "ze",
+      "tone": 0,
+      "pinyin_tone3": "ze0"
+    },
+    {
+      "base": "ze",
+      "base_proper": "ze",
+      "tone": 2,
+      "pinyin_tone3": "ze2"
+    },
+    {
+      "base": "ze",
+      "base_proper": "ze",
+      "tone": 4,
+      "pinyin_tone3": "ze4"
+    },
+    {
+      "base": "zei",
+      "base_proper": "zei",
+      "tone": 2,
+      "pinyin_tone3": "zei2"
+    },
+    {
+      "base": "zen",
+      "base_proper": "zen",
+      "tone": 0,
+      "pinyin_tone3": "zen0"
+    },
+    {
+      "base": "zen",
+      "base_proper": "zen",
+      "tone": 1,
+      "pinyin_tone3": "zen1"
+    },
+    {
+      "base": "zen",
+      "base_proper": "zen",
+      "tone": 3,
+      "pinyin_tone3": "zen3"
+    },
+    {
+      "base": "zen",
+      "base_proper": "zen",
+      "tone": 4,
+      "pinyin_tone3": "zen4"
+    },
+    {
+      "base": "zeng",
+      "base_proper": "zeng",
+      "tone": 1,
+      "pinyin_tone3": "zeng1"
+    },
+    {
+      "base": "zeng",
+      "base_proper": "zeng",
+      "tone": 3,
+      "pinyin_tone3": "zeng3"
+    },
+    {
+      "base": "zeng",
+      "base_proper": "zeng",
+      "tone": 4,
+      "pinyin_tone3": "zeng4"
+    },
+    {
+      "base": "zha",
+      "base_proper": "zha",
+      "tone": 0,
+      "pinyin_tone3": "zha0"
+    },
+    {
+      "base": "zha",
+      "base_proper": "zha",
+      "tone": 1,
+      "pinyin_tone3": "zha1"
+    },
+    {
+      "base": "zha",
+      "base_proper": "zha",
+      "tone": 2,
+      "pinyin_tone3": "zha2"
+    },
+    {
+      "base": "zha",
+      "base_proper": "zha",
+      "tone": 3,
+      "pinyin_tone3": "zha3"
+    },
+    {
+      "base": "zha",
+      "base_proper": "zha",
+      "tone": 4,
+      "pinyin_tone3": "zha4"
+    },
+    {
+      "base": "zhai",
+      "base_proper": "zhai",
+      "tone": 1,
+      "pinyin_tone3": "zhai1"
+    },
+    {
+      "base": "zhai",
+      "base_proper": "zhai",
+      "tone": 2,
+      "pinyin_tone3": "zhai2"
+    },
+    {
+      "base": "zhai",
+      "base_proper": "zhai",
+      "tone": 3,
+      "pinyin_tone3": "zhai3"
+    },
+    {
+      "base": "zhai",
+      "base_proper": "zhai",
+      "tone": 4,
+      "pinyin_tone3": "zhai4"
+    },
+    {
+      "base": "zhan",
+      "base_proper": "zhan",
+      "tone": 1,
+      "pinyin_tone3": "zhan1"
+    },
+    {
+      "base": "zhan",
+      "base_proper": "zhan",
+      "tone": 2,
+      "pinyin_tone3": "zhan2"
+    },
+    {
+      "base": "zhan",
+      "base_proper": "zhan",
+      "tone": 3,
+      "pinyin_tone3": "zhan3"
+    },
+    {
+      "base": "zhan",
+      "base_proper": "zhan",
+      "tone": 4,
+      "pinyin_tone3": "zhan4"
+    },
+    {
+      "base": "zhang",
+      "base_proper": "zhang",
+      "tone": 0,
+      "pinyin_tone3": "zhang0"
+    },
+    {
+      "base": "zhang",
+      "base_proper": "zhang",
+      "tone": 1,
+      "pinyin_tone3": "zhang1"
+    },
+    {
+      "base": "zhang",
+      "base_proper": "zhang",
+      "tone": 3,
+      "pinyin_tone3": "zhang3"
+    },
+    {
+      "base": "zhang",
+      "base_proper": "zhang",
+      "tone": 4,
+      "pinyin_tone3": "zhang4"
+    },
+    {
+      "base": "zhao",
+      "base_proper": "zhao",
+      "tone": 0,
+      "pinyin_tone3": "zhao0"
+    },
+    {
+      "base": "zhao",
+      "base_proper": "zhao",
+      "tone": 1,
+      "pinyin_tone3": "zhao1"
+    },
+    {
+      "base": "zhao",
+      "base_proper": "zhao",
+      "tone": 2,
+      "pinyin_tone3": "zhao2"
+    },
+    {
+      "base": "zhao",
+      "base_proper": "zhao",
+      "tone": 3,
+      "pinyin_tone3": "zhao3"
+    },
+    {
+      "base": "zhao",
+      "base_proper": "zhao",
+      "tone": 4,
+      "pinyin_tone3": "zhao4"
+    },
+    {
+      "base": "zhe",
+      "base_proper": "zhe",
+      "tone": 0,
+      "pinyin_tone3": "zhe0"
+    },
+    {
+      "base": "zhe",
+      "base_proper": "zhe",
+      "tone": 1,
+      "pinyin_tone3": "zhe1"
+    },
+    {
+      "base": "zhe",
+      "base_proper": "zhe",
+      "tone": 2,
+      "pinyin_tone3": "zhe2"
+    },
+    {
+      "base": "zhe",
+      "base_proper": "zhe",
+      "tone": 3,
+      "pinyin_tone3": "zhe3"
+    },
+    {
+      "base": "zhe",
+      "base_proper": "zhe",
+      "tone": 4,
+      "pinyin_tone3": "zhe4"
+    },
+    {
+      "base": "zhei",
+      "base_proper": "zhei",
+      "tone": 4,
+      "pinyin_tone3": "zhei4"
+    },
+    {
+      "base": "zhen",
+      "base_proper": "zhen",
+      "tone": 1,
+      "pinyin_tone3": "zhen1"
+    },
+    {
+      "base": "zhen",
+      "base_proper": "zhen",
+      "tone": 2,
+      "pinyin_tone3": "zhen2"
+    },
+    {
+      "base": "zhen",
+      "base_proper": "zhen",
+      "tone": 3,
+      "pinyin_tone3": "zhen3"
+    },
+    {
+      "base": "zhen",
+      "base_proper": "zhen",
+      "tone": 4,
+      "pinyin_tone3": "zhen4"
+    },
+    {
+      "base": "zheng",
+      "base_proper": "zheng",
+      "tone": 1,
+      "pinyin_tone3": "zheng1"
+    },
+    {
+      "base": "zheng",
+      "base_proper": "zheng",
+      "tone": 3,
+      "pinyin_tone3": "zheng3"
+    },
+    {
+      "base": "zheng",
+      "base_proper": "zheng",
+      "tone": 4,
+      "pinyin_tone3": "zheng4"
+    },
+    {
+      "base": "zhi",
+      "base_proper": "zhi",
+      "tone": 0,
+      "pinyin_tone3": "zhi0"
+    },
+    {
+      "base": "zhi",
+      "base_proper": "zhi",
+      "tone": 1,
+      "pinyin_tone3": "zhi1"
+    },
+    {
+      "base": "zhi",
+      "base_proper": "zhi",
+      "tone": 2,
+      "pinyin_tone3": "zhi2"
+    },
+    {
+      "base": "zhi",
+      "base_proper": "zhi",
+      "tone": 3,
+      "pinyin_tone3": "zhi3"
+    },
+    {
+      "base": "zhi",
+      "base_proper": "zhi",
+      "tone": 4,
+      "pinyin_tone3": "zhi4"
+    },
+    {
+      "base": "zhong",
+      "base_proper": "zhong",
+      "tone": 1,
+      "pinyin_tone3": "zhong1"
+    },
+    {
+      "base": "zhong",
+      "base_proper": "zhong",
+      "tone": 3,
+      "pinyin_tone3": "zhong3"
+    },
+    {
+      "base": "zhong",
+      "base_proper": "zhong",
+      "tone": 4,
+      "pinyin_tone3": "zhong4"
+    },
+    {
+      "base": "zhou",
+      "base_proper": "zhou",
+      "tone": 1,
+      "pinyin_tone3": "zhou1"
+    },
+    {
+      "base": "zhou",
+      "base_proper": "zhou",
+      "tone": 2,
+      "pinyin_tone3": "zhou2"
+    },
+    {
+      "base": "zhou",
+      "base_proper": "zhou",
+      "tone": 3,
+      "pinyin_tone3": "zhou3"
+    },
+    {
+      "base": "zhou",
+      "base_proper": "zhou",
+      "tone": 4,
+      "pinyin_tone3": "zhou4"
+    },
+    {
+      "base": "zhu",
+      "base_proper": "zhu",
+      "tone": 1,
+      "pinyin_tone3": "zhu1"
+    },
+    {
+      "base": "zhu",
+      "base_proper": "zhu",
+      "tone": 2,
+      "pinyin_tone3": "zhu2"
+    },
+    {
+      "base": "zhu",
+      "base_proper": "zhu",
+      "tone": 3,
+      "pinyin_tone3": "zhu3"
+    },
+    {
+      "base": "zhu",
+      "base_proper": "zhu",
+      "tone": 4,
+      "pinyin_tone3": "zhu4"
+    },
+    {
+      "base": "zhua",
+      "base_proper": "zhua",
+      "tone": 1,
+      "pinyin_tone3": "zhua1"
+    },
+    {
+      "base": "zhua",
+      "base_proper": "zhua",
+      "tone": 3,
+      "pinyin_tone3": "zhua3"
+    },
+    {
+      "base": "zhuai",
+      "base_proper": "zhuai",
+      "tone": 1,
+      "pinyin_tone3": "zhuai1"
+    },
+    {
+      "base": "zhuai",
+      "base_proper": "zhuai",
+      "tone": 3,
+      "pinyin_tone3": "zhuai3"
+    },
+    {
+      "base": "zhuai",
+      "base_proper": "zhuai",
+      "tone": 4,
+      "pinyin_tone3": "zhuai4"
+    },
+    {
+      "base": "zhuan",
+      "base_proper": "zhuan",
+      "tone": 1,
+      "pinyin_tone3": "zhuan1"
+    },
+    {
+      "base": "zhuan",
+      "base_proper": "zhuan",
+      "tone": 3,
+      "pinyin_tone3": "zhuan3"
+    },
+    {
+      "base": "zhuan",
+      "base_proper": "zhuan",
+      "tone": 4,
+      "pinyin_tone3": "zhuan4"
+    },
+    {
+      "base": "zhuang",
+      "base_proper": "zhuang",
+      "tone": 1,
+      "pinyin_tone3": "zhuang1"
+    },
+    {
+      "base": "zhuang",
+      "base_proper": "zhuang",
+      "tone": 3,
+      "pinyin_tone3": "zhuang3"
+    },
+    {
+      "base": "zhuang",
+      "base_proper": "zhuang",
+      "tone": 4,
+      "pinyin_tone3": "zhuang4"
+    },
+    {
+      "base": "zhui",
+      "base_proper": "zhui",
+      "tone": 1,
+      "pinyin_tone3": "zhui1"
+    },
+    {
+      "base": "zhui",
+      "base_proper": "zhui",
+      "tone": 3,
+      "pinyin_tone3": "zhui3"
+    },
+    {
+      "base": "zhui",
+      "base_proper": "zhui",
+      "tone": 4,
+      "pinyin_tone3": "zhui4"
+    },
+    {
+      "base": "zhun",
+      "base_proper": "zhun",
+      "tone": 1,
+      "pinyin_tone3": "zhun1"
+    },
+    {
+      "base": "zhun",
+      "base_proper": "zhun",
+      "tone": 3,
+      "pinyin_tone3": "zhun3"
+    },
+    {
+      "base": "zhun",
+      "base_proper": "zhun",
+      "tone": 4,
+      "pinyin_tone3": "zhun4"
+    },
+    {
+      "base": "zhuo",
+      "base_proper": "zhuo",
+      "tone": 0,
+      "pinyin_tone3": "zhuo0"
+    },
+    {
+      "base": "zhuo",
+      "base_proper": "zhuo",
+      "tone": 1,
+      "pinyin_tone3": "zhuo1"
+    },
+    {
+      "base": "zhuo",
+      "base_proper": "zhuo",
+      "tone": 2,
+      "pinyin_tone3": "zhuo2"
+    },
+    {
+      "base": "zhuo",
+      "base_proper": "zhuo",
+      "tone": 4,
+      "pinyin_tone3": "zhuo4"
+    },
+    {
+      "base": "zi",
+      "base_proper": "zi",
+      "tone": 0,
+      "pinyin_tone3": "zi0"
+    },
+    {
+      "base": "zi",
+      "base_proper": "zi",
+      "tone": 1,
+      "pinyin_tone3": "zi1"
+    },
+    {
+      "base": "zi",
+      "base_proper": "zi",
+      "tone": 2,
+      "pinyin_tone3": "zi2"
+    },
+    {
+      "base": "zi",
+      "base_proper": "zi",
+      "tone": 3,
+      "pinyin_tone3": "zi3"
+    },
+    {
+      "base": "zi",
+      "base_proper": "zi",
+      "tone": 4,
+      "pinyin_tone3": "zi4"
+    },
+    {
+      "base": "zong",
+      "base_proper": "zong",
+      "tone": 0,
+      "pinyin_tone3": "zong0"
+    },
+    {
+      "base": "zong",
+      "base_proper": "zong",
+      "tone": 1,
+      "pinyin_tone3": "zong1"
+    },
+    {
+      "base": "zong",
+      "base_proper": "zong",
+      "tone": 3,
+      "pinyin_tone3": "zong3"
+    },
+    {
+      "base": "zong",
+      "base_proper": "zong",
+      "tone": 4,
+      "pinyin_tone3": "zong4"
+    },
+    {
+      "base": "zou",
+      "base_proper": "zou",
+      "tone": 1,
+      "pinyin_tone3": "zou1"
+    },
+    {
+      "base": "zou",
+      "base_proper": "zou",
+      "tone": 3,
+      "pinyin_tone3": "zou3"
+    },
+    {
+      "base": "zou",
+      "base_proper": "zou",
+      "tone": 4,
+      "pinyin_tone3": "zou4"
+    },
+    {
+      "base": "zu",
+      "base_proper": "zu",
+      "tone": 1,
+      "pinyin_tone3": "zu1"
+    },
+    {
+      "base": "zu",
+      "base_proper": "zu",
+      "tone": 2,
+      "pinyin_tone3": "zu2"
+    },
+    {
+      "base": "zu",
+      "base_proper": "zu",
+      "tone": 3,
+      "pinyin_tone3": "zu3"
+    },
+    {
+      "base": "zu",
+      "base_proper": "zu",
+      "tone": 4,
+      "pinyin_tone3": "zu4"
+    },
+    {
+      "base": "zuan",
+      "base_proper": "zuan",
+      "tone": 1,
+      "pinyin_tone3": "zuan1"
+    },
+    {
+      "base": "zuan",
+      "base_proper": "zuan",
+      "tone": 3,
+      "pinyin_tone3": "zuan3"
+    },
+    {
+      "base": "zuan",
+      "base_proper": "zuan",
+      "tone": 4,
+      "pinyin_tone3": "zuan4"
+    },
+    {
+      "base": "zui",
+      "base_proper": "zui",
+      "tone": 0,
+      "pinyin_tone3": "zui0"
+    },
+    {
+      "base": "zui",
+      "base_proper": "zui",
+      "tone": 1,
+      "pinyin_tone3": "zui1"
+    },
+    {
+      "base": "zui",
+      "base_proper": "zui",
+      "tone": 2,
+      "pinyin_tone3": "zui2"
+    },
+    {
+      "base": "zui",
+      "base_proper": "zui",
+      "tone": 3,
+      "pinyin_tone3": "zui3"
+    },
+    {
+      "base": "zui",
+      "base_proper": "zui",
+      "tone": 4,
+      "pinyin_tone3": "zui4"
+    },
+    {
+      "base": "zun",
+      "base_proper": "zun",
+      "tone": 1,
+      "pinyin_tone3": "zun1"
+    },
+    {
+      "base": "zun",
+      "base_proper": "zun",
+      "tone": 2,
+      "pinyin_tone3": "zun2"
+    },
+    {
+      "base": "zun",
+      "base_proper": "zun",
+      "tone": 3,
+      "pinyin_tone3": "zun3"
+    },
+    {
+      "base": "zun",
+      "base_proper": "zun",
+      "tone": 4,
+      "pinyin_tone3": "zun4"
+    },
+    {
+      "base": "zuo",
+      "base_proper": "zuo",
+      "tone": 0,
+      "pinyin_tone3": "zuo0"
+    },
+    {
+      "base": "zuo",
+      "base_proper": "zuo",
+      "tone": 1,
+      "pinyin_tone3": "zuo1"
+    },
+    {
+      "base": "zuo",
+      "base_proper": "zuo",
+      "tone": 2,
+      "pinyin_tone3": "zuo2"
+    },
+    {
+      "base": "zuo",
+      "base_proper": "zuo",
+      "tone": 3,
+      "pinyin_tone3": "zuo3"
+    },
+    {
+      "base": "zuo",
+      "base_proper": "zuo",
+      "tone": 4,
+      "pinyin_tone3": "zuo4"
+    },
+    {
+      "base": "ê",
+      "base_proper": "ê",
+      "tone": 1,
+      "pinyin_tone3": "ê1"
+    },
+    {
+      "base": "ê",
+      "base_proper": "ê",
+      "tone": 2,
+      "pinyin_tone3": "ê2"
+    },
+    {
+      "base": "ê",
+      "base_proper": "ê",
+      "tone": 3,
+      "pinyin_tone3": "ê3"
+    },
+    {
+      "base": "ê",
+      "base_proper": "ê",
+      "tone": 4,
+      "pinyin_tone3": "ê4"
+    }
+  ]
+}
