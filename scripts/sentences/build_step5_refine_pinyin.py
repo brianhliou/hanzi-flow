@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Apply verified pinyin changes from OpenAI analysis to CSV.
+Step 5: Apply verified pinyin refinements
 
-This script applies ONLY the verified high-confidence pinyin improvements:
+Updates the char_pinyin_pairs column with verified high-confidence pinyin improvements:
 - 地 (de vs di4): Particle usage
 - 著 (zhe vs zhu4): Aspect marker
 - 谁/誰 (shei2 vs shui2): Colloquial pronunciation
@@ -10,35 +10,37 @@ This script applies ONLY the verified high-confidence pinyin improvements:
 - 長/长 (chang2 vs zhang3): Long vs grow
 - 樂 (yue4 vs le4): Music vs happy
 
+Input: ../../data/sentences/sentences.csv (must have: char_pinyin_pairs)
+Output: ../../data/sentences/sentences.csv (updates: char_pinyin_pairs)
+Idempotent: Safe to re-run, will apply refinements to existing char_pinyin_pairs
+
 Strategy:
 1. Read comparison report to identify specific changes
 2. Read CSV with char_pinyin_pairs
 3. For each change, verify it's a verified character
 4. Update ONLY that character's pinyin in char_pinyin_pairs
-5. Write to new CSV (never modify original)
+5. Write back to same CSV
 
 Safety features:
 - Dry-run mode (preview changes without applying)
 - Incremental limits (test with 1, 10, 100 before full run)
 - Detailed logging of every change
-- Automatic backup creation
-- Never modifies original CSV (writes to new CSV)
 
 Usage:
     # Dry run - preview 10 changes
-    python3 apply_verified_pinyin_changes.py --limit 10 --dry-run
+    python3 build_step5_refine_pinyin.py --limit 10 --dry-run
 
     # Test with 1 change
-    python3 apply_verified_pinyin_changes.py --limit 1
+    python3 build_step5_refine_pinyin.py --limit 1
 
     # Test with 10 changes
-    python3 apply_verified_pinyin_changes.py --limit 10
+    python3 build_step5_refine_pinyin.py --limit 10
 
     # Test with 100 changes
-    python3 apply_verified_pinyin_changes.py --limit 100
+    python3 build_step5_refine_pinyin.py --limit 100
 
-    # Apply all verified changes (2,870 characters)
-    python3 apply_verified_pinyin_changes.py
+    # Apply all verified changes
+    python3 build_step5_refine_pinyin.py
 """
 
 import csv
@@ -54,10 +56,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from utils.pinyin_conversion import tone_marks_to_tone3, normalize_pinyin_for_comparison
 
 # File paths
-INPUT_CSV = '../../data/sentences/step4_with_hsk.csv'
+CSV_FILE = '../../data/sentences/sentences.csv'
 COMPARISON_REPORT = '../../data/sentences/step5/pinyin_comparison_report.json'
-OUTPUT_CSV = '../../data/sentences/step5_pinyin_refined.csv'
-BACKUP_CSV = None  # Disabled - use git for version control instead
 CHANGE_LOG = '../../data/sentences/step5/pinyin_changes_applied.log'
 
 # Verified characters - these are the ONLY ones we'll update
@@ -270,7 +270,7 @@ def main():
     print(f"  ✓ Loaded report with {len(report['sentence_changes'])} sentences with changes")
 
     print(f"\n[2/5] Loading CSV...")
-    with open(INPUT_CSV, 'r', encoding='utf-8') as f:
+    with open(CSV_FILE, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         fieldnames = reader.fieldnames
         csv_rows = list(reader)
@@ -295,11 +295,11 @@ def main():
     # Save output (if not dry run)
     if not args.dry_run:
         print(f"\n[5/5] Saving modified CSV...")
-        with open(OUTPUT_CSV, 'w', encoding='utf-8', newline='') as f:
+        with open(CSV_FILE, 'w', encoding='utf-8', newline='') as f:
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
             writer.writerows(modified_rows)
-        print(f"  ✓ Saved to: {OUTPUT_CSV}")
+        print(f"  ✓ Updated {CSV_FILE}")
     else:
         print(f"\n[5/5] Skipping save (dry run mode)")
 
@@ -314,14 +314,12 @@ def main():
         print(f"\nTo apply changes, re-run without --dry-run flag")
     else:
         print(f"\n✓ Changes applied successfully!")
-        print(f"\nFiles created:")
-        print(f"  - Modified CSV:   {OUTPUT_CSV}")
+        print(f"\nFiles updated:")
+        print(f"  - Modified CSV:   {CSV_FILE}")
         print(f"  - Change log:     {CHANGE_LOG}")
         print(f"\nNext steps:")
         print(f"  1. Review change log: {CHANGE_LOG}")
-        print(f"  2. Update your data pipeline to use:")
-        print(f"     {OUTPUT_CSV}")
-        print(f"  3. Regenerate production JSON from updated CSV")
+        print(f"  2. Run step 6 to regenerate production JSON")
 
     return 0
 

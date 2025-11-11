@@ -1,7 +1,14 @@
 #!/usr/bin/env python3
 """
-Classify Tatoeba sentences as simplified, traditional, neutral, or ambiguous
-based on the script_type of their constituent characters.
+Step 1: Classify Tatoeba sentences by script type
+
+Creates the initial sentences.csv from raw Tatoeba data with columns:
+- id: Sequential sentence ID
+- sentence: Original Chinese text
+- script_type: simplified/traditional/neutral/ambiguous/unknown
+
+Input: ../../data/sources/tatoeba_sentences.tsv (raw Tatoeba data)
+Output: ../../data/sentences/sentences.csv (initial CSV with classification)
 """
 import csv
 import re
@@ -104,8 +111,8 @@ def classify_sentence(sentence, char_script_map):
 
 
 def classify_tatoeba_sentences(char_script_map,
-                               input_file='../../data/sentences/step0_raw.tsv',
-                               output_file='../../data/sentences/step1_classified.csv'):
+                               input_file='../../data/sources/tatoeba_sentences.tsv',
+                               output_file='../../data/sentences/sentences.csv'):
     """
     Parse Tatoeba sentences and classify each one.
     """

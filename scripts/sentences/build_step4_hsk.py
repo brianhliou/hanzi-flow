@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 """
-Classify sentences by HSK level based on maximum character HSK level.
+Step 4: Classify sentences by HSK level
+
+Adds (or updates) the sentence_hsk_level column based on maximum character HSK level.
 
 NEW LOGIC:
 - Traditional sentences are NOT classified (no HSK level assigned)
 - Simplified/neutral sentences are classified based ONLY on simplified + neutral characters
 - Traditional characters are completely ignored in HSK calculation
 
-Input:
-- step3_with_translation.csv (with script_type column)
-- step6_enriched.csv (with hsk_level and script_type columns)
+Input: ../../data/sentences/sentences.csv (must have: id, sentence, script_type, char_pinyin_pairs)
+Output: ../../data/sentences/sentences.csv (adds: sentence_hsk_level)
+Idempotent: Safe to re-run, will update existing sentence_hsk_level column
 
-Output:
-- step4_with_hsk.csv (adds sentence_hsk_level column)
+Also generates:
 - hsk_distribution.png (bar chart)
 - hsk_statistics.json (distribution stats)
 """
@@ -155,18 +156,17 @@ def classify_sentence_hsk(sentence_script_type, char_pinyin_pairs, char_hsk_map,
     return max(hsk_levels, key=hsk_sort_key)
 
 
-def classify_sentences(input_csv='../../data/sentences/step3_with_translation.csv',
-                       output_csv='../../data/sentences/step4_with_hsk.csv',
+def classify_sentences(csv_file='../../data/sentences/sentences.csv',
                        char_csv='../../data/character_set/v0/step5_hsk.csv'):
     """
     Classify all sentences by HSK level.
+    Idempotent: Safe to re-run, will update existing sentence_hsk_level column.
 
     Traditional sentences are NOT classified (empty HSK level).
     Simplified/neutral sentences are classified based ONLY on simplified + neutral chars.
 
     Args:
-        input_csv: Input sentence CSV path
-        output_csv: Output sentence CSV path (with sentence_hsk_level column)
+        csv_file: Sentence CSV path (reads and writes to same file)
         char_csv: Character dataset CSV path
     """
     print(f"\n{'='*60}")
@@ -177,11 +177,12 @@ def classify_sentences(input_csv='../../data/sentences/step3_with_translation.cs
     char_hsk_map, char_script_map = load_char_hsk_mapping(char_csv)
 
     # Step 2: Load sentences
-    print(f"\nLoading sentences from {input_csv}...")
+    print(f"\nLoading sentences from {csv_file}...")
 
-    with open(input_csv, 'r', encoding='utf-8') as f:
+    with open(csv_file, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         sentences = list(reader)
+        existing_fieldnames = list(reader.fieldnames)
 
     print(f"✓ Loaded {len(sentences):,} sentences")
 
@@ -215,17 +216,20 @@ def classify_sentences(input_csv='../../data/sentences/step3_with_translation.cs
     print(f"  Traditional sentences skipped: {traditional_skipped:,}")
 
     # Step 4: Write output CSV
-    print(f"\nWriting output to {output_csv}...")
+    print(f"\nWriting output to {csv_file}...")
 
-    # Determine fieldnames (all existing + sentence_hsk_level)
-    fieldnames = list(sentences[0].keys())
+    # Determine fieldnames (add sentence_hsk_level if not present)
+    if 'sentence_hsk_level' not in existing_fieldnames:
+        fieldnames = existing_fieldnames + ['sentence_hsk_level']
+    else:
+        fieldnames = existing_fieldnames
 
-    with open(output_csv, 'w', encoding='utf-8', newline='') as f:
+    with open(csv_file, 'w', encoding='utf-8', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(sentences)
 
-    print(f"✓ Created {output_csv}")
+    print(f"✓ Updated {csv_file}")
 
     return sentences
 

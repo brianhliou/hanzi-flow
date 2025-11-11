@@ -1,24 +1,26 @@
 #!/usr/bin/env python3
 """
-Test Script: Translate Chinese Sentences to English using GPT-4o-mini
+Step 3: Translate Chinese sentences to English using GPT-4o-mini
 
-This script tests the translation pipeline on a small subset of sentences
-before running the full batch.
+Adds (or updates) the english_translation column using OpenAI's GPT-4o-mini.
+Includes incremental saving and resume capability.
 
 Usage:
     # Set your OpenAI API key first:
     export OPENAI_API_KEY="sk-your-key-here"
 
-    # Run test with 10 sentences (default):
-    python scripts/sentences/translate_sentences_test.py
+    # Run with 10 sentences (default):
+    python build_step3_translate.py
 
-    # Run test with custom limit:
-    python scripts/sentences/translate_sentences_test.py --limit 100
+    # Run with custom limit:
+    python build_step3_translate.py --limit 100
 
-Test sequence:
-    - Test 1: 10 sentences (validate setup)
-    - Test 2: 100 sentences (validate quality)
-    - Test 3: 1,000 sentences (validate scale)
+    # Process all sentences:
+    python build_step3_translate.py --limit 0
+
+Input: ../../data/sentences/sentences.csv (must have: id, sentence, script_type, char_pinyin_pairs)
+Output: ../../data/sentences/sentences.csv (adds: english_translation)
+Idempotent: Safe to re-run, skips sentences that already have translations
 """
 
 import os
@@ -59,9 +61,8 @@ OUTPUT_COST_PER_1M_TOKENS = 0.60  # $0.60 per 1M output tokens
 
 # Paths
 PROJECT_ROOT = Path(__file__).parent.parent.parent
-INPUT_CSV = PROJECT_ROOT / 'data' / 'sentences' / 'step2_with_pinyin.csv'
-OUTPUT_CSV = PROJECT_ROOT / 'data' / 'sentences' / 'step3_with_translation.csv'
-LOG_FILE = PROJECT_ROOT / 'data' / 'sentences' / 'translation_test.log'
+CSV_FILE = PROJECT_ROOT / 'data' / 'sentences' / 'sentences.csv'
+LOG_FILE = PROJECT_ROOT / 'data' / 'sentences' / 'translation.log'
 
 
 # ============================================================================
@@ -307,62 +308,44 @@ def validate_translation(chinese: str, english: str) -> Tuple[bool, str]:
 # DATA PROCESSING
 # ============================================================================
 
-def load_sentences(csv_path: Path, limit: int = None) -> List[Dict]:
+def load_sentences(csv_path: Path, limit: int = None) -> Tuple[List[Dict], List[str]]:
     """
-    Load sentences from CSV.
+    Load sentences from CSV, preserving all columns.
 
     Returns:
-        List of sentence dicts with keys: id, sentence, script_type, char_pinyin_pairs
+        Tuple of (sentences list, fieldnames list)
     """
     sentences = []
+    fieldnames = None
 
     with open(csv_path, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
+        fieldnames = list(reader.fieldnames)
+
         for row in reader:
-            sentences.append({
-                'id': row['id'],  # Read ID from CSV
-                'sentence': row['sentence'],
-                'script_type': row['script_type'],
-                'char_pinyin_pairs': row['char_pinyin_pairs']
-            })
+            # Keep all columns from the CSV
+            sentences.append(dict(row))
 
             if limit and len(sentences) >= limit:
                 break
 
-    return sentences
+    return sentences, fieldnames
 
 
-def load_existing_translations(output_path: Path) -> Dict[str, str]:
+def save_translated_sentences(sentences: List[Dict], csv_path: Path, fieldnames: List[str]):
     """
-    Load existing translations from previous runs.
-
-    Returns:
-        Dict mapping sentence_id -> english_translation
-    """
-    if not output_path.exists():
-        return {}
-
-    existing = {}
-    with open(output_path, 'r', encoding='utf-8') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            translation = row.get('english_translation', '').strip()
-            if translation:  # Only keep non-empty translations
-                existing[row['id']] = translation
-
-    return existing
-
-
-def save_translated_sentences(sentences: List[Dict], output_path: Path):
-    """
-    Save sentences with translations to CSV.
+    Save sentences with translations to CSV, preserving all columns.
 
     Args:
-        sentences: List of dicts with keys: id, sentence, script_type,
-                   char_pinyin_pairs, english_translation
+        sentences: List of sentence dicts
+        csv_path: Path to CSV file
+        fieldnames: List of field names (column headers)
     """
-    with open(output_path, 'w', encoding='utf-8', newline='') as f:
-        fieldnames = ['id', 'sentence', 'script_type', 'char_pinyin_pairs', 'english_translation']
+    # Ensure english_translation is in fieldnames
+    if 'english_translation' not in fieldnames:
+        fieldnames = fieldnames + ['english_translation']
+
+    with open(csv_path, 'w', encoding='utf-8', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(sentences)
@@ -445,27 +428,30 @@ def main():
 
     # 3. Load sentences
     print(f"\n[3/6] Loading sentences (limit: {args.limit})...")
-    if not INPUT_CSV.exists():
-        print(f"   ❌ ERROR: Input file not found: {INPUT_CSV}")
+    if not CSV_FILE.exists():
+        print(f"   ❌ ERROR: Input file not found: {CSV_FILE}")
         sys.exit(1)
 
-    sentences = load_sentences(INPUT_CSV, limit=args.limit)
+    sentences, fieldnames = load_sentences(CSV_FILE, limit=args.limit)
     print(f"   ✓ Loaded {len(sentences)} sentences")
 
-    # Load existing translations
-    existing_translations = load_existing_translations(OUTPUT_CSV)
-    if existing_translations:
-        print(f"   ✓ Found {len(existing_translations)} existing translations")
-        # Pre-populate existing translations
-        for sentence in sentences:
-            if sentence['id'] in existing_translations:
-                sentence['english_translation'] = existing_translations[sentence['id']]
-            else:
-                sentence['english_translation'] = None
-    else:
+    # Check if sentences already have english_translation column
+    # If not, initialize it
+    if 'english_translation' not in fieldnames:
         print(f"   ℹ No existing translations found (starting fresh)")
         for sentence in sentences:
             sentence['english_translation'] = None
+    else:
+        # Count existing translations
+        existing_count = sum(1 for s in sentences if s.get('english_translation', '').strip())
+        if existing_count > 0:
+            print(f"   ✓ Found {existing_count} existing translations")
+        else:
+            print(f"   ℹ No existing translations found (starting fresh)")
+        # Ensure all sentences have the field (even if empty)
+        for sentence in sentences:
+            if 'english_translation' not in sentence or not sentence['english_translation']:
+                sentence['english_translation'] = None
 
     # Count how many need translation
     needs_translation = [s for s in sentences if not s['english_translation']]
@@ -476,7 +462,7 @@ def main():
 
     if len(needs_translation) == 0:
         print("\n✓ All sentences in this range already translated!")
-        print(f"   Output file: {OUTPUT_CSV}")
+        print(f"   Output file: {CSV_FILE}")
         sys.exit(0)
 
     # Show sample
@@ -595,7 +581,7 @@ def main():
                 logger.error("Sentence %s failed: %s", sentence['id'], sentence['sentence'])
 
         # Save progress after each batch (in case of interruption)
-        save_translated_sentences(sentences, OUTPUT_CSV)
+        save_translated_sentences(sentences, CSV_FILE, fieldnames)
 
         # Delay to respect rate limits
         # For Tier 1 (500 RPM), we need at least 0.12s between requests
@@ -607,8 +593,8 @@ def main():
 
     # 6. Save results
     print(f"\n[6/6] Saving results...")
-    save_translated_sentences(sentences, OUTPUT_CSV)
-    print(f"   ✓ Saved to: {OUTPUT_CSV}")
+    save_translated_sentences(sentences, CSV_FILE, fieldnames)
+    print(f"   ✓ Saved to: {CSV_FILE}")
 
     # Summary
     print("\n" + "=" * 70)
@@ -673,7 +659,7 @@ def main():
                 total_stats['validation_failed'])
 
     print(f"\nOutput:")
-    print(f"   ✓ Translations: {OUTPUT_CSV}")
+    print(f"   ✓ Translations: {CSV_FILE}")
     print(f"   ✓ Log file:     {LOG_FILE}")
 
     if total_stats['validation_failed'] > 0 or total_stats['failed'] > 0:
@@ -682,7 +668,7 @@ def main():
 
     print(f"\nNext steps:")
     print(f"   1. Review sample translations above")
-    print(f"   2. Check output file: {OUTPUT_CSV}")
+    print(f"   2. Check output file: {CSV_FILE}")
     print(f"   3. Review log for any issues: {LOG_FILE}")
     print(f"   4. If quality looks good, run with larger --limit")
     print(f"   5. Suggested sequence: 10 → 100 → 1000 → full dataset")

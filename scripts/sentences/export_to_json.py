@@ -1,8 +1,19 @@
 #!/usr/bin/env python3
 """
-Convert sentence CSV to JSON format for the web app.
-Includes English translations and corpus metadata.
+Export sentences to JSON for web app
+
+Final export script that converts the processed sentences.csv to production JSON.
+This script is independent of pipeline step numbering - it always reads from
+the completed sentences.csv regardless of how many processing steps preceded it.
+
+Includes English translations, HSK levels, and corpus metadata.
 Applies content filters to remove unwanted sentences.
+
+Input: ../../data/sentences/sentences.csv (complete sentence data)
+Output: ../../app/public/data/sentences/sentences_with_translation.json (production JSON)
+
+Usage:
+    python export_to_json.py
 """
 import csv
 import json
@@ -98,7 +109,7 @@ def calculate_unique_chars(converted_sentences):
     return len(unique_chars)
 
 
-def convert_to_json(input_file='../../data/sentences/step5_pinyin_refined.csv',
+def convert_to_json(input_file='../../data/sentences/sentences.csv',
                    output_file='../../app/public/data/sentences/sentences_with_translation.json',
                    limit=None):
     """
@@ -106,7 +117,7 @@ def convert_to_json(input_file='../../data/sentences/step5_pinyin_refined.csv',
     Includes HSK level classification for sentences.
 
     Args:
-        input_file: Input CSV path (with HSK levels)
+        input_file: Input CSV path (default: sentences.csv)
         output_file: Output JSON path
         limit: Max number of sentences (None for all)
     """

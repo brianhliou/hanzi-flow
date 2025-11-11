@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """
-Create character-to-pinyin mappings for sentences.
-Uses jieba + pypinyin for context-aware conversion.
+Step 2: Add character-level pinyin to sentences
+
+Adds (or updates) the char_pinyin_pairs column using jieba + pypinyin
+for context-aware pinyin generation.
 
 Output format: char:pinyin pairs separated by |
 Example: 我:wo3|爱:ai4|你:ni3
@@ -10,6 +12,10 @@ Non-Chinese handling:
 - Multi-char tokens (English words, numbers): kept as single token with empty pinyin
 - Whitespace: skipped entirely
 - Punctuation: kept as single char with empty pinyin (consistent with other non-Chinese)
+
+Input: ../../data/sentences/sentences.csv (must have: id, sentence, script_type)
+Output: ../../data/sentences/sentences.csv (adds: char_pinyin_pairs)
+Idempotent: Safe to re-run, will update existing char_pinyin_pairs column
 """
 import csv
 import re
@@ -137,16 +143,17 @@ def format_char_pinyin_pairs(pairs):
     return '|'.join([f"{char}:{py}" for char, py in pairs])
 
 
-def process_sentences(input_file='../../data/sentences/step1_classified.csv',
-                     output_file='../../data/sentences/step2_with_pinyin.csv'):
+def process_sentences(csv_file='../../data/sentences/sentences.csv'):
     """
-    Add character-to-pinyin mappings to all sentences.
+    Add (or update) character-to-pinyin mappings to all sentences.
+    Idempotent: Safe to re-run.
     """
-    print("Loading sentences...")
+    print(f"Loading sentences from {csv_file}...")
 
-    with open(input_file, 'r', encoding='utf-8') as f:
+    with open(csv_file, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         sentences = list(reader)
+        existing_fieldnames = reader.fieldnames
 
     print(f"Processing {len(sentences):,} sentences...\n")
 
@@ -161,19 +168,19 @@ def process_sentences(input_file='../../data/sentences/step1_classified.csv',
         if i % 10000 == 0:
             print(f"  Processed {i:,} sentences...")
 
-    # Add sequential IDs
-    for i, row in enumerate(sentences, 1):
-        row['id'] = i
+    # Determine output fieldnames (add char_pinyin_pairs if not present)
+    if 'char_pinyin_pairs' not in existing_fieldnames:
+        fieldnames = list(existing_fieldnames) + ['char_pinyin_pairs']
+    else:
+        fieldnames = existing_fieldnames
 
-    # Write output
-    fieldnames = ['id', 'sentence', 'script_type', 'char_pinyin_pairs']
-
-    with open(output_file, 'w', encoding='utf-8', newline='') as f:
+    # Write output back to same file
+    with open(csv_file, 'w', encoding='utf-8', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(sentences)
 
-    print(f"\n✓ Created {output_file}")
+    print(f"\n✓ Updated {csv_file}")
     print(f"  Total sentences: {len(sentences):,}")
 
     # Show some examples
