@@ -16,7 +16,7 @@ export interface PracticeState {
   currentSentenceIndex: number;
   currentCharIndex: number;
   userInputs: string[];
-  results: boolean[];
+  results: (boolean | null)[];  // null for auto-skipped characters
   score: {
     correct: number;
     total: number;

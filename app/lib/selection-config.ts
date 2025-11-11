@@ -11,7 +11,7 @@ export const SELECTION_CONFIG = {
   // ============================================================================
 
   /** Word mastery threshold - words with s < θ_known are considered "unknown" */
-  θ_known: 0.7,
+  θ_known: 0.6,
 
   /** Minimum unknown words per sentence (normal mode) */
   k_min: 2,

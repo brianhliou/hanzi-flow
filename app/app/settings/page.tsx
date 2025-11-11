@@ -10,11 +10,13 @@ type ScriptType = 'simplified' | 'traditional';
 const SCRIPT_PREFERENCE_KEY = 'hanzi-flow-script-preference';
 const HSK_PREFERENCE_KEY = 'hanzi-flow-hsk-preference';
 const AUDIO_ENABLED_KEY = 'hanzi-flow-audio-enabled';
+const SKIP_MASTERED_KEY = 'hanzi-flow-skip-mastered';
 
 export default function SettingsPage() {
   const [selectedScript, setSelectedScript] = useState<ScriptType | null>(null);
   const [selectedHsk, setSelectedHsk] = useState<HskFilter | null>(null);
   const [audioEnabled, setAudioEnabled] = useState<boolean>(true);
+  const [skipMastered, setSkipMastered] = useState<boolean>(false);
   const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [resetSuccess, setResetSuccess] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
@@ -29,6 +31,9 @@ export default function SettingsPage() {
 
     const savedAudio = localStorage.getItem(AUDIO_ENABLED_KEY);
     setAudioEnabled(savedAudio === null ? true : savedAudio === 'true'); // Default to enabled
+
+    const savedSkipMastered = localStorage.getItem(SKIP_MASTERED_KEY);
+    setSkipMastered(savedSkipMastered === 'true'); // Default to disabled
 
     setIsHydrated(true); // Mark as hydrated
   }, []);
@@ -47,6 +52,12 @@ export default function SettingsPage() {
     const newValue = !audioEnabled;
     setAudioEnabled(newValue);
     localStorage.setItem(AUDIO_ENABLED_KEY, String(newValue));
+  };
+
+  const handleSkipMasteredToggle = () => {
+    const newValue = !skipMastered;
+    setSkipMastered(newValue);
+    localStorage.setItem(SKIP_MASTERED_KEY, String(newValue));
   };
 
   const handleReset = async () => {
@@ -209,6 +220,40 @@ export default function SettingsPage() {
                   <span
                     className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
                       audioEnabled ? 'translate-x-6' : 'translate-x-1'
+                    }`}
+                  />
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* Practice Settings */}
+          <section className="space-y-4">
+            <div>
+              <h2 className="text-xl font-semibold mb-1">Practice Settings</h2>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Customize your practice experience
+              </p>
+            </div>
+
+            <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="font-semibold mb-1">Skip Mastered Characters</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                    Automatically skip characters with mastery ≥ 0.8 during practice
+                  </p>
+                </div>
+                <button
+                  onClick={handleSkipMasteredToggle}
+                  className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
+                    skipMastered ? 'bg-blue-600' : 'bg-gray-300 dark:bg-gray-600'
+                  }`}
+                  aria-label="Toggle skip mastered"
+                >
+                  <span
+                    className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+                      skipMastered ? 'translate-x-6' : 'translate-x-1'
                     }`}
                   />
                 </button>

@@ -9,6 +9,8 @@ import { getCharType, loadCharacterMapping, getCharId } from '@/lib/characters';
 import { playPinyinAudio, preloadMultiplePinyinAudio } from '@/lib/audio';
 import { recordSentenceAttempt, recordSentenceProgress } from '@/lib/mastery';
 import { getNextSentence } from '@/lib/sentence-selection';
+import { SELECTION_CONFIG } from '@/lib/selection-config';
+import { db } from '@/lib/db';
 import Navigation from '@/components/Navigation';
 
 type ScriptFilter = 'simplified' | 'traditional';
@@ -16,6 +18,7 @@ type ScriptFilter = 'simplified' | 'traditional';
 const SCRIPT_PREFERENCE_KEY = 'hanzi-flow-script-preference';
 const HSK_PREFERENCE_KEY = 'hanzi-flow-hsk-preference';
 const AUDIO_ENABLED_KEY = 'hanzi-flow-audio-enabled';
+const SKIP_MASTERED_KEY = 'hanzi-flow-skip-mastered';
 
 export default function PracticePage() {
   const [scriptFilter, setScriptFilter] = useState<ScriptFilter | null>(null);
@@ -40,8 +43,11 @@ export default function PracticePage() {
   const [retryCount, setRetryCount] = useState(0);
   const [showTranslation, setShowTranslation] = useState(false);
   const [exceededRetryIndices, setExceededRetryIndices] = useState<Set<number>>(new Set());
+  const [masteredIndices, setMasteredIndices] = useState<Set<number>>(new Set());
   const [audioEnabled, setAudioEnabled] = useState<boolean>(true);
+  const [skipMastered, setSkipMastered] = useState<boolean>(false);
   const [queueSize, setQueueSize] = useState<number>(0);
+  const [isAutoAdvancing, setIsAutoAdvancing] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const MAX_RETRIES = 5;
@@ -111,6 +117,10 @@ export default function PracticePage() {
     // Load audio preference (defaults to enabled)
     const savedAudio = localStorage.getItem(AUDIO_ENABLED_KEY);
     setAudioEnabled(savedAudio === null ? true : savedAudio === 'true');
+
+    // Load skip mastered preference (defaults to disabled)
+    const savedSkipMastered = localStorage.getItem(SKIP_MASTERED_KEY);
+    setSkipMastered(savedSkipMastered === 'true');
   }, []);
 
   // Step 3: Get first sentence when both sentences and preferences are ready
@@ -168,41 +178,89 @@ export default function PracticePage() {
     if (!currentChar || finishedCurrentSentence) return;
 
     if (currentCharType !== 'chinese') {
+      // Disable input during auto-advance
+      setIsAutoAdvancing(true);
+
       // Auto-skip after brief delay so user sees the character
       setTimeout(() => {
         setState((prev) => ({
           ...prev,
+          results: [...prev.results, null],  // Add null for skipped non-Chinese
           currentCharIndex: prev.currentCharIndex + 1,
         }));
-        // Restore focus after auto-skip
-        setTimeout(() => inputRef.current?.focus(), 0);
+
+        // Re-enable input first
+        setIsAutoAdvancing(false);
+
+        // Wait for React to re-render before focusing
+        setTimeout(() => inputRef.current?.focus(), 10);
       }, 100);
     }
   }, [state.currentCharIndex, currentChar, currentCharType, finishedCurrentSentence]);
+
+  // Auto-skip mastered Chinese characters (if enabled)
+  useEffect(() => {
+    if (!currentChar || finishedCurrentSentence) return;
+    if (currentCharType !== 'chinese') return;
+    if (!skipMastered) return;
+
+    // Check if character is mastered
+    const char_id = getCharId(currentChar.char);
+    if (char_id === null) return;
+
+    // Look up mastery score
+    db.words.get(char_id).then((wordMastery) => {
+      const isMastered = wordMastery && wordMastery.s >= SELECTION_CONFIG.mastered_threshold;
+
+      if (isMastered) {
+        // Mark this index as mastered (for green styling)
+        setMasteredIndices((prev) => new Set(prev).add(state.currentCharIndex));
+
+        // Disable input during auto-advance
+        setIsAutoAdvancing(true);
+
+        // Auto-skip after brief delay (100ms - same as punctuation)
+        setTimeout(() => {
+          setState((prev) => ({
+            ...prev,
+            results: [...prev.results, null],  // Add null for skipped mastered
+            currentCharIndex: prev.currentCharIndex + 1,
+          }));
+
+          // Re-enable input first
+          setIsAutoAdvancing(false);
+
+          // Wait for React to re-render before focusing
+          setTimeout(() => inputRef.current?.focus(), 10);
+        }, 100);
+      }
+    });
+  }, [state.currentCharIndex, currentChar, currentCharType, finishedCurrentSentence, skipMastered]);
 
   // Record mastery data when sentence is completed
   useEffect(() => {
     if (!finishedCurrentSentence || !currentSentence) return;
 
-    // Build attempts array: only Chinese characters with char_id
+    // Build attempts array: only Chinese characters with char_id (skip mastered if auto-skipped)
     const attempts = currentSentence.chars
       .map((char, idx) => {
         // Only process Chinese characters (those with pinyin)
         if (!char.pinyin) return null;
 
+        // Skip mastered characters that were auto-skipped (don't record score updates)
+        if (masteredIndices.has(idx)) return null;
+
         // Look up character ID
         const char_id = getCharId(char.char);
         if (char_id === null) return null;
 
-        // Find the index of this character in the results array
-        // Results array only contains results for Chinese characters
-        const chineseCharsBeforeThis = currentSentence.chars
-          .slice(0, idx)
-          .filter((c) => c.pinyin !== null).length;
+        // Direct 1-to-1 index lookup (null for skipped characters)
+        const result = state.results[idx];
+        if (result === null) return null;  // Shouldn't happen, but be safe
 
         return {
           char_id,
-          correct: state.results[chineseCharsBeforeThis] ?? false,
+          correct: result,
         };
       })
       .filter((attempt): attempt is { char_id: number; correct: boolean } =>
@@ -244,6 +302,7 @@ export default function PracticePage() {
 
   const handleSubmit = () => {
     if (!currentChar) return;
+    if (isAutoAdvancing) return; // Prevent submission during auto-advance
 
     // Handle based on character type
     if (currentCharType === 'chinese') {
@@ -335,6 +394,7 @@ export default function PracticePage() {
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (isAutoAdvancing) return; // Prevent key press during auto-advance
     if (e.key === ' ' || e.key === 'Enter') {
       e.preventDefault();
       handleSubmit();
@@ -365,6 +425,7 @@ export default function PracticePage() {
         setCurrentCharWasWrong(false);
         setShowTranslation(false); // Reset translation visibility for new sentence
         setExceededRetryIndices(new Set()); // Reset exceeded retry tracking for new sentence
+        setMasteredIndices(new Set()); // Reset mastered tracking for new sentence
 
         // DEV: Update queue size
         if (process.env.NODE_ENV === 'development') {
@@ -624,13 +685,9 @@ export default function PracticePage() {
                   const isCurrent = idx === state.currentCharIndex;
                   const charType = getCharType(c.char, c.pinyin ?? undefined);
 
-                  // Calculate result index: count Chinese characters before this one
-                  const chineseCharsBeforeThis = currentSentence.chars
-                    .slice(0, idx)
-                    .filter(ch => getCharType(ch.char, ch.pinyin ?? undefined) === 'chinese').length;
-
+                  // Direct 1-to-1 index lookup (null for skipped characters)
                   const isCorrect = hasBeenAnswered && charType === 'chinese'
-                    ? state.results[chineseCharsBeforeThis]
+                    ? state.results[idx]
                     : null;
 
                   return (
@@ -649,6 +706,8 @@ export default function PracticePage() {
                             ? 'text-red-600'              // Current character but wrong - red
                             : isCurrent
                             ? 'text-blue-600'             // Current character - blue
+                            : hasBeenAnswered && masteredIndices.has(idx)
+                            ? 'text-green-600'            // Mastered character (auto-skipped) - green
                             : hasBeenAnswered && charType === 'chinese'
                             ? exceededRetryIndices.has(idx)
                               ? 'text-purple-600'         // Exceeded retry limit - purple
@@ -744,6 +803,7 @@ export default function PracticePage() {
                   className="w-80 h-full text-xl text-center border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all"
                   placeholder={state.currentCharIndex === 0 ? "Type pinyin" : ""}
                   autoFocus
+                  disabled={isAutoAdvancing}
                   style={{ padding: '0 20px' }}
                 />
                 {/* DEV ONLY: Skip button and queue info - positioned absolutely to not affect centering */}
