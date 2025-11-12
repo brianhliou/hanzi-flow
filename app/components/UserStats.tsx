@@ -45,6 +45,7 @@ interface UserStatsData {
   // Sentence stats
   sentencesPracticedUnique: number;
   sentencesMastered: number;
+  totalSentencesInCorpus: number;
 
   // Performance stats
   overallAccuracy: number;
@@ -53,6 +54,7 @@ interface UserStatsData {
   masteredWords: WordMastery[];
   learningWords: WordMastery[];
   newWords: WordMastery[];
+  unseenCharacters: number[]; // char_ids of characters never practiced
 }
 
 // Reverse lookup: char_id -> {character, pinyin, allPinyins, hskLevel, scriptType}
@@ -201,10 +203,22 @@ export default function UserStats() {
           '2': { mastered: 0, seen: 0, total: 300 },
           '3': { mastered: 0, seen: 0, total: 300 },
           '4': { mastered: 0, seen: 0, total: 300 },
-          '5': { mastered: 0, seen: 0, total: 300 },
+          '5': { mastered: 0, seen: 0, total: 300 },  // Official HSK 3.0 count
           '6': { mastered: 0, seen: 0, total: 300 },
-          '7-9': { mastered: 0, seen: 0, total: 1200 },
+          '7-9': { mastered: 0, seen: 0, total: 1200 },  // Official HSK 3.0 count
+          'beyond-hsk': { mastered: 0, seen: 0, total: 0 }, // Total calculated below
         };
+
+        // Calculate total beyond-HSK characters in corpus
+        // (simplified/neutral characters not in HSK 1-9)
+        if (idToCharMap) {
+          for (const charData of idToCharMap.values()) {
+            // Exclude traditional characters - only count simplified/neutral beyond-HSK
+            if (!charData.hskLevel && charData.scriptType !== 'traditional') {
+              hskCounts['beyond-hsk'].total++;
+            }
+          }
+        }
 
         // Count characters for each HSK level
         for (const word of words) {
@@ -215,6 +229,12 @@ export default function UserStats() {
             // Count mastered characters (≥0.8 mastery)
             if (word.s >= SELECTION_CONFIG.mastered_threshold) {
               hskCounts[charData.hskLevel].mastered++;
+            }
+          } else if (!charData.hskLevel && charData.scriptType !== 'traditional') {
+            // Beyond HSK character (simplified/neutral only)
+            hskCounts['beyond-hsk'].seen++;
+            if (word.s >= SELECTION_CONFIG.mastered_threshold) {
+              hskCounts['beyond-hsk'].mastered++;
             }
           }
         }
@@ -263,6 +283,12 @@ export default function UserStats() {
             masteredPercentage: (hskCounts['7-9'].mastered / hskCounts['7-9'].total) * 100,
             seenPercentage: (hskCounts['7-9'].seen / hskCounts['7-9'].total) * 100,
           },
+          {
+            level: 'Beyond HSK',
+            ...hskCounts['beyond-hsk'],
+            masteredPercentage: hskCounts['beyond-hsk'].total > 0 ? (hskCounts['beyond-hsk'].mastered / hskCounts['beyond-hsk'].total) * 100 : 0,
+            seenPercentage: hskCounts['beyond-hsk'].total > 0 ? (hskCounts['beyond-hsk'].seen / hskCounts['beyond-hsk'].total) * 100 : 0,
+          },
         ];
 
         // Script type breakdown (learned characters)
@@ -303,6 +329,17 @@ export default function UserStats() {
           }
         }
 
+        // Calculate unseen characters (in corpus but never practiced)
+        const seenCharIds = new Set(words.map(w => w.char_id));
+        const unseenCharacters: number[] = [];
+        if (idToCharMap) {
+          for (const charId of idToCharMap.keys()) {
+            if (!seenCharIds.has(charId)) {
+              unseenCharacters.push(charId);
+            }
+          }
+        }
+
         setStats({
           totalCharactersLearned: words.length,
           charactersMastered: masteredWords.length,
@@ -314,10 +351,12 @@ export default function UserStats() {
           hskProgress,
           sentencesPracticedUnique: uniqueSentences,
           sentencesMastered: masteredSentences,
+          totalSentencesInCorpus: metadata.totalSentences,
           overallAccuracy: accuracy,
           masteredWords,
           learningWords,
           newWords,
+          unseenCharacters,
         });
       } catch (error) {
         console.error('Failed to calculate stats:', error);
@@ -350,6 +389,9 @@ export default function UserStats() {
       {/* Character Progress */}
       <section>
         <h2 className="text-xl font-semibold mb-3">Character Progress</h2>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+          Total corpus contains 5,007 characters across all script types.
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           <StatCard
             label="Simplified"
@@ -378,6 +420,9 @@ export default function UserStats() {
       {/* HSK Progress */}
       <section>
         <h2 className="text-xl font-semibold mb-3">HSK Progress</h2>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+          Totals show official HSK 3.0 counts. Note: 1 character from HSK 5 and 127 characters from HSK 7-9 don't appear in our sentence corpus and cannot be practiced.
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {stats.hskProgress.map((level) => (
             <HskProgressBar
@@ -396,6 +441,9 @@ export default function UserStats() {
       {/* Sentence Practice */}
       <section>
         <h2 className="text-xl font-semibold mb-3">Sentence Practice</h2>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+          Total corpus contains {stats.totalSentencesInCorpus.toLocaleString()} sentences.
+        </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <StatCard
             label="Sentences Practiced"
@@ -405,9 +453,7 @@ export default function UserStats() {
           <StatCard
             label="Sentences Mastered"
             value={stats.sentencesMastered}
-            description={isDev
-              ? "Consistently accurate (≥95% EWMA)"
-              : "Consistently accurate"}
+            description="Consistently accurate"
             color="green"
           />
         </div>
@@ -420,6 +466,7 @@ export default function UserStats() {
           masteredWords={stats.masteredWords}
           learningWords={stats.learningWords}
           newWords={stats.newWords}
+          unseenCharacters={stats.unseenCharacters}
           isDev={isDev}
         />
       </section>
@@ -555,7 +602,7 @@ function HskProgressBar({ level, mastered, seen, total, masteredPercentage, seen
     <div className="bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-3">
       <div className="flex items-center justify-between mb-1.5">
         <div className="flex items-center gap-2">
-          <span className="font-semibold text-base">HSK {level}</span>
+          <span className="font-semibold text-base">{level === 'Beyond HSK' ? level : `HSK ${level}`}</span>
           <span className="text-xs text-gray-600 dark:text-gray-400">
             {mastered} mastered • {seen} seen
           </span>
@@ -585,11 +632,12 @@ interface MasteryBreakdownTabsProps {
   masteredWords: WordMastery[];
   learningWords: WordMastery[];
   newWords: WordMastery[];
+  unseenCharacters: number[];
   isDev: boolean;
 }
 
-function MasteryBreakdownTabs({ masteredWords, learningWords, newWords, isDev }: MasteryBreakdownTabsProps) {
-  const [activeTab, setActiveTab] = useState<'mastered' | 'learning' | 'new'>('learning');
+function MasteryBreakdownTabs({ masteredWords, learningWords, newWords, unseenCharacters, isDev }: MasteryBreakdownTabsProps) {
+  const [activeTab, setActiveTab] = useState<'mastered' | 'learning' | 'new' | 'unseen'>('learning');
 
   const tabs = [
     {
@@ -622,6 +670,14 @@ function MasteryBreakdownTabs({ masteredWords, learningWords, newWords, isDev }:
       words: newWords,
       color: 'yellow',
     },
+    {
+      id: 'unseen' as const,
+      label: 'Unseen',
+      count: unseenCharacters.length,
+      description: 'Characters never practiced',
+      charIds: unseenCharacters,
+      color: 'gray',
+    },
   ];
 
   const activeTabData = tabs.find(t => t.id === activeTab)!;
@@ -635,6 +691,7 @@ function MasteryBreakdownTabs({ masteredWords, learningWords, newWords, isDev }:
       mastered: 'border-green-600 text-green-600 dark:text-green-400',
       learning: 'border-blue-600 text-blue-600 dark:text-blue-400',
       new: 'border-yellow-600 text-yellow-600 dark:text-yellow-400',
+      unseen: 'border-gray-500 text-gray-700 dark:text-gray-300',
     };
     return colorMap[tabId as keyof typeof colorMap];
   };
@@ -664,65 +721,130 @@ function MasteryBreakdownTabs({ masteredWords, learningWords, newWords, isDev }:
           {activeTabData.description}
         </p>
 
-        {activeTabData.words.length === 0 ? (
-          <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-            No characters in this category yet
-          </div>
+        {/* Render based on tab type */}
+        {'words' in activeTabData ? (
+          // Render WordMastery tabs (mastered, learning, new)
+          activeTabData.words.length === 0 ? (
+            <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+              No characters in this category yet
+            </div>
+          ) : (
+            <div className="flex flex-wrap gap-3 justify-start">
+              {activeTabData.words.map((word) => {
+                const { char, pinyin, allPinyins, hskLevel, scriptType } = getCharFromId(word.char_id);
+
+                return (
+                  <div
+                    key={word.char_id}
+                    className="w-44 px-3 py-2.5 bg-white dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-600 flex flex-col"
+                  >
+                    {/* Line 1: Character + Primary Pinyin */}
+                    <div className="flex items-baseline gap-2 mb-1.5">
+                      <span className="text-3xl font-medium">{char}</span>
+                      <button
+                        onClick={() => playPinyinAudio(convertToneMarksToNumbers(pinyin))}
+                        className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      >
+                        {pinyin}
+                      </button>
+                    </div>
+
+                    {/* Line 2: Alt Pinyins (if any, wraps max 2 lines) - always reserve space */}
+                    <div className="flex flex-wrap items-start content-start gap-1 mb-1.5 h-[2.75rem] overflow-hidden">
+                      {allPinyins.length > 1 && allPinyins.slice(1).map((py, idx) => {
+                        const pinyinWithNumbers = convertToneMarksToNumbers(py);
+                        return (
+                          <button
+                            key={idx}
+                            onClick={() => playPinyinAudio(pinyinWithNumbers)}
+                            className="px-1.5 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                          >
+                            {py}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Spacer to push footer to bottom */}
+                    <div className="flex-1"></div>
+
+                    {/* Footer: Score and HSK (pinned to bottom) */}
+                    <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500">
+                      <span>{word.s.toFixed(2)}</span>
+                      <span>
+                        {hskLevel
+                          ? `HSK ${hskLevel}`
+                          : scriptType === 'traditional'
+                            ? 'Traditional'
+                            : 'Beyond HSK'}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )
         ) : (
-          <div className="flex flex-wrap gap-3 justify-start">
-            {activeTabData.words.map((word) => {
-              const { char, pinyin, allPinyins, hskLevel, scriptType } = getCharFromId(word.char_id);
+          // Render Unseen tab (char_ids only, no mastery scores)
+          activeTabData.charIds.length === 0 ? (
+            <div className="text-center py-8 text-gray-500 dark:text-gray-400">
+              No unseen characters - you've practiced everything!
+            </div>
+          ) : (
+            <div className="flex flex-wrap gap-3 justify-start">
+              {activeTabData.charIds.map((charId) => {
+                const { char, pinyin, allPinyins, hskLevel, scriptType } = getCharFromId(charId);
 
-              return (
-                <div
-                  key={word.char_id}
-                  className="w-44 px-3 py-2.5 bg-white dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-600 flex flex-col"
-                >
-                  {/* Line 1: Character + Primary Pinyin */}
-                  <div className="flex items-baseline gap-2 mb-1.5">
-                    <span className="text-3xl font-medium">{char}</span>
-                    <button
-                      onClick={() => playPinyinAudio(convertToneMarksToNumbers(pinyin))}
-                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                    >
-                      {pinyin}
-                    </button>
+                return (
+                  <div
+                    key={charId}
+                    className="w-44 px-3 py-2.5 bg-white dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-600 flex flex-col"
+                  >
+                    {/* Line 1: Character + Primary Pinyin */}
+                    <div className="flex items-baseline gap-2 mb-1.5">
+                      <span className="text-3xl font-medium">{char}</span>
+                      <button
+                        onClick={() => playPinyinAudio(convertToneMarksToNumbers(pinyin))}
+                        className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      >
+                        {pinyin}
+                      </button>
+                    </div>
+
+                    {/* Line 2: Alt Pinyins (if any, wraps max 2 lines) - always reserve space */}
+                    <div className="flex flex-wrap items-start content-start gap-1 mb-1.5 h-[2.75rem] overflow-hidden">
+                      {allPinyins.length > 1 && allPinyins.slice(1).map((py, idx) => {
+                        const pinyinWithNumbers = convertToneMarksToNumbers(py);
+                        return (
+                          <button
+                            key={idx}
+                            onClick={() => playPinyinAudio(pinyinWithNumbers)}
+                            className="px-1.5 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                          >
+                            {py}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Spacer to push footer to bottom */}
+                    <div className="flex-1"></div>
+
+                    {/* Footer: HSK only (no score for unseen) */}
+                    <div className="flex items-center justify-end text-xs text-gray-500 dark:text-gray-500">
+                      <span>
+                        {hskLevel
+                          ? `HSK ${hskLevel}`
+                          : scriptType === 'traditional'
+                            ? 'Traditional'
+                            : 'Beyond HSK'}
+                      </span>
+                    </div>
                   </div>
-
-                  {/* Line 2: Alt Pinyins (if any, wraps max 2 lines) - always reserve space */}
-                  <div className="flex flex-wrap items-start content-start gap-1 mb-1.5 h-[2.75rem] overflow-hidden">
-                    {allPinyins.length > 1 && allPinyins.slice(1).map((py, idx) => {
-                      const pinyinWithNumbers = convertToneMarksToNumbers(py);
-                      return (
-                        <button
-                          key={idx}
-                          onClick={() => playPinyinAudio(pinyinWithNumbers)}
-                          className="px-1.5 py-0.5 text-xs bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-blue-100 dark:hover:bg-blue-900 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-                        >
-                          {py}
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Spacer to push footer to bottom */}
-                  <div className="flex-1"></div>
-
-                  {/* Footer: Score and HSK (pinned to bottom) */}
-                  <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500">
-                    <span>{word.s.toFixed(2)}</span>
-                    <span>
-                      {hskLevel
-                        ? `HSK ${hskLevel}`
-                        : scriptType === 'traditional'
-                          ? 'Traditional'
-                          : 'Beyond HSK'}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          )
         )}
       </div>
     </div>
