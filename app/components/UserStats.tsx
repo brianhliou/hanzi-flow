@@ -724,13 +724,13 @@ function MasteryBreakdownTabs({ masteredWords, learningWords, newWords, unseenCh
         {/* Render based on tab type */}
         {'words' in activeTabData ? (
           // Render WordMastery tabs (mastered, learning, new)
-          activeTabData.words.length === 0 ? (
+          (activeTabData.words?.length ?? 0) === 0 ? (
             <div className="text-center py-8 text-gray-500 dark:text-gray-400">
               No characters in this category yet
             </div>
           ) : (
             <div className="flex flex-wrap gap-3 justify-start">
-              {activeTabData.words.map((word) => {
+              {activeTabData.words?.map((word) => {
                 const { char, pinyin, allPinyins, hskLevel, scriptType } = getCharFromId(word.char_id);
 
                 return (
@@ -786,13 +786,13 @@ function MasteryBreakdownTabs({ masteredWords, learningWords, newWords, unseenCh
           )
         ) : (
           // Render Unseen tab (char_ids only, no mastery scores)
-          activeTabData.charIds.length === 0 ? (
+          (activeTabData.charIds?.length ?? 0) === 0 ? (
             <div className="text-center py-8 text-gray-500 dark:text-gray-400">
               No unseen characters - you've practiced everything!
             </div>
           ) : (
             <div className="flex flex-wrap gap-3 justify-start">
-              {activeTabData.charIds.map((charId) => {
+              {activeTabData.charIds?.map((charId) => {
                 const { char, pinyin, allPinyins, hskLevel, scriptType } = getCharFromId(charId);
 
                 return (
