@@ -76,11 +76,15 @@ When a user enables "Skip Mastered Characters" in settings AND has mastered all 
 - User tries to practice → every sentence auto-skips through in ~2 seconds
 
 **Root cause:**
-NSS (Next Sentence Selection) algorithm is decoupled from the auto-skip preference:
+NSS (Next Sentence Selection) algorithm is unaware of the auto-skip preference:
 - **NSS** uses `θ_known = 0.6` to determine "unknown" characters for sentence selection
 - **Auto-skip** uses `mastered_threshold = 0.8` to determine which characters to skip
-- **Gap**: Characters with mastery ∈ [0.6, 0.8) are considered "known" by NSS but not auto-skipped
-- **Problem**: When all characters have mastery ≥ 0.8, NSS sees k=0 unknowns for every sentence
+- **Gap [0.6, 0.8)**: Characters in this range are "known" to NSS but still practiced (not auto-skipped)
+  - This gap is **intentional** and works fine when auto-skip is disabled or when some characters need practice
+- **Problem**: When auto-skip is **enabled** AND all characters have mastery ≥ 0.8:
+  - NSS sees k=0 unknowns (all characters ≥ 0.6) for every sentence
+  - NSS doesn't know that all characters will be auto-skipped during practice
+  - NSS thinks sentences are "fully known but still valid practice material"
 - **Fallback**: NSS falls back to random sentence selection after exhausting normal strategies
 - **Result**: Random fully-mastered sentences get selected and flash through uselessly
 
