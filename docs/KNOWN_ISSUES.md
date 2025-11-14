@@ -59,6 +59,131 @@ Accepted as-is. This is a common tradeoff in Next.js applications using client-s
 
 ---
 
+### Auto-skip mastered characters with fully-mastered HSK level creates practice trap
+**Status:** Partially mitigated - architectural fix needed
+
+**Description:**
+When a user enables "Skip Mastered Characters" in settings AND has mastered all (or most) characters in their selected HSK level, they can get stuck in a trap where:
+1. Every sentence auto-advances (all characters flash green and skip)
+2. No actual practice occurs
+3. User must manually press Space after each sentence
+4. Process repeats indefinitely with no clear indication of the problem
+
+**Example scenario:**
+- User filters to HSK 1 (300 characters)
+- User has mastered all 300 characters (mastery ≥ 0.8)
+- User enables "Skip Mastered Characters" setting
+- User tries to practice → every sentence auto-skips through in ~2 seconds
+
+**Root cause:**
+NSS (Next Sentence Selection) algorithm is decoupled from the auto-skip preference:
+- **NSS** uses `θ_known = 0.6` to determine "unknown" characters for sentence selection
+- **Auto-skip** uses `mastered_threshold = 0.8` to determine which characters to skip
+- **Gap**: Characters with mastery ∈ [0.6, 0.8) are considered "known" by NSS but not auto-skipped
+- **Problem**: When all characters have mastery ≥ 0.8, NSS sees k=0 unknowns for every sentence
+- **Fallback**: NSS falls back to random sentence selection after exhausting normal strategies
+- **Result**: Random fully-mastered sentences get selected and flash through uselessly
+
+**Technical details:**
+
+NSS rejection cascade (sentence-selection.ts):
+```typescript
+// Lines 365-379: Only characters with s < 0.6 are "unknowns"
+if (s < θ_known) {  // θ_known = 0.6
+  unknowns.push({ char_id, s, overdue });
+}
+const k = unknowns.length;
+
+// Reject if no unknowns
+if (k === 0) {
+  return null;  // All HSK 1 sentences rejected!
+}
+
+// Lines 638-649: Fallback 5 - random selection
+if (fallbackAttempt === 5) {
+  scored = shuffle(allSentences)
+    .filter(s => s.script_type !== 'ambiguous')
+    .slice(0, SELECTION_CONFIG.batch_size)
+    .map(s => ({ sid: s.id, score: 0, k: 0, last_seen_ts: 0 }));
+}
+```
+
+Auto-skip behavior (practice/page.tsx:201-238):
+```typescript
+// Auto-skip if character mastery >= 0.8
+const isMastered = wordMastery && wordMastery.s >= SELECTION_CONFIG.mastered_threshold;
+
+if (isMastered) {
+  setMasteredIndices((prev) => new Set(prev).add(state.currentCharIndex));
+  // Character flashes green and auto-advances after 100ms
+}
+```
+
+**Data corruption issue (FIXED):**
+Previously, fully auto-skipped sentences were recorded with score = 0 because no attempts were logged. This created misleading data where:
+- Sentence `ewma_pass` moved toward 0 (appears "difficult")
+- Reality: sentence has all mastered characters (nothing to learn)
+- NSS interpreted low `ewma_pass` as "needs more practice" → selected more often
+- User trapped in loop selecting same fully-mastered sentences
+
+**Quick fix implemented (2025-11-13):**
+Modified practice/page.tsx lines 286-293 to detect when all Chinese characters were auto-skipped and record sentence score as 1.0 instead of 0:
+
+```typescript
+const chineseCharCount = currentSentence.chars.filter(c => c.pinyin).length;
+const sentenceScore = charScores.size > 0
+  ? Array.from(charScores.values()).reduce(...) / charScores.size
+  : chineseCharCount > 0 && masteredIndices.size === chineseCharCount
+    ? 1.0  // All Chinese characters were mastered and auto-skipped
+    : 0;   // No characters practiced (defensive fallback)
+```
+
+**What this fixes:**
+- ✅ Prevents sentence data corruption (no longer records as 0%)
+- ✅ Allows sentences to naturally hit skip threshold (ewma_pass → 0.9)
+- ✅ Provides gradual escape from trap as sentences get skipped
+- ❌ Still doesn't prevent NSS from selecting fully-mastered sentences initially
+- ❌ User still experiences 2-3 seconds of green flash-through per sentence
+- ❌ No clear indication to user that they should change HSK level
+
+**Proper architectural fix needed:**
+NSS should be aware of the skip-mastered preference:
+
+1. Pass `skipMastered` boolean into `getNextSentence()` / `generateSentenceBatch()`
+2. When `skipMastered = true`, adjust scoring logic:
+   - Consider characters with s ≥ 0.8 as "effectively skipped"
+   - Reject sentences where all Chinese characters have s ≥ 0.8
+   - Use adjusted k-count for difficulty band placement
+3. When no suitable sentences found, show friendly error:
+   ```
+   "🎉 You've mastered all HSK 1 characters!
+
+   Try increasing your HSK level in Settings to continue learning."
+   ```
+
+**Workarounds for users (temporary):**
+1. Disable "Skip Mastered Characters" in Settings
+2. Increase HSK level filter (e.g., HSK 1 → HSK 2)
+3. Switch to "Beyond HSK" filter to access non-HSK characters
+
+**Impact:**
+- Severity: Medium (affects users who've completed an HSK level with skip enabled)
+- Frequency: Rare in early learning, increases as users progress
+- User experience: Confusing and frustrating (looks like bug)
+- Data integrity: Fixed by quick fix (no longer pollutes sentence mastery data)
+
+**Related code:**
+- `/app/app/practice/page.tsx` lines 201-238 (auto-skip logic)
+- `/app/app/practice/page.tsx` lines 286-293 (sentence scoring fix)
+- `/app/lib/sentence-selection.ts` lines 338-423 (NSS scoring)
+- `/app/lib/sentence-selection.ts` lines 626-656 (NSS fallback cascade)
+- `/app/lib/selection-config.ts` line 14 (`θ_known = 0.6`)
+- `/app/lib/selection-config.ts` line 108 (`mastered_threshold = 0.8`)
+
+**Priority:** Medium - Quick fix prevents data corruption, but proper architectural fix would improve UX
+
+---
+
 ## Data Quality
 
 ### ~~Incorrect pinyin for 谁 character~~ [RESOLVED]
