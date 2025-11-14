@@ -690,6 +690,23 @@ export default function PracticePage() {
                     ? state.results[idx]
                     : null;
 
+                  // Determine if character should be clickable to play audio
+                  // Case 1: Past characters with visible pinyin
+                  const isClickablePastChar = hasBeenAnswered && charType === 'chinese' && c.pinyin;
+                  // Case 2: Current character being retried (wrong, not first attempt)
+                  const isClickableRetrying = isCurrent && !isFirstAttempt && currentCharWasWrong && charType === 'chinese' && c.pinyin;
+
+                  const isCharClickable = isClickablePastChar || isClickableRetrying;
+                  const isPinyinClickable = isClickablePastChar; // Only past chars have visible pinyin
+
+                  const handleCharClick = () => {
+                    if (isCharClickable && c.pinyin) {
+                      playPinyinAudio(c.pinyin).catch((error) => {
+                        console.warn('Audio playback failed:', error);
+                      });
+                    }
+                  };
+
                   return (
                     <span
                       key={idx}
@@ -701,6 +718,7 @@ export default function PracticePage() {
                       }}
                     >
                       <span
+                        onClick={handleCharClick}
                         className={`block ${
                           isCurrent && currentCharWasWrong
                             ? 'text-red-600'              // Current character but wrong - red
@@ -719,7 +737,7 @@ export default function PracticePage() {
                             : hasBeenAnswered && charType === 'punctuation'
                             ? 'text-gray-400'             // Completed punctuation - light gray
                             : 'text-gray-900'             // Not reached yet - dark
-                        }`}
+                        } ${isCharClickable ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''}`}
                         style={{
                           transform: isCurrent ? 'scale(1.05)' : 'scale(1)',
                         }}
@@ -728,7 +746,8 @@ export default function PracticePage() {
                       </span>
                       {/* Always reserve space for feedback to prevent layout shift */}
                       <span
-                        className="block text-center mt-1"
+                        onClick={isPinyinClickable ? handleCharClick : undefined}
+                        className={`block text-center mt-1 ${isPinyinClickable ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''}`}
                         style={{ fontSize: '14px', height: '18px', lineHeight: '18px' }}
                       >
                         {hasBeenAnswered && (
