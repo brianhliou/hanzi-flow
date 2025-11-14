@@ -13,6 +13,7 @@
  */
 
 import { db, type WordMastery, type SentenceProgress } from './db';
+import { isDebugMode } from './debug';
 
 // Learning algorithm constants
 const ALPHA = 0.2;              // Learning rate for mastery score
@@ -138,7 +139,7 @@ export async function recordSentenceAttempt(
       }
     });
 
-    if (process.env.NODE_ENV === 'development') {
+    if (isDebugMode()) {
       console.log(`Recorded ${uniqueAttempts.size} word attempts`);
     }
   } catch (error) {
@@ -207,7 +208,7 @@ export async function recordSentenceProgress(
     // Save to database
     await db.sentences.put(updated);
 
-    if (process.env.NODE_ENV === 'development') {
+    if (isDebugMode()) {
       console.log(`Recorded sentence ${sid} progress: score=${score.toFixed(2)} ${passed ? 'pass' : 'fail'}`);
     }
   } catch (error) {

@@ -158,12 +158,14 @@ export const nssError = (message: string, data?: any) => {
 let autoSaveTimeout: NodeJS.Timeout | null = null;
 
 /**
- * Schedule auto-save to file system (development only)
+ * Schedule auto-save to file system (disabled)
  * Debounced - only saves if no new logs for 30 seconds
+ * NOTE: Hard-coded disabled - auto-save to filesystem is not supported
  */
 function scheduleAutoSave(): void {
   if (typeof window === 'undefined') return;
-  if (process.env.NODE_ENV !== 'development') return;
+  // Hard-coded disabled - auto-save functionality is not supported
+  if (false) return;
 
   // Clear existing timeout
   if (autoSaveTimeout) {

@@ -7,6 +7,7 @@ import { SELECTION_CONFIG } from '@/lib/selection-config';
 import { loadCharacterMapping } from '@/lib/characters';
 import { playPinyinAudio } from '@/lib/audio';
 import { convertToneMarksToNumbers } from '@/lib/pinyin';
+import { isDebugMode } from '@/lib/debug';
 
 interface HskLevelProgress {
   level: string;
@@ -162,7 +163,7 @@ function getCharFromId(charId: number): { char: string; pinyin: string; allPinyi
 export default function UserStats() {
   const [stats, setStats] = useState<UserStatsData | null>(null);
   const [loading, setLoading] = useState(true);
-  const isDev = process.env.NODE_ENV === 'development';
+  const isDev = isDebugMode();
 
   useEffect(() => {
     async function calculateStats() {

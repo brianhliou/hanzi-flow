@@ -14,6 +14,7 @@
  */
 
 import Dexie, { Table } from 'dexie';
+import { isDebugMode } from './debug';
 
 /**
  * Word mastery record
@@ -121,7 +122,7 @@ export async function getAllSentences(): Promise<SentenceProgress[]> {
 export async function resetDatabase(): Promise<void> {
   await db.words.clear();
   await db.sentences.clear();
-  if (process.env.NODE_ENV === 'development') {
+  if (isDebugMode()) {
     console.log('Database cleared');
   }
 }

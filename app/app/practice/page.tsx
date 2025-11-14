@@ -11,6 +11,7 @@ import { recordSentenceAttempt, recordSentenceProgress } from '@/lib/mastery';
 import { getNextSentence } from '@/lib/sentence-selection';
 import { SELECTION_CONFIG } from '@/lib/selection-config';
 import { db } from '@/lib/db';
+import { isDebugMode } from '@/lib/debug';
 import Navigation from '@/components/Navigation';
 
 type ScriptFilter = 'simplified' | 'traditional';
@@ -136,8 +137,8 @@ export default function PracticePage() {
         const sentence = allSentences.find(s => s.id === sid);
         setCurrentSentence(sentence || null);
 
-        // DEV: Load initial queue size
-        if (process.env.NODE_ENV === 'development') {
+        // DEBUG: Load initial queue size
+        if (isDebugMode()) {
           const { db } = await import('@/lib/db');
           const queue = await db.queue.get(1);
           if (queue) {
@@ -431,8 +432,8 @@ export default function PracticePage() {
         setExceededRetryIndices(new Set()); // Reset exceeded retry tracking for new sentence
         setMasteredIndices(new Set()); // Reset mastered tracking for new sentence
 
-        // DEV: Update queue size
-        if (process.env.NODE_ENV === 'development') {
+        // DEBUG: Update queue size
+        if (isDebugMode()) {
           const { db } = await import('@/lib/db');
           const queue = await db.queue.get(1);
           if (queue) {
@@ -625,13 +626,13 @@ export default function PracticePage() {
             {currentSentence && scriptFilter === 'simplified' && currentSentence.hskLevel && (
               <>
                 {currentSentence.hskLevel === 'beyond-hsk' ? 'Beyond HSK' : `HSK ${currentSentence.hskLevel}`}
-                {process.env.NODE_ENV === 'development' && (
+                {isDebugMode() && (
                   <span className="ml-2 text-gray-500">#{currentSentence.id}</span>
                 )}
               </>
             )}
-            {/* In dev mode, show ID even for Traditional or sentences without HSK */}
-            {currentSentence && (scriptFilter === 'traditional' || !currentSentence.hskLevel) && process.env.NODE_ENV === 'development' && (
+            {/* In debug mode, show ID even for Traditional or sentences without HSK */}
+            {currentSentence && (scriptFilter === 'traditional' || !currentSentence.hskLevel) && isDebugMode() && (
               <span className="text-gray-500">#{currentSentence.id}</span>
             )}
           </div>
@@ -829,11 +830,11 @@ export default function PracticePage() {
                   disabled={isAutoAdvancing}
                   style={{ padding: '0 20px' }}
                 />
-                {/* DEV ONLY: Skip button and queue info - positioned absolutely to not affect centering */}
-                {process.env.NODE_ENV === 'development' && (
+                {/* DEBUG ONLY: Skip button and queue info - positioned absolutely to not affect centering */}
+                {isDebugMode() && (
                   <div className="absolute right-0 flex flex-col items-end gap-1">
                     <div className="text-xs text-gray-500 dark:text-gray-500">
-                      [DEV] Queue: {queueSize}
+                      [DEBUG] Queue: {queueSize}
                     </div>
                     <button
                       onClick={nextSentence}

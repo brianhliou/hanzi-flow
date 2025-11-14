@@ -2,6 +2,8 @@
  * Character type detection utilities and character ID mapping
  */
 
+import { isDebugMode } from './debug';
+
 // ============================================================================
 // CHARACTER ID MAPPING
 // ============================================================================
@@ -15,13 +17,13 @@ let charToPinyinsMap: Map<string, string[]> | null = null;
 export async function loadCharacterMapping(): Promise<Map<string, number>> {
   // Return from cache if available
   if (charToIdMap) {
-    if (process.env.NODE_ENV === 'development') {
+    if (isDebugMode()) {
       console.log('📦 Returning character mapping from in-memory cache');
     }
     return charToIdMap;
   }
 
-  if (process.env.NODE_ENV === 'development') {
+  if (isDebugMode()) {
     console.log('🌐 Loading character mapping from network...');
   }
   const response = await fetch('/data/character_set/chinese_characters.csv');
@@ -76,7 +78,7 @@ export async function loadCharacterMapping(): Promise<Map<string, number>> {
     }
   }
 
-  if (process.env.NODE_ENV === 'development') {
+  if (isDebugMode()) {
     console.log(`✓ Cached ${charToIdMap.size} character mappings in memory`);
     console.log(`✓ Cached ${charToPinyinsMap.size} pinyin mappings in memory`);
   }

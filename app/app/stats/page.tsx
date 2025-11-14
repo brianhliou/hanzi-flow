@@ -3,9 +3,10 @@
 import Navigation from '@/components/Navigation';
 import UserStats from '@/components/UserStats';
 import DevStats from '@/components/DevStats';
+import { isDebugMode } from '@/lib/debug';
 
 export default function StatsPage() {
-  const isDev = process.env.NODE_ENV === 'development';
+  const isDev = isDebugMode();
 
   return (
     <div className="min-h-screen flex flex-col">

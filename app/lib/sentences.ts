@@ -1,4 +1,5 @@
 import type { Sentence } from './types';
+import { isDebugMode } from './debug';
 
 /**
  * Corpus metadata from sentences JSON
@@ -29,13 +30,13 @@ export async function getCorpusMetadata(): Promise<SentenceMetadata> {
 export async function loadSentences(): Promise<Sentence[]> {
   // Return from cache if available
   if (cachedSentences) {
-    if (process.env.NODE_ENV === 'development') {
+    if (isDebugMode()) {
       console.log('📦 Returning sentences from in-memory cache');
     }
     return cachedSentences;
   }
 
-  if (process.env.NODE_ENV === 'development') {
+  if (isDebugMode()) {
     console.log('🌐 Loading sentences from network...');
   }
   const response = await fetch('/data/sentences/sentences_with_translation.json');
@@ -79,7 +80,7 @@ export async function loadSentences(): Promise<Sentence[]> {
 
   // Store in cache before returning
   cachedSentences = result;
-  if (process.env.NODE_ENV === 'development') {
+  if (isDebugMode()) {
     console.log(`✓ Cached ${result.length} sentences in memory`);
   }
 
