@@ -284,14 +284,18 @@ export default function PracticePage() {
     }
 
     // Calculate average score across unique characters
+    // If all characters were auto-skipped (mastered), record as perfect (1.0)
+    const chineseCharCount = currentSentence.chars.filter(c => c.pinyin).length;
     const sentenceScore = charScores.size > 0
       ? Array.from(charScores.values()).reduce((sum, score) => sum + score, 0) / charScores.size
-      : 0;
+      : chineseCharCount > 0 && masteredIndices.size === chineseCharCount
+        ? 1.0  // All Chinese characters were mastered and auto-skipped
+        : 0;   // No characters practiced (defensive fallback)
 
     // Record both word-level and sentence-level progress to IndexedDB (async but don't block UI)
     recordSentenceAttempt(attempts);
     recordSentenceProgress(currentSentence.id, sentenceScore);
-  }, [finishedCurrentSentence, currentSentence, state.results]);
+  }, [finishedCurrentSentence, currentSentence, state.results, masteredIndices]);
 
   // Auto-reveal translation when sentence is finished
   useEffect(() => {
