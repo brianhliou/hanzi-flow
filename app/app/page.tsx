@@ -38,7 +38,7 @@ export default function Home() {
 
           {/* Stats Teaser */}
           <div className="text-sm text-gray-500 dark:text-gray-500">
-            3,000+ characters • 79,000+ sentences • 9 HSK levels
+            3,800+ characters • 79,000+ sentences • 9+ HSK levels
           </div>
 
           {/* Primary CTA */}
