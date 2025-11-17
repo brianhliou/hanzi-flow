@@ -11,9 +11,9 @@
 
 /**
  * Enable NSS logging to console and localStorage
- * Set to false to disable all NSS logs (performance optimization for production)
+ * Enabled in development only for performance optimization in production
  */
-const ENABLE_NSS_LOGGING = true;
+const ENABLE_NSS_LOGGING = process.env.NODE_ENV === 'development';
 
 /**
  * Enable auto-save of logs to files (development only)

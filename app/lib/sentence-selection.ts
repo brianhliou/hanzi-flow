@@ -175,51 +175,15 @@ export function hoursSinceSeen(
 }
 
 /**
- * Check if sentence passes cooldown filter
- */
-function passesCooldown(
-  sentenceState: SentenceProgress | undefined,
-  now: number,
-  ignoreCooldown: boolean = false
-): boolean {
-  if (ignoreCooldown) return true;
-  if (!sentenceState) return true;  // Never seen = no cooldown
-
-  const ms_since = now - sentenceState.last_seen_ts;
-  const cooldown_ms = SELECTION_CONFIG.cooldown_minutes * 60000;
-
-  return ms_since >= cooldown_ms;
-}
-
-/**
- * Check if sentence should be skipped (mastered)
- */
-function shouldSkip(
-  sentenceState: SentenceProgress | undefined,
-  ignoreSkip: boolean = false
-): boolean {
-  if (ignoreSkip) return false;
-  if (!sentenceState) return false;  // Never seen = don't skip
-
-  return (
-    sentenceState.ewma_pass >= SELECTION_CONFIG.ewma_skip_threshold &&
-    sentenceState.seen_count >= SELECTION_CONFIG.min_seen_for_skip
-  );
-}
-
-/**
- * Filter sentences by script type and eligibility
+ * Filter sentences by script type and HSK level
  */
 export async function getEligibleSentences(
   allSentences: Sentence[],
   scriptFilter: ScriptFilter,
-  hskFilter: HskFilter,
-  now: number,
-  options: {
-    ignoreCooldown?: boolean;
-    ignoreSkip?: boolean;
-  } = {}
+  hskFilter: HskFilter
 ): Promise<Sentence[]> {
+  const t0 = performance.now();
+
   // Step 1: Filter by script type
   let filtered = allSentences.filter(s => {
     // Always exclude ambiguous
@@ -233,6 +197,13 @@ export async function getEligibleSentences(
     return false;
   });
 
+  const t1 = performance.now();
+  nssLog('⏱️  Filter: Script', {
+    input: allSentences.length,
+    output: filtered.length,
+    time_ms: (t1 - t0).toFixed(2)
+  });
+
   // Fallback: if no sentences match script filter, use all non-ambiguous
   if (filtered.length === 0) {
     nssWarn('No sentences for script filter, using all non-ambiguous');
@@ -242,6 +213,7 @@ export async function getEligibleSentences(
   // Step 1.5: Filter by HSK level (ONLY for Simplified script)
   // Traditional sentences have no HSK classification, so skip HSK filtering
   if (scriptFilter === 'simplified') {
+    const t2 = performance.now();
     const allowedHskLevels = parseHskFilter(hskFilter);
     const hskFiltered = filtered.filter(s => {
       // If sentence has no HSK level, exclude it
@@ -249,6 +221,13 @@ export async function getEligibleSentences(
 
       // Check if sentence's HSK level is in the allowed set
       return allowedHskLevels.includes(s.hskLevel);
+    });
+
+    const t3 = performance.now();
+    nssLog('⏱️  Filter: HSK', {
+      input: filtered.length,
+      output: hskFiltered.length,
+      time_ms: (t3 - t2).toFixed(2)
     });
 
     // Use HSK filtered results (or fall back to script-filtered if HSK filtering removed everything)
@@ -264,26 +243,7 @@ export async function getEligibleSentences(
   }
   // For Traditional script: skip HSK filtering entirely (traditional sentences have no HSK levels)
 
-  // Step 2: Filter by cooldown and mastery skip
-  const eligible: Sentence[] = [];
-
-  for (const sentence of filtered) {
-    const state = await db.sentences.get(sentence.id);
-
-    // Check cooldown
-    if (!passesCooldown(state, now, options.ignoreCooldown)) {
-      continue;
-    }
-
-    // Check mastery skip
-    if (shouldSkip(state, options.ignoreSkip)) {
-      continue;
-    }
-
-    eligible.push(sentence);
-  }
-
-  return eligible;
+  return filtered;
 }
 
 /**
@@ -599,15 +559,20 @@ export async function generateSentenceBatch(
   let { k_min, k_max } = getDifficultyBand(dueWords);
   const k_cap = await getDynamicKCap();
 
-  // Step 2: Get LARGEST pool (ignore cooldown/skip upfront)
-  const eligible = await getEligibleSentences(allSentences, scriptFilter, hskFilter, now, {
-    ignoreCooldown: true,   // Get largest pool
-    ignoreSkip: true        // Get largest pool
-  });
+  // Step 2: Get eligible sentences (script + HSK filtering only)
+  const eligible = await getEligibleSentences(allSentences, scriptFilter, hskFilter);
 
   // Step 3: Sample once (larger than normal)
+  const t_shuffle_start = performance.now();
   const sampleSize = Math.min(eligible.length, SELECTION_CONFIG.pool_sample_size * 2);  // 2x larger
   const pool = shuffle(eligible).slice(0, sampleSize);
+  const t_shuffle_end = performance.now();
+
+  nssLog('⏱️  Shuffle + Sample', {
+    input: eligible.length,
+    output: pool.length,
+    time_ms: (t_shuffle_end - t_shuffle_start).toFixed(2)
+  });
 
   nssLog('📊 Pool Stats', {
     eligible_pool_size: eligible.length,

@@ -26,53 +26,76 @@ The NSS algorithm was refactored on 2025-11-17 to eliminate redundant database q
 - Total: ~1,500 scorings × 10 chars/sentence = **15,000+ DB queries**
 - Average batch generation time: **~2,200ms**
 
-**After (Refactored):**
-- Sample 600 sentences **once** from largest pool (ignoring cooldown/skip)
+**After (First Refactor - Nov 17 morning):**
+- Sample 600 sentences **once** from largest pool
 - Single `db.words.bulkGet()` for all unique characters (~483 chars)
 - Pre-compute metadata for all 600 sentences upfront
 - Fallback via **in-memory filtering** (no resampling)
 - Average batch generation time: **~1,000ms** (~54% faster)
 
+**After (Second Optimization - Nov 17 evening):**
+- Eliminated redundant DB lookups in `getEligibleSentences()`
+- Previously checked cooldown/skip for 14,212 sentences, then ignored results
+- Now skips cooldown/skip filtering entirely (computed later for sampled 600)
+- Average batch generation time: **~60ms** (~97% faster overall, ~94% faster from first refactor)
+
 ### Time Breakdown (Measured from Production Logs)
 
-From real usage logs (2025-11-17):
-
+**First Refactor (morning, Nov 17):**
 ```
 Total batch generation: 1,000-1,026ms
 ├─ Pool filtering + sampling: ~980ms (95%)
-│  ├─ getEligibleSentences(): filter 79k → 14k sentences
-│  ├─ Shuffle + sample 600: from 14k eligible
-│  └─ (This is the bottleneck - unavoidable)
+│  ├─ Script filter: 79k → 46k (7ms)
+│  ├─ HSK filter: 46k → 14k (3ms)
+│  ├─ Cooldown/Skip filter: 14k → 14k (810ms) ← WASTED! Results ignored
+│  └─ Shuffle + sample: 14k → 600 (1ms)
 ├─ Bulk character load: ~10ms (1%)
-│  └─ 483-487 characters @ 0.020ms/char
 ├─ Metadata computation: ~11ms (1%)
-│  ├─ 600 sentences @ 0.020ms/sentence
-│  ├─ Bulk sentence state load
-│  └─ Compute k_0.6, k_0.8, filters
 └─ Fallback filtering + scoring: ~20ms (2%)
-   ├─ In-memory filter: 600 → 276-285 candidates
-   └─ Score 276-285 sentences (no DB calls)
+```
+
+**Second Optimization (evening, Nov 17):**
+```
+Total batch generation: 59-60ms (94% improvement!)
+├─ Pool filtering + sampling: ~9ms (15%)
+│  ├─ Script filter: 79k → 46k (5ms)
+│  ├─ HSK filter: 46k → 14k (3ms)
+│  ├─ Cooldown/Skip: SKIPPED ← No DB queries!
+│  └─ Shuffle + sample: 14k → 600 (1ms)
+├─ Bulk character load: ~14ms (23%)
+│  └─ 469-487 characters @ 0.029ms/char
+├─ Metadata computation: ~11ms (19%)
+│  ├─ 600 sentences @ 0.019ms/sentence
+│  ├─ Bulk sentence state load
+│  └─ Compute k_0.6, k_0.8, cooldown/skip flags
+└─ Fallback filtering + scoring: ~25ms (42%)
+   ├─ In-memory filter: 600 → 253 candidates
+   └─ Score 253 sentences (no DB calls)
 ```
 
 ### Key Observations
 
-1. ✅ **Fallback efficiency**: 100% of batches succeed at FB0 (optimal filters applied)
-2. ✅ **Consistent quality**: k_avg=2.8-2.9, perfect match to target k_band=[1,3]
-3. ✅ **Bulk loading**: 483-487 characters in ~10ms (0.020ms/char) vs old 4,830ms
-4. ✅ **Fast metadata**: 600 sentences in ~11ms (0.020ms/sentence) vs old 6,000ms
-5. ⚠️ **Bottleneck**: 95% of time spent in initial corpus filtering/sampling
-   - `getEligibleSentences()` filters 79,333 → 14,212 sentences
-   - Shuffle + sample 600 from 14,212
-   - This is unavoidable (needs full corpus scan for filters)
+**After Second Optimization:**
+1. ✅ **97% total improvement**: 2,200ms → 60ms (37x faster!)
+2. ✅ **Eliminated waste**: Removed 14,212 redundant DB queries (810ms → 0ms)
+3. ✅ **Smart filtering**: Cooldown/skip computed once for 600 samples, not 14,212
+4. ✅ **Fallback efficiency**: 100% of batches succeed at FB0 (optimal filters)
+5. ✅ **Consistent quality**: k_avg=2.6-2.9, perfect match to target k_band=[2,3]
+6. ✅ **Production ready**: NSS logging disabled in production (dev-only now)
+
+**Performance Evolution:**
+- **Original**: 2,200ms (15,000+ individual DB queries)
+- **First Refactor**: 1,000ms (bulk loading, pre-computed metadata)
+- **Second Optimization**: 60ms (eliminated redundant DB lookups)
 
 ### Refactored Pipeline
 
 ```
-1. FILTER (once)     → Get largest pool (ignore cooldown/skip)
+1. FILTER (once)     → Script + HSK filtering only (79k → 14k)
 2. SAMPLE (once)     → Take 600 sentences (2x normal size)
-3. BULK LOAD (once)  → Load all character mastery data
-4. METADATA (once)   → Compute k_0.6, k_0.8, filter flags for all
-5. FALLBACK (loop)   → In-memory filtering (FB0-FB5)
+3. BULK LOAD (once)  → Load all character mastery data (~470 chars)
+4. METADATA (once)   → Compute k_0.6, k_0.8, cooldown/skip flags (600 sentences)
+5. FALLBACK (loop)   → In-memory filtering (FB0-FB5, no DB queries)
    ├─ FB0: cooldown✓, skip✓, k_band=adaptive, θ=0.6
    ├─ FB1: cooldown✓, skip✓, k_band=[1,6], θ=0.6
    ├─ FB2: cooldown✗, skip✓, k_band=[1,6], θ=0.6
@@ -83,36 +106,43 @@ Total batch generation: 1,000-1,026ms
 7. SELECT            → Take top 8, shuffle, queue
 ```
 
+**Key insight:** Cooldown/skip filtering moved from stage 1 (14k sentences) to stage 4 (600 sentences only), eliminating 14,212 redundant DB lookups.
+
 ### What Changed
 
-**Eliminated:**
-- ❌ Resampling 300 sentences per fallback (5 attempts = 1,500 samples)
-- ❌ Individual `db.words.get()` calls (15,000+ DB queries)
-- ❌ Individual `db.sentences.get()` calls (1,500+ DB queries)
-- ❌ Recalculating unknowns for each fallback attempt
+**First Refactor (morning):**
+- ❌ Eliminated resampling (300 × 5 = 1,500 sentences → 600 once)
+- ❌ Eliminated 15,000+ individual `db.words.get()` calls
+- ❌ Eliminated 1,500+ individual `db.sentences.get()` calls
+- ✅ Added bulk loading (`db.words.bulkGet()`, `db.sentences.bulkGet()`)
+- ✅ Added pre-computed metadata (k_0.6, k_0.8, filter flags)
+- ✅ Added in-memory filtering (no resampling, no DB queries in fallback loop)
 
-**Added:**
-- ✅ Single larger sample (600 sentences, ignore all filters)
-- ✅ Bulk loading (`db.words.bulkGet()` - single query)
-- ✅ Pre-computed metadata (k_0.6, k_0.8, filter flags)
-- ✅ In-memory filtering (no resampling, no DB queries)
+**Second Optimization (evening):**
+- ❌ Eliminated 14,212 redundant `db.sentences.get()` calls in `getEligibleSentences()`
+- ❌ Removed `passesCooldown()` and `shouldSkip()` helper functions (~31 lines)
+- ✅ Simplified `getEligibleSentences()` to only script + HSK filtering (~40 lines removed)
+- ✅ Cooldown/skip flags now computed once in `computeAllMetadata()` (for 600 samples only)
+- ✅ Made NSS logging dev-only (disabled in production)
 
-**Preserved:**
-- ✅ Identical scoring formula
-- ✅ Identical fallback cascade (FB0-FB5)
-- ✅ Identical filter logic (cooldown, skip, k_band, θ_known)
+**Preserved (still identical to original):**
+- ✅ Scoring formula (base_gain, novelty, pass_penalty, k_penalty)
+- ✅ Fallback cascade logic (FB0-FB5)
+- ✅ Filter thresholds (cooldown, skip, k_band, θ_known)
 - ✅ Character deduplication (each unique char counted once)
 
 ### Future Optimization Opportunities
 
-The refactor eliminated scoring inefficiency, but **95% of time is now spent on corpus filtering**. Potential future optimizations:
+At **~60ms per batch**, the NSS algorithm is now highly optimized. The remaining time is distributed across necessary operations (script/HSK filtering, bulk loading, metadata computation).
 
-1. **Index-based filtering**: Pre-index sentences by HSK level, script type
+Potential future micro-optimizations (if needed):
+
+1. **Index-based filtering**: Pre-index sentences by HSK level, script type (~5ms → ~1ms)
 2. **Cached eligible pools**: Cache filtered pools per (script, HSK) combination
-3. **Incremental updates**: Update cached pools when mastery changes
-4. **Lazy loading**: Only load sentence data when needed (currently loads full corpus)
+3. **Web Workers**: Move filtering to background thread (non-blocking UI)
+4. **WASM**: Compile filtering logic to WebAssembly for ~2x speed
 
-However, at 1 second per batch, this is likely not a priority. The 54% improvement addresses the main bottleneck.
+However, at **60ms per batch** (97% improvement from original 2,200ms), further optimization is not a priority. The algorithm is now fast enough for real-time use.
 
 ## Core Pipeline (Legacy Documentation)
 
@@ -371,7 +401,7 @@ learning_threshold: 0.4  // "Learning" character
 **Wrong!** Each fallback resamples a fresh 300, either from the same pool (FB1, FB4) or an expanded pool (FB2, FB3).
 
 ### ❌ "k_band and θ_known filter the pool"
-**Wrong!** They're scoring constraints (Stage 2), not pool filters (Stage 1). Pool is filtered by script/HSK/cooldown/skip only.
+**Wrong!** They're scoring constraints (Stage 2), not pool filters (Stage 1). Pool is filtered by script/HSK only (cooldown/skip applied later to metadata).
 
 ## Code References
 
@@ -385,10 +415,11 @@ learning_threshold: 0.4  // "Learning" character
 - **Pool filtering:** `sentence-selection.ts:213-287` (`getEligibleSentences`)
 - **Configuration:** `selection-config.ts:8-114`
 
-### Legacy Implementation (Pre-Refactor)
+### Legacy Implementation (Removed)
 
-- **Old scoring (deprecated):** Removed in Nov 2024 refactor (`scoreCandidates`, `scoreSentence`)
-- **Old fallbacks (deprecated):** Removed in Nov 2024 refactor (`applyFallbacks`)
+- **Old scoring (deprecated):** Removed Nov 17 morning (`scoreCandidates`, `scoreSentence`, `countUnknowns`)
+- **Old fallbacks (deprecated):** Removed Nov 17 morning (`applyFallbacks`)
+- **Old filter helpers (deprecated):** Removed Nov 17 evening (`passesCooldown`, `shouldSkip`)
 
 ## Further Reading
 
