@@ -656,7 +656,7 @@ function MasteryBreakdownTabs({ masteredWords, learningWords, newWords, unseenCh
       label: 'Learning',
       count: learningWords.length,
       description: isDev
-        ? `Making progress (${SELECTION_CONFIG.learning_threshold}-${SELECTION_CONFIG.mastered_threshold} mastery)`
+        ? `Making progress (≥${SELECTION_CONFIG.learning_threshold}, <${SELECTION_CONFIG.mastered_threshold} mastery)`
         : 'Making progress',
       words: learningWords,
       color: 'blue',
@@ -771,7 +771,7 @@ function MasteryBreakdownTabs({ masteredWords, learningWords, newWords, unseenCh
 
                     {/* Footer: Score and HSK (pinned to bottom) */}
                     <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-500">
-                      <span>{word.s.toFixed(2)}</span>
+                      <span>{(Math.floor(word.s * 100) / 100).toFixed(2)}</span>
                       <span>
                         {hskLevel
                           ? `HSK ${hskLevel}`
