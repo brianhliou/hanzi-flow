@@ -790,3 +790,188 @@ for pinyin, pinyin_freq in pinyin_list:
 ```
 
 Only 2 characters affected, only non-ASCII node found in entire Trie.
+
+---
+
+## 7. CJK Extension B Characters: Font Rendering and Content Obfuscation
+
+**Date:** 2025-11-17
+
+**Problem:**
+During investigation of HSK character coverage, discovered two "Beyond HSK" characters in the Unseen tab that rendered as 6 parallel horizontal lines (tofu characters) instead of displaying properly. User reported:
+- Both characters had only one pinyin: ji1 and ba0
+- Both appeared in the "Unseen" tab under Beyond HSK level
+- Rendered identically as placeholder boxes
+
+**Investigation Process:**
+1. Initially searched for characters with pinyin `ji1` and `ba0` using tone numbers - no results
+2. Realized CSV uses tone marks (diacritics) not tone numbers: `jī` vs `ji1`
+3. Searched for Beyond HSK (empty hsk_level) characters with pinyins `jī` and `ba`
+4. Found 13 Beyond HSK characters with these pinyins
+5. Identified last two as the problematic ones:
+   - **𣬠** (U+23B20, char_id: 20993, pinyin: jī)
+   - **𣬶** (U+23B36, char_id: 20994, pinyin: ba)
+6. Checked sentences containing these characters
+7. Found both characters used together in only 2 sentences (IDs: 54684, 57736)
+
+**Root Cause:**
+Three interconnected issues:
+
+1. **Font Rendering Problem:**
+   - Both characters are in **CJK Unified Ideographs Extension B** block (U+20000–U+2FFFF)
+   - This is the Supplementary Ideographic Plane for rare/archaic Chinese characters
+   - Standard system fonts lack glyphs for Extension B characters
+   - Browsers display "tofu" (□ or horizontal lines) as placeholder
+
+2. **Content Obfuscation:**
+   - These characters appear together as "𣬠𣬶" in explicit/adult content sentences
+   - Used as homophonic substitution to evade content filters
+   - Common technique: Use extremely rare Unicode characters with same pronunciation as vulgar terms
+   - Source data contained unfiltered user-generated content from language learning platforms
+
+3. **Corpus Quality:**
+   - Characters exist in character set but only appear in 2 sentences
+   - Both sentences contain adult/explicit content
+   - Not legitimate learning material
+   - Demonstrates need for content filtering in corpus pipeline
+
+**Affected Sentences:**
+```
+Sentence ID: 54684
+- Text: 我不喜歡假陽具，我更偏愛真的𣬠𣬶。
+- English: I don't like fake dildos; I prefer the real thing.
+- Script: traditional
+- HSK Level: (none)
+
+Sentence ID: 57736
+- Text: 吸我𣬠𣬶。
+- English: Suck my blood.
+- Script: neutral
+- HSK Level: 4 (!)
+```
+
+**Character Details:**
+```
+Character: 𣬠
+- Unicode: U+23B20 (decimal: 146208)
+- UTF-8 bytes: f0a3aca0
+- Pinyin: jī (tone 1)
+- Unicode name: CJK UNIFIED IDEOGRAPH-23B20
+- HSK Level: Beyond HSK (empty)
+- Frequency: Appears in 2 sentences
+
+Character: 𣬶
+- Unicode: U+23B36 (decimal: 146230)
+- UTF-8 bytes: f0a3acb6
+- Pinyin: ba (neutral tone)
+- Unicode name: CJK UNIFIED IDEOGRAPH-23B36
+- HSK Level: Beyond HSK (empty)
+- Frequency: Appears in 2 sentences
+```
+
+**Solution Options:**
+
+**Option 1: Filter CJK Extension B+ Characters from Corpus**
+- Exclude all characters >= U+20000 from character set
+- Prevents font rendering issues
+- Eliminates rare/archaic characters unlikely to be useful for learners
+- **Recommended approach**
+
+**Option 2: Content Filtering in Pipeline**
+- Add content moderation step in `export_to_json.py`
+- Filter explicit/adult content based on keywords, translations, or AI classification
+- More comprehensive but requires ongoing maintenance
+
+**Option 3: Display Fallback for Unsupported Characters**
+- Show pinyin + "character not displayable" for Extension B+ characters
+- Preserves corpus completeness but degrades UX
+- Doesn't solve underlying content quality issue
+
+**Option 4: Install Comprehensive CJK Fonts**
+- Fonts like SimSun-ExtB (Windows) support Extension B
+- Very large fonts (several MB)
+- Not practical for web deployment
+- Still doesn't solve content quality issue
+
+**Key Takeaways:**
+- ⚠️ **CJK Extension B+ characters (U+20000+) don't render in standard fonts** - Will appear as tofu/boxes
+- ⚠️ **Rare Unicode characters are used for content obfuscation** - Especially for evading automated filters
+- ⚠️ **User-generated content needs filtering** - Source data from platforms like Tatoeba can contain inappropriate content
+- ✅ **Unicode ranges are meaningful** - Basic Multilingual Plane (U+0000–U+FFFF) vs Supplementary planes
+- ✅ **Character frequency analysis helps identify edge cases** - Low-frequency characters often indicate problems
+- ✅ **Cross-reference character usage** - Characters appearing in only 1-2 sentences warrant investigation
+- 📊 **Content statistics reveal quality issues:**
+  - 2,135 Beyond HSK characters in character set
+  - Only 2 cause rendering issues (0.09%)
+  - But those 2 appear in problematic content
+- 🔍 **Investigation technique**: Search by pinyin + HSK level + frequency to isolate rare characters
+
+**Recommended Actions:**
+1. Add content filtering to corpus pipeline (`scripts/sentences/export_to_json.py`)
+2. Filter out CJK Extension B+ characters (>= U+20000) from character set
+3. Review other low-frequency Beyond HSK characters for similar issues
+4. Document acceptable content policy for corpus sources
+5. Add automated checks for:
+   - Unicode range validation (warn on Extension B+)
+   - Character frequency analysis (flag characters in <3 sentences)
+   - Translation content review (flag explicit keywords)
+
+**Related Files:**
+- `app/public/data/character_set/characters.csv` - Character set with Extension B characters
+- `app/public/data/sentences/sentences.json` - Corpus with affected sentences
+- `scripts/sentences/export_to_json.py` - Pipeline script for corpus generation (needs filtering)
+- `app/components/UserStats.tsx` - UI displaying unseen characters (shows rendering issues)
+
+**Unicode Background:**
+```
+CJK Unified Ideographs (Basic): U+4E00–U+9FFF (20,992 characters)
+  ↑ Most common Chinese characters, well-supported by fonts
+
+CJK Extension A: U+3400–U+4DBF (6,592 characters)
+  ↑ Rare characters, good font support
+
+CJK Extension B: U+20000–U+2A6DF (42,720 characters)
+  ↑ Very rare/archaic, poor font support ⚠️
+  ↑ Our problematic characters are here
+
+CJK Extensions C-H: U+2A700–U+323AF (91,000+ characters)
+  ↑ Extremely rare, minimal font support
+```
+
+**Why Extension B Characters Don't Render:**
+- Require 4-byte UTF-8 encoding (vs 3-byte for Basic plane)
+- Not included in standard OS fonts (Arial, Helvetica, system fonts)
+- Only specialized fonts include them (SimSun-ExtB, MingLiU-ExtB)
+- Web fonts with Extension B are prohibitively large (10+ MB)
+- Most Chinese language learners will never encounter these characters
+
+**Content Obfuscation Techniques (for awareness):**
+1. **Homophonic substitution** - Rare characters with same pinyin (𣬠𣬶 example)
+2. **Visually similar characters** - Traditional/simplified variants, Japanese kanji
+3. **Zero-width characters** - Invisible Unicode characters to break word matching
+4. **Character decomposition** - Using radicals separately instead of combined character
+5. **Mixed scripts** - Cyrillic/Greek letters that look like Latin (е vs e)
+
+**Investigation Command Reference:**
+```python
+# Search for characters by pinyin and HSK level
+import csv
+with open('chinese_characters.csv', 'r', encoding='utf-8') as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        if not row['hsk_level']:  # Beyond HSK
+            pinyins = row['pinyins'].split('|')
+            if len(pinyins) == 1 and pinyins[0] in ['jī', 'ba']:
+                char = row['char']
+                print(f"{char} U+{ord(char):04X} {pinyins[0]}")
+
+# Check Unicode range
+def get_unicode_plane(char):
+    code = ord(char)
+    if code < 0x10000:
+        return "BMP (Basic Multilingual Plane)"
+    elif 0x20000 <= code <= 0x2FFFF:
+        return "SIP (Supplementary Ideographic Plane) - Extension B+"
+    else:
+        return f"Other plane (U+{code:04X})"
+```

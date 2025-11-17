@@ -15,7 +15,7 @@ Input:
 - data/character_set/v0/step5_hsk.csv (v0 metadata for enrichment)
 
 Output:
-- data/character_set/v1/production/chinese_characters_v1.csv
+- data/character_set/v1/production/characters_v1.csv
 
 Production CSV format (5 columns - only used columns):
 - id,char,pinyins,script_type,hsk_level
@@ -31,23 +31,54 @@ Note:
 
 import csv
 from pathlib import Path
-from typing import Dict, Set
+from typing import Dict, Set, List, Tuple
 from collections import Counter
+
+
+def contains_cjk_extension_b_plus(text: str) -> List[Tuple[str, str]]:
+    """
+    Check if text contains CJK Extension B or higher characters (U+20000+).
+
+    These characters don't render in standard fonts and are often used for
+    content obfuscation or are extremely rare archaic characters.
+
+    Returns:
+        List of (char, unicode) tuples for Extension B+ characters found, or empty list
+    """
+    extension_b_chars = []
+    for char in text:
+        code_point = ord(char)
+        # CJK Extension B starts at U+20000 (decimal 131072)
+        if code_point >= 0x20000:
+            extension_b_chars.append((char, f"U+{code_point:04X}"))
+    return extension_b_chars
 
 
 def extract_characters_from_corpus(corpus_path: Path) -> Dict[str, int]:
     """
     Extract unique characters and their frequencies from sentence corpus.
 
+    Applies same filtering as export_to_json.py:
+    - Filters out sentences with CJK Extension B+ characters (U+20000+)
+
     Returns:
         dict mapping character → frequency count
     """
     char_freq = Counter()
+    filtered_count = 0
 
     with open(corpus_path, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
 
         for row in reader:
+            sentence = row.get('sentence', '')
+
+            # Filter: Check for CJK Extension B+ characters
+            extension_b_chars = contains_cjk_extension_b_plus(sentence)
+            if extension_b_chars:
+                filtered_count += 1
+                continue  # Skip this sentence
+
             char_pinyin_pairs = row.get('char_pinyin_pairs', '')
 
             # Parse: 我:wo3|們:men|試:shi4|試:shi4|看:kan4|！:
@@ -57,6 +88,9 @@ def extract_characters_from_corpus(corpus_path: Path) -> Dict[str, int]:
                     char = pair.split(':')[0]
                     if char:  # Skip empty
                         char_freq[char] += 1
+
+    if filtered_count > 0:
+        print(f"  ⚠️  Filtered {filtered_count} sentences with CJK Extension B+ characters")
 
     return dict(char_freq)
 
@@ -117,9 +151,9 @@ def main():
     # Paths
     project_root = Path(__file__).parent.parent.parent.parent
     v1_path = project_root / 'data' / 'character_set' / 'v1' / 'sot_characters_v1.0.csv'
-    corpus_path = project_root / 'data' / 'sentences' / 'step5_pinyin_refined.csv'
+    corpus_path = project_root / 'data' / 'sentences' / 'sentences.csv'  # Updated to current source
     v0_metadata_path = project_root / 'data' / 'character_set' / 'v0' / 'step5_hsk.csv'
-    output_path = project_root / 'data' / 'character_set' / 'v1' / 'production' / 'chinese_characters_v1.csv'
+    output_path = project_root / 'data' / 'character_set' / 'v1' / 'production' / 'characters_v1.csv'
 
     print("=" * 80)
     print("Export v1 Character Set to Production CSV")

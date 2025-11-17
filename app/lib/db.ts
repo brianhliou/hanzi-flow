@@ -21,7 +21,7 @@ import { isDebugMode } from './debug';
  * Tracks learning progress for a single character
  */
 export interface WordMastery {
-  char_id: number;           // Primary key - character ID from chinese_characters.csv
+  char_id: number;           // Primary key - character ID from characters.csv
   s: number;                 // Mastery score [0,1] - exponential smoothing
   stability_days: number;    // Spaced repetition interval (days)
   next_review_ts: number;    // Next review timestamp (epoch ms)

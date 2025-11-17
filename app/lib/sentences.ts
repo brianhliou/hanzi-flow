@@ -39,7 +39,7 @@ export async function loadSentences(): Promise<Sentence[]> {
   if (isDebugMode()) {
     console.log('🌐 Loading sentences from network...');
   }
-  const response = await fetch('/data/sentences/sentences_with_translation.json');
+  const response = await fetch('/data/sentences/sentences.json');
   if (!response.ok) {
     throw new Error('Failed to load sentences');
   }

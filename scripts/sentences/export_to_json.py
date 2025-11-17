@@ -10,7 +10,7 @@ Includes English translations, HSK levels, and corpus metadata.
 Applies content filters to remove unwanted sentences.
 
 Input: ../../data/sentences/sentences.csv (complete sentence data)
-Output: ../../app/public/data/sentences/sentences_with_translation.json (production JSON)
+Output: ../../app/public/data/sentences/sentences.json (production JSON)
 
 Usage:
     python export_to_json.py
@@ -41,6 +41,28 @@ FILTER_PATTERNS = [
 MAX_SENTENCE_LENGTH = 50
 
 
+def contains_cjk_extension_b_plus(text):
+    """
+    Check if text contains CJK Extension B or higher characters (U+20000+).
+
+    These characters don't render in standard fonts and are often used for
+    content obfuscation or are extremely rare archaic characters.
+
+    Args:
+        text: Text to check
+
+    Returns:
+        List of (char, unicode) tuples for Extension B+ characters found, or empty list
+    """
+    extension_b_chars = []
+    for char in text:
+        code_point = ord(char)
+        # CJK Extension B starts at U+20000 (decimal 131072)
+        if code_point >= 0x20000:
+            extension_b_chars.append((char, f"U+{code_point:04X}"))
+    return extension_b_chars
+
+
 def should_filter_sentence(sentence, english_translation):
     """
     Check if a sentence should be filtered out based on FILTER_PATTERNS and length.
@@ -55,6 +77,13 @@ def should_filter_sentence(sentence, english_translation):
     # Check length first (faster)
     if len(sentence) > MAX_SENTENCE_LENGTH:
         return True, f"too long ({len(sentence)} chars > {MAX_SENTENCE_LENGTH})"
+
+    # Check for CJK Extension B+ characters (U+20000+)
+    # These don't render in standard fonts and are often problematic
+    extension_b_chars = contains_cjk_extension_b_plus(sentence)
+    if extension_b_chars:
+        chars_info = ', '.join([f"{char} ({unicode})" for char, unicode in extension_b_chars])
+        return True, f"contains CJK Extension B+ characters: {chars_info}"
 
     combined_text = f"{sentence} {english_translation}"
 
@@ -110,7 +139,7 @@ def calculate_unique_chars(converted_sentences):
 
 
 def convert_to_json(input_file='../../data/sentences/sentences.csv',
-                   output_file='../../app/public/data/sentences/sentences_with_translation.json',
+                   output_file='../../app/public/data/sentences/sentences.json',
                    limit=None):
     """
     Convert CSV to JSON format for the web app with metadata wrapper.

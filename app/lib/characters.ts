@@ -26,7 +26,7 @@ export async function loadCharacterMapping(): Promise<Map<string, number>> {
   if (isDebugMode()) {
     console.log('🌐 Loading character mapping from network...');
   }
-  const response = await fetch('/data/character_set/chinese_characters.csv');
+  const response = await fetch('/data/character_set/characters.csv');
   if (!response.ok) {
     throw new Error('Failed to load character mapping');
   }

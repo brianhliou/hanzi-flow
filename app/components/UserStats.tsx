@@ -89,7 +89,7 @@ function parseCSVLine(line: string): string[] {
 async function loadIdToCharMap(): Promise<Map<number, { char: string; pinyin: string; allPinyins: string[]; hskLevel?: string; scriptType?: string }>> {
   if (idToCharMap) return idToCharMap;
 
-  const response = await fetch('/data/character_set/chinese_characters.csv');
+  const response = await fetch('/data/character_set/characters.csv');
   if (!response.ok) {
     throw new Error('Failed to load character mapping');
   }
