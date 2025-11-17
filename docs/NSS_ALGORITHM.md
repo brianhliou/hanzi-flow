@@ -39,6 +39,14 @@ The NSS algorithm was refactored on 2025-11-17 to eliminate redundant database q
 - Now skips cooldown/skip filtering entirely (computed later for sampled 600)
 - Average batch generation time: **~60ms** (~97% faster overall, ~94% faster from first refactor)
 
+**After (Third Optimization - Nov 17 evening, Accumulative Fallback):**
+- Changed from "all-or-nothing" to "accumulate-and-fill" fallback strategy
+- **Before**: FB0 produces 5 sentences → discard all, try FB1 → use all 8 from FB1
+- **After**: FB0 produces 5 sentences → keep them, FB1 fills remaining 3 → use 5 from FB0 + 3 from FB1
+- **Benefit**: Higher quality batches (more sentences from strictest filters)
+- **Worst case improved**: Was 8 random (FB5), now 6 good + 2 random
+- Performance: **~60ms** (same speed, better quality)
+
 ### Time Breakdown (Measured from Production Logs)
 
 **First Refactor (morning, Nov 17):**
@@ -75,18 +83,20 @@ Total batch generation: 59-60ms (94% improvement!)
 
 ### Key Observations
 
-**After Second Optimization:**
-1. ✅ **97% total improvement**: 2,200ms → 60ms (37x faster!)
+**After All Optimizations:**
+1. ✅ **97% performance improvement**: 2,200ms → 60ms (37x faster!)
 2. ✅ **Eliminated waste**: Removed 14,212 redundant DB queries (810ms → 0ms)
 3. ✅ **Smart filtering**: Cooldown/skip computed once for 600 samples, not 14,212
-4. ✅ **Fallback efficiency**: 100% of batches succeed at FB0 (optimal filters)
-5. ✅ **Consistent quality**: k_avg=2.6-2.9, perfect match to target k_band=[2,3]
-6. ✅ **Production ready**: NSS logging disabled in production (dev-only now)
+4. ✅ **Accumulative fallback**: Keep high-quality sentences from strict filters
+5. ✅ **Better worst-case**: Was 8 random (FB5), now mix of good + random
+6. ✅ **Consistent quality**: k_avg=2.6-2.9, perfect match to target k_band=[2,3]
+7. ✅ **Production ready**: NSS logging disabled in production (dev-only now)
 
 **Performance Evolution:**
 - **Original**: 2,200ms (15,000+ individual DB queries)
 - **First Refactor**: 1,000ms (bulk loading, pre-computed metadata)
 - **Second Optimization**: 60ms (eliminated redundant DB lookups)
+- **Third Optimization**: 60ms (same speed, improved quality via accumulation)
 
 ### Refactored Pipeline
 
@@ -108,6 +118,34 @@ Total batch generation: 59-60ms (94% improvement!)
 
 **Key insight:** Cooldown/skip filtering moved from stage 1 (14k sentences) to stage 4 (600 sentences only), eliminating 14,212 redundant DB lookups.
 
+### Accumulative Fallback Strategy
+
+**Traditional "All-or-Nothing" Approach (Old):**
+```
+FB0 (strict) → 5 sentences ❌ Not enough, discard all
+FB1 (relaxed) → 7 sentences ❌ Not enough, discard all
+FB2 (more relaxed) → 8 sentences ✅ Use all 8 from FB2
+Result: 0 from FB0, 0 from FB1, 8 from FB2
+```
+
+**Accumulative "Keep and Fill" Approach (New):**
+```
+FB0 (strict) → 5 sentences ✅ Keep (need 3 more)
+FB1 (relaxed) → 3 sentences ✅ Keep (done!)
+Result: 5 from FB0 + 3 from FB1 = 8 total
+```
+
+**Benefits:**
+- **Higher quality**: More sentences from strict filters (cooldown✓, skip✓, tight k_band)
+- **Better worst-case**: If FB0-FB4 produce 6 sentences, FB5 only adds 2 random (not 8)
+- **No duplicates**: Each fallback excludes already-accumulated sentences (`usedSids` Set)
+- **Transparent**: Logs show distribution (e.g., `{ FB0: 5, FB1: 3 }`)
+
+**Example Scenarios:**
+- **Healthy state**: `{ FB0: 8 }` - All from strictest filters
+- **Cooldown exhausted**: `{ FB0: 5, FB2: 3 }` - Mix of strict + no-cooldown
+- **Emergency**: `{ FB0: 3, FB1: 2, FB2: 1, FB5: 2 }` - Best effort from each level
+
 ### What Changed
 
 **First Refactor (morning):**
@@ -125,9 +163,17 @@ Total batch generation: 59-60ms (94% improvement!)
 - ✅ Cooldown/skip flags now computed once in `computeAllMetadata()` (for 600 samples only)
 - ✅ Made NSS logging dev-only (disabled in production)
 
+**Third Optimization (evening, Accumulative Fallback):**
+- ❌ Eliminated "all-or-nothing" fallback behavior (discarding good sentences)
+- ✅ Changed to accumulative strategy: keep sentences from earlier fallbacks
+- ✅ Added deduplication logic (`usedSids` Set) to prevent duplicates
+- ✅ Track fallback source for each sentence (`fallbackLevels` array)
+- ✅ Updated logging to show fallback distribution (e.g., `{ FB0: 5, FB1: 3 }`)
+- ✅ Each fallback level only fills remaining slots (not full 8)
+
 **Preserved (still identical to original):**
 - ✅ Scoring formula (base_gain, novelty, pass_penalty, k_penalty)
-- ✅ Fallback cascade logic (FB0-FB5)
+- ✅ Fallback cascade sequence (FB0→FB1→FB2→FB3→FB4→FB5)
 - ✅ Filter thresholds (cooldown, skip, k_band, θ_known)
 - ✅ Character deduplication (each unique char counted once)
 

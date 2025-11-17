@@ -585,11 +585,15 @@ export async function generateSentenceBatch(
   // Step 5: Compute metadata for all sampled sentences
   const metadata = await computeAllMetadata(pool, charMasteryMap, now);
 
-  // Step 6: Fallback filtering loop
-  let scored: ScoredSentence[] = [];
+  // Step 6: Fallback filtering loop (accumulative)
+  const accumulated: ScoredSentence[] = [];
+  const fallbackLevels: number[] = [];  // Track which FB each sentence came from
   let fallbackAttempt = 0;
 
-  while (scored.length < SELECTION_CONFIG.batch_size && fallbackAttempt <= 5) {
+  while (accumulated.length < SELECTION_CONFIG.batch_size && fallbackAttempt <= 5) {
+    // Exclude already accumulated sentences
+    const usedSids = new Set(accumulated.map(s => s.sid));
+
     let candidates: SentenceMetadata[];
     let useThreshold: 0.6 | 0.8 = 0.6;
 
@@ -600,6 +604,7 @@ export async function generateSentenceBatch(
           filters: ['cooldown', 'skip', `k_band=[${k_min},${k_max}]`, 'θ=0.6']
         });
         candidates = metadata.filter(m =>
+          !usedSids.has(m.sentence.id) &&
           m.passesCooldown &&
           m.passesSkip &&
           m.k_0_6 >= k_min &&
@@ -615,6 +620,7 @@ export async function generateSentenceBatch(
         k_min = 1;
         k_max = 6;
         candidates = metadata.filter(m =>
+          !usedSids.has(m.sentence.id) &&
           m.passesCooldown &&
           m.passesSkip &&
           m.k_0_6 >= 1 &&
@@ -628,6 +634,7 @@ export async function generateSentenceBatch(
           filters: ['skip', 'k_band=[1,6]', 'θ=0.6']
         });
         candidates = metadata.filter(m =>
+          !usedSids.has(m.sentence.id) &&
           m.passesSkip &&
           m.k_0_6 >= 1 &&
           m.k_0_6 <= 6
@@ -640,6 +647,7 @@ export async function generateSentenceBatch(
           filters: ['k_band=[1,6]', 'θ=0.6']
         });
         candidates = metadata.filter(m =>
+          !usedSids.has(m.sentence.id) &&
           m.k_0_6 >= 1 &&
           m.k_0_6 <= 6
         );
@@ -653,28 +661,25 @@ export async function generateSentenceBatch(
         });
         useThreshold = 0.8;
         candidates = metadata.filter(m =>
+          !usedSids.has(m.sentence.id) &&
           m.k_0_8 >= 1 &&
           m.k_0_8 <= 6
         );
         break;
 
       case 5:
-        // FB5: Random fallback
+        // FB5: Random fallback (exclude already used)
         nssError('❌ FB5: Random selection (all strategies exhausted)');
-        candidates = [];  // Set to empty to satisfy TypeScript
-        scored = shuffle(metadata)
-          .slice(0, SELECTION_CONFIG.batch_size)
-          .map(m => ({
-            sid: m.sentence.id,
-            score: 0,
-            k: 0,
-            last_seen_ts: m.last_seen_ts
-          }));
+        const availableForRandom = metadata.filter(m => !usedSids.has(m.sentence.id));
+        candidates = availableForRandom;
         break;
 
       default:
         candidates = [];
     }
+
+    // Score and accumulate
+    let scored: ScoredSentence[];
 
     if (fallbackAttempt < 5) {
       nssLog(`Fallback ${fallbackAttempt} filtered`, {
@@ -687,20 +692,42 @@ export async function generateSentenceBatch(
       nssLog(`Fallback ${fallbackAttempt} scored`, {
         scored_count: scored.length
       });
+    } else {
+      // FB5: Random selection
+      const needed = SELECTION_CONFIG.batch_size - accumulated.length;
+      scored = shuffle(candidates)
+        .slice(0, needed)
+        .map(m => ({
+          sid: m.sentence.id,
+          score: 0,
+          k: m.k_0_6,
+          last_seen_ts: m.last_seen_ts
+        }));
     }
 
-    if (scored.length >= SELECTION_CONFIG.batch_size) {
-      break;
+    // Take only what we need to fill remaining slots
+    const needed = SELECTION_CONFIG.batch_size - accumulated.length;
+    const topN = takeTopN(scored, needed);
+
+    if (topN.length > 0) {
+      accumulated.push(...topN);
+
+      // Track fallback level for each added sentence
+      for (let i = 0; i < topN.length; i++) {
+        fallbackLevels.push(fallbackAttempt);
+      }
+
+      nssLog(`FB${fallbackAttempt} contributed`, {
+        added: topN.length,
+        accumulated: accumulated.length
+      });
     }
 
     fallbackAttempt++;
   }
 
-  // Step 5: Select top N
-  const selected = takeTopN(scored, SELECTION_CONFIG.batch_size);
-
-  // Shuffle selected to mix difficulty
-  const shuffled = shuffle(selected);
+  // Step 7: Shuffle to mix sentences from different fallback levels
+  const shuffled = shuffle(accumulated);
 
   // Calculate k distribution histogram
   const kValues = shuffled.map(s => s.k).sort((a, b) => a - b);
@@ -709,12 +736,20 @@ export async function generateSentenceBatch(
     kHistogram[k] = (kHistogram[k] || 0) + 1;
   });
 
+  // Calculate fallback distribution
+  const fallbackDistribution: Record<string, number> = {};
+  fallbackLevels.forEach(fb => {
+    const key = `FB${fb}`;
+    fallbackDistribution[key] = (fallbackDistribution[key] || 0) + 1;
+  });
+
   const totalTime = performance.now() - startTime;
 
-  nssLog('✅ Batch Generated (REFACTORED)', {
+  nssLog('✅ Batch Generated (ACCUMULATIVE)', {
     batch_num: batchCounter,
     size: shuffled.length,
     total_time_ms: totalTime.toFixed(2),
+    fallback_distribution: fallbackDistribution,
     k: {
       avg: (shuffled.reduce((sum, s) => sum + s.k, 0) / shuffled.length).toFixed(1),
       min: Math.min(...kValues),
@@ -727,8 +762,7 @@ export async function generateSentenceBatch(
         Math.min(...shuffled.map(s => s.score)).toFixed(2),
         Math.max(...shuffled.map(s => s.score)).toFixed(2)
       ]
-    },
-    fallback_level: fallbackAttempt
+    }
   });
 
   // Step 6: Create queue
