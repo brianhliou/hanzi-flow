@@ -516,7 +516,7 @@ async function applyFallbacks(
   attempt: number
 ): Promise<{ pool: Sentence[]; k_min: number; k_max: number; θ_known: number }> {
   let { k_min, k_max } = getDifficultyBand(await countDueWords(now));
-  let θ_known: number = SELECTION_CONFIG.θ_known;
+  const θ_known: number = SELECTION_CONFIG.θ_known;
 
   switch (attempt) {
     case 1:
@@ -610,7 +610,7 @@ export async function generateSentenceBatch(
   }
 
   // Step 2: Build candidate pool
-  let eligible = await getEligibleSentences(allSentences, scriptFilter, hskFilter, now);
+  const eligible = await getEligibleSentences(allSentences, scriptFilter, hskFilter, now);
 
   // Sample pool (or use all if less than pool_sample_size)
   const poolSize = Math.min(eligible.length, SELECTION_CONFIG.pool_sample_size);
