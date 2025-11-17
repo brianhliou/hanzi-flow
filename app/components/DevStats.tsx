@@ -21,6 +21,39 @@ export default function DevStats() {
   const [charLookup, setCharLookup] = useState<Map<number, string>>(new Map());
   const [sentenceLookup, setSentenceLookup] = useState<Map<number, string>>(new Map());
 
+  const exportSnapshot = async () => {
+    try {
+      const snapshot = {
+        timestamp: Date.now(),
+        dateExported: new Date().toISOString(),
+        stats,
+        words,
+        sentences,
+        metadata: {
+          totalWords: words.length,
+          totalSentences: sentences.length,
+          avgMastery: stats?.avgMastery,
+          description: 'NSS algorithm test snapshot - IndexedDB state before refactor'
+        }
+      };
+
+      const blob = new Blob([JSON.stringify(snapshot, null, 2)], {
+        type: 'application/json'
+      });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `nss-snapshot-${Date.now()}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+
+      alert(`Snapshot exported!\n${words.length} words, ${sentences.length} sentences`);
+    } catch (error) {
+      console.error('Failed to export snapshot:', error);
+      alert('Failed to export snapshot. Check console for details.');
+    }
+  };
+
   const loadData = async () => {
     setLoading(true);
 
@@ -94,7 +127,7 @@ export default function DevStats() {
       </div>
 
       {/* Toggle Buttons - Fixed Section */}
-      <div className="flex gap-6">
+      <div className="flex gap-6 items-center">
         <button
           onClick={() => setShowWords(!showWords)}
           className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
@@ -106,6 +139,13 @@ export default function DevStats() {
           className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
         >
           {showSentences ? 'Hide' : 'Show'} All Sentences ({sentences.length})
+        </button>
+        <div className="border-l border-gray-300 dark:border-gray-600 h-4 mx-2"></div>
+        <button
+          onClick={exportSnapshot}
+          className="text-sm bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded transition-colors"
+        >
+          📸 Export Snapshot
         </button>
       </div>
 
