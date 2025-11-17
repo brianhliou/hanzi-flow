@@ -171,102 +171,48 @@ id,char,codepoint,pinyins_tone3,pinyins_display,script_type,variants,gloss_en,ex
 
 ## Next Sentence Selection (NSS) Algorithm
 
-### Overview
+> **📖 See [`NSS_ALGORITHM.md`](./NSS_ALGORITHM.md) for complete technical documentation**
 
-The adaptive algorithm works in batches to maintain optimal difficulty (90-95% comprehension):
+The NSS algorithm is an adaptive, batch-based sentence selector that maintains 90-95% comprehension by balancing multiple factors:
 
-1. **Filter** eligible sentences (script type, HSK level, cooldown)
-2. **Sample** 300 random candidates from eligible pool
-3. **Score** each candidate based on multiple factors
-4. **Select** top 8 sentences, shuffle to mix difficulty
-5. **Queue** for practice, prefetch next batch in background
+- **Character mastery** (EWMA-based learning curves)
+- **Spaced repetition** (SRS scheduling with overdue boost)
+- **Optimal difficulty** (2-5 unknown characters per sentence)
+- **Novelty** (time since last seen)
+- **Sentence mastery** (avoid grinding same sentences)
 
-### Scoring Formula
+### How It Works
 
-```
-score = base_gain + novelty - pass_penalty - k_penalty
+The algorithm operates in a 5-stage pipeline:
 
-base_gain = Σ(1 - s) × 2.0 if overdue
-novelty = 0.05 × log(1 + hours_since_seen)
-pass_penalty = 0.1 × ewma_pass
-k_penalty = 0.35 × |k - k_band| if outside band
-```
+1. **Filter** → Get eligible sentences (script, HSK, cooldown, skip)
+2. **Sample** → Random 300 from eligible pool
+3. **Score** → Calculate score based on mastery, novelty, difficulty
+4. **Fallback** → If <8 scored, progressively relax constraints (4 levels)
+5. **Select** → Top 8, shuffle, queue for practice
 
-**Where**:
-- `s` = character mastery score (0-1, exponentially weighted moving average)
-- `overdue` = character past its next_review_ts (SRS scheduling)
-- `k` = number of unknown characters in sentence (mastery < θ_known)
-- `k_band` = target difficulty range (2-5 unknowns normal, 1-3 under backlog)
-- `ewma_pass` = sentence-level pass rate (EWMA α=0.2)
+### Key Concepts
 
-### Difficulty (k unknowns)
+**Difficulty (k unknowns):**
+- Target: 2-5 unknown characters per sentence (normal mode)
+- Tightens to 1-3 under review backlog (>80 due words)
+- Unknown threshold: θ_known = 0.6 (characters with s < 0.6)
 
-- **Target**: 2-5 unknown characters per sentence (normal)
-- **Tightens to**: 1-3 under review backlog (>80 due words)
-- **Cold start cap**: 12→10→8 unknowns based on avg mastery
-- **θ_known threshold**: 0.7 (characters with s ≥ 0.7 considered "known")
+**Mastery Tracking:**
+- Each character has mastery score `s` ∈ [0, 1] updated via EWMA
+- SRS scheduling: stability starts at 1 hour, grows 1.2x on success
+- Characters past `next_review_ts` get 2.0x boost in scoring
 
-### Batch Generation
+**Batch & Prefetch:**
+- Generates 8 sentences per batch
+- Prefetches next batch when 2 remain for smooth UX
+- Queue invalidates on preference changes (script/HSK filter)
 
-- Sample 300 candidates from eligible pool (tuned from 200)
-- Score all, select top 8 (tuned from 10)
-- Shuffle to mix difficulty
-- Prefetch next batch when 2 remain
-- Queue invalidation when preferences change
+### Implementation
 
-### Fallback Cascade
-
-If <8 sentences scored, progressively relax constraints:
-
-1. Relax k_band to [1, 6]
-2. Ignore cooldown (20 min)
-3. Lower θ_known to 0.65
-4. Drop ewma_skip filter
-5. Random selection (emergency)
-
-### Mastery Tracking
-
-Each character tracks:
-- **Mastery score (s)**: Exponential smoothing of success rate (EWMA α=0.15)
-- **Stability**: Spaced repetition interval (starts at 1 hour, grows 1.2x on success)
-- **EWMA success**: Recency-weighted performance
-- **Streak**: Consecutive correct/wrong attempts
-- **next_review_ts**: When character is "due" for review (SRS scheduling)
-
-**Mastery Update Formula** (EWMA):
-```
-new_mastery = α × result + (1 - α) × old_mastery
-where α = 0.15, result = 1 (correct) or 0 (incorrect)
-```
-
-**Stability Update** (SRS):
-```
-If correct: new_stability = old_stability × 1.2
-If wrong:   new_stability = max(1 hour, old_stability / 2)
-```
-
-### Recent Tuning (Phase 1 - Same-Day Review Optimization)
-
-- **SRS Timing**: Reduced initial stability from 1 day to 1 hour for same-day review
-- **Growth Rate**: Slower stability growth (1.2x vs 1.4x) keeps words in review rotation longer
-- **Review Boost**: Increased overdue_boost from 1.2 to 2.0 for stronger SRS signal
-- **Difficulty**: Stronger k_penalty (0.35 vs 0.2) better enforces difficulty band
-- **Repetition**: Reduced cooldown to 20 min for more same-day practice opportunities
-- **Sampling**: Increased pool from 200 to 300 for better candidate selection
-
-### Configuration Parameters
-
-Key parameters in `app/lib/selection-config.ts`:
-
-```typescript
-batch_size: 8              // Sentences per batch
-prefetch_threshold: 2      // Start prefetch when 2 remain
-pool_sample_size: 300      // Candidate pool size
-k_min: 2, k_max: 5        // Target difficulty (unknown chars)
-θ_known: 0.7              // Mastery threshold for "known"
-cooldown: 20 min          // Min time between same sentence
-overdue_boost: 2.0        // Multiplier for overdue characters
-```
+- **Code:** `app/lib/sentence-selection.ts`
+- **Config:** `app/lib/selection-config.ts`
+- **Docs:** [`NSS_ALGORITHM.md`](./NSS_ALGORITHM.md) (detailed technical reference)
 
 ---
 

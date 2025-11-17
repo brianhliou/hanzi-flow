@@ -348,7 +348,8 @@ export async function scoreSentence(
   const θ_known = options.θ_known ?? SELECTION_CONFIG.θ_known;
   const k_cap = options.k_cap !== undefined ? options.k_cap : await getDynamicKCap();
 
-  // Step 1: Identify unknown words
+  // Step 1: Identify unknown words (deduplicated - each unique character counted once)
+  const seenCharIds = new Set<number>();
   const unknowns: { char_id: number; s: number; overdue: boolean }[] = [];
 
   for (const char of sentence.chars) {
@@ -358,6 +359,10 @@ export async function scoreSentence(
     // Look up character ID
     const char_id = getCharId(char.char);
     if (char_id === null) continue;
+
+    // Skip if we've already processed this character
+    if (seenCharIds.has(char_id)) continue;
+    seenCharIds.add(char_id);
 
     const wordMastery = await db.words.get(char_id);
     const s = wordMastery?.s ?? INITIAL_S;
@@ -529,30 +534,21 @@ async function applyFallbacks(
       break;
 
     case 3:
-      // Lower θ_known
-      nssWarn('Fallback 3: Lowering θ_known to 0.65');
-      k_min = 1;
-      k_max = 6;
-      θ_known = 0.65;
-      break;
-
-    case 4:
       // Drop ewma skip
-      nssWarn('Fallback 4: Dropping ewma skip filter');
+      nssWarn('Fallback 3: Dropping ewma skip filter');
       k_min = 1;
       k_max = 6;
-      θ_known = 0.65;
       break;
 
     default:
       // Absolute fallback: random selection
-      nssError('Fallback 5: All strategies exhausted, using random selection');
+      nssError('Fallback 4: All strategies exhausted, using random selection');
       break;
   }
 
   const pool = await getEligibleSentences(allSentences, scriptFilter, hskFilter, now, {
     ignoreCooldown: attempt >= 2,
-    ignoreSkip: attempt >= 4
+    ignoreSkip: attempt >= 3
   });
 
   return { pool, k_min, k_max, θ_known };
@@ -627,7 +623,7 @@ export async function generateSentenceBatch(
   let fallbackAttempt = 0;
   let θ_known: number = SELECTION_CONFIG.θ_known;
 
-  while (scored.length < SELECTION_CONFIG.batch_size && fallbackAttempt < 5) {
+  while (scored.length < SELECTION_CONFIG.batch_size && fallbackAttempt < 4) {
     fallbackAttempt++;
     const fallback = await applyFallbacks(allSentences, scriptFilter, hskFilter, now, fallbackAttempt);
 
@@ -635,10 +631,10 @@ export async function generateSentenceBatch(
     k_max = fallback.k_max;
     θ_known = fallback.θ_known;
 
-    if (fallbackAttempt === 5) {
-      // Absolute fallback: random selection
-      scored = shuffle(allSentences)
-        .filter(s => s.script_type !== 'ambiguous')
+    if (fallbackAttempt === 4) {
+      // Absolute fallback: random selection from eligible pool
+      // Still respects user preferences (script type, HSK level)
+      scored = shuffle(fallback.pool)
         .slice(0, SELECTION_CONFIG.batch_size)
         .map(s => ({
           sid: s.id,
