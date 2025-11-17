@@ -132,11 +132,33 @@ When `scored.length < 8` after initial scoring, the algorithm enters a **progres
 
 ---
 
-### Fallback 4: Random Selection
+### Fallback 4: Use Mastered Threshold
 
-**Code:** `sentence-selection.ts:634-646`
+**Code:** `applyFallbacks:543-550`
 
-**Pool Filtering:** Uses eligible pool from FB3
+**Pool Filtering:** Same as FB3
+- `ignoreCooldown: true` (unchanged)
+- `ignoreSkip: true` (unchanged)
+- **Pool size:** Same as FB3 (e.g., 9,000)
+- **Pool changes?** ❌ No
+
+**Sampling:** ✅ NEW random 300 from same pool
+
+**Scoring:**
+- k_band: `[1, 6]` (unchanged)
+- θ_known: `0.8` ⬅️ **CHANGED** (was 0.6)
+
+**What changed:** Relaxes unknown threshold from 0.6 to 0.8 (mastered_threshold). This allows sentences with "known but not mastered" characters in the [0.6, 0.8) mastery range to be selected.
+
+**Why this helps:** Addresses the mastered-character trap by recognizing characters in the [0.6, 0.8) range as still needing practice. These characters won't be auto-skipped but were previously considered "known" by NSS.
+
+---
+
+### Fallback 5: Random Selection
+
+**Code:** `sentence-selection.ts:643-646`
+
+**Pool Filtering:** Uses eligible pool from FB4
 - Script: ✅ Respects user preference (simplified/traditional)
 - HSK: ✅ Respects user selection (1-3, etc.)
 - Cooldown: Ignored (from FB2)
@@ -153,7 +175,7 @@ scored = shuffle(fallback.pool)
 
 **What changed:** Gives up on scoring optimization but still respects user's basic learning preferences (script type and HSK level). Random selection from eligible pool.
 
-**When this happens:** This is the "emergency fallback" when all other strategies fail. Often triggered in the **mastered-character trap** scenario.
+**When this happens:** This is the "emergency fallback" when all other strategies fail. Should be rare with the new FB4 mastered threshold.
 
 ---
 
@@ -165,7 +187,8 @@ scored = shuffle(fallback.pool)
 | **1: k_band** | ❌ Same | 5,000 | ✅ New 300 | k_band=[1,6] |
 | **2: Cooldown** | ✅ Larger | 8,000 | ✅ New 300 | - |
 | **3: Skip** | ✅ Larger | 9,000 | ✅ New 300 | - |
-| **4: Random** | ❌ Same | 9,000 | Direct 8 | No scoring (random) |
+| **4: Mastered θ** | ❌ Same | 9,000 | ✅ New 300 | θ=0.8 (was 0.6) |
+| **5: Random** | ❌ Same | 9,000 | Direct 8 | No scoring (random) |
 
 ## Why Resampling Matters
 
@@ -181,7 +204,7 @@ scored = shuffle(fallback.pool)
 
 See `docs/KNOWN_ISSUES.md:62-188` for full details.
 
-**What happens:**
+**What happens (before Fallback 4 fix):**
 1. User enables "Skip Mastered Characters" (threshold = 0.8)
 2. User masters all HSK 1 characters (all s ≥ 0.8)
 3. NSS uses θ_known = 0.6 to count unknowns
@@ -189,14 +212,18 @@ See `docs/KNOWN_ISSUES.md:62-188` for full details.
 5. All sentences rejected during scoring: `if (k === 0) return null;`
 6. Fallbacks 1-2 don't help (k still 0)
 7. Fallback 3 adds mastered sentences to pool, but they still have k=0 → rejected
-8. **Fallback 4 triggers:** Random sentences selected → all flash green
+8. **Fallback 5 triggers:** Random sentences selected → all flash green
 
 **Why Fallback 3 doesn't save us:**
 - FB3 adds mastered sentences to the **pool** (Stage 1)
 - But scoring (Stage 2) still rejects them for k=0
 - The mismatch between θ_known (0.6) and mastered_threshold (0.8) creates the trap
 
-**Proper fix:** Make NSS aware of `skipMastered` preference and use mastered_threshold (0.8) instead of θ_known (0.6) when calculating k-count.
+**The fix (Fallback 4):**
+- FB4 relaxes θ_known from 0.6 to 0.8 (mastered_threshold)
+- This allows sentences with characters in the [0.6, 0.8) range to be selected
+- These characters are "known" but not "mastered" - still need practice
+- Reduces reliance on random fallback (FB5) for most users
 
 ## Key Parameters
 
@@ -236,10 +263,10 @@ learning_threshold: 0.4  // "Learning" character
 **Wrong!** Higher θ_known = fewer unknowns. If θ_known = 0.65, characters with s=0.62 are now "known" (was "unknown" at θ=0.6).
 
 ### ❌ "Fallback 3 fixes the mastered-character trap"
-**Wrong!** FB3 adds mastered sentences to the pool, but scoring still rejects them for k=0. Only FB4 (random) "fixes" it by bypassing scoring entirely.
+**Wrong!** FB3 adds mastered sentences to the pool, but scoring still rejects them for k=0. FB4 (mastered threshold) addresses this by relaxing θ_known to 0.8.
 
 ### ❌ "Each fallback uses the same 300 samples"
-**Wrong!** Each fallback resamples a fresh 300, either from the same pool (FB1) or an expanded pool (FB2, FB3).
+**Wrong!** Each fallback resamples a fresh 300, either from the same pool (FB1, FB4) or an expanded pool (FB2, FB3).
 
 ### ❌ "k_band and θ_known filter the pool"
 **Wrong!** They're scoring constraints (Stage 2), not pool filters (Stage 1). Pool is filtered by script/HSK/cooldown/skip only.

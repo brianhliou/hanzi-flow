@@ -103,8 +103,8 @@ if (k === 0) {
   return null;  // All HSK 1 sentences rejected!
 }
 
-// Lines 634-646: Fallback 4 - random selection from eligible pool
-if (fallbackAttempt === 4) {
+// Lines 643-646: Fallback 5 - random selection from eligible pool
+if (fallbackAttempt === 5) {
   scored = shuffle(fallback.pool)  // Respects script/HSK preferences
     .slice(0, SELECTION_CONFIG.batch_size)
     .map(s => ({ sid: s.id, score: 0, k: 0, last_seen_ts: 0 }));

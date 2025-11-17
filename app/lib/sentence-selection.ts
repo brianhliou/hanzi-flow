@@ -516,7 +516,7 @@ async function applyFallbacks(
   attempt: number
 ): Promise<{ pool: Sentence[]; k_min: number; k_max: number; θ_known: number }> {
   let { k_min, k_max } = getDifficultyBand(await countDueWords(now));
-  const θ_known: number = SELECTION_CONFIG.θ_known;
+  let θ_known: number = SELECTION_CONFIG.θ_known;
 
   switch (attempt) {
     case 1:
@@ -540,9 +540,18 @@ async function applyFallbacks(
       k_max = 6;
       break;
 
+    case 4:
+      // Relax to mastered threshold (0.8)
+      // Allows sentences with "known but not mastered" characters [0.6, 0.8)
+      nssWarn('Fallback 4: Using mastered_threshold (0.8) for unknown counting');
+      k_min = 1;
+      k_max = 6;
+      θ_known = SELECTION_CONFIG.mastered_threshold;  // 0.8 instead of 0.6
+      break;
+
     default:
       // Absolute fallback: random selection
-      nssError('Fallback 4: All strategies exhausted, using random selection');
+      nssError('Fallback 5: All strategies exhausted, using random selection');
       break;
   }
 
@@ -623,7 +632,7 @@ export async function generateSentenceBatch(
   let fallbackAttempt = 0;
   let θ_known: number = SELECTION_CONFIG.θ_known;
 
-  while (scored.length < SELECTION_CONFIG.batch_size && fallbackAttempt < 4) {
+  while (scored.length < SELECTION_CONFIG.batch_size && fallbackAttempt < 5) {
     fallbackAttempt++;
     const fallback = await applyFallbacks(allSentences, scriptFilter, hskFilter, now, fallbackAttempt);
 
@@ -631,7 +640,7 @@ export async function generateSentenceBatch(
     k_max = fallback.k_max;
     θ_known = fallback.θ_known;
 
-    if (fallbackAttempt === 4) {
+    if (fallbackAttempt === 5) {
       // Absolute fallback: random selection from eligible pool
       // Still respects user preferences (script type, HSK level)
       scored = shuffle(fallback.pool)

@@ -188,7 +188,7 @@ The algorithm operates in a 5-stage pipeline:
 1. **Filter** → Get eligible sentences (script, HSK, cooldown, skip)
 2. **Sample** → Random 300 from eligible pool
 3. **Score** → Calculate score based on mastery, novelty, difficulty
-4. **Fallback** → If <8 scored, progressively relax constraints (4 levels)
+4. **Fallback** → If <8 scored, progressively relax constraints (5 levels)
 5. **Select** → Top 8, shuffle, queue for practice
 
 ### Key Concepts
