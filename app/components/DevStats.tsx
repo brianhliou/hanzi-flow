@@ -11,6 +11,7 @@ import type { Sentence } from '@/lib/types';
  * Shows detailed stats and word/sentence tables for debugging
  */
 export default function DevStats() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [stats, setStats] = useState<any>(null);
   const [words, setWords] = useState<WordMastery[]>([]);
   const [sentences, setSentences] = useState<SentenceProgress[]>([]);

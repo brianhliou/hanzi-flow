@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     await mkdir(logsDir, { recursive: true });
 
     // Format logs as text
-    const text = logs.map((entry: any) => {
+    const text = logs.map((entry: { timestamp: number; level: string; tag: string; message: string; data?: unknown }) => {
       const date = new Date(entry.timestamp).toISOString();
       const dataStr = entry.data ? `\n  ${JSON.stringify(entry.data, null, 2)}` : '';
       return `[${date}] [${entry.level.toUpperCase()}] [${entry.tag}] ${entry.message}${dataStr}`;

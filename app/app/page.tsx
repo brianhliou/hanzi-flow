@@ -75,7 +75,7 @@ export default function Home() {
               <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mb-2 h-28 flex items-center justify-center">
                 <div className="text-2xl font-mono text-gray-600">ni3</div>
               </div>
-              <div className="font-semibold">2. Type Each Character's Pinyin</div>
+              <div className="font-semibold">2. Type Each Character&apos;s Pinyin</div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
                 Practice pronunciation with real-time validation
               </div>

@@ -10,7 +10,7 @@ interface LogEntry {
   level: 'log' | 'warn' | 'error';
   tag: string;
   message: string;
-  data?: any;
+  data?: unknown;
 }
 
 const MAX_LOGS = 1000;  // Keep last 1000 entries
@@ -93,7 +93,7 @@ export function exportLogs(): void {
 /**
  * Log a message (info level)
  */
-export function log(tag: string, message: string, data?: any): void {
+export function log(tag: string, message: string, data?: unknown): void {
   console.log(`[${tag}] ${message}`, data ?? '');
 
   addLog({
@@ -108,7 +108,7 @@ export function log(tag: string, message: string, data?: any): void {
 /**
  * Log a warning
  */
-export function warn(tag: string, message: string, data?: any): void {
+export function warn(tag: string, message: string, data?: unknown): void {
   console.warn(`[${tag}] ${message}`, data ?? '');
 
   addLog({
@@ -123,7 +123,7 @@ export function warn(tag: string, message: string, data?: any): void {
 /**
  * Log an error
  */
-export function error(tag: string, message: string, data?: any): void {
+export function error(tag: string, message: string, data?: unknown): void {
   console.error(`[${tag}] ${message}`, data ?? '');
 
   addLog({
@@ -136,17 +136,17 @@ export function error(tag: string, message: string, data?: any): void {
 }
 
 // Convenience exports for NSS logging (disabled)
-export const nssLog = (message: string, data?: any) => {
+export const nssLog = (_message: string, _data?: unknown) => {
   // NSS logging disabled
   return;
 };
 
-export const nssWarn = (message: string, data?: any) => {
+export const nssWarn = (_message: string, _data?: unknown) => {
   // NSS logging disabled
   return;
 };
 
-export const nssError = (message: string, data?: any) => {
+export const nssError = (_message: string, _data?: unknown) => {
   // NSS logging disabled
   return;
 };

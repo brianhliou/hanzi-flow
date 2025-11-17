@@ -422,7 +422,7 @@ export default function UserStats() {
       <section>
         <h2 className="text-xl font-semibold mb-3">HSK Progress</h2>
         <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-          Totals show official HSK 3.0 counts. Note: 1 character from HSK 5 and 127 characters from HSK 7-9 don't appear in our sentence corpus and cannot be practiced.
+          Totals show official HSK 3.0 counts. Note: 1 character from HSK 5 and 127 characters from HSK 7-9 don&apos;t appear in our sentence corpus and cannot be practiced.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {stats.hskProgress.map((level) => (
@@ -789,7 +789,7 @@ function MasteryBreakdownTabs({ masteredWords, learningWords, newWords, unseenCh
           // Render Unseen tab (char_ids only, no mastery scores)
           (activeTabData.charIds?.length ?? 0) === 0 ? (
             <div className="text-center py-8 text-gray-500 dark:text-gray-400">
-              No unseen characters - you've practiced everything!
+              No unseen characters - you&apos;ve practiced everything!
             </div>
           ) : (
             <div className="flex flex-wrap gap-3 justify-start">
