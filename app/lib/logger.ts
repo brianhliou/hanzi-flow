@@ -5,6 +5,25 @@
  * Can be viewed/cleared via browser DevTools.
  */
 
+// ============================================================================
+// FEATURE TOGGLES
+// ============================================================================
+
+/**
+ * Enable NSS logging to console and localStorage
+ * Set to false to disable all NSS logs (performance optimization for production)
+ */
+const ENABLE_NSS_LOGGING = true;
+
+/**
+ * Enable auto-save of logs to files (development only)
+ * Auto-save only works when NODE_ENV === 'development'
+ * Set to false to disable even in development
+ */
+const ENABLE_AUTO_SAVE = true;
+
+// ============================================================================
+
 interface LogEntry {
   timestamp: number;
   level: 'log' | 'warn' | 'error';
@@ -135,20 +154,20 @@ export function error(tag: string, message: string, data?: unknown): void {
   });
 }
 
-// Convenience exports for NSS logging (disabled)
-export const nssLog = (_message: string, _data?: unknown) => {
-  // NSS logging disabled
-  return;
+// Convenience exports for NSS logging
+export const nssLog = (message: string, data?: unknown) => {
+  if (!ENABLE_NSS_LOGGING) return;
+  log('NSS', message, data);
 };
 
-export const nssWarn = (_message: string, _data?: unknown) => {
-  // NSS logging disabled
-  return;
+export const nssWarn = (message: string, data?: unknown) => {
+  if (!ENABLE_NSS_LOGGING) return;
+  warn('NSS', message, data);
 };
 
-export const nssError = (_message: string, _data?: unknown) => {
-  // NSS logging disabled
-  return;
+export const nssError = (message: string, data?: unknown) => {
+  if (!ENABLE_NSS_LOGGING) return;
+  error('NSS', message, data);
 };
 
 // ============================================================================
@@ -158,14 +177,14 @@ export const nssError = (_message: string, _data?: unknown) => {
 let autoSaveTimeout: NodeJS.Timeout | null = null;
 
 /**
- * Schedule auto-save to file system (disabled)
+ * Schedule auto-save to file system
  * Debounced - only saves if no new logs for 30 seconds
- * NOTE: Hard-coded disabled - auto-save to filesystem is not supported
  */
 function scheduleAutoSave(): void {
   if (typeof window === 'undefined') return;
-  // Hard-coded disabled - auto-save functionality is not supported
-  if (false) return;
+  if (!ENABLE_AUTO_SAVE) return;
+  // Enable in development only
+  if (process.env.NODE_ENV !== 'development') return;
 
   // Clear existing timeout
   if (autoSaveTimeout) {

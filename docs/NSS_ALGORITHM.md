@@ -1,7 +1,7 @@
 # Next Sentence Selection (NSS) Algorithm
 
 **Author:** Brian Liou
-**Last Updated:** 2025-11-16
+**Last Updated:** 2025-11-17 (Refactored Implementation)
 **Implementation:** `app/lib/sentence-selection.ts`
 
 ## Overview
@@ -14,7 +14,109 @@ The NSS algorithm is an adaptive, batch-based sentence selector that maintains 9
 - **Novelty** (time since last seen)
 - **Sentence mastery** (avoid grinding same sentences)
 
-## Core Pipeline
+## Refactored Implementation (Nov 2024)
+
+### Performance Optimization
+
+The NSS algorithm was refactored on 2025-11-17 to eliminate redundant database queries and resampling. The core optimization:
+
+**Before (Old Implementation):**
+- Sampled 300 sentences per fallback attempt (up to 5 attempts = 1,500 sentences)
+- Individual `db.words.get()` for each character in each sentence
+- Total: ~1,500 scorings × 10 chars/sentence = **15,000+ DB queries**
+- Average batch generation time: **~2,200ms**
+
+**After (Refactored):**
+- Sample 600 sentences **once** from largest pool (ignoring cooldown/skip)
+- Single `db.words.bulkGet()` for all unique characters (~483 chars)
+- Pre-compute metadata for all 600 sentences upfront
+- Fallback via **in-memory filtering** (no resampling)
+- Average batch generation time: **~1,000ms** (~54% faster)
+
+### Time Breakdown (Measured from Production Logs)
+
+From real usage logs (2025-11-17):
+
+```
+Total batch generation: 1,000-1,026ms
+├─ Pool filtering + sampling: ~980ms (95%)
+│  ├─ getEligibleSentences(): filter 79k → 14k sentences
+│  ├─ Shuffle + sample 600: from 14k eligible
+│  └─ (This is the bottleneck - unavoidable)
+├─ Bulk character load: ~10ms (1%)
+│  └─ 483-487 characters @ 0.020ms/char
+├─ Metadata computation: ~11ms (1%)
+│  ├─ 600 sentences @ 0.020ms/sentence
+│  ├─ Bulk sentence state load
+│  └─ Compute k_0.6, k_0.8, filters
+└─ Fallback filtering + scoring: ~20ms (2%)
+   ├─ In-memory filter: 600 → 276-285 candidates
+   └─ Score 276-285 sentences (no DB calls)
+```
+
+### Key Observations
+
+1. ✅ **Fallback efficiency**: 100% of batches succeed at FB0 (optimal filters applied)
+2. ✅ **Consistent quality**: k_avg=2.8-2.9, perfect match to target k_band=[1,3]
+3. ✅ **Bulk loading**: 483-487 characters in ~10ms (0.020ms/char) vs old 4,830ms
+4. ✅ **Fast metadata**: 600 sentences in ~11ms (0.020ms/sentence) vs old 6,000ms
+5. ⚠️ **Bottleneck**: 95% of time spent in initial corpus filtering/sampling
+   - `getEligibleSentences()` filters 79,333 → 14,212 sentences
+   - Shuffle + sample 600 from 14,212
+   - This is unavoidable (needs full corpus scan for filters)
+
+### Refactored Pipeline
+
+```
+1. FILTER (once)     → Get largest pool (ignore cooldown/skip)
+2. SAMPLE (once)     → Take 600 sentences (2x normal size)
+3. BULK LOAD (once)  → Load all character mastery data
+4. METADATA (once)   → Compute k_0.6, k_0.8, filter flags for all
+5. FALLBACK (loop)   → In-memory filtering (FB0-FB5)
+   ├─ FB0: cooldown✓, skip✓, k_band=adaptive, θ=0.6
+   ├─ FB1: cooldown✓, skip✓, k_band=[1,6], θ=0.6
+   ├─ FB2: cooldown✗, skip✓, k_band=[1,6], θ=0.6
+   ├─ FB3: cooldown✗, skip✗, k_band=[1,6], θ=0.6
+   ├─ FB4: cooldown✗, skip✗, k_band=[1,6], θ=0.8 (known-but-not-mastered)
+   └─ FB5: Random (emergency fallback)
+6. SCORE (no DB)     → Score filtered candidates from metadata
+7. SELECT            → Take top 8, shuffle, queue
+```
+
+### What Changed
+
+**Eliminated:**
+- ❌ Resampling 300 sentences per fallback (5 attempts = 1,500 samples)
+- ❌ Individual `db.words.get()` calls (15,000+ DB queries)
+- ❌ Individual `db.sentences.get()` calls (1,500+ DB queries)
+- ❌ Recalculating unknowns for each fallback attempt
+
+**Added:**
+- ✅ Single larger sample (600 sentences, ignore all filters)
+- ✅ Bulk loading (`db.words.bulkGet()` - single query)
+- ✅ Pre-computed metadata (k_0.6, k_0.8, filter flags)
+- ✅ In-memory filtering (no resampling, no DB queries)
+
+**Preserved:**
+- ✅ Identical scoring formula
+- ✅ Identical fallback cascade (FB0-FB5)
+- ✅ Identical filter logic (cooldown, skip, k_band, θ_known)
+- ✅ Character deduplication (each unique char counted once)
+
+### Future Optimization Opportunities
+
+The refactor eliminated scoring inefficiency, but **95% of time is now spent on corpus filtering**. Potential future optimizations:
+
+1. **Index-based filtering**: Pre-index sentences by HSK level, script type
+2. **Cached eligible pools**: Cache filtered pools per (script, HSK) combination
+3. **Incremental updates**: Update cached pools when mastery changes
+4. **Lazy loading**: Only load sentence data when needed (currently loads full corpus)
+
+However, at 1 second per batch, this is likely not a priority. The 54% improvement addresses the main bottleneck.
+
+## Core Pipeline (Legacy Documentation)
+
+> **Note:** The sections below document the **original implementation** before the Nov 2024 refactor. The core concepts (two-stage architecture, fallback cascade) remain the same, but the implementation now uses single-sample + bulk loading instead of resampling. See "Refactored Implementation" above for current architecture.
 
 The algorithm operates in 5 stages:
 
@@ -26,7 +128,7 @@ The algorithm operates in 5 stages:
 5. SELECT    → Take top 8, shuffle, queue
 ```
 
-## Two-Stage Architecture
+## Two-Stage Architecture (Conceptual Model)
 
 **CRITICAL UNDERSTANDING:** The algorithm has two distinct constraint stages:
 
@@ -273,11 +375,20 @@ learning_threshold: 0.4  // "Learning" character
 
 ## Code References
 
-- **Main pipeline:** `sentence-selection.ts:568-700` (`generateSentenceBatch`)
-- **Fallback logic:** `sentence-selection.ts:506-559` (`applyFallbacks`)
+### Refactored Implementation (Current)
+
+- **Main pipeline:** `sentence-selection.ts:805-1005` (`generateSentenceBatch`)
+- **Bulk loading:** `sentence-selection.ts:323-363` (`bulkLoadCharMastery`)
+- **Metadata computation:** `sentence-selection.ts:369-427` (`computeAllMetadata`)
+- **Unknown counting:** `sentence-selection.ts:433-462` (`computeUnknowns`)
+- **Scoring (from metadata):** `sentence-selection.ts:647-708` (`scoreFromMetadata`)
 - **Pool filtering:** `sentence-selection.ts:213-287` (`getEligibleSentences`)
-- **Scoring:** `sentence-selection.ts:428-503` (`scoreCandidates`)
 - **Configuration:** `selection-config.ts:8-114`
+
+### Legacy Implementation (Pre-Refactor)
+
+- **Old scoring (deprecated):** Removed in Nov 2024 refactor (`scoreCandidates`, `scoreSentence`)
+- **Old fallbacks (deprecated):** Removed in Nov 2024 refactor (`applyFallbacks`)
 
 ## Further Reading
 

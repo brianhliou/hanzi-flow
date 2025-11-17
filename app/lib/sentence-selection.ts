@@ -299,6 +299,169 @@ function shuffle<T>(array: T[]): T[] {
 }
 
 // ============================================================================
+// REFACTORED: BULK LOADING & METADATA
+// ============================================================================
+
+interface SentenceMetadata {
+  sentence: Sentence;
+
+  // Filter compliance flags
+  passesCooldown: boolean;
+  passesSkip: boolean;
+
+  // Multi-threshold unknowns
+  k_0_6: number;              // unknowns at θ=0.6 (for FB0-3)
+  k_0_8: number;              // unknowns at θ=0.8 (for FB4)
+  unknowns_0_6: Array<{ char_id: number; s: number; overdue: boolean }>;
+  unknowns_0_8: Array<{ char_id: number; s: number; overdue: boolean }>;
+
+  // Reusable data
+  sentenceState: SentenceProgress | null;
+  last_seen_ts: number;
+}
+
+/**
+ * Bulk load character mastery for all unique characters in sentences
+ * Replaces thousands of individual db.words.get() calls with one bulkGet()
+ */
+async function bulkLoadCharMastery(
+  sentences: Sentence[]
+): Promise<Map<number, WordMastery | undefined>> {
+  const startTime = performance.now();
+
+  // Extract all unique char_ids
+  const charIds = new Set<number>();
+  for (const sentence of sentences) {
+    for (const char of sentence.chars) {
+      if (!char.pinyin) continue;
+      const char_id = getCharId(char.char);
+      if (char_id !== null) {
+        charIds.add(char_id);
+      }
+    }
+  }
+
+  // Bulk load all character mastery
+  const charIdArray = Array.from(charIds);
+  const masteries = await db.words.bulkGet(charIdArray);
+
+  // Build map
+  const map = new Map<number, WordMastery | undefined>();
+  for (let i = 0; i < charIdArray.length; i++) {
+    map.set(charIdArray[i], masteries[i]);
+  }
+
+  const loadTime = performance.now() - startTime;
+
+  nssLog('💾 Bulk Character Load', {
+    characters_loaded: map.size,
+    time_ms: loadTime.toFixed(2),
+    avg_ms_per_char: (loadTime / map.size).toFixed(3)
+  });
+
+  return map;
+}
+
+/**
+ * Compute metadata for all sentences with pre-loaded character mastery
+ * Pre-computes k-counts at both thresholds and filter compliance
+ */
+async function computeAllMetadata(
+  sentences: Sentence[],
+  charMasteryMap: Map<number, WordMastery | undefined>,
+  now: number
+): Promise<SentenceMetadata[]> {
+  const startTime = performance.now();
+
+  // Bulk load all sentence states
+  const sentenceIds = sentences.map(s => s.id);
+  const sentenceStates = await db.sentences.bulkGet(sentenceIds);
+  const sentenceStateMap = new Map<number, SentenceProgress | undefined>();
+  for (let i = 0; i < sentenceIds.length; i++) {
+    sentenceStateMap.set(sentenceIds[i], sentenceStates[i]);
+  }
+
+  const metadata: SentenceMetadata[] = [];
+
+  for (const sentence of sentences) {
+    const state = sentenceStateMap.get(sentence.id);
+
+    // Compute unknowns at both thresholds
+    const { unknowns: unknowns_0_6, k: k_0_6 } = computeUnknowns(sentence, charMasteryMap, 0.6, now);
+    const { unknowns: unknowns_0_8, k: k_0_8 } = computeUnknowns(sentence, charMasteryMap, 0.8, now);
+
+    // Compute filter compliance
+    const passesCooldown = !state || (now - state.last_seen_ts >= SELECTION_CONFIG.cooldown_minutes * 60 * 1000);
+    const passesSkip = !state ||
+                       state.ewma_pass < SELECTION_CONFIG.ewma_skip_threshold ||
+                       state.seen_count < SELECTION_CONFIG.min_seen_for_skip;
+
+    metadata.push({
+      sentence,
+      passesCooldown,
+      passesSkip,
+      k_0_6,
+      k_0_8,
+      unknowns_0_6,
+      unknowns_0_8,
+      sentenceState: state ?? null,
+      last_seen_ts: state?.last_seen_ts ?? 0
+    });
+  }
+
+  const computeTime = performance.now() - startTime;
+
+  nssLog('🧮 Metadata Computed', {
+    sentences_processed: metadata.length,
+    time_ms: computeTime.toFixed(2),
+    avg_ms_per_sentence: (computeTime / metadata.length).toFixed(3),
+    distribution: {
+      passes_cooldown: metadata.filter(m => m.passesCooldown).length,
+      passes_skip: metadata.filter(m => m.passesSkip).length,
+      k_0_6_avg: (metadata.reduce((sum, m) => sum + m.k_0_6, 0) / metadata.length).toFixed(2),
+      k_0_8_avg: (metadata.reduce((sum, m) => sum + m.k_0_8, 0) / metadata.length).toFixed(2)
+    }
+  });
+
+  return metadata;
+}
+
+/**
+ * Compute unknowns for a sentence at a specific threshold
+ * Helper used by computeAllMetadata
+ */
+function computeUnknowns(
+  sentence: Sentence,
+  charMasteryMap: Map<number, WordMastery | undefined>,
+  θ_known: number,
+  now: number
+): { unknowns: Array<{ char_id: number; s: number; overdue: boolean }>; k: number } {
+  const seenCharIds = new Set<number>();
+  const unknowns: Array<{ char_id: number; s: number; overdue: boolean }> = [];
+
+  for (const char of sentence.chars) {
+    if (!char.pinyin) continue;
+
+    const char_id = getCharId(char.char);
+    if (char_id === null) continue;
+
+    // Skip if already processed (deduplication)
+    if (seenCharIds.has(char_id)) continue;
+    seenCharIds.add(char_id);
+
+    const wordMastery = charMasteryMap.get(char_id);
+    const s = wordMastery?.s ?? INITIAL_S;
+
+    if (s < θ_known) {
+      const overdue = wordMastery ? now >= wordMastery.next_review_ts : false;
+      unknowns.push({ char_id, s, overdue });
+    }
+  }
+
+  return { unknowns, k: unknowns.length };
+}
+
+// ============================================================================
 // SCORING
 // ============================================================================
 
@@ -310,167 +473,66 @@ interface ScoredSentence {
 }
 
 /**
- * Helper to count unknowns in a sentence (used for rejection tracking)
+ * REFACTORED: Score sentences from pre-computed metadata
+ * Replaces scoreCandidates - no DB lookups needed
  */
-async function countUnknowns(sentence: Sentence, θ_known: number): Promise<number> {
-  let count = 0;
-
-  for (const char of sentence.chars) {
-    if (!char.pinyin) continue;
-
-    const char_id = getCharId(char.char);
-    if (char_id === null) continue;
-
-    const wordMastery = await db.words.get(char_id);
-    const s = wordMastery?.s ?? INITIAL_S;
-
-    if (s < θ_known) {
-      count++;
-    }
-  }
-
-  return count;
-}
-
-/**
- * Score a single sentence based on word mastery, novelty, and difficulty
- */
-export async function scoreSentence(
-  sentence: Sentence,
+function scoreFromMetadata(
+  metadataList: SentenceMetadata[],
   k_min: number,
   k_max: number,
   now: number,
-  options: {
-    θ_known?: number;
-    k_cap?: number | null;
-  } = {}
-): Promise<ScoredSentence | null> {
-  const θ_known = options.θ_known ?? SELECTION_CONFIG.θ_known;
-  const k_cap = options.k_cap !== undefined ? options.k_cap : await getDynamicKCap();
-
-  // Step 1: Identify unknown words (deduplicated - each unique character counted once)
-  const seenCharIds = new Set<number>();
-  const unknowns: { char_id: number; s: number; overdue: boolean }[] = [];
-
-  for (const char of sentence.chars) {
-    // Skip non-Chinese characters (punctuation, etc.)
-    if (!char.pinyin) continue;
-
-    // Look up character ID
-    const char_id = getCharId(char.char);
-    if (char_id === null) continue;
-
-    // Skip if we've already processed this character
-    if (seenCharIds.has(char_id)) continue;
-    seenCharIds.add(char_id);
-
-    const wordMastery = await db.words.get(char_id);
-    const s = wordMastery?.s ?? INITIAL_S;
-
-    if (s < θ_known) {
-      const overdue = wordMastery
-        ? now >= wordMastery.next_review_ts
-        : false;
-
-      unknowns.push({ char_id, s, overdue });
-    }
-  }
-
-  const k = unknowns.length;
-
-  // Reject if no unknowns (nothing to learn)
-  if (k === 0) {
-    return null;
-  }
-
-  // Apply dynamic k_cap to prevent overwhelming sentences
-  if (k_cap !== null && k > k_cap) {
-    return null;
-  }
-
-  // Step 2: Calculate base gain (sum of learning potential)
-  let base_gain = 0;
-  for (const { s, overdue } of unknowns) {
-    let gain = (1 - s);
-
-    // Boost overdue words (SRS priority)
-    if (overdue) {
-      gain *= SELECTION_CONFIG.overdue_boost;
-    }
-
-    base_gain += gain;
-  }
-
-  // Step 3: Calculate novelty bonus
-  const sentenceState = await db.sentences.get(sentence.id);
-  const hours = hoursSinceSeen(sentenceState, now);
-  const novelty = SELECTION_CONFIG.novelty_weight * Math.log(1 + hours);
-
-  // Step 4: Calculate sentence mastery penalty
-  const pass_penalty = SELECTION_CONFIG.pass_penalty_weight * (sentenceState?.ewma_pass ?? 0);
-
-  // Step 5: Calculate difficulty penalty (if outside k_band)
-  let k_penalty = 0;
-  if (k < k_min || k > k_max) {
-    const nearest = k < k_min ? k_min : k_max;
-    k_penalty = SELECTION_CONFIG.k_penalty_weight * Math.abs(k - nearest);
-  }
-
-  // Step 6: Final score
-  const score = base_gain + novelty - pass_penalty - k_penalty;
-
-  return {
-    sid: sentence.id,
-    score,
-    k,
-    last_seen_ts: sentenceState?.last_seen_ts ?? 0
-  };
-}
-
-/**
- * Score multiple sentences
- */
-async function scoreCandidates(
-  sentences: Sentence[],
-  k_min: number,
-  k_max: number,
-  now: number,
-  options: {
-    θ_known?: number;
-    k_cap?: number | null;
-  } = {}
-): Promise<ScoredSentence[]> {
+  useThreshold: 0.6 | 0.8,  // Which threshold to use
+  k_cap: number | null
+): ScoredSentence[] {
   const scored: ScoredSentence[] = [];
-  let rejectedNoUnknowns = 0;
-  let rejectedKCap = 0;
 
-  for (const sentence of sentences) {
-    const result = await scoreSentence(sentence, k_min, k_max, now, options);
-    if (result) {
-      scored.push(result);
-    } else {
-      // Track why it was rejected
-      // Need to re-check to determine reason (not ideal but simple)
-      const unknownCount = await countUnknowns(sentence, options.θ_known ?? SELECTION_CONFIG.θ_known);
-      if (unknownCount === 0) {
-        rejectedNoUnknowns++;
-      } else {
-        const k_cap = options.k_cap !== undefined ? options.k_cap : await getDynamicKCap();
-        if (k_cap !== null && unknownCount > k_cap) {
-          rejectedKCap++;
-        }
-      }
+  for (const meta of metadataList) {
+    // Choose which unknowns to use based on threshold
+    const unknowns = useThreshold === 0.6 ? meta.unknowns_0_6 : meta.unknowns_0_8;
+    const k = unknowns.length;
+
+    // Reject if no unknowns
+    if (k === 0) {
+      continue;
     }
-  }
 
-  // Log rejection statistics
-  if (rejectedNoUnknowns > 0 || rejectedKCap > 0) {
-    nssLog('Scoring rejections', {
-      total_candidates: sentences.length,
-      scored: scored.length,
-      rejected_no_unknowns: rejectedNoUnknowns,
-      rejected_k_cap: rejectedKCap,
-      rejection_rate: ((rejectedNoUnknowns + rejectedKCap) / sentences.length * 100).toFixed(1) + '%'
+    // Apply k_cap
+    if (k_cap !== null && k > k_cap) {
+      continue;
+    }
+
+    // Calculate base gain
+    let base_gain = 0;
+    for (const { s, overdue } of unknowns) {
+      let gain = (1 - s);
+      if (overdue) {
+        gain *= SELECTION_CONFIG.overdue_boost;
+      }
+      base_gain += gain;
+    }
+
+    // Calculate novelty bonus
+    const hours = hoursSinceSeen(meta.sentenceState ?? undefined, now);
+    const novelty = SELECTION_CONFIG.novelty_weight * Math.log(1 + hours);
+
+    // Calculate sentence mastery penalty
+    const pass_penalty = SELECTION_CONFIG.pass_penalty_weight * (meta.sentenceState?.ewma_pass ?? 0);
+
+    // Calculate difficulty penalty
+    let k_penalty = 0;
+    if (k < k_min || k > k_max) {
+      const nearest = k < k_min ? k_min : k_max;
+      k_penalty = SELECTION_CONFIG.k_penalty_weight * Math.abs(k - nearest);
+    }
+
+    // Final score
+    const score = base_gain + novelty - pass_penalty - k_penalty;
+
+    scored.push({
+      sid: meta.sentence.id,
+      score,
+      k,
+      last_seen_ts: meta.last_seen_ts
     });
   }
 
@@ -502,162 +564,171 @@ function takeTopN(scored: ScoredSentence[], n: number): ScoredSentence[] {
 }
 
 // ============================================================================
-// FALLBACK CASCADE
-// ============================================================================
-
-/**
- * Progressive fallback to find sentences when normal criteria fail
- */
-async function applyFallbacks(
-  allSentences: Sentence[],
-  scriptFilter: ScriptFilter,
-  hskFilter: HskFilter,
-  now: number,
-  attempt: number
-): Promise<{ pool: Sentence[]; k_min: number; k_max: number; θ_known: number }> {
-  let { k_min, k_max } = getDifficultyBand(await countDueWords(now));
-  let θ_known: number = SELECTION_CONFIG.θ_known;
-
-  switch (attempt) {
-    case 1:
-      // Relax k_band
-      nssWarn('Fallback 1: Relaxing k_band to [1, 6]');
-      k_min = 1;
-      k_max = 6;
-      break;
-
-    case 2:
-      // Ignore cooldown
-      nssWarn('Fallback 2: Ignoring cooldown');
-      k_min = 1;
-      k_max = 6;
-      break;
-
-    case 3:
-      // Drop ewma skip
-      nssWarn('Fallback 3: Dropping ewma skip filter');
-      k_min = 1;
-      k_max = 6;
-      break;
-
-    case 4:
-      // Relax to mastered threshold (0.8)
-      // Allows sentences with "known but not mastered" characters [0.6, 0.8)
-      nssWarn('Fallback 4: Using mastered_threshold (0.8) for unknown counting');
-      k_min = 1;
-      k_max = 6;
-      θ_known = SELECTION_CONFIG.mastered_threshold;  // 0.8 instead of 0.6
-      break;
-
-    default:
-      // Absolute fallback: random selection
-      nssError('Fallback 5: All strategies exhausted, using random selection');
-      break;
-  }
-
-  const pool = await getEligibleSentences(allSentences, scriptFilter, hskFilter, now, {
-    ignoreCooldown: attempt >= 2,
-    ignoreSkip: attempt >= 3
-  });
-
-  return { pool, k_min, k_max, θ_known };
-}
-
-// ============================================================================
 // BATCH GENERATION
 // ============================================================================
 
 /**
- * Generate a batch of sentences for practice
+ * Generate a batch of sentences for practice (REFACTORED)
+ *
+ * New approach: Sample once, bulk load, compute metadata, filter (no resample/rescore)
  */
 export async function generateSentenceBatch(
   allSentences: Sentence[],
   scriptFilter: ScriptFilter,
   hskFilter: HskFilter
 ): Promise<SentenceQueue> {
+  const startTime = performance.now();
   const now = Date.now();
 
   if (allSentences.length === 0) {
     throw new Error('[NSS] No sentences available in corpus');
   }
 
-  // Step 1: Get difficulty band based on review backlog
-  const dueWords = await countDueWords(now);
-  let { k_min, k_max } = getDifficultyBand(dueWords);
-
-  // Get dynamic k_cap for cold start protection
-  const k_cap = await getDynamicKCap();
-  const avgMastery = await getAverageMastery();
-
-  // Increment batch counter for periodic stats
+  // Increment batch counter
   batchCounter++;
 
-  nssLog('Starting batch generation', {
+  nssLog('🚀 NSS Refactor - Starting', {
     batch_num: batchCounter,
-    due_words: dueWords,
-    k_band: [k_min, k_max],
-    k_cap: k_cap ?? 'none',
-    avg_mastery: avgMastery.toFixed(3),
-    hsk_filter: hskFilter
+    script_filter: scriptFilter,
+    hsk_filter: hskFilter,
+    corpus_size: allSentences.length
   });
 
-  // Every 10 batches, log detailed mastery stats
-  if (batchCounter % 10 === 0) {
-    const masteryStats = await getMasteryStats();
-    nssLog('📊 Periodic Mastery Stats', {
-      total_words_tracked: masteryStats.total_words,
-      mastery_distribution: {
-        min: masteryStats.min_s.toFixed(3),
-        p25: masteryStats.p25_s.toFixed(3),
-        p50: masteryStats.p50_s.toFixed(3),
-        p75: masteryStats.p75_s.toFixed(3),
-        max: masteryStats.max_s.toFixed(3),
-        avg: masteryStats.avg_s.toFixed(3)
-      },
-      current_k_cap: k_cap ?? 'none'
-    });
-  }
+  // Step 1: Get parameters
+  const dueWords = await countDueWords(now);
+  let { k_min, k_max } = getDifficultyBand(dueWords);
+  const k_cap = await getDynamicKCap();
 
-  // Step 2: Build candidate pool
-  const eligible = await getEligibleSentences(allSentences, scriptFilter, hskFilter, now);
+  // Step 2: Get LARGEST pool (ignore cooldown/skip upfront)
+  const eligible = await getEligibleSentences(allSentences, scriptFilter, hskFilter, now, {
+    ignoreCooldown: true,   // Get largest pool
+    ignoreSkip: true        // Get largest pool
+  });
 
-  // Sample pool (or use all if less than pool_sample_size)
-  const poolSize = Math.min(eligible.length, SELECTION_CONFIG.pool_sample_size);
-  const pool = shuffle(eligible).slice(0, poolSize);
+  // Step 3: Sample once (larger than normal)
+  const sampleSize = Math.min(eligible.length, SELECTION_CONFIG.pool_sample_size * 2);  // 2x larger
+  const pool = shuffle(eligible).slice(0, sampleSize);
 
-  // Step 3: Score candidates
-  let scored = await scoreCandidates(pool, k_min, k_max, now, { k_cap });
+  nssLog('📊 Pool Stats', {
+    eligible_pool_size: eligible.length,
+    sample_size: pool.length
+  });
 
-  // Step 4: Apply fallbacks if needed
+  // Step 4: Bulk load character mastery
+  const charMasteryMap = await bulkLoadCharMastery(pool);
+
+  // Step 5: Compute metadata for all sampled sentences
+  const metadata = await computeAllMetadata(pool, charMasteryMap, now);
+
+  // Step 6: Fallback filtering loop
+  let scored: ScoredSentence[] = [];
   let fallbackAttempt = 0;
-  let θ_known: number = SELECTION_CONFIG.θ_known;
 
-  while (scored.length < SELECTION_CONFIG.batch_size && fallbackAttempt < 5) {
-    fallbackAttempt++;
-    const fallback = await applyFallbacks(allSentences, scriptFilter, hskFilter, now, fallbackAttempt);
+  while (scored.length < SELECTION_CONFIG.batch_size && fallbackAttempt <= 5) {
+    let candidates: SentenceMetadata[];
+    let useThreshold: 0.6 | 0.8 = 0.6;
 
-    k_min = fallback.k_min;
-    k_max = fallback.k_max;
-    θ_known = fallback.θ_known;
+    switch (fallbackAttempt) {
+      case 0:
+        // FB0: All filters, k_band from difficulty, θ=0.6
+        nssLog('🎯 FB0: Initial filtering', {
+          filters: ['cooldown', 'skip', `k_band=[${k_min},${k_max}]`, 'θ=0.6']
+        });
+        candidates = metadata.filter(m =>
+          m.passesCooldown &&
+          m.passesSkip &&
+          m.k_0_6 >= k_min &&
+          m.k_0_6 <= k_max
+        );
+        break;
 
-    if (fallbackAttempt === 5) {
-      // Absolute fallback: random selection from eligible pool
-      // Still respects user preferences (script type, HSK level)
-      scored = shuffle(fallback.pool)
-        .slice(0, SELECTION_CONFIG.batch_size)
-        .map(s => ({
-          sid: s.id,
-          score: 0,
-          k: 0,
-          last_seen_ts: 0
-        }));
+      case 1:
+        // FB1: All filters, wider k_band, θ=0.6
+        nssWarn('⚠️  FB1: Relaxing k_band', {
+          filters: ['cooldown', 'skip', 'k_band=[1,6]', 'θ=0.6']
+        });
+        k_min = 1;
+        k_max = 6;
+        candidates = metadata.filter(m =>
+          m.passesCooldown &&
+          m.passesSkip &&
+          m.k_0_6 >= 1 &&
+          m.k_0_6 <= 6
+        );
+        break;
+
+      case 2:
+        // FB2: Drop cooldown, θ=0.6
+        nssWarn('⚠️  FB2: Ignoring cooldown', {
+          filters: ['skip', 'k_band=[1,6]', 'θ=0.6']
+        });
+        candidates = metadata.filter(m =>
+          m.passesSkip &&
+          m.k_0_6 >= 1 &&
+          m.k_0_6 <= 6
+        );
+        break;
+
+      case 3:
+        // FB3: Drop skip too, θ=0.6
+        nssWarn('⚠️  FB3: Dropping ewma skip filter', {
+          filters: ['k_band=[1,6]', 'θ=0.6']
+        });
+        candidates = metadata.filter(m =>
+          m.k_0_6 >= 1 &&
+          m.k_0_6 <= 6
+        );
+        break;
+
+      case 4:
+        // FB4: Use mastered threshold (0.8)
+        nssWarn('⚠️  FB4: Using mastered threshold', {
+          filters: ['k_band=[1,6]', 'θ=0.8'],
+          note: 'Should find [0.6, 0.8) characters'
+        });
+        useThreshold = 0.8;
+        candidates = metadata.filter(m =>
+          m.k_0_8 >= 1 &&
+          m.k_0_8 <= 6
+        );
+        break;
+
+      case 5:
+        // FB5: Random fallback
+        nssError('❌ FB5: Random selection (all strategies exhausted)');
+        candidates = [];  // Set to empty to satisfy TypeScript
+        scored = shuffle(metadata)
+          .slice(0, SELECTION_CONFIG.batch_size)
+          .map(m => ({
+            sid: m.sentence.id,
+            score: 0,
+            k: 0,
+            last_seen_ts: m.last_seen_ts
+          }));
+        break;
+
+      default:
+        candidates = [];
+    }
+
+    if (fallbackAttempt < 5) {
+      nssLog(`Fallback ${fallbackAttempt} filtered`, {
+        candidates_found: candidates.length
+      });
+
+      // Score filtered candidates
+      scored = scoreFromMetadata(candidates, k_min, k_max, now, useThreshold, k_cap);
+
+      nssLog(`Fallback ${fallbackAttempt} scored`, {
+        scored_count: scored.length
+      });
+    }
+
+    if (scored.length >= SELECTION_CONFIG.batch_size) {
       break;
     }
 
-    // Resample and rescore with fallback criteria
-    const fallbackPool = shuffle(fallback.pool).slice(0, SELECTION_CONFIG.pool_sample_size);
-    scored = await scoreCandidates(fallbackPool, k_min, k_max, now, { θ_known, k_cap });
-    nssLog('Fallback attempt', { attempt: fallbackAttempt, scored_count: scored.length });
+    fallbackAttempt++;
   }
 
   // Step 5: Select top N
@@ -673,8 +744,12 @@ export async function generateSentenceBatch(
     kHistogram[k] = (kHistogram[k] || 0) + 1;
   });
 
-  nssLog('Generated batch', {
+  const totalTime = performance.now() - startTime;
+
+  nssLog('✅ Batch Generated (REFACTORED)', {
+    batch_num: batchCounter,
     size: shuffled.length,
+    total_time_ms: totalTime.toFixed(2),
     k: {
       avg: (shuffled.reduce((sum, s) => sum + s.k, 0) / shuffled.length).toFixed(1),
       min: Math.min(...kValues),
@@ -688,7 +763,7 @@ export async function generateSentenceBatch(
         Math.max(...shuffled.map(s => s.score)).toFixed(2)
       ]
     },
-    fallbacks: fallbackAttempt
+    fallback_level: fallbackAttempt
   });
 
   // Step 6: Create queue
