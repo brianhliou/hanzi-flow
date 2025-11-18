@@ -2149,7 +2149,7 @@ id,char,pinyins,script_type,hsk_level
 7460,欣,xīn,neutral,5
 7464,欧,ōu,simplified,7-9
 7475,欲,yù,neutral,6
-7481,欸,āi|ǎi|ê̄|ế|ê̌|ề|xiè|éi|ěi|èi|ēi,neutral,
+7481,欸,āi|ǎi|xiè|éi|ěi|èi|ēi,neutral,
 7483,欺,qī,neutral,6
 7487,款,kuǎn|xīn,neutral,5
 7496,歇,xiē|yà,neutral,5
@@ -3902,7 +3902,7 @@ id,char,pinyins,script_type,hsk_level
 15498,誉,yù,neutral,6
 15501,誌,zhì,traditional,
 15502,認,rèn,traditional,
-15507,誒,éi|xī|yì|ê̄|ế|ê̌|ěi|ề|èi|ēi,traditional,
+15507,誒,éi|xī|yì|ěi|èi|ēi,traditional,
 15508,誓,shì,neutral,7-9
 15510,誕,dàn,traditional,
 15513,誘,yòu,traditional,

@@ -54,6 +54,69 @@ def contains_cjk_extension_b_plus(text: str) -> List[Tuple[str, str]]:
     return extension_b_chars
 
 
+def filter_vietnamese_pinyins(pinyins_str: str) -> Tuple[str, int]:
+    """
+    Filter out Vietnamese-style pinyin variants from pinyin string.
+
+    Vietnamese-style pinyins use circumflex diacritics (ê, ô, â) which are not
+    part of standard Mandarin Chinese phonology. These variants don't have audio
+    files and create broken UX when displayed as clickable links.
+
+    Args:
+        pinyins_str: Pipe-separated pinyin string (e.g., "āi|ǎi|ê̄|ế|ê̌|ề|xiè|éi")
+
+    Returns:
+        Tuple of (filtered_string, count_removed)
+
+    Example:
+        "āi|ǎi|ê̄|ế|ê̌|ề|xiè|éi" → ("āi|ǎi|xiè|éi", 4)
+    """
+    if not pinyins_str or not pinyins_str.strip():
+        return pinyins_str, 0
+
+    # Vietnamese-style characters to filter:
+    # - Base circumflex letters: ê (U+00EA), ô (U+00F4), â (U+00E2)
+    # - Precomposed with tones: ế (U+1EBF), ề (U+1EC1), etc.
+    # We check for the base circumflex as a substring since composed forms contain it
+    vietnamese_chars = {
+        # Base circumflex (also catches combining forms like ê̄, ê̌)
+        '\u00ea',  # ê - LATIN SMALL LETTER E WITH CIRCUMFLEX
+        '\u00f4',  # ô - LATIN SMALL LETTER O WITH CIRCUMFLEX
+        '\u00e2',  # â - LATIN SMALL LETTER A WITH CIRCUMFLEX
+        # Precomposed Vietnamese characters (e with circumflex + tone)
+        '\u1ebf',  # ế - E WITH CIRCUMFLEX AND ACUTE
+        '\u1ec1',  # ề - E WITH CIRCUMFLEX AND GRAVE
+        '\u1ec5',  # ể - E WITH CIRCUMFLEX AND HOOK ABOVE
+        '\u1ec3',  # ể - E WITH CIRCUMFLEX AND QUESTION HOOK
+        '\u1ec7',  # ệ - E WITH CIRCUMFLEX AND DOT BELOW
+        # O with circumflex variants
+        '\u1ed1',  # ố - O WITH CIRCUMFLEX AND ACUTE
+        '\u1ed3',  # ồ - O WITH CIRCUMFLEX AND GRAVE
+        '\u1ed5',  # ổ - O WITH CIRCUMFLEX AND HOOK ABOVE
+        '\u1ed7',  # ỗ - O WITH CIRCUMFLEX AND TILDE
+        '\u1ed9',  # ộ - O WITH CIRCUMFLEX AND DOT BELOW
+        # A with circumflex variants
+        '\u1ea5',  # ấ - A WITH CIRCUMFLEX AND ACUTE
+        '\u1ea7',  # ầ - A WITH CIRCUMFLEX AND GRAVE
+        '\u1ea9',  # ẩ - A WITH CIRCUMFLEX AND HOOK ABOVE
+        '\u1eab',  # ẫ - A WITH CIRCUMFLEX AND TILDE
+        '\u1ead',  # ậ - A WITH CIRCUMFLEX AND DOT BELOW
+    }
+
+    pinyins = pinyins_str.split('|')
+    filtered = []
+    removed_count = 0
+
+    for pinyin in pinyins:
+        # Check if this pinyin contains any Vietnamese-style characters
+        if any(vc in pinyin for vc in vietnamese_chars):
+            removed_count += 1
+        else:
+            filtered.append(pinyin)
+
+    return '|'.join(filtered), removed_count
+
+
 def extract_characters_from_corpus(corpus_path: Path) -> Dict[str, int]:
     """
     Extract unique characters and their frequencies from sentence corpus.
@@ -253,6 +316,10 @@ def main():
         key=lambda x: x[1]['preserved_id']
     )
 
+    # Track Vietnamese pinyin filtering
+    total_vietnamese_removed = 0
+    chars_with_vietnamese = []
+
     with open(output_path, 'w', encoding='utf-8', newline='') as f:
         # Production CSV columns (only used columns)
         # Based on app analysis: id, char, pinyins, script_type, hsk_level are used
@@ -270,15 +337,27 @@ def main():
 
         # Write characters using preserved IDs
         for char, data in sorted_chars:
+            # Filter Vietnamese-style pinyins
+            filtered_pinyins, removed_count = filter_vietnamese_pinyins(data['pinyins_display'])
+
+            if removed_count > 0:
+                total_vietnamese_removed += removed_count
+                chars_with_vietnamese.append((char, data['preserved_id'], removed_count))
+
             writer.writerow({
                 'id': data['preserved_id'],  # Use preserved ID from v0 or newly assigned
                 'char': char,
-                'pinyins': data['pinyins_display'],  # Use tone marks format
+                'pinyins': filtered_pinyins,  # Filtered Vietnamese variants
                 'script_type': data['script_type'],
                 'hsk_level': data.get('hsk_level', ''),
             })
 
     print(f"✓ Wrote {len(sorted_chars):,} characters to production CSV")
+
+    if chars_with_vietnamese:
+        print(f"\n  🔧 Filtered {total_vietnamese_removed} Vietnamese-style pinyin variants:")
+        for char, char_id, count in chars_with_vietnamese:
+            print(f"     '{char}' (ID {char_id}): removed {count} variants")
 
     # Summary
     print("\n" + "=" * 80)

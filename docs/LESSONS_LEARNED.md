@@ -975,3 +975,262 @@ def get_unicode_plane(char):
     else:
         return f"Other plane (U+{code:04X})"
 ```
+
+---
+
+## 8. Vietnamese-Style Pinyin Variants: Audio Files and Broken UX
+
+**Date:** November 17, 2025  
+**Context:** User reported that character 誒 has many pinyins including Vietnamese sounds not used in standard Chinese. Investigation revealed pypinyin includes Vietnamese-style romanization variants for Chinese interjections that lack audio file support, creating broken UX.
+
+**Problem:**
+Vietnamese-style pinyin variants (using circumflex diacritics like ê, ô, â) appeared in the character set for 2 interjection characters. These pinyins were displayed as clickable links in the stats page but don't have corresponding audio files, resulting in a broken user experience when users click them expecting pronunciation.
+
+**Investigation Process:**
+
+1. **Initial Report:**
+   - Character 誒 (char_id: 15507) has 10 pinyin variants including Vietnamese-style sounds
+   - User noticed these don't match standard Mandarin Chinese phonology
+
+2. **Scope Analysis:**
+   ```bash
+   # Search for Vietnamese-style diacritics in character set
+   grep -E '[êôâ]' data/character_set/v1/sot_characters_v1.0.csv
+   # Result: 2 characters found
+   ```
+
+3. **Characters Affected:**
+   - **欸** (char_id: 7481, neutral script)
+     - Full pinyin list: āi|ǎi|ê̄|ế|ê̌|ề|xiè|éi|ěi|èi|ēi (11 variants)
+     - Vietnamese variants: ê̄, ế, ê̌, ề (4 variants)
+     - Actual corpus usage: 6 instances across 4 sentences, **100% use "ai1"**
+   - **誒** (char_id: 15507, traditional script)
+     - Full pinyin list: éi|xī|yì|ê̄|ế|ê̌|ěi|ề|èi|ēi (10 variants)
+     - Vietnamese variants: ê̄, ế, ê̌, ề (4 variants)
+     - Actual corpus usage: 1 instance in 1 sentence, **100% uses "ei2"**
+
+4. **Corpus Usage Verification:**
+   ```bash
+   # Check actual pinyin usage in sentences
+   grep '欸' data/sentences/sentences.csv
+   # All instances use "ai1" - Vietnamese variants never used
+   
+   grep '誒' data/sentences/sentences.csv
+   # Single instance uses "ei2" - Vietnamese variants never used
+   ```
+
+**Root Cause Analysis:**
+
+1. **Source:** pypinyin library includes Vietnamese-style romanization for Chinese interjections/exclamatory sounds
+2. **Documentation:** Already noted in `data/character_set/v1/PINYIN_COVERAGE_ANALYSIS.md`:
+   - Section: "Anomalous Characters (ê)"
+   - Classification: "Valid but unusual"
+   - Count: 2 characters, 8 syllables total
+   - Implication: "These are interjections/onomatopoeia with non-standard romanization"
+
+3. **Unicode Complexity:** Vietnamese variants exist in multiple forms:
+   - **Composed forms:** ê̄ (U+00EA + combining macron), ê̌ (U+00EA + combining caron)
+   - **Precomposed forms:** ế (U+1EBF), ề (U+1EC1) - single Unicode characters
+
+4. **UX Impact:**
+   - Pinyins displayed as clickable links in stats page (UserStats.tsx)
+   - Clicking Vietnamese variants fails to load audio (files don't exist)
+   - Creates perception of broken functionality
+   - Affects 2 rare characters (both Beyond HSK level)
+
+**Solution Implemented:**
+
+Added comprehensive Vietnamese pinyin filtering to the character export pipeline:
+
+1. **Updated `scripts/character_set/v1/export_production_csv.py`:**
+   ```python
+   def filter_vietnamese_pinyins(pinyins_str: str) -> Tuple[str, int]:
+       """
+       Filter out Vietnamese-style pinyin variants from pinyin string.
+       
+       Vietnamese-style pinyins use circumflex diacritics (ê, ô, â) which are not
+       part of standard Mandarin Chinese phonology. These variants don't have audio
+       files and create broken UX when displayed as clickable links.
+       """
+       vietnamese_chars = {
+           # Base circumflex (also catches combining forms like ê̄, ê̌)
+           '\u00ea',  # ê - LATIN SMALL LETTER E WITH CIRCUMFLEX
+           '\u00f4',  # ô - LATIN SMALL LETTER O WITH CIRCUMFLEX
+           '\u00e2',  # â - LATIN SMALL LETTER A WITH CIRCUMFLEX
+           # Precomposed Vietnamese characters (e with circumflex + tone)
+           '\u1ebf',  # ế - E WITH CIRCUMFLEX AND ACUTE
+           '\u1ec1',  # ề - E WITH CIRCUMFLEX AND GRAVE
+           '\u1ec5',  # ể - E WITH CIRCUMFLEX AND HOOK ABOVE
+           '\u1ec3',  # ể - E WITH CIRCUMFLEX AND QUESTION HOOK
+           '\u1ec7',  # ệ - E WITH CIRCUMFLEX AND DOT BELOW
+           # O and A variants (comprehensive coverage)
+           # ... (see code for full list)
+       }
+       
+       pinyins = pinyins_str.split('|')
+       filtered = []
+       removed_count = 0
+       
+       for pinyin in pinyins:
+           if any(vc in pinyin for vc in vietnamese_chars):
+               removed_count += 1
+           else:
+               filtered.append(pinyin)
+       
+       return '|'.join(filtered), removed_count
+   ```
+
+2. **Integrated into CSV export with tracking:**
+   ```python
+   # Write characters using preserved IDs
+   for char, data in sorted_chars:
+       # Filter Vietnamese-style pinyins
+       filtered_pinyins, removed_count = filter_vietnamese_pinyins(data['pinyins_display'])
+       
+       if removed_count > 0:
+           total_vietnamese_removed += removed_count
+           chars_with_vietnamese.append((char, data['preserved_id'], removed_count))
+       
+       writer.writerow({
+           'id': data['preserved_id'],
+           'char': char,
+           'pinyins': filtered_pinyins,  # Filtered Vietnamese variants
+           'script_type': data['script_type'],
+           'hsk_level': data.get('hsk_level', ''),
+       })
+   ```
+
+3. **Regenerated Production CSV:**
+   ```
+   [5/5] Writing production CSV: characters_v1.csv
+   ✓ Wrote 5,004 characters to production CSV
+   
+   🔧 Filtered 8 Vietnamese-style pinyin variants:
+      '欸' (ID 7481): removed 4 variants
+      '誒' (ID 15507): removed 4 variants
+   ```
+
+**Results:**
+
+**Before (with Vietnamese variants):**
+- 欸: āi|ǎi|ê̄|ế|ê̌|ề|xiè|éi|ěi|èi|ēi (11 pinyins)
+- 誒: éi|xī|yì|ê̄|ế|ê̌|ěi|ề|èi|ēi (10 pinyins)
+
+**After (filtered):**
+- 欸: āi|ǎi|xiè|éi|ěi|èi|ēi (7 pinyins) ✓
+- 誒: éi|xī|yì|ěi|èi|ēi (6 pinyins) ✓
+
+**Git diff verification:**
+```bash
+git diff app/public/data/character_set/characters.csv
+# Only 2 lines changed (2 characters)
+# 8 Vietnamese pinyin variants removed total
+# No other data modified
+```
+
+**Key Takeaways:**
+
+- ⚠️ **pypinyin includes non-standard romanization** - Vietnamese-style variants for interjections
+- ⚠️ **Theoretical pinyins ≠ practical usage** - All 8 Vietnamese variants had zero corpus usage
+- ⚠️ **Unicode precomposed characters need explicit handling** - Can't just filter base characters
+- ✅ **Data quality requires corpus verification** - Check what pinyins are actually used in practice
+- ✅ **UX drives data decisions** - Unused pinyins without audio = broken experience
+- 📊 **Impact statistics:**
+  - 2 characters affected (0.04% of 5,004-character set)
+  - 8 pinyin variants removed (4 per character)
+  - 0 corpus sentences use Vietnamese variants
+  - Both characters are Beyond HSK (rarely encountered)
+- 🔍 **Investigation technique**: Search for non-ASCII characters in pinyins, verify corpus usage
+
+**Unicode Character Reference:**
+
+Vietnamese-style diacritics in pinyin field:
+```
+Composed Forms (base + combining mark):
+- ê̄  = U+00EA (ê) + U+0304 (combining macron)
+- ê̌  = U+00EA (ê) + U+030C (combining caron)
+
+Precomposed Forms (single Unicode character):
+- ế  = U+1EBF (LATIN SMALL LETTER E WITH CIRCUMFLEX AND ACUTE)
+- ề  = U+1EC1 (LATIN SMALL LETTER E WITH CIRCUMFLEX AND GRAVE)
+
+Why filtering is complex:
+- Can't just search for 'ê' substring
+- Must handle both composed and precomposed forms
+- Solution: Explicit Unicode codepoint list for all variants
+```
+
+**Why These Exist in pypinyin:**
+
+Vietnamese uses Chinese-derived characters (chữ Nôm) and romanization (chữ Quốc ngữ) that includes:
+- Circumflex diacritics (â, ê, ô)
+- Tone marks (à, á, ả, ã, ạ)
+
+For Chinese interjections that have Vietnamese cognates or similar sounds, pypinyin may include Vietnamese-influenced romanization variants as alternative readings, even though they're not part of standard Mandarin pinyin.
+
+**Recommended Actions:**
+
+1. ✅ **Filter Vietnamese variants in export pipeline** - Implemented in `export_production_csv.py`
+2. ✅ **Regenerate production character CSV** - Completed with verification
+3. 📋 **Monitor for other non-standard pinyin formats:**
+   - Cantonese romanization (jyutping)
+   - Wade-Giles romanization (deprecated but sometimes mixed in)
+   - IPA phonetic transcriptions
+4. 📋 **Audit audio file coverage:**
+   - Verify all displayed pinyins have corresponding audio files
+   - Add validation in build process to flag missing audio
+5. 📋 **Consider pinyin validation rules:**
+   - Standard pinyin uses only: a-z, ü, and tone marks (ā á ǎ à)
+   - Flag any pinyin containing characters outside this set
+
+**Related Files:**
+- `scripts/character_set/v1/export_production_csv.py` - Character export with Vietnamese filtering
+- `app/public/data/character_set/characters.csv` - Production character set (filtered)
+- `data/character_set/v1/PINYIN_COVERAGE_ANALYSIS.md` - Documents pypinyin anomalies
+- `app/components/UserStats.tsx` - Stats page displaying pinyin links
+
+**Investigation Command Reference:**
+```python
+# Search for Vietnamese diacritics in character set
+import csv
+import unicodedata
+
+vietnamese_chars = {'ê', 'ô', 'â', 'ế', 'ề'}
+
+with open('characters.csv', 'r', encoding='utf-8') as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        pinyins = row['pinyins']
+        if any(vc in pinyins for vc in vietnamese_chars):
+            print(f"{row['char']} (ID {row['id']}): {pinyins}")
+
+# Check Unicode composition of pinyin character
+def analyze_pinyin_char(char):
+    print(f"Character: {char}")
+    print(f"Unicode: U+{ord(char):04X}")
+    print(f"Name: {unicodedata.name(char, 'UNKNOWN')}")
+    print(f"Repr: {repr(char)}")
+    
+analyze_pinyin_char('ế')  # Precomposed
+# Output: U+1EBF - LATIN SMALL LETTER E WITH CIRCUMFLEX AND ACUTE
+
+# Verify corpus usage of Vietnamese pinyins
+import csv
+chars_to_check = {'欸', '誒'}
+pinyin_usage = {}
+
+with open('sentences.csv', 'r', encoding='utf-8') as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        pairs = row['char_pinyin_pairs'].split('|')
+        for pair in pairs:
+            if ':' in pair:
+                char, pinyin = pair.split(':', 1)
+                if char in chars_to_check:
+                    pinyin_usage.setdefault(char, []).append(pinyin)
+
+for char, pinyins in pinyin_usage.items():
+    unique_pinyins = set(pinyins)
+    print(f"{char}: {unique_pinyins}")
+    # Result: 欸 uses only 'ai1', 誒 uses only 'ei2'
+```
