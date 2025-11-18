@@ -390,7 +390,7 @@ export default function UserStats() {
       <section>
         <h2 className="text-xl font-semibold mb-3">Character Progress</h2>
         <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
-          Total corpus contains 5,007 characters across all script types.
+          Total corpus contains 5,004 characters across all script types.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
           <StatCard
