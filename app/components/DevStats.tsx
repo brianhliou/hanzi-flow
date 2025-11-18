@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { getAllWords, getAllSentences, getDatabaseStats, type WordMastery, type SentenceProgress } from '@/lib/db';
 import { loadSentences } from '@/lib/sentences';
 import { loadCharacterMapping, getCharId } from '@/lib/characters';
+import { convertToneNumbers } from '@/lib/pinyin';
 
 /**
  * Development component for inspecting IndexedDB word mastery data
@@ -18,7 +19,13 @@ export default function DevStats() {
   const [showSentences, setShowSentences] = useState(false);
   const [loading, setLoading] = useState(true);
   const [charLookup, setCharLookup] = useState<Map<number, string>>(new Map());
+  const [pinyinLookup, setPinyinLookup] = useState<Map<number, string>>(new Map());
   const [sentenceLookup, setSentenceLookup] = useState<Map<number, string>>(new Map());
+
+  // Sorting state for character table
+  type SortColumn = keyof WordMastery | 'char' | 'pinyin' | 'true_success_rate';
+  const [sortBy, setSortBy] = useState<SortColumn>('s');
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
 
   const exportSnapshot = async () => {
     try {
@@ -63,18 +70,23 @@ export default function DevStats() {
     const wordsData = await getAllWords();
     const sentencesData = await getAllSentences();
 
-    // Build character lookup and sentence lookup maps from sentences
+    // Build character lookup, pinyin lookup, and sentence lookup maps from sentences
     const sentencesCorpus = await loadSentences();
     const charLookup = new Map<number, string>();
+    const pinyinLookup = new Map<number, string>();
     const sentenceLookup = new Map<number, string>();
 
     for (const sentence of sentencesCorpus) {
-      // Build character lookup
+      // Build character and pinyin lookups
       for (const char of sentence.chars) {
         if (!char.pinyin) continue; // Skip non-Chinese
         const char_id = getCharId(char.char);
         if (char_id !== null && !charLookup.has(char_id)) {
           charLookup.set(char_id, char.char);
+          // Get first canonical pinyin and convert to tone marks
+          const pinyins = char.pinyin.split('|');
+          const firstPinyin = pinyins[0] || '';
+          pinyinLookup.set(char_id, convertToneNumbers(firstPinyin));
         }
       }
       // Build sentence lookup
@@ -85,6 +97,7 @@ export default function DevStats() {
     setWords(wordsData);
     setSentences(sentencesData);
     setCharLookup(charLookup);
+    setPinyinLookup(pinyinLookup);
     setSentenceLookup(sentenceLookup);
     setLoading(false);
   };
@@ -92,6 +105,61 @@ export default function DevStats() {
   useEffect(() => {
     loadData();
   }, []);
+
+  // Sort words based on selected column and direction
+  const sortedWords = useMemo(() => {
+    const sorted = [...words];
+
+    sorted.sort((a, b) => {
+      let aVal: number | string = 0;
+      let bVal: number | string = 0;
+
+      if (sortBy === 'char') {
+        aVal = charLookup.get(a.char_id) || '';
+        bVal = charLookup.get(b.char_id) || '';
+      } else if (sortBy === 'pinyin') {
+        aVal = pinyinLookup.get(a.char_id) || '';
+        bVal = pinyinLookup.get(b.char_id) || '';
+      } else if (sortBy === 'true_success_rate') {
+        // Compute true success rate: n_correct / n_attempts
+        aVal = a.n_attempts > 0 ? (a.n_correct / a.n_attempts) : 0;
+        bVal = b.n_attempts > 0 ? (b.n_correct / b.n_attempts) : 0;
+      } else {
+        aVal = a[sortBy as keyof WordMastery] as number | string;
+        bVal = b[sortBy as keyof WordMastery] as number | string;
+      }
+
+      if (typeof aVal === 'string' && typeof bVal === 'string') {
+        return sortDir === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+      }
+
+      return sortDir === 'asc' ? (aVal as number) - (bVal as number) : (bVal as number) - (aVal as number);
+    });
+
+    return sorted;
+  }, [words, sortBy, sortDir, charLookup, pinyinLookup]);
+
+  // Helper to render sortable column header
+  const SortHeader = ({ column, label }: { column: SortColumn; label: string }) => {
+    const isSorted = sortBy === column;
+    const arrow = isSorted ? (sortDir === 'asc' ? ' ↑' : ' ↓') : '';
+
+    return (
+      <th
+        className="text-left p-1 bg-gray-100 dark:bg-gray-800 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 select-none"
+        onClick={() => {
+          if (sortBy === column) {
+            setSortDir(sortDir === 'asc' ? 'desc' : 'asc');
+          } else {
+            setSortBy(column);
+            setSortDir('desc');
+          }
+        }}
+      >
+        {label}{arrow}
+      </th>
+    );
+  };
 
   if (loading) {
     return (
@@ -154,23 +222,24 @@ export default function DevStats() {
           <table className="w-full text-xs">
             <thead className="sticky top-0 bg-gray-100 dark:bg-gray-800 z-10">
               <tr>
-                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">ID</th>
-                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Char</th>
-                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Mastery</th>
-                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">True %</th>
-                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">EWMA</th>
-                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Correct</th>
-                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Attempts</th>
-                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Streak</th>
-                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Stability</th>
-                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Next Review</th>
-                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Last Seen</th>
-                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Introduced</th>
-                <th className="text-left p-1 bg-gray-100 dark:bg-gray-800">Outcome</th>
+                <SortHeader column="char_id" label="ID" />
+                <SortHeader column="char" label="Char" />
+                <SortHeader column="pinyin" label="Pinyin" />
+                <SortHeader column="s" label="Mastery" />
+                <SortHeader column="true_success_rate" label="True %" />
+                <SortHeader column="ewma_success" label="EWMA" />
+                <SortHeader column="n_correct" label="Correct" />
+                <SortHeader column="n_attempts" label="Attempts" />
+                <SortHeader column="streak_correct" label="Streak" />
+                <SortHeader column="stability_days" label="Stability" />
+                <SortHeader column="next_review_ts" label="Next Review" />
+                <SortHeader column="last_seen_ts" label="Last Seen" />
+                <SortHeader column="introduced_ts" label="Introduced" />
+                <SortHeader column="last_outcome" label="Outcome" />
               </tr>
             </thead>
             <tbody>
-              {words.map((word) => {
+              {sortedWords.map((word) => {
                 const trueSuccessRate = word.n_attempts > 0
                   ? ((word.n_correct / word.n_attempts) * 100).toFixed(1)
                   : '0.0';
@@ -219,6 +288,7 @@ export default function DevStats() {
                   <tr key={word.char_id} className="border-t dark:border-gray-600">
                     <td className="p-1">{word.char_id}</td>
                     <td className="p-1 text-lg">{charLookup.get(word.char_id) || '?'}</td>
+                    <td className="p-1 text-sm text-gray-600 dark:text-gray-400">{pinyinLookup.get(word.char_id) || '-'}</td>
                     <td className="p-1">{word.s.toFixed(3)}</td>
                     <td className="p-1">{trueSuccessRate}%</td>
                     <td className="p-1">{word.ewma_success.toFixed(3)}</td>
