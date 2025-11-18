@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { getAllWords, getAllSentences, type WordMastery } from '@/lib/db';
 import { getCorpusMetadata } from '@/lib/sentences';
 import { SELECTION_CONFIG } from '@/lib/selection-config';
-import { loadCharacterMapping } from '@/lib/characters';
 import { playPinyinAudio } from '@/lib/audio';
 import { convertToneMarksToNumbers } from '@/lib/pinyin';
 import { isDebugMode } from '@/lib/debug';
@@ -503,86 +502,6 @@ function StatCard({ label, value, suffix, description, color = 'gray' }: StatCar
       {description && (
         <div className="text-sm text-gray-500 dark:text-gray-400">
           {description}
-        </div>
-      )}
-    </div>
-  );
-}
-
-interface MasteryCategoryProps {
-  label: string;
-  count: number;
-  description: string;
-  color: 'green' | 'blue' | 'yellow';
-  words: WordMastery[];
-}
-
-function MasteryCategory({ label, count, description, color, words }: MasteryCategoryProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const colorClasses = {
-    green: 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800',
-    blue: 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800',
-    yellow: 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800',
-  };
-
-  return (
-    <div className={`rounded-lg border ${colorClasses[color]}`}>
-      {/* Header - always visible */}
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-6 text-left flex items-center justify-between hover:opacity-80 transition-opacity"
-      >
-        <div className="flex-1">
-          <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">
-            {label}
-          </div>
-          <div className="text-3xl font-bold mb-1">
-            {count}
-          </div>
-          <div className="text-sm text-gray-500 dark:text-gray-400">
-            {description}
-          </div>
-        </div>
-        <div className="text-gray-400 ml-4">
-          {isExpanded ? '▼' : '▶'}
-        </div>
-      </button>
-
-      {/* Character list - expandable */}
-      {isExpanded && words.length > 0 && (
-        <div className="pl-6 pr-3 pb-6 border-t border-gray-200 dark:border-gray-700 pt-4">
-          <div className="flex flex-wrap gap-3 justify-start">
-            {words.map((word) => {
-              const { char, pinyin } = getCharFromId(word.char_id);
-              return (
-                <div
-                  key={word.char_id}
-                  className="w-32 px-4 py-3 bg-white dark:bg-gray-800 rounded border border-gray-200 dark:border-gray-600"
-                >
-                  {/* Line 1: Character + Score */}
-                  <div className="flex items-center justify-between mb-1">
-                    <span className="text-3xl font-medium">
-                      {char}
-                    </span>
-                    <span className="text-sm text-gray-500 dark:text-gray-400">
-                      {word.s.toFixed(2)}
-                    </span>
-                  </div>
-                  {/* Line 2: Pinyin */}
-                  <div className="text-base text-gray-600 dark:text-gray-300">
-                    {pinyin}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
-      {isExpanded && words.length === 0 && (
-        <div className="px-6 pb-6 border-t border-gray-200 dark:border-gray-700 pt-4 text-gray-500 dark:text-gray-400 text-sm">
-          No characters in this category yet
         </div>
       )}
     </div>

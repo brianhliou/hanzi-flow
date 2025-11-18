@@ -38,7 +38,6 @@ export default function PracticePage() {
     score: { correct: 0, total: 0 },
   });
   const [currentInput, setCurrentInput] = useState('');
-  const [showResult, setShowResult] = useState(false);
   const [isFirstAttempt, setIsFirstAttempt] = useState(true);
   const [currentCharWasWrong, setCurrentCharWasWrong] = useState(false);
   const [retryCount, setRetryCount] = useState(0);
@@ -392,8 +391,6 @@ export default function PracticePage() {
       setCurrentCharWasWrong(false); // Reset for next character
     }
 
-    setShowResult(false);
-
     // Focus input for next character
     setTimeout(() => inputRef.current?.focus(), 0);
   };
@@ -425,7 +422,6 @@ export default function PracticePage() {
           score: state.score, // Keep cumulative score
         });
         setCurrentInput('');
-        setShowResult(false);
         setIsFirstAttempt(true);
         setCurrentCharWasWrong(false);
         setShowTranslation(false); // Reset translation visibility for new sentence

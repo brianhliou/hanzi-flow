@@ -76,46 +76,6 @@ async function getAverageMastery(): Promise<number> {
 }
 
 /**
- * Get detailed mastery statistics for logging
- */
-async function getMasteryStats(): Promise<{
-  total_words: number;
-  avg_s: number;
-  min_s: number;
-  max_s: number;
-  p25_s: number;
-  p50_s: number;
-  p75_s: number;
-}> {
-  const allWords = await db.words.toArray();
-
-  if (allWords.length === 0) {
-    return {
-      total_words: 0,
-      avg_s: INITIAL_S,
-      min_s: INITIAL_S,
-      max_s: INITIAL_S,
-      p25_s: INITIAL_S,
-      p50_s: INITIAL_S,
-      p75_s: INITIAL_S
-    };
-  }
-
-  const sValues = allWords.map(w => w.s).sort((a, b) => a - b);
-  const avg = sValues.reduce((sum, s) => sum + s, 0) / sValues.length;
-
-  return {
-    total_words: allWords.length,
-    avg_s: avg,
-    min_s: sValues[0],
-    max_s: sValues[sValues.length - 1],
-    p25_s: sValues[Math.floor(sValues.length * 0.25)],
-    p50_s: sValues[Math.floor(sValues.length * 0.5)],
-    p75_s: sValues[Math.floor(sValues.length * 0.75)]
-  };
-}
-
-/**
  * Get dynamic k_cap based on current average mastery level
  * Prevents overwhelming sentences during cold start
  */

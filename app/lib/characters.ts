@@ -130,7 +130,7 @@ export function getCharId(char: string): number | null {
  */
 export function getValidPinyins(char: string): string[] {
   if (!charToPinyinsMap) {
-    throw new Error('Character mapping not loaded. Call loadCharacterMapping() first.');
+    return []; // Character mapping not loaded yet - graceful fallback
   }
   return charToPinyinsMap.get(char) ?? [];
 }

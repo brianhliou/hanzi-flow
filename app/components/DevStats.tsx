@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { getAllWords, getAllSentences, getDatabaseStats, type WordMastery, type SentenceProgress } from '@/lib/db';
 import { loadSentences } from '@/lib/sentences';
 import { loadCharacterMapping, getCharId } from '@/lib/characters';
-import type { Sentence } from '@/lib/types';
 
 /**
  * Development component for inspecting IndexedDB word mastery data

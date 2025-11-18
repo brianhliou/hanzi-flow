@@ -65,19 +65,14 @@ export function checkPinyin(userInput: string, expected: string, char?: string):
   // Get all valid pinyins from character_set if character is provided
   let validPinyins: string[] = [];
   if (char) {
-    try {
-      const rawPinyins = getValidPinyins(char);
-      // Strip frequency data, convert tone marks to numbers, and normalize
-      // ["lè(283)", "yuè(54)", "zhèi"] → ["le4", "yue4", "zhei4"]
-      validPinyins = rawPinyins.map(p => {
-        const stripped = stripFrequency(p);
-        const withToneNumbers = convertToneMarksToNumbers(stripped);
-        return normalizePinyin(withToneNumbers);
-      });
-    } catch (e) {
-      // Character mapping not loaded, fall back to sentence-level pinyin only
-      validPinyins = [];
-    }
+    const rawPinyins = getValidPinyins(char);
+    // Strip frequency data, convert tone marks to numbers, and normalize
+    // ["lè(283)", "yuè(54)", "zhèi"] → ["le4", "yue4", "zhei4"]
+    validPinyins = rawPinyins.map(p => {
+      const stripped = stripFrequency(p);
+      const withToneNumbers = convertToneMarksToNumbers(stripped);
+      return normalizePinyin(withToneNumbers);
+    });
   }
 
   // Always include the expected pinyin from sentence data
