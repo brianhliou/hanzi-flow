@@ -304,7 +304,6 @@ Migrate audio pipeline to use step6_with_freq.csv as source of truth:
 - `data/character_set/step6_with_freq.csv` - Proposed new source
 
 **Related documentation:**
-- See `docs/migrations/pinyin-format-2025-11/` for character pipeline dual-format migration
 - Character pipeline successfully eliminated all format conversions
 
 **Priority:** Medium - Not blocking but would improve efficiency and consistency

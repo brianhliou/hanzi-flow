@@ -680,7 +680,6 @@ We renamed old scripts to `.old` rather than deleting them:
 - ✅ Make decisions in dependency order, not all upfront
 
 **Migration Documentation:**
-- See [docs/migrations/pinyin-format-2025-11/](./migrations/pinyin-format-2025-11/) for complete migration docs
 - See [Section 4](#4-mixed-pinyin-formats-technical-debt-from-multiple-data-sources) for original problem analysis
 
 **Related Files:**

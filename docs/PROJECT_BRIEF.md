@@ -4,8 +4,6 @@
 
 A privacy-first, local-first web application for learning Chinese characters through contextual sentence practice. Uses an adaptive algorithm to select sentences based on your mastery level, with support for both Simplified and Traditional Chinese.
 
-🔗 **[Live Demo](https://hanziflow.vercel.app)**
-
 ---
 
 ## Vision
@@ -101,7 +99,6 @@ See DEVELOPER_GUIDE.md for complete structure details.
 ### For Data Pipeline
 - **[scripts/character_set/README.md](../scripts/character_set/README.md)**: Character pipeline docs
 - **[scripts/sentences/README.md](../scripts/sentences/README.md)**: Sentence pipeline docs
-- **[docs/migrations/](./migrations/)**: Pipeline migration history
 
 ---
 

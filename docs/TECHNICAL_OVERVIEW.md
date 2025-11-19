@@ -253,7 +253,7 @@ We use **jieba** for word segmentation, then **pypinyin** to generate context-ap
 - App can display tone marks while accepting tone numbers as input
 - Storage cost minimal (~300KB), simplicity benefit massive
 
-**Migration**: Completed Nov 2025 - eliminated 612 duplicate syllables (30.5% duplication) that existed under old mixed-format system. See: [docs/migrations/pinyin-format-2025-11/](./migrations/pinyin-format-2025-11/)
+**Migration**: Completed Nov 2025 - eliminated 612 duplicate syllables (30.5% duplication) that existed under old mixed-format system.
 
 ### Why IndexedDB (Not PostgreSQL)?
 

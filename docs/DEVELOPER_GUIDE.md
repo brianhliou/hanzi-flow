@@ -330,8 +330,7 @@ hanzi-flow/
 │   ├── DEVELOPER_GUIDE.md        # This file
 │   ├── ROADMAP.md                # Feature roadmap
 │   ├── KNOWN_ISSUES.md           # Current limitations
-│   ├── LESSONS_LEARNED.md        # Technical insights
-│   └── migrations/               # Pipeline migration history
+│   └── LESSONS_LEARNED.md        # Technical insights
 │
 ├── README.md                     # User-facing documentation
 └── venv/                         # Python virtual environment
