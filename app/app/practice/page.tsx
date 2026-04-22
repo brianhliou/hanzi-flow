@@ -736,8 +736,8 @@ export default function PracticePage() {
                             : hasBeenAnswered && charType === 'alphanumeric'
                             ? 'text-gray-600'             // Completed alphanumeric - gray
                             : hasBeenAnswered && charType === 'punctuation'
-                            ? 'text-gray-400'             // Completed punctuation - light gray
-                            : 'text-gray-900'             // Not reached yet - dark
+                            ? 'text-gray-400 dark:text-gray-500'  // Completed punctuation - light gray
+                            : 'text-gray-900 dark:text-gray-100'  // Not reached yet
                         } ${isCharClickable ? 'cursor-pointer hover:opacity-80 transition-opacity' : ''}`}
                         style={{
                           transform: isCurrent ? 'scale(1.05)' : 'scale(1)',
@@ -752,7 +752,7 @@ export default function PracticePage() {
                         style={{ fontSize: '14px', height: '18px', lineHeight: '18px' }}
                       >
                         {hasBeenAnswered && (
-                          <span className="text-gray-600">{convertToneNumbers(c.pinyin || '')}</span>
+                          <span className="text-gray-600 dark:text-gray-400">{convertToneNumbers(c.pinyin || '')}</span>
                         )}
                       </span>
                     </span>
@@ -820,7 +820,7 @@ export default function PracticePage() {
                   value={currentInput}
                   onChange={(e) => setCurrentInput(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  className="w-80 h-full text-xl text-center border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:outline-none transition-all"
+                  className="w-80 h-full text-xl text-center bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 border-2 border-gray-300 dark:border-gray-700 rounded-lg focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all"
                   placeholder={state.currentCharIndex === 0 ? "Type pinyin" : ""}
                   autoFocus
                   disabled={isAutoAdvancing}
