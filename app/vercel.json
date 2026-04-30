@@ -1,6 +1,15 @@
 {
   "headers": [
     {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self' https://brianhliou.com https://www.brianhliou.com http://localhost:4000"
+        }
+      ]
+    },
+    {
       "source": "/data/audio/(.*)",
       "headers": [
         {
