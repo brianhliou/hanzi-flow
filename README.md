@@ -18,7 +18,7 @@ A privacy-first, local-first web application for learning Chinese characters thr
 
 ## 🚀 Quick Start
 
-**For users**: Visit [hanziflow.vercel.app](https://hanziflow.vercel.app) to start practicing immediately.
+**For users**: Visit [hanzi.brianhliou.com/](hanzi.brianhliou.com/) to start practicing immediately.
 
 **For developers**: See [docs/DEVELOPER_GUIDE.md](docs/DEVELOPER_GUIDE.md) for setup instructions, development workflows, and data pipeline documentation.
 
