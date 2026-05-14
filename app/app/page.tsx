@@ -99,7 +99,7 @@ export default function Home() {
           <p>
             Made by{' '}
             <a
-              href="https://brianhliou.github.io/"
+              href="https://brianhliou.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
