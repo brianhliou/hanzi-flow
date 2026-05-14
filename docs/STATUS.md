@@ -4,21 +4,8 @@ _Last updated: 2026-05-13_
 
 **State:** maintenance — `mode = "Public side project"` per `~/projects/life-os/portfolio-repos.toml`.
 
-## What's Active
+> **Canonical:** `docs/PROJECT_BRIEF.md` (the "Current Status" + "What's Built" sections). This file exists only to satisfy the conformance contract. When state changes, update `PROJECT_BRIEF.md` — not this file.
 
-Public Chinese-reading practice app at hanzi.brianhliou.com. Next.js 15 + React 19 + TypeScript + IndexedDB. Privacy-first / local-first — no backend, no tracking, works offline. HSK 3.0 aligned: levels 1–9, 3,000+ characters, 79,000+ sentences. NSS adaptive algorithm picks sentences based on per-character mastery scores.
+**Posture today (one line):** production-ready, maintenance-only. Recent commits are dependency hygiene (Next.js 15.5.18 security bump, PostCSS audit alert, footer link fix). No active feature push.
 
-Recent work: dependency hygiene only (Next.js security bump to 15.5.18, PostCSS audit alert, footer link fix). No feature pushes since the data pipeline matured.
-
-## What's Next
-
-Hold maintenance posture. Only touch for:
-- Dependency security patches.
-- Bug reports that reach the public surface (broken practice flow, audio failure, bad sentence selection).
-- A specific request from a real user that demonstrates demand for a new feature.
-
-Avoid feature-adds without evidence of use — see `docs/LESSONS_LEARNED.md` if it documents past scope drift, or check `KNOWN_ISSUES.md` first.
-
-## Blockers
-
-- None. App is functional and shipped; no live user count being tracked.
+**Touch only for:** dependency security patches, public-surface bug reports, a specific user demand. See `docs/KNOWN_ISSUES.md` for live known-issue list and `docs/ROADMAP.md` for planned items.
